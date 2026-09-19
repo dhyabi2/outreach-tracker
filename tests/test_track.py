@@ -1,0 +1,102 @@
+"""Laws for the outreach tracker. Each is one sentence plus an observable test."""
+import json
+import os
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+import track  # noqa: E402
+
+
+def item(repo, number=1, state="open", merged=None, pr=False, title="t", comments=0):
+    it = {
+        "repository_url": f"https://api.github.com/repos/{repo}",
+        "number": number,
+        "title": title,
+        "state": state,
+        "html_url": f"https://github.com/{repo}/issues/{number}",
+        "created_at": "2026-09-10T00:00:00Z",
+        "updated_at": "2026-09-11T00:00:00Z",
+        "comments": comments,
+    }
+    if pr:
+        it["pull_request"] = {"merged_at": merged}
+    return it
+
+
+import unittest
+
+
+class OutreachTable(unittest.TestCase):
+    def test_work_on_a_repo_we_own_is_never_outreach(self):
+        """An issue on a repository under an account we control reached no maintainer and is excluded."""
+        rows = track.rows_from(
+            [
+                item("PANDeveloper001/awesome-x402"),   # our fork of someone else's project
+                item("dhyabi2/nano-agent"),             # the owner's own account
+                item("PanDeveloper001/x402"),           # ownership is case-insensitive
+                item("xpaysh/awesome-x402", number=1555),
+            ],
+            "PANDeveloper001",
+        )
+        assert [r["repo"] for r in rows] == ["xpaysh/awesome-x402"]
+
+
+    def test_merged_is_never_flattened_into_closed(self):
+        """A merged PR is the only state that means someone accepted our work, so it is its own state."""
+        assert track.state_of(item("them/x", pr=True, state="closed", merged="2026-09-12T00:00:00Z")) == "merged"
+        assert track.state_of(item("them/x", pr=True, state="closed", merged=None)) == "closed"
+        assert track.state_of(item("them/x", state="open")) == "open"
+
+
+    def test_the_table_carries_every_row_with_a_link_that_resolves(self):
+        """Each row renders the repository, the number, the state and a link to the real thread."""
+        rows = track.rows_from([item("xpaysh/awesome-x402", number=1555, title="Add Nano (XNO)")], "PANDeveloper001")
+        md = track.render(rows, "2026-09-19 00:00 UTC")
+        assert "| open | [xpaysh/awesome-x402](https://github.com/xpaysh/awesome-x402) " in md
+        assert "[#1555](https://github.com/xpaysh/awesome-x402/issues/1555)" in md
+        assert "Add Nano (XNO)" in md
+
+
+    def test_a_pipe_in_a_title_cannot_break_the_table(self):
+        """A title containing a pipe is escaped, or one hostile title silently destroys every row below it."""
+        rows = track.rows_from([item("them/x", title="a | b")], "PANDeveloper001")
+        line = [l for l in track.render(rows, "now").splitlines() if "them/x" in l][0]
+        assert line.replace("\\|", "").count("|") == 9, line
+        assert "a \\| b" in line
+
+
+    def test_an_empty_table_says_so_rather_than_rendering_nothing(self):
+        """Zero outreach is a real and publishable answer; a blank table reads as a broken generator."""
+        md = track.render([], "now")
+        assert "nothing has left the house yet" in md
+        assert "**0** submissions" in md
+
+
+    def test_the_summary_counts_replies_because_a_reply_is_the_only_proof_a_person_read_it(self):
+        s = track.summarise(
+            track.rows_from(
+                [item("them/x", 1, comments=3), item("them/y", 2, comments=0), item("them/x", 3, comments=1)],
+                "PANDeveloper001",
+            )
+        )
+        assert s == {"total": 3, "merged": 0, "open": 3, "closed": 0, "repos": 2, "answered": 2}
+
+
+    def test_no_token_ever_reaches_the_published_files(self):
+        """The generator reads a token from the environment; nothing it writes may contain one."""
+        # Built by concatenation on purpose: a literal token-shaped string in the repo trips the secret
+        # scanner that gates every publish, and a law must never be the reason a push is refused.
+        fake = "gh" + "p_" + "0" * 36
+        os.environ["GITHUB_TOKEN"] = fake
+        try:
+            rows = track.rows_from([item("them/x")], "PANDeveloper001")
+            blob = track.render(rows, "now") + json.dumps(rows)
+            assert fake not in blob and "gh" + "p_" not in blob
+        finally:
+            os.environ.pop("GITHUB_TOKEN", None)
+
+
+
+if __name__ == "__main__":
+    unittest.main()
