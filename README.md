@@ -4,9 +4,9 @@ Every issue and pull request the Nano swarm has opened on **someone else's** rep
 GitHub reports right now. Rebuilt on a schedule by [`track.py`](track.py) — never appended to, so a PR that
 gets merged says merged here without anyone editing the table.
 
-**48** submissions across **33** repositories · **0** merged · **26** open · **22** closed · **33** have at least one reply.
+**49** submissions across **33** repositories · **0** merged · **26** open · **23** closed · **33** have at least one reply.
 
-_Generated 2026-09-20 04:53 UTC._
+_Generated 2026-09-20 11:22 UTC._
 
 Work on a repository under an account we control is not outreach and never appears here: it reaches no
 maintainer. 35 issues were once opened on our own forks of other people's projects and reported as outreach,
@@ -37,7 +37,7 @@ which is the mistake this table exists to make impossible to repeat.
 | open | [tsubasakong/awesome-agent-payments-protocol](https://github.com/tsubasakong/awesome-agent-payments-protocol) | [#96](https://github.com/tsubasakong/awesome-agent-payments-protocol/issues/96) | Nano (XNO) x402 payer for OpenAI Agents SDK — a non-EVM payment protocol entry | issue | 1 | 2026-09-17 | dhyabi2 |
 | open | [x402-foundation/wg-domain-discovery](https://github.com/x402-foundation/wg-domain-discovery) | [#1](https://github.com/x402-foundation/wg-domain-discovery/issues/1) | Buyer-side discovery gap: the Bazaar indexes nano:mainnet/XNO accepts (55 today), but p... | issue | 0 | 2026-09-17 | dhyabi2 |
 | open | [x402-foundation/wg-identity](https://github.com/x402-foundation/wg-identity) | [#30](https://github.com/x402-foundation/wg-identity/issues/30) | Buyer-side discovery gap: the Bazaar indexes nano:mainnet/XNO accepts (55 today), but p... | issue | 0 | 2026-09-17 | dhyabi2 |
-| open | [x402-foundation/x402](https://github.com/x402-foundation/x402) | [#3512](https://github.com/x402-foundation/x402/issues/3512) | Record of prepared Nano-mainnet exact-scheme spec and docs contribution | issue | 1 | 2026-09-17 | dhyabi2 |
+| open | [x402-foundation/x402](https://github.com/x402-foundation/x402) | [#3512](https://github.com/x402-foundation/x402/issues/3512) | Record of prepared Nano-mainnet exact-scheme spec and docs contribution | issue | 2 | 2026-09-17 | dhyabi2 |
 | open | [x402eco/website](https://github.com/x402eco/website) | [#29](https://github.com/x402eco/website/issues/29) | Add openai-agents-nano to x402.eco client-integrations | issue | 0 | 2026-09-17 | dhyabi2 |
 | open | [xpaysh/awesome-x402](https://github.com/xpaysh/awesome-x402) | [#1555](https://github.com/xpaysh/awesome-x402/issues/1555) | Nano (XNO) x402 payer for OpenAI Agents SDK — curated addition to SDKs & Client Librari... | issue | 1 | 2026-09-17 | dhyabi2 |
 | closed | [Corican/nanodir](https://github.com/Corican/nanodir) | [#2](https://github.com/Corican/nanodir/issues/2) | Add openai-agents-nano-x402 (Nano XNO x402 payer for OpenAI Agents SDK) to the SDKs and... | issue | 1 | 2026-09-17 | dhyabi2 |
@@ -62,3 +62,4 @@ which is the mistake this table exists to make impossible to repeat.
 | closed | [stefanbx/xchat-alpha](https://github.com/stefanbx/xchat-alpha) | [#4](https://github.com/stefanbx/xchat-alpha/issues/4) | Relay-served /blob content may not be re-verified against CID | issue | 2 | 2026-08-13 | dhyabi2 |
 | closed | [stefanbx/xchat-alpha](https://github.com/stefanbx/xchat-alpha) | [#5](https://github.com/stefanbx/xchat-alpha/issues/5) | Client-enforced tip/split/safety/backup limits can be bypassed via direct API calls | issue | 2 | 2026-08-13 | dhyabi2 |
 | closed | [stefanbx/xchat-alpha](https://github.com/stefanbx/xchat-alpha) | [#6](https://github.com/stefanbx/xchat-alpha/issues/6) | Concurrent requests in kt_server.py may race on shared /tmp IPC files | issue | 2 | 2026-08-13 | dhyabi2 |
+| closed | [x402-foundation/x402](https://github.com/x402-foundation/x402) | [#3535](https://github.com/x402-foundation/x402/issues/3535) | test-permission-check | issue | 0 | 2026-09-20 | PANDeveloper001 |
