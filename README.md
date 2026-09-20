@@ -6,7 +6,7 @@ gets merged says merged here without anyone editing the table.
 
 **56** submissions across **38** repositories · **0** merged · **31** open · **25** closed · **33** have at least one reply.
 
-_Generated 2026-09-20 20:48 UTC._
+_Generated 2026-09-20 22:11 UTC._
 
 Work on a repository under an account we control is not outreach and never appears here: it reaches no
 maintainer. 35 issues were once opened on our own forks of other people's projects and reported as outreach,
