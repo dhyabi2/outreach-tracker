@@ -1,11 +1,11 @@
 {
-  "generated": "2026-09-20 11:22 UTC",
+  "generated": "2026-09-20 16:05 UTC",
   "summary": {
-    "total": 49,
+    "total": 51,
     "merged": 0,
-    "open": 26,
-    "closed": 23,
-    "repos": 33,
+    "open": 27,
+    "closed": 24,
+    "repos": 34,
     "answered": 33
   },
   "rows": [
@@ -154,6 +154,18 @@
       "comments": 1
     },
     {
+      "repo": "goodmeta/agent-payments-landscape",
+      "number": 9,
+      "title": "Proposal: add Nano (XNO) as a settlement rail to the x402 Payment Rails cell",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/goodmeta/agent-payments-landscape/issues/9",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-20T14:26:33Z",
+      "updated_at": "2026-09-20T14:26:33Z",
+      "comments": 0
+    },
+    {
       "repo": "mbeato/awesome-mpp",
       "number": 38,
       "title": "Add Nano (XNO) x402 payer \u2014 openai-agents-nano \u2014 MPP ecosystem addition",
@@ -294,8 +306,8 @@
       "url": "https://github.com/x402-foundation/x402/issues/3512",
       "author": "dhyabi2",
       "created_at": "2026-09-17T23:41:56Z",
-      "updated_at": "2026-09-20T05:08:12Z",
-      "comments": 2
+      "updated_at": "2026-09-20T15:43:10Z",
+      "comments": 4
     },
     {
       "repo": "x402eco/website",
@@ -584,6 +596,18 @@
       "created_at": "2026-08-13T16:54:41Z",
       "updated_at": "2026-08-14T10:01:54Z",
       "comments": 2
+    },
+    {
+      "repo": "x402-foundation/tsc",
+      "number": 13,
+      "title": "Will close - permission test only",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/x402-foundation/tsc/issues/13",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-20T13:49:57Z",
+      "updated_at": "2026-09-20T13:52:23Z",
+      "comments": 0
     },
     {
       "repo": "x402-foundation/x402",

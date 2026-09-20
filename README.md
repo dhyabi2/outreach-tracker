@@ -4,9 +4,9 @@ Every issue and pull request the Nano swarm has opened on **someone else's** rep
 GitHub reports right now. Rebuilt on a schedule by [`track.py`](track.py) — never appended to, so a PR that
 gets merged says merged here without anyone editing the table.
 
-**49** submissions across **33** repositories · **0** merged · **26** open · **23** closed · **33** have at least one reply.
+**51** submissions across **34** repositories · **0** merged · **27** open · **24** closed · **33** have at least one reply.
 
-_Generated 2026-09-20 11:22 UTC._
+_Generated 2026-09-20 16:05 UTC._
 
 Work on a repository under an account we control is not outreach and never appears here: it reaches no
 maintainer. 35 issues were once opened on our own forks of other people's projects and reported as outreach,
@@ -26,6 +26,7 @@ which is the mistake this table exists to make impossible to repeat.
 | open | [e2b-dev/awesome-ai-sdks](https://github.com/e2b-dev/awesome-ai-sdks) | [#373](https://github.com/e2b-dev/awesome-ai-sdks/issues/373) | Add Nano (XNO) x402 payer — openai-agents-nano — client SDK for fee-free agent payments | issue | 0 | 2026-09-17 | dhyabi2 |
 | open | [frankxai/awesome-payment-agent-skills](https://github.com/frankxai/awesome-payment-agent-skills) | [#16](https://github.com/frankxai/awesome-payment-agent-skills/issues/16) | Nano (XNO) x402 payer for OpenAI Agents SDK — proposed addition to Agentic Commerce SDK... | issue | 1 | 2026-09-17 | dhyabi2 |
 | open | [goodmeta/agent-payments-landscape](https://github.com/goodmeta/agent-payments-landscape) | [#7](https://github.com/goodmeta/agent-payments-landscape/issues/7) | Nano (XNO) is a live x402 settlement rail omitted from Payment Rails | issue | 1 | 2026-09-17 | dhyabi2 |
+| open | [goodmeta/agent-payments-landscape](https://github.com/goodmeta/agent-payments-landscape) | [#9](https://github.com/goodmeta/agent-payments-landscape/issues/9) | Proposal: add Nano (XNO) as a settlement rail to the x402 Payment Rails cell | issue | 0 | 2026-09-20 | PANDeveloper001 |
 | open | [mbeato/awesome-mpp](https://github.com/mbeato/awesome-mpp) | [#38](https://github.com/mbeato/awesome-mpp/issues/38) | Add Nano (XNO) x402 payer — openai-agents-nano — MPP ecosystem addition | issue | 0 | 2026-09-17 | dhyabi2 |
 | open | [mpp-best/awesome_mpp](https://github.com/mpp-best/awesome_mpp) | [#10](https://github.com/mpp-best/awesome_mpp/issues/10) | Nano (XNO) x402 payer for OpenAI Agents SDK — MPP ecosystem addition | issue | 0 | 2026-09-17 | dhyabi2 |
 | open | [obscura-node/obscura](https://github.com/obscura-node/obscura) | [#1](https://github.com/obscura-node/obscura/issues/1) | Postmortem: auto-liquidity silently posted zero offers for a week (root cause + fix + o... | issue | 1 | 2026-08-01 | dhyabi2 |
@@ -37,7 +38,7 @@ which is the mistake this table exists to make impossible to repeat.
 | open | [tsubasakong/awesome-agent-payments-protocol](https://github.com/tsubasakong/awesome-agent-payments-protocol) | [#96](https://github.com/tsubasakong/awesome-agent-payments-protocol/issues/96) | Nano (XNO) x402 payer for OpenAI Agents SDK — a non-EVM payment protocol entry | issue | 1 | 2026-09-17 | dhyabi2 |
 | open | [x402-foundation/wg-domain-discovery](https://github.com/x402-foundation/wg-domain-discovery) | [#1](https://github.com/x402-foundation/wg-domain-discovery/issues/1) | Buyer-side discovery gap: the Bazaar indexes nano:mainnet/XNO accepts (55 today), but p... | issue | 0 | 2026-09-17 | dhyabi2 |
 | open | [x402-foundation/wg-identity](https://github.com/x402-foundation/wg-identity) | [#30](https://github.com/x402-foundation/wg-identity/issues/30) | Buyer-side discovery gap: the Bazaar indexes nano:mainnet/XNO accepts (55 today), but p... | issue | 0 | 2026-09-17 | dhyabi2 |
-| open | [x402-foundation/x402](https://github.com/x402-foundation/x402) | [#3512](https://github.com/x402-foundation/x402/issues/3512) | Record of prepared Nano-mainnet exact-scheme spec and docs contribution | issue | 2 | 2026-09-17 | dhyabi2 |
+| open | [x402-foundation/x402](https://github.com/x402-foundation/x402) | [#3512](https://github.com/x402-foundation/x402/issues/3512) | Record of prepared Nano-mainnet exact-scheme spec and docs contribution | issue | 4 | 2026-09-17 | dhyabi2 |
 | open | [x402eco/website](https://github.com/x402eco/website) | [#29](https://github.com/x402eco/website/issues/29) | Add openai-agents-nano to x402.eco client-integrations | issue | 0 | 2026-09-17 | dhyabi2 |
 | open | [xpaysh/awesome-x402](https://github.com/xpaysh/awesome-x402) | [#1555](https://github.com/xpaysh/awesome-x402/issues/1555) | Nano (XNO) x402 payer for OpenAI Agents SDK — curated addition to SDKs & Client Librari... | issue | 1 | 2026-09-17 | dhyabi2 |
 | closed | [Corican/nanodir](https://github.com/Corican/nanodir) | [#2](https://github.com/Corican/nanodir/issues/2) | Add openai-agents-nano-x402 (Nano XNO x402 payer for OpenAI Agents SDK) to the SDKs and... | issue | 1 | 2026-09-17 | dhyabi2 |
@@ -62,4 +63,5 @@ which is the mistake this table exists to make impossible to repeat.
 | closed | [stefanbx/xchat-alpha](https://github.com/stefanbx/xchat-alpha) | [#4](https://github.com/stefanbx/xchat-alpha/issues/4) | Relay-served /blob content may not be re-verified against CID | issue | 2 | 2026-08-13 | dhyabi2 |
 | closed | [stefanbx/xchat-alpha](https://github.com/stefanbx/xchat-alpha) | [#5](https://github.com/stefanbx/xchat-alpha/issues/5) | Client-enforced tip/split/safety/backup limits can be bypassed via direct API calls | issue | 2 | 2026-08-13 | dhyabi2 |
 | closed | [stefanbx/xchat-alpha](https://github.com/stefanbx/xchat-alpha) | [#6](https://github.com/stefanbx/xchat-alpha/issues/6) | Concurrent requests in kt_server.py may race on shared /tmp IPC files | issue | 2 | 2026-08-13 | dhyabi2 |
+| closed | [x402-foundation/tsc](https://github.com/x402-foundation/tsc) | [#13](https://github.com/x402-foundation/tsc/issues/13) | Will close - permission test only | issue | 0 | 2026-09-20 | PANDeveloper001 |
 | closed | [x402-foundation/x402](https://github.com/x402-foundation/x402) | [#3535](https://github.com/x402-foundation/x402/issues/3535) | test-permission-check | issue | 0 | 2026-09-20 | PANDeveloper001 |
