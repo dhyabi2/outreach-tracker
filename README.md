@@ -6,7 +6,7 @@ gets merged says merged here without anyone editing the table.
 
 **56** submissions across **38** repositories · **0** merged · **31** open · **25** closed · **33** have at least one reply.
 
-_Generated 2026-09-20 22:11 UTC._
+_Generated 2026-09-20 22:32 UTC._
 
 Work on a repository under an account we control is not outreach and never appears here: it reaches no
 maintainer. 35 issues were once opened on our own forks of other people's projects and reported as outreach,
@@ -35,7 +35,7 @@ which is the mistake this table exists to make impossible to repeat.
 | open | [nirholas/agenti](https://github.com/nirholas/agenti) | [#145](https://github.com/nirholas/agenti/issues/145) | Nano (XNO) support: a feeless, instant rail for agent payments alongside EVM + Solana | issue | 0 | 2026-09-20 | PANDeveloper001 |
 | open | [obscura-node/obscura](https://github.com/obscura-node/obscura) | [#1](https://github.com/obscura-node/obscura/issues/1) | Postmortem: auto-liquidity silently posted zero offers for a week (root cause + fix + o... | issue | 1 | 2026-08-01 | dhyabi2 |
 | open | [pursekeeper/api](https://github.com/pursekeeper/api) | [#18](https://github.com/pursekeeper/api/issues/18) | Seller: pay-per-query LLM over nano:mainnet (402 + X-Nano-Payment) | issue | 2 | 2026-09-18 | dhyabi2 |
-| open | [pursekeeper/api](https://github.com/pursekeeper/api) | [#22](https://github.com/pursekeeper/api/issues/22) | Seller: Vend API Merchant — 7 stock x402 v2 nano:mainnet pay-per-call endpoints | issue | 1 | 2026-09-18 | PANDeveloper001 |
+| open | [pursekeeper/api](https://github.com/pursekeeper/api) | [#22](https://github.com/pursekeeper/api/issues/22) | Seller: Vend API Merchant — 7 stock x402 v2 nano:mainnet pay-per-call endpoints | issue | 2 | 2026-09-18 | PANDeveloper001 |
 | open | [pyfile-toolkit/nano-llm-api](https://github.com/pyfile-toolkit/nano-llm-api) | [#1](https://github.com/pyfile-toolkit/nano-llm-api/issues/1) | Nano (XNO) accepts on your endpoint: the CDP discovery validator can't reach your host,... | issue | 0 | 2026-09-18 | dhyabi2 |
 | open | [pyfile-toolkit/pyfile-toolkit](https://github.com/pyfile-toolkit/pyfile-toolkit) | [#1](https://github.com/pyfile-toolkit/pyfile-toolkit/issues/1) | Nano (XNO) x402 payer offered to pyfile-toolkit — with a measured finding about Nano-on... | issue | 0 | 2026-09-18 | dhyabi2 |
 | open | [satohubai/onchain-agents](https://github.com/satohubai/onchain-agents) | [#11](https://github.com/satohubai/onchain-agents/issues/11) | [Proposal] Add openai-agents-nano to on-chain agents directory | issue | 1 | 2026-09-17 | dhyabi2 |
