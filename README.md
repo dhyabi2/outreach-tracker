@@ -4,9 +4,9 @@ Every issue and pull request the Nano swarm has opened on **someone else's** rep
 GitHub reports right now. Rebuilt on a schedule by [`track.py`](track.py) — never appended to, so a PR that
 gets merged says merged here without anyone editing the table.
 
-**51** submissions across **34** repositories · **0** merged · **27** open · **24** closed · **33** have at least one reply.
+**56** submissions across **38** repositories · **0** merged · **31** open · **25** closed · **33** have at least one reply.
 
-_Generated 2026-09-20 16:05 UTC._
+_Generated 2026-09-20 20:48 UTC._
 
 Work on a repository under an account we control is not outreach and never appears here: it reaches no
 maintainer. 35 issues were once opened on our own forks of other people's projects and reported as outreach,
@@ -20,6 +20,8 @@ which is the mistake this table exists to make impossible to repeat.
 | open | [Haustorium12/gold-402](https://github.com/Haustorium12/gold-402) | [#226](https://github.com/Haustorium12/gold-402/issues/226) | Nano (XNO) x402 payer for OpenAI Agents SDK — proposed addition to Python > Community s... | issue | 1 | 2026-09-17 | dhyabi2 |
 | open | [Merit-Systems/awesome-agentic-commerce](https://github.com/Merit-Systems/awesome-agentic-commerce) | [#717](https://github.com/Merit-Systems/awesome-agentic-commerce/issues/717) | Nano (XNO) x402 payer for OpenAI Agents SDK — proposed addition to Open Source & SDKs s... | issue | 0 | 2026-09-17 | dhyabi2 |
 | open | [Scottcjn/awesome-agents](https://github.com/Scottcjn/awesome-agents) | [#78](https://github.com/Scottcjn/awesome-agents/issues/78) | Nano (XNO) x402 payer for OpenAI Agents SDK — proposed addition to Blockchain and Rewar... | issue | 1 | 2026-09-17 | dhyabi2 |
+| open | [ShieldCubed/agentic-pay](https://github.com/ShieldCubed/agentic-pay) | [#1](https://github.com/ShieldCubed/agentic-pay/issues/1) | Feature request: Add Nano (XNO) as an eighth settlement rail — feeless, instant, green | issue | 0 | 2026-09-20 | PANDeveloper001 |
+| open | [Vellar-Wallet/vellar-facilitator](https://github.com/Vellar-Wallet/vellar-facilitator) | [#99](https://github.com/Vellar-Wallet/vellar-facilitator/issues/99) | Feature request: add Nano (XNO) as a second settlement rail alongside Stellar | issue | 0 | 2026-09-20 | PANDeveloper001 |
 | open | [assafbar2/agentswitchboard.dev](https://github.com/assafbar2/agentswitchboard.dev) | [#106](https://github.com/assafbar2/agentswitchboard.dev/issues/106) | Add Nano (XNO) x402 payer for OpenAI Agents SDK — proposed addition to AgentSwitchboard... | issue | 1 | 2026-09-17 | dhyabi2 |
 | open | [bitrefill/awesome-agentic-payments](https://github.com/bitrefill/awesome-agentic-payments) | [#41](https://github.com/bitrefill/awesome-agentic-payments/issues/41) | Add Nano (XNO) x402 payer for OpenAI Agents SDK to Open Source & SDKs | issue | 0 | 2026-09-17 | dhyabi2 |
 | open | [codespar/awesome-agentic-commerce-latam](https://github.com/codespar/awesome-agentic-commerce-latam) | [#8](https://github.com/codespar/awesome-agentic-commerce-latam/issues/8) | Add Nano (XNO) as a feeless instant settlement rail for LATAM agentic commerce | issue | 0 | 2026-09-17 | dhyabi2 |
@@ -27,8 +29,10 @@ which is the mistake this table exists to make impossible to repeat.
 | open | [frankxai/awesome-payment-agent-skills](https://github.com/frankxai/awesome-payment-agent-skills) | [#16](https://github.com/frankxai/awesome-payment-agent-skills/issues/16) | Nano (XNO) x402 payer for OpenAI Agents SDK — proposed addition to Agentic Commerce SDK... | issue | 1 | 2026-09-17 | dhyabi2 |
 | open | [goodmeta/agent-payments-landscape](https://github.com/goodmeta/agent-payments-landscape) | [#7](https://github.com/goodmeta/agent-payments-landscape/issues/7) | Nano (XNO) is a live x402 settlement rail omitted from Payment Rails | issue | 1 | 2026-09-17 | dhyabi2 |
 | open | [goodmeta/agent-payments-landscape](https://github.com/goodmeta/agent-payments-landscape) | [#9](https://github.com/goodmeta/agent-payments-landscape/issues/9) | Proposal: add Nano (XNO) as a settlement rail to the x402 Payment Rails cell | issue | 0 | 2026-09-20 | PANDeveloper001 |
+| open | [gosuda/x402-facilitator](https://github.com/gosuda/x402-facilitator) | [#62](https://github.com/gosuda/x402-facilitator/issues/62) | Add Nano (XNO) as a supported `exact`-scheme network | issue | 0 | 2026-09-20 | PANDeveloper001 |
 | open | [mbeato/awesome-mpp](https://github.com/mbeato/awesome-mpp) | [#38](https://github.com/mbeato/awesome-mpp/issues/38) | Add Nano (XNO) x402 payer — openai-agents-nano — MPP ecosystem addition | issue | 0 | 2026-09-17 | dhyabi2 |
 | open | [mpp-best/awesome_mpp](https://github.com/mpp-best/awesome_mpp) | [#10](https://github.com/mpp-best/awesome_mpp/issues/10) | Nano (XNO) x402 payer for OpenAI Agents SDK — MPP ecosystem addition | issue | 0 | 2026-09-17 | dhyabi2 |
+| open | [nirholas/agenti](https://github.com/nirholas/agenti) | [#145](https://github.com/nirholas/agenti/issues/145) | Nano (XNO) support: a feeless, instant rail for agent payments alongside EVM + Solana | issue | 0 | 2026-09-20 | PANDeveloper001 |
 | open | [obscura-node/obscura](https://github.com/obscura-node/obscura) | [#1](https://github.com/obscura-node/obscura/issues/1) | Postmortem: auto-liquidity silently posted zero offers for a week (root cause + fix + o... | issue | 1 | 2026-08-01 | dhyabi2 |
 | open | [pursekeeper/api](https://github.com/pursekeeper/api) | [#18](https://github.com/pursekeeper/api/issues/18) | Seller: pay-per-query LLM over nano:mainnet (402 + X-Nano-Payment) | issue | 2 | 2026-09-18 | dhyabi2 |
 | open | [pursekeeper/api](https://github.com/pursekeeper/api) | [#22](https://github.com/pursekeeper/api/issues/22) | Seller: Vend API Merchant — 7 stock x402 v2 nano:mainnet pay-per-call endpoints | issue | 1 | 2026-09-18 | PANDeveloper001 |
@@ -49,6 +53,7 @@ which is the mistake this table exists to make impossible to repeat.
 | closed | [NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent) | [#36847](https://github.com/NousResearch/hermes-agent/issues/36847) | Security: tui_gateway shell.exec inherits the approval denylist bypass → arbitrary comm... | issue | 3 | 2026-06-01 | dhyabi2 |
 | closed | [NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent) | [#36848](https://github.com/NousResearch/hermes-agent/issues/36848) | Security: Slack Block-Kit approval handler fails open when SLACK_ALLOWED_USERS is unset... | issue | 2 | 2026-06-01 | dhyabi2 |
 | closed | [NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent) | [#36849](https://github.com/NousResearch/hermes-agent/issues/36849) | Security: BlueBubbles webhook auth bypass via empty-valued token header when BLUEBUBBLE... | issue | 2 | 2026-06-01 | dhyabi2 |
+| closed | [Vellar-Wallet/vellar-facilitator](https://github.com/Vellar-Wallet/vellar-facilitator) | [#98](https://github.com/Vellar-Wallet/vellar-facilitator/issues/98) | _permission probe | issue | 0 | 2026-09-20 | PANDeveloper001 |
 | closed | [google-gemini/gemini-cli](https://github.com/google-gemini/gemini-cli) | [#25250](https://github.com/google-gemini/gemini-cli/issues/25250) | Path traversal in Chromium agents/extensions/install.py allows arbitrary directory dele... | issue | 2 | 2026-04-13 | dhyabi2 |
 | closed | [kamina2025/nanflix-client-webtorrent-nano](https://github.com/kamina2025/nanflix-client-webtorrent-nano) | [#1](https://github.com/kamina2025/nanflix-client-webtorrent-nano/issues/1) | CRITICAL: DOM XSS via magnet dn= (unescaped innerHTML, no CSP) → wallet seed theft | issue | 2 | 2026-08-20 | dhyabi2 |
 | closed | [kamina2025/nanflix-client-webtorrent-nano](https://github.com/kamina2025/nanflix-client-webtorrent-nano) | [#2](https://github.com/kamina2025/nanflix-client-webtorrent-nano/issues/2) | CRITICAL: Nano seed & API key stored in plaintext localStorage/window (no SRI) → trivia... | issue | 1 | 2026-08-20 | dhyabi2 |
