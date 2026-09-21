@@ -1,12 +1,12 @@
 {
-  "generated": "2026-09-21 04:55 UTC",
+  "generated": "2026-09-21 12:47 UTC",
   "summary": {
-    "total": 56,
+    "total": 59,
     "merged": 0,
-    "open": 31,
-    "closed": 25,
-    "repos": 38,
-    "answered": 33
+    "open": 33,
+    "closed": 26,
+    "repos": 40,
+    "answered": 34
   },
   "rows": [
     {
@@ -190,6 +190,18 @@
       "comments": 0
     },
     {
+      "repo": "google-agentic-commerce/a2a-x402",
+      "number": 176,
+      "title": "Proposal: Nano (XNO) as an additional settlement network for A2A x402 payments",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/google-agentic-commerce/a2a-x402/issues/176",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-21T11:13:48Z",
+      "updated_at": "2026-09-21T11:13:48Z",
+      "comments": 0
+    },
+    {
       "repo": "gosuda/x402-facilitator",
       "number": 62,
       "title": "Add Nano (XNO) as a supported `exact`-scheme network",
@@ -307,6 +319,18 @@
       "author": "dhyabi2",
       "created_at": "2026-09-17T23:41:34Z",
       "updated_at": "2026-09-19T21:44:19Z",
+      "comments": 1
+    },
+    {
+      "repo": "solana-foundation/pay-kit",
+      "number": 329,
+      "title": "Add Nano (XNO) as a settlement network: feeless, instant, single-confirmation end-to-end",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/solana-foundation/pay-kit/issues/329",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-21T11:13:15Z",
+      "updated_at": "2026-09-21T11:16:19Z",
       "comments": 1
     },
     {
@@ -500,6 +524,18 @@
       "created_at": "2026-04-13T04:45:00Z",
       "updated_at": "2026-04-29T21:46:05Z",
       "comments": 2
+    },
+    {
+      "repo": "gosuda/x402-facilitator",
+      "number": 63,
+      "title": "permission-check (probe, closed by AI agent)",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/gosuda/x402-facilitator/issues/63",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-21T11:11:29Z",
+      "updated_at": "2026-09-21T11:11:51Z",
+      "comments": 0
     },
     {
       "repo": "kamina2025/nanflix-client-webtorrent-nano",
