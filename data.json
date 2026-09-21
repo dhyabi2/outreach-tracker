@@ -1,12 +1,12 @@
 {
-  "generated": "2026-09-21 12:52 UTC",
+  "generated": "2026-09-21 21:58 UTC",
   "summary": {
-    "total": 59,
+    "total": 69,
     "merged": 0,
-    "open": 33,
-    "closed": 26,
-    "repos": 40,
-    "answered": 34
+    "open": 40,
+    "closed": 29,
+    "repos": 48,
+    "answered": 35
   },
   "rows": [
     {
@@ -31,6 +31,18 @@
       "author": "dhyabi2",
       "created_at": "2026-09-17T23:40:56Z",
       "updated_at": "2026-09-17T23:40:56Z",
+      "comments": 0
+    },
+    {
+      "repo": "AsherKasper/agent-marketplace-index",
+      "number": 2,
+      "title": "Add a Nano (XNO) settlement series \u2014 the rail-blind measurement",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/AsherKasper/agent-marketplace-index/issues/2",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-21T21:32:18Z",
+      "updated_at": "2026-09-21T21:32:18Z",
       "comments": 0
     },
     {
@@ -70,6 +82,18 @@
       "comments": 0
     },
     {
+      "repo": "NSPG13/agent-bounties",
+      "number": 1481,
+      "title": "Spendless cross-operator settlement offer for earners (Nano/XNO)",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/NSPG13/agent-bounties/issues/1481",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-21T20:18:22Z",
+      "updated_at": "2026-09-21T20:18:22Z",
+      "comments": 0
+    },
+    {
       "repo": "Scottcjn/awesome-agents",
       "number": 78,
       "title": "Nano (XNO) x402 payer for OpenAI Agents SDK \u2014 proposed addition to Blockchain and Rewards section",
@@ -103,6 +127,18 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-20T19:32:49Z",
       "updated_at": "2026-09-20T19:32:49Z",
+      "comments": 0
+    },
+    {
+      "repo": "Virtual-Protocol/acp-node-v2",
+      "number": 49,
+      "title": "Proposal: Vend data endpoints as ACP seller offerings (or an SDK example)",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/Virtual-Protocol/acp-node-v2/issues/49",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-21T20:19:22Z",
+      "updated_at": "2026-09-21T20:19:22Z",
       "comments": 0
     },
     {
@@ -214,6 +250,18 @@
       "comments": 0
     },
     {
+      "repo": "internet-court/internet-court-skill",
+      "number": 30,
+      "title": "write-wall probe (throwaway)",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/internet-court/internet-court-skill/issues/30",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-21T17:07:51Z",
+      "updated_at": "2026-09-21T17:07:51Z",
+      "comments": 0
+    },
+    {
       "repo": "mbeato/awesome-mpp",
       "number": 38,
       "title": "Add Nano (XNO) x402 payer \u2014 openai-agents-nano \u2014 MPP ecosystem addition",
@@ -260,6 +308,18 @@
       "created_at": "2026-08-01T11:08:05Z",
       "updated_at": "2026-08-04T22:28:39Z",
       "comments": 1
+    },
+    {
+      "repo": "payperlabs/payper-mcp",
+      "number": 1,
+      "title": "Nano (XNO) settlement path for payper-mcp \u2014 same flow, zero-fee rail",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/payperlabs/payper-mcp/issues/1",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-21T20:16:50Z",
+      "updated_at": "2026-09-21T20:16:50Z",
+      "comments": 0
     },
     {
       "repo": "pursekeeper/api",
@@ -346,6 +406,18 @@
       "comments": 1
     },
     {
+      "repo": "valory-xyz/mech-server",
+      "number": 105,
+      "title": "Vend web-data endpoints as external mech tools for Olas agents",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/valory-xyz/mech-server/issues/105",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-21T20:18:23Z",
+      "updated_at": "2026-09-21T20:18:23Z",
+      "comments": 0
+    },
+    {
       "repo": "x402-foundation/wg-domain-discovery",
       "number": 1,
       "title": "Buyer-side discovery gap: the Bazaar indexes nano:mainnet/XNO accepts (55 today), but preflight cannot reach one live XNO host",
@@ -378,8 +450,8 @@
       "url": "https://github.com/x402-foundation/x402/issues/3512",
       "author": "dhyabi2",
       "created_at": "2026-09-17T23:41:56Z",
-      "updated_at": "2026-09-20T15:43:10Z",
-      "comments": 4
+      "updated_at": "2026-09-21T15:29:37Z",
+      "comments": 5
     },
     {
       "repo": "x402eco/website",
@@ -406,6 +478,18 @@
       "comments": 1
     },
     {
+      "repo": "yuhangxian235/agentpay-desk",
+      "number": 17,
+      "title": "Nano (XNO) as the settlement rail for your x402 facilitator \u2014 free, instant, feeless",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/yuhangxian235/agentpay-desk/issues/17",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-21T20:18:23Z",
+      "updated_at": "2026-09-21T20:18:23Z",
+      "comments": 0
+    },
+    {
       "repo": "Corican/nanodir",
       "number": 2,
       "title": "Add openai-agents-nano-x402 (Nano XNO x402 payer for OpenAI Agents SDK) to the SDKs and Libraries section",
@@ -416,6 +500,18 @@
       "created_at": "2026-09-17T23:41:29Z",
       "updated_at": "2026-09-18T12:43:21Z",
       "comments": 1
+    },
+    {
+      "repo": "Haustorium12/gold-402",
+      "number": 241,
+      "title": "test-perm",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/Haustorium12/gold-402/issues/241",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-21T20:13:38Z",
+      "updated_at": "2026-09-21T20:14:36Z",
+      "comments": 0
     },
     {
       "repo": "MervinPraison/PraisonAI",
@@ -610,6 +706,18 @@
       "comments": 1
     },
     {
+      "repo": "payperlabs/payper-mcp",
+      "number": 2,
+      "title": "Nano (XNO) settlement path for payper-mcp \u2014 same flow, zero-fee rail",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/payperlabs/payper-mcp/issues/2",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-21T20:18:21Z",
+      "updated_at": "2026-09-21T20:54:46Z",
+      "comments": 1
+    },
+    {
       "repo": "pursekeeper/api",
       "number": 17,
       "title": "Open report: the Nano-first route of llmrt-companion (x402-nano) is validator-rejected as undiscoverable - with the one-line fix",
@@ -715,6 +823,18 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-20T10:36:35Z",
       "updated_at": "2026-09-20T10:36:46Z",
+      "comments": 0
+    },
+    {
+      "repo": "xpaysh/awesome-agentic-commerce",
+      "number": 32,
+      "title": "test write capability",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/xpaysh/awesome-agentic-commerce/issues/32",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-21T20:55:56Z",
+      "updated_at": "2026-09-21T20:56:31Z",
       "comments": 0
     }
   ]
