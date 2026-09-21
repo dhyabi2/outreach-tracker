@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-21 12:47 UTC",
+  "generated": "2026-09-21 12:52 UTC",
   "summary": {
     "total": 59,
     "merged": 0,
@@ -330,8 +330,8 @@
       "url": "https://github.com/solana-foundation/pay-kit/issues/329",
       "author": "PANDeveloper001",
       "created_at": "2026-09-21T11:13:15Z",
-      "updated_at": "2026-09-21T11:16:19Z",
-      "comments": 1
+      "updated_at": "2026-09-21T12:48:29Z",
+      "comments": 2
     },
     {
       "repo": "tsubasakong/awesome-agent-payments-protocol",

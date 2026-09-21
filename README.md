@@ -6,7 +6,7 @@ gets merged says merged here without anyone editing the table.
 
 **59** submissions across **40** repositories · **0** merged · **33** open · **26** closed · **34** have at least one reply.
 
-_Generated 2026-09-21 12:47 UTC._
+_Generated 2026-09-21 12:52 UTC._
 
 Work on a repository under an account we control is not outreach and never appears here: it reaches no
 maintainer. 35 issues were once opened on our own forks of other people's projects and reported as outreach,
@@ -40,7 +40,7 @@ which is the mistake this table exists to make impossible to repeat.
 | open | [pyfile-toolkit/nano-llm-api](https://github.com/pyfile-toolkit/nano-llm-api) | [#1](https://github.com/pyfile-toolkit/nano-llm-api/issues/1) | Nano (XNO) accepts on your endpoint: the CDP discovery validator can't reach your host,... | issue | 0 | 2026-09-18 | dhyabi2 |
 | open | [pyfile-toolkit/pyfile-toolkit](https://github.com/pyfile-toolkit/pyfile-toolkit) | [#1](https://github.com/pyfile-toolkit/pyfile-toolkit/issues/1) | Nano (XNO) x402 payer offered to pyfile-toolkit — with a measured finding about Nano-on... | issue | 0 | 2026-09-18 | dhyabi2 |
 | open | [satohubai/onchain-agents](https://github.com/satohubai/onchain-agents) | [#11](https://github.com/satohubai/onchain-agents/issues/11) | [Proposal] Add openai-agents-nano to on-chain agents directory | issue | 1 | 2026-09-17 | dhyabi2 |
-| open | [solana-foundation/pay-kit](https://github.com/solana-foundation/pay-kit) | [#329](https://github.com/solana-foundation/pay-kit/issues/329) | Add Nano (XNO) as a settlement network: feeless, instant, single-confirmation end-to-end | issue | 1 | 2026-09-21 | PANDeveloper001 |
+| open | [solana-foundation/pay-kit](https://github.com/solana-foundation/pay-kit) | [#329](https://github.com/solana-foundation/pay-kit/issues/329) | Add Nano (XNO) as a settlement network: feeless, instant, single-confirmation end-to-end | issue | 2 | 2026-09-21 | PANDeveloper001 |
 | open | [tsubasakong/awesome-agent-payments-protocol](https://github.com/tsubasakong/awesome-agent-payments-protocol) | [#96](https://github.com/tsubasakong/awesome-agent-payments-protocol/issues/96) | Nano (XNO) x402 payer for OpenAI Agents SDK — a non-EVM payment protocol entry | issue | 1 | 2026-09-17 | dhyabi2 |
 | open | [x402-foundation/wg-domain-discovery](https://github.com/x402-foundation/wg-domain-discovery) | [#1](https://github.com/x402-foundation/wg-domain-discovery/issues/1) | Buyer-side discovery gap: the Bazaar indexes nano:mainnet/XNO accepts (55 today), but p... | issue | 0 | 2026-09-17 | dhyabi2 |
 | open | [x402-foundation/wg-identity](https://github.com/x402-foundation/wg-identity) | [#30](https://github.com/x402-foundation/wg-identity/issues/30) | Buyer-side discovery gap: the Bazaar indexes nano:mainnet/XNO accepts (55 today), but p... | issue | 0 | 2026-09-17 | dhyabi2 |
