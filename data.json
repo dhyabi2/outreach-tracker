@@ -1,12 +1,12 @@
 {
-  "generated": "2026-09-22 13:14 UTC",
+  "generated": "2026-09-22 13:50 UTC",
   "summary": {
-    "total": 180,
+    "total": 189,
     "merged": 0,
-    "open": 130,
-    "closed": 50,
-    "repos": 146,
-    "answered": 58
+    "open": 138,
+    "closed": 51,
+    "repos": 152,
+    "answered": 60
   },
   "rows": [
     {
@@ -103,6 +103,18 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T10:32:06Z",
       "updated_at": "2026-09-22T10:32:06Z",
+      "comments": 0
+    },
+    {
+      "repo": "BidingCC/BuildingAI",
+      "number": 140,
+      "title": "Feature request: support pay-per-call (x402 / HTTP 402) MCP servers for third-party paid tools",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/BidingCC/BuildingAI/issues/140",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T13:17:27Z",
+      "updated_at": "2026-09-22T13:17:27Z",
       "comments": 0
     },
     {
@@ -214,15 +226,15 @@
       "comments": 0
     },
     {
-      "repo": "MiroShark/MiroShark",
-      "number": 309,
-      "title": "Settlement option: a feeless XNO accepts[] entry beside your USDC rails",
+      "repo": "Merit-Systems/x402scan",
+      "number": 1222,
+      "title": "Registration gate drops every non-Base/Solana rail \u2014 incl. 30 live nano:mainnet resources in the Bazaar you already crawl",
       "kind": "issue",
       "state": "open",
-      "url": "https://github.com/MiroShark/MiroShark/issues/309",
+      "url": "https://github.com/Merit-Systems/x402scan/issues/1222",
       "author": "PANDeveloper001",
-      "created_at": "2026-09-22T06:38:47Z",
-      "updated_at": "2026-09-22T06:38:47Z",
+      "created_at": "2026-09-22T13:40:04Z",
+      "updated_at": "2026-09-22T13:40:04Z",
       "comments": 0
     },
     {
@@ -247,6 +259,18 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-21T20:18:22Z",
       "updated_at": "2026-09-21T20:18:22Z",
+      "comments": 0
+    },
+    {
+      "repo": "NVIDIA-AI-Blueprints/Retail-Agentic-Commerce",
+      "number": 139,
+      "title": "Proposal: pluggable settlement rail \u2014 add a zero-fee single-block-final asset beside the card default",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/NVIDIA-AI-Blueprints/Retail-Agentic-Commerce/issues/139",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T13:47:49Z",
+      "updated_at": "2026-09-22T13:47:49Z",
       "comments": 0
     },
     {
@@ -990,8 +1014,8 @@
       "url": "https://github.com/microsoft/autogen/issues/8270",
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T08:25:06Z",
-      "updated_at": "2026-09-22T08:25:06Z",
-      "comments": 0
+      "updated_at": "2026-09-22T13:48:20Z",
+      "comments": 2
     },
     {
       "repo": "mioku50/Veyra",
@@ -1150,6 +1174,18 @@
       "comments": 0
     },
     {
+      "repo": "ptreezh/agentmarket",
+      "number": 4,
+      "title": "Proposal: add Nano (XNO) as an optional real-money payout rail beside the credit (\u5de5\u5206) system",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/ptreezh/agentmarket/issues/4",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T13:43:43Z",
+      "updated_at": "2026-09-22T13:43:43Z",
+      "comments": 0
+    },
+    {
       "repo": "pursekeeper/api",
       "number": 18,
       "title": "Seller: pay-per-query LLM over nano:mainnet (402 + X-Nano-Payment)",
@@ -1258,6 +1294,18 @@
       "comments": 1
     },
     {
+      "repo": "showmikb/gateway-llm",
+      "number": 1,
+      "title": "Feature request: a feeless settlement rail (Nano / XNO) for gateway metered usage",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/showmikb/gateway-llm/issues/1",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T13:43:47Z",
+      "updated_at": "2026-09-22T13:43:47Z",
+      "comments": 0
+    },
+    {
       "repo": "singnet/dev-portal",
       "number": 401,
       "title": "Docs: add Nano (XNO) as an opt-in pay-per-call settlement option",
@@ -1354,6 +1402,18 @@
       "comments": 0
     },
     {
+      "repo": "tenfyzhong/agent-plugins-hub",
+      "number": 36,
+      "title": "Proposal: add a pay-per-call nano-pay plugin (x402/Nano settlement) for Codex, Claude Code and Pi",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/tenfyzhong/agent-plugins-hub/issues/36",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T13:17:53Z",
+      "updated_at": "2026-09-22T13:17:53Z",
+      "comments": 0
+    },
+    {
       "repo": "thebrierfox/the-stall",
       "number": 1,
       "title": "Feature request: add a Nano (XNO) liquidity token as a settlement rail",
@@ -1438,6 +1498,18 @@
       "comments": 0
     },
     {
+      "repo": "wienerlabs/covenant",
+      "number": 323,
+      "title": "Feature: add Nano (XNO) as a second settlement rail beside USDC for creator-economy and small-job payments",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/wienerlabs/covenant/issues/323",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T13:35:13Z",
+      "updated_at": "2026-09-22T13:35:13Z",
+      "comments": 0
+    },
+    {
       "repo": "worldliberty/agentpay-sdk",
       "number": 20,
       "title": "[Feature] Add Nano (XNO) as a third settlement rail for sub-cent agent-to-agent payments",
@@ -1447,6 +1519,18 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T06:16:56Z",
       "updated_at": "2026-09-22T06:16:56Z",
+      "comments": 0
+    },
+    {
+      "repo": "x402-foundation/tsc",
+      "number": 14,
+      "title": "AGENDA TOPIC - Settlement network resolution: ratify Nano (XNO) exact scheme (PR #3432)",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/x402-foundation/tsc/issues/14",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T13:22:15Z",
+      "updated_at": "2026-09-22T13:22:15Z",
       "comments": 0
     },
     {
@@ -1495,6 +1579,18 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T12:46:17Z",
       "updated_at": "2026-09-22T12:46:17Z",
+      "comments": 0
+    },
+    {
+      "repo": "x402-index/x402-discovery-index",
+      "number": 58,
+      "title": "List Vend (x402 API merchant, Nano rail) in the Discovery Index",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/x402-index/x402-discovery-index/issues/58",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T13:46:31Z",
+      "updated_at": "2026-09-22T13:46:31Z",
       "comments": 0
     },
     {
@@ -1662,7 +1758,19 @@
       "url": "https://github.com/MikeyPetrillo/Agent402/issues/1447",
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T11:45:53Z",
-      "updated_at": "2026-09-22T13:08:34Z",
+      "updated_at": "2026-09-22T13:17:03Z",
+      "comments": 2
+    },
+    {
+      "repo": "MiroShark/MiroShark",
+      "number": 309,
+      "title": "Settlement option: a feeless XNO accepts[] entry beside your USDC rails",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/MiroShark/MiroShark/issues/309",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T06:38:47Z",
+      "updated_at": "2026-09-22T13:16:11Z",
       "comments": 1
     },
     {
