@@ -1,11 +1,11 @@
 {
-  "generated": "2026-09-22 16:13 UTC",
+  "generated": "2026-09-22 16:39 UTC",
   "summary": {
-    "total": 225,
+    "total": 218,
     "merged": 0,
-    "open": 159,
-    "closed": 66,
-    "repos": 173,
+    "open": 154,
+    "closed": 64,
+    "repos": 172,
     "answered": 64
   },
   "rows": [
@@ -382,18 +382,6 @@
       "comments": 1
     },
     {
-      "repo": "ShieldCubed/agentic-pay",
-      "number": 1,
-      "title": "Feature request: Add Nano (XNO) as an eighth settlement rail \u2014 feeless, instant, green",
-      "kind": "issue",
-      "state": "open",
-      "url": "https://github.com/ShieldCubed/agentic-pay/issues/1",
-      "author": "PANDeveloper001",
-      "created_at": "2026-09-20T18:24:26Z",
-      "updated_at": "2026-09-20T18:24:26Z",
-      "comments": 0
-    },
-    {
       "repo": "SmythOS/sre",
       "number": 371,
       "title": "[Feature]: Support x402 (HTTP 402) pay-per-call MCP servers for paid external tools",
@@ -439,18 +427,6 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T10:22:18Z",
       "updated_at": "2026-09-22T10:22:18Z",
-      "comments": 0
-    },
-    {
-      "repo": "Vellar-Wallet/vellar-facilitator",
-      "number": 99,
-      "title": "Feature request: add Nano (XNO) as a second settlement rail alongside Stellar",
-      "kind": "issue",
-      "state": "open",
-      "url": "https://github.com/Vellar-Wallet/vellar-facilitator/issues/99",
-      "author": "PANDeveloper001",
-      "created_at": "2026-09-20T19:32:49Z",
-      "updated_at": "2026-09-20T19:32:49Z",
       "comments": 0
     },
     {
@@ -778,6 +754,18 @@
       "comments": 0
     },
     {
+      "repo": "evrendag/proof-of-delivery-genlayer",
+      "number": 1,
+      "title": "Feature: a feeless Nano (XNO) settlement leg on work acceptance",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/evrendag/proof-of-delivery-genlayer/issues/1",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T16:13:39Z",
+      "updated_at": "2026-09-22T16:20:59Z",
+      "comments": 1
+    },
+    {
       "repo": "exa-labs/exa-mcp-server",
       "number": 444,
       "title": "Add Nano (XNO) as a per-call settlement option beside USDC/credits",
@@ -887,18 +875,6 @@
     },
     {
       "repo": "goodmeta/agent-payments-landscape",
-      "number": 9,
-      "title": "Proposal: add Nano (XNO) as a settlement rail to the x402 Payment Rails cell",
-      "kind": "issue",
-      "state": "open",
-      "url": "https://github.com/goodmeta/agent-payments-landscape/issues/9",
-      "author": "PANDeveloper001",
-      "created_at": "2026-09-20T14:26:33Z",
-      "updated_at": "2026-09-20T14:26:33Z",
-      "comments": 0
-    },
-    {
-      "repo": "goodmeta/agent-payments-landscape",
       "number": 10,
       "title": "Protocol accuracy: x402's settlement layer is not 'stablecoin-only'",
       "kind": "issue",
@@ -919,18 +895,6 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-21T11:13:48Z",
       "updated_at": "2026-09-21T11:13:48Z",
-      "comments": 0
-    },
-    {
-      "repo": "gosuda/x402-facilitator",
-      "number": 62,
-      "title": "Add Nano (XNO) as a supported `exact`-scheme network",
-      "kind": "issue",
-      "state": "open",
-      "url": "https://github.com/gosuda/x402-facilitator/issues/62",
-      "author": "PANDeveloper001",
-      "created_at": "2026-09-20T19:34:44Z",
-      "updated_at": "2026-09-20T19:34:44Z",
       "comments": 0
     },
     {
@@ -1174,6 +1138,18 @@
       "comments": 5
     },
     {
+      "repo": "minddog/agentic-commerce-research",
+      "number": 2,
+      "title": "Add a section on the feeless settlement-rail class (Nano XNO): measured fee/finality the current rails framing omits",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/minddog/agentic-commerce-research/issues/2",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T16:31:03Z",
+      "updated_at": "2026-09-22T16:31:03Z",
+      "comments": 0
+    },
+    {
       "repo": "mioku50/Veyra",
       "number": 11,
       "title": "Question: does rail policy consider a feeless settlement option (Nano XNO) beside USDC?",
@@ -1231,18 +1207,6 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T12:06:12Z",
       "updated_at": "2026-09-22T12:06:12Z",
-      "comments": 0
-    },
-    {
-      "repo": "nirholas/agenti",
-      "number": 145,
-      "title": "Nano (XNO) support: a feeless, instant rail for agent payments alongside EVM + Solana",
-      "kind": "issue",
-      "state": "open",
-      "url": "https://github.com/nirholas/agenti/issues/145",
-      "author": "PANDeveloper001",
-      "created_at": "2026-09-20T18:28:07Z",
-      "updated_at": "2026-09-21T01:39:06Z",
       "comments": 0
     },
     {
@@ -1402,18 +1366,6 @@
       "comments": 2
     },
     {
-      "repo": "pursekeeper/api",
-      "number": 22,
-      "title": "Seller: Vend API Merchant \u2014 7 stock x402 v2 nano:mainnet pay-per-call endpoints",
-      "kind": "issue",
-      "state": "open",
-      "url": "https://github.com/pursekeeper/api/issues/22",
-      "author": "PANDeveloper001",
-      "created_at": "2026-09-18T22:15:20Z",
-      "updated_at": "2026-09-20T22:13:22Z",
-      "comments": 2
-    },
-    {
       "repo": "pydantic/pydantic-ai",
       "number": 8615,
       "title": "Consider Nano (XNO) as a feeless settlement option for agent pay-per-use",
@@ -1496,18 +1448,6 @@
       "created_at": "2026-09-17T23:41:34Z",
       "updated_at": "2026-09-19T21:44:19Z",
       "comments": 1
-    },
-    {
-      "repo": "shoutsid-lab/webcap",
-      "number": 2,
-      "title": "perm-check",
-      "kind": "issue",
-      "state": "open",
-      "url": "https://github.com/shoutsid-lab/webcap/issues/2",
-      "author": "PANDeveloper001",
-      "created_at": "2026-09-22T15:35:06Z",
-      "updated_at": "2026-09-22T15:35:06Z",
-      "comments": 0
     },
     {
       "repo": "showmikb/gateway-llm",
@@ -1603,18 +1543,6 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T08:46:29Z",
       "updated_at": "2026-09-22T08:46:29Z",
-      "comments": 0
-    },
-    {
-      "repo": "tacticalnoot/agent-embassy",
-      "number": 1,
-      "title": "Feature: add Nano (XNO) as an accepts network in the x402 settlement loop",
-      "kind": "issue",
-      "state": "open",
-      "url": "https://github.com/tacticalnoot/agent-embassy/issues/1",
-      "author": "PANDeveloper001",
-      "created_at": "2026-09-22T00:14:16Z",
-      "updated_at": "2026-09-22T00:15:46Z",
       "comments": 0
     },
     {
@@ -1882,6 +1810,18 @@
       "comments": 0
     },
     {
+      "repo": "xpack-ai/XPack-MCP-Marketplace",
+      "number": 178,
+      "title": "Price MCP tools at true sub-cent per-call without a card-settlement floor",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/xpack-ai/XPack-MCP-Marketplace/issues/178",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T16:28:58Z",
+      "updated_at": "2026-09-22T16:28:58Z",
+      "comments": 0
+    },
+    {
       "repo": "xpaysh/awesome-x402",
       "number": 1555,
       "title": "Nano (XNO) x402 payer for OpenAI Agents SDK \u2014 curated addition to SDKs & Client Libraries section",
@@ -2107,18 +2047,6 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T08:39:15Z",
       "updated_at": "2026-09-22T08:39:15Z",
-      "comments": 0
-    },
-    {
-      "repo": "Vellar-Wallet/vellar-facilitator",
-      "number": 98,
-      "title": "_permission probe",
-      "kind": "issue",
-      "state": "closed",
-      "url": "https://github.com/Vellar-Wallet/vellar-facilitator/issues/98",
-      "author": "PANDeveloper001",
-      "created_at": "2026-09-20T19:31:58Z",
-      "updated_at": "2026-09-20T19:31:59Z",
       "comments": 0
     },
     {
@@ -2507,6 +2435,18 @@
     },
     {
       "repo": "shoutsid-lab/webcap",
+      "number": 2,
+      "title": "perm-check",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/shoutsid-lab/webcap/issues/2",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T15:35:06Z",
+      "updated_at": "2026-09-22T16:35:21Z",
+      "comments": 0
+    },
+    {
+      "repo": "shoutsid-lab/webcap",
       "number": 3,
       "title": "rai write-probe",
       "kind": "issue",
@@ -2648,30 +2588,6 @@
       "created_at": "2026-09-22T14:29:49Z",
       "updated_at": "2026-09-22T14:30:13Z",
       "comments": 1
-    },
-    {
-      "repo": "x402-foundation/tsc",
-      "number": 13,
-      "title": "Will close - permission test only",
-      "kind": "issue",
-      "state": "closed",
-      "url": "https://github.com/x402-foundation/tsc/issues/13",
-      "author": "PANDeveloper001",
-      "created_at": "2026-09-20T13:49:57Z",
-      "updated_at": "2026-09-20T13:52:23Z",
-      "comments": 0
-    },
-    {
-      "repo": "x402-foundation/x402",
-      "number": 3535,
-      "title": "test-permission-check",
-      "kind": "issue",
-      "state": "closed",
-      "url": "https://github.com/x402-foundation/x402/issues/3535",
-      "author": "PANDeveloper001",
-      "created_at": "2026-09-20T10:36:35Z",
-      "updated_at": "2026-09-20T10:36:46Z",
-      "comments": 0
     },
     {
       "repo": "xpaysh/awesome-agentic-commerce",
