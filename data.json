@@ -1,12 +1,12 @@
 {
-  "generated": "2026-09-22 10:12 UTC",
+  "generated": "2026-09-22 10:46 UTC",
   "summary": {
-    "total": 153,
+    "total": 159,
     "merged": 0,
-    "open": 106,
+    "open": 112,
     "closed": 47,
-    "repos": 123,
-    "answered": 49
+    "repos": 128,
+    "answered": 50
   },
   "rows": [
     {
@@ -31,6 +31,18 @@
       "author": "dhyabi2",
       "created_at": "2026-09-17T23:40:56Z",
       "updated_at": "2026-09-17T23:40:56Z",
+      "comments": 0
+    },
+    {
+      "repo": "0xgasless/agentkit",
+      "number": 35,
+      "title": "A Nano (XNO) rail for x402 payments \u2014 the network where no one pays gas, on either side",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/0xgasless/agentkit/issues/35",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T10:18:45Z",
+      "updated_at": "2026-09-22T10:18:45Z",
       "comments": 0
     },
     {
@@ -67,6 +79,18 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-21T21:32:18Z",
       "updated_at": "2026-09-21T21:32:18Z",
+      "comments": 0
+    },
+    {
+      "repo": "BeneIstvan/toolcall-mcp",
+      "number": 1,
+      "title": "Feature request: a feeless Nano (XNO) settlement rail beside USDC on Base",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/BeneIstvan/toolcall-mcp/issues/1",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T10:32:06Z",
+      "updated_at": "2026-09-22T10:32:06Z",
       "comments": 0
     },
     {
@@ -262,6 +286,18 @@
       "comments": 0
     },
     {
+      "repo": "UltravioletaDAO/uvd-x402-sdk-python",
+      "number": 34,
+      "title": "Proposal: add a feeless Nano (XNO) rail alongside the 29 networks / 6 stablecoins",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/UltravioletaDAO/uvd-x402-sdk-python/issues/34",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T10:22:18Z",
+      "updated_at": "2026-09-22T10:22:18Z",
+      "comments": 0
+    },
+    {
       "repo": "Vellar-Wallet/vellar-facilitator",
       "number": 99,
       "title": "Feature request: add Nano (XNO) as a second settlement rail alongside Stellar",
@@ -284,6 +320,18 @@
       "created_at": "2026-09-21T20:19:22Z",
       "updated_at": "2026-09-21T20:19:22Z",
       "comments": 0
+    },
+    {
+      "repo": "Virtual-Protocol/agent-commerce-protocol",
+      "number": 16,
+      "title": "Proposal: add Nano (XNO) as a zero-fee settlement rail in ACP (exact x402 scheme pair)",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/Virtual-Protocol/agent-commerce-protocol/issues/16",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T10:44:47Z",
+      "updated_at": "2026-09-22T10:46:06Z",
+      "comments": 1
     },
     {
       "repo": "XSpoonAi/spoon-core",
@@ -607,6 +655,18 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-20T14:26:33Z",
       "updated_at": "2026-09-20T14:26:33Z",
+      "comments": 0
+    },
+    {
+      "repo": "goodmeta/agent-payments-landscape",
+      "number": 10,
+      "title": "Protocol accuracy: x402's settlement layer is not 'stablecoin-only'",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/goodmeta/agent-payments-landscape/issues/10",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T10:17:22Z",
+      "updated_at": "2026-09-22T10:17:22Z",
       "comments": 0
     },
     {
@@ -942,8 +1002,8 @@
       "url": "https://github.com/pydantic/pydantic-ai/issues/8615",
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T08:26:22Z",
-      "updated_at": "2026-09-22T09:16:37Z",
-      "comments": 2
+      "updated_at": "2026-09-22T10:23:32Z",
+      "comments": 3
     },
     {
       "repo": "pyfile-toolkit/nano-llm-api",
@@ -1135,6 +1195,18 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T08:29:10Z",
       "updated_at": "2026-09-22T08:29:10Z",
+      "comments": 0
+    },
+    {
+      "repo": "vAPI-Network/vapi-network",
+      "number": 23,
+      "title": "Proposal: a feeless settle rail beside USDC in \"one wallet, every x402 API\"",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/vAPI-Network/vapi-network/issues/23",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T10:22:24Z",
+      "updated_at": "2026-09-22T10:22:24Z",
       "comments": 0
     },
     {
