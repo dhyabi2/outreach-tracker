@@ -1,12 +1,12 @@
 {
-  "generated": "2026-09-22 09:08 UTC",
+  "generated": "2026-09-22 09:42 UTC",
   "summary": {
-    "total": 139,
+    "total": 148,
     "merged": 0,
-    "open": 96,
+    "open": 105,
     "closed": 43,
-    "repos": 109,
-    "answered": 43
+    "repos": 118,
+    "answered": 45
   },
   "rows": [
     {
@@ -46,6 +46,18 @@
       "comments": 0
     },
     {
+      "repo": "AnkanMisra/MicroAI-Paygate",
+      "number": 426,
+      "title": "Offer: a receive-only Nano (XNO) settlement rail for the paygate",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/AnkanMisra/MicroAI-Paygate/issues/426",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T09:41:23Z",
+      "updated_at": "2026-09-22T09:41:34Z",
+      "comments": 0
+    },
+    {
       "repo": "AsherKasper/agent-marketplace-index",
       "number": 2,
       "title": "Add a Nano (XNO) settlement series \u2014 the rail-blind measurement",
@@ -55,6 +67,18 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-21T21:32:18Z",
       "updated_at": "2026-09-21T21:32:18Z",
+      "comments": 0
+    },
+    {
+      "repo": "Dexter-DAO/dexter-x402-sdk",
+      "number": 72,
+      "title": "Add Nano (XNO) as a settlement rail beside USDC \u2014 zero fee on every leg",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/Dexter-DAO/dexter-x402-sdk/issues/72",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T09:41:11Z",
+      "updated_at": "2026-09-22T09:41:11Z",
       "comments": 0
     },
     {
@@ -202,6 +226,18 @@
       "comments": 0
     },
     {
+      "repo": "TasnidChain/APITOLL",
+      "number": 5,
+      "title": "Add Nano (XNO) as a feeless settlement rail beside USDC on Base/Solana",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/TasnidChain/APITOLL/issues/5",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T09:42:15Z",
+      "updated_at": "2026-09-22T09:42:15Z",
+      "comments": 0
+    },
+    {
       "repo": "ToolOracle/oraclenet",
       "number": 5,
       "title": "Add NanoOracle (XNO) as a 15th chain oracle and nano:mainnet as a second x402 settlement rail",
@@ -270,8 +306,8 @@
       "url": "https://github.com/adamkrawczyk/agentpact/issues/148",
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T08:26:04Z",
-      "updated_at": "2026-09-22T08:26:04Z",
-      "comments": 0
+      "updated_at": "2026-09-22T09:40:08Z",
+      "comments": 1
     },
     {
       "repo": "agno-agi/agno",
@@ -394,6 +430,18 @@
       "comments": 0
     },
     {
+      "repo": "coze-dev/coze-studio",
+      "number": 2770,
+      "title": "Feature request: support x402 'secured payment' plugins so plugin authors can settle pay-per-call tools peer-to-peer",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/coze-dev/coze-studio/issues/2770",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T09:11:49Z",
+      "updated_at": "2026-09-22T09:11:49Z",
+      "comments": 0
+    },
+    {
       "repo": "crypto-priest/x402-solana-rust",
       "number": 2,
       "title": "Add a Nano (XNO) network beside Solana \u2014 settle becomes a single signed block",
@@ -403,6 +451,18 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T07:38:18Z",
       "updated_at": "2026-09-22T07:38:18Z",
+      "comments": 0
+    },
+    {
+      "repo": "devcer/open-payments-mcp",
+      "number": 1,
+      "title": "A measured question about the Open Payments agent bridge and low-value autonomous spends",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/devcer/open-payments-mcp/issues/1",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T09:17:59Z",
+      "updated_at": "2026-09-22T09:17:59Z",
       "comments": 0
     },
     {
@@ -559,6 +619,18 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-20T19:34:44Z",
       "updated_at": "2026-09-20T19:34:44Z",
+      "comments": 0
+    },
+    {
+      "repo": "helloluis/kamai",
+      "number": 1,
+      "title": "Feature request: accept Nano (XNO) as a second deposit rail \u2014 removes the settlement floor under a $0.003 call",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/helloluis/kamai/issues/1",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T09:40:44Z",
+      "updated_at": "2026-09-22T09:40:44Z",
       "comments": 0
     },
     {
@@ -846,8 +918,8 @@
       "url": "https://github.com/pydantic/pydantic-ai/issues/8615",
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T08:26:22Z",
-      "updated_at": "2026-09-22T08:26:30Z",
-      "comments": 0
+      "updated_at": "2026-09-22T09:16:37Z",
+      "comments": 2
     },
     {
       "repo": "pyfile-toolkit/nano-llm-api",
@@ -922,6 +994,18 @@
       "comments": 1
     },
     {
+      "repo": "singnet/dev-portal",
+      "number": 401,
+      "title": "Docs: add Nano (XNO) as an opt-in pay-per-call settlement option",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/singnet/dev-portal/issues/401",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T09:27:25Z",
+      "updated_at": "2026-09-22T09:40:22Z",
+      "comments": 0
+    },
+    {
       "repo": "socialbitro/agentbit-mcp",
       "number": 2,
       "title": "Add nano:mainnet as a 7th settlement network to AgentBIT \u2014 the feeless rail for per-call x402",
@@ -994,6 +1078,18 @@
       "comments": 0
     },
     {
+      "repo": "thebrierfox/the-stall",
+      "number": 1,
+      "title": "Feature request: add a Nano (XNO) liquidity token as a settlement rail",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/thebrierfox/the-stall/issues/1",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T09:25:56Z",
+      "updated_at": "2026-09-22T09:25:56Z",
+      "comments": 0
+    },
+    {
       "repo": "tsubasakong/awesome-agent-payments-protocol",
       "number": 96,
       "title": "Nano (XNO) x402 payer for OpenAI Agents SDK \u2014 a non-EVM payment protocol entry",
@@ -1015,6 +1111,18 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T08:29:10Z",
       "updated_at": "2026-09-22T08:29:10Z",
+      "comments": 0
+    },
+    {
+      "repo": "valory-xyz/autonolas-marketplace",
+      "number": 201,
+      "title": "Docs: add Nano (XNO) as a fee-free settlement option beside OLAS/USDC",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/valory-xyz/autonolas-marketplace/issues/201",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T09:24:51Z",
+      "updated_at": "2026-09-22T09:24:51Z",
       "comments": 0
     },
     {
