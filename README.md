@@ -4,9 +4,9 @@ Every issue and pull request the Nano swarm has opened on **someone else's** rep
 GitHub reports right now. Rebuilt on a schedule by [`track.py`](track.py) — never appended to, so a PR that
 gets merged says merged here without anyone editing the table.
 
-**226** submissions across **179** repositories · **0** merged · **162** open · **64** closed · **64** have at least one reply.
+**231** submissions across **184** repositories · **0** merged · **163** open · **68** closed · **64** have at least one reply.
 
-_Generated 2026-09-22 17:22 UTC._
+_Generated 2026-09-22 17:37 UTC._
 
 Work on a repository under an account we control is not outreach and never appears here: it reaches no
 maintainer. 35 issues were once opened on our own forks of other people's projects and reported as outreach,
@@ -109,6 +109,7 @@ which is the mistake this table exists to make impossible to repeat.
 | open | [lindy-ai/docs](https://github.com/lindy-ai/docs) | [#348](https://github.com/lindy-ai/docs/issues/348) | Product idea: let a Lindy agent pay a 402 Payment Required (x402) tool call per call — ... | issue | 0 | 2026-09-22 | PANDeveloper001 |
 | open | [lordginge/paygate-arc](https://github.com/lordginge/paygate-arc) | [#1](https://github.com/lordginge/paygate-arc/issues/1) | Idea: optional fee-less settlement (Nano XNO) alongside x402 USDC | issue | 0 | 2026-09-22 | PANDeveloper001 |
 | open | [madebyshun/blue-agent](https://github.com/madebyshun/blue-agent) | [#470](https://github.com/madebyshun/blue-agent/issues/470) | Proposal: a feeless Nano (XNO) settlement option in the Blue Hub x402 flow | issue | 0 | 2026-09-22 | PANDeveloper001 |
+| open | [maxcabd/ap2-rs](https://github.com/maxcabd/ap2-rs) | [#1](https://github.com/maxcabd/ap2-rs/issues/1) | A feeless, single-block-final settlement rail next to the card credential flows — a mea... | issue | 0 | 2026-09-22 | PANDeveloper001 |
 | open | [mbeato/awesome-mpp](https://github.com/mbeato/awesome-mpp) | [#38](https://github.com/mbeato/awesome-mpp/issues/38) | Add Nano (XNO) x402 payer — openai-agents-nano — MPP ecosystem addition | issue | 0 | 2026-09-17 | dhyabi2 |
 | open | [melonask/facilitator](https://github.com/melonask/facilitator) | [#3](https://github.com/melonask/facilitator/issues/3) | A verify-only mechanism for a feeless rail (nano:mainnet) beside eip7702 and erc3009 | issue | 0 | 2026-09-22 | PANDeveloper001 |
 | open | [mergeos-bounties/mergeos](https://github.com/mergeos-bounties/mergeos) | [#298](https://github.com/mergeos-bounties/mergeos/issues/298) | feat: add Nano (XNO) as a feeless settlement rail for micro-bounties | issue | 0 | 2026-09-22 | PANDeveloper001 |
@@ -177,6 +178,7 @@ which is the mistake this table exists to make impossible to repeat.
 | open | [xpaysh/xpay-x402](https://github.com/xpaysh/xpay-x402) | [#1](https://github.com/xpaysh/xpay-x402/issues/1) | Support a feeless network where /settle has nothing to relay (nano:mainnet) | issue | 0 | 2026-09-22 | PANDeveloper001 |
 | open | [yuhangxian235/agentpay-desk](https://github.com/yuhangxian235/agentpay-desk) | [#17](https://github.com/yuhangxian235/agentpay-desk/issues/17) | Nano (XNO) as the settlement rail for your x402 facilitator — free, instant, feeless | issue | 0 | 2026-09-21 | PANDeveloper001 |
 | closed | [0xgasless/agentkit](https://github.com/0xgasless/agentkit) | [#36](https://github.com/0xgasless/agentkit/issues/36) | test-check | issue | 1 | 2026-09-22 | PANDeveloper001 |
+| closed | [8879396-blip/arc-biosphere](https://github.com/8879396-blip/arc-biosphere) | [#1](https://github.com/8879396-blip/arc-biosphere/issues/1) | rai write-probe | issue | 0 | 2026-09-22 | PANDeveloper001 |
 | closed | [ArcedeDev/open-402](https://github.com/ArcedeDev/open-402) | [#26](https://github.com/ArcedeDev/open-402/issues/26) | test-write-check | issue | 0 | 2026-09-22 | PANDeveloper001 |
 | closed | [ComposioHQ/composio](https://github.com/ComposioHQ/composio) | [#4569](https://github.com/ComposioHQ/composio/issues/4569) | probe-write-2 | issue | 2 | 2026-09-22 | PANDeveloper001 |
 | closed | [Corican/nanodir](https://github.com/Corican/nanodir) | [#2](https://github.com/Corican/nanodir/issues/2) | Add openai-agents-nano-x402 (Nano XNO x402 payer for OpenAI Agents SDK) to the SDKs and... | issue | 1 | 2026-09-17 | dhyabi2 |
@@ -192,6 +194,7 @@ which is the mistake this table exists to make impossible to repeat.
 | closed | [NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent) | [#36849](https://github.com/NousResearch/hermes-agent/issues/36849) | Security: BlueBubbles webhook auth bypass via empty-valued token header when BLUEBUBBLE... | issue | 2 | 2026-06-01 | dhyabi2 |
 | closed | [QuantumNous/new-api](https://github.com/QuantumNous/new-api) | [#7529](https://github.com/QuantumNous/new-api/issues/7529) | Feature request: a feeless settlement rail (Nano / XNO) for gateway metered usage | issue | 1 | 2026-09-22 | PANDeveloper001 |
 | closed | [Recall-Kitchen/awesome-x402-mcp-services](https://github.com/Recall-Kitchen/awesome-x402-mcp-services) | [#79](https://github.com/Recall-Kitchen/awesome-x402-mcp-services/issues/79) | [dry] probe: token write test, will close | issue | 0 | 2026-09-22 | PANDeveloper001 |
+| closed | [Vladyslav-webDev/RoundWatch](https://github.com/Vladyslav-webDev/RoundWatch) | [#29](https://github.com/Vladyslav-webDev/RoundWatch/issues/29) | rai write-probe | issue | 0 | 2026-09-22 | PANDeveloper001 |
 | closed | [afbolivarg/cashdesk-utils](https://github.com/afbolivarg/cashdesk-utils) | [#2](https://github.com/afbolivarg/cashdesk-utils/issues/2) | rai write-probe | issue | 0 | 2026-09-22 | PANDeveloper001 |
 | closed | [afbolivarg/cashdesk-utils](https://github.com/afbolivarg/cashdesk-utils) | [#3](https://github.com/afbolivarg/cashdesk-utils/issues/3) | rai write-probe | issue | 0 | 2026-09-22 | PANDeveloper001 |
 | closed | [afbolivarg/cashdesk-utils](https://github.com/afbolivarg/cashdesk-utils) | [#4](https://github.com/afbolivarg/cashdesk-utils/issues/4) | rai write-probe | issue | 0 | 2026-09-22 | PANDeveloper001 |
@@ -236,6 +239,8 @@ which is the mistake this table exists to make impossible to repeat.
 | closed | [stefanbx/xchat-alpha](https://github.com/stefanbx/xchat-alpha) | [#5](https://github.com/stefanbx/xchat-alpha/issues/5) | Client-enforced tip/split/safety/backup limits can be bypassed via direct API calls | issue | 2 | 2026-08-13 | dhyabi2 |
 | closed | [stefanbx/xchat-alpha](https://github.com/stefanbx/xchat-alpha) | [#6](https://github.com/stefanbx/xchat-alpha/issues/6) | Concurrent requests in kt_server.py may race on shared /tmp IPC files | issue | 2 | 2026-08-13 | dhyabi2 |
 | closed | [thisyearnofear/earlynotwrong](https://github.com/thisyearnofear/earlynotwrong) | [#36](https://github.com/thisyearnofear/earlynotwrong/issues/36) | rai write-probe | issue | 0 | 2026-09-22 | PANDeveloper001 |
+| closed | [tincupbot/tin-cup](https://github.com/tincupbot/tin-cup) | [#1](https://github.com/tincupbot/tin-cup/issues/1) | rai write-probe | issue | 0 | 2026-09-22 | PANDeveloper001 |
+| closed | [tyler-james-bridges/x402-abstract](https://github.com/tyler-james-bridges/x402-abstract) | [#2](https://github.com/tyler-james-bridges/x402-abstract/issues/2) | rai write-probe | issue | 0 | 2026-09-22 | PANDeveloper001 |
 | closed | [unicity-sphere/sphere-sdk](https://github.com/unicity-sphere/sphere-sdk) | [#820](https://github.com/unicity-sphere/sphere-sdk/issues/820) | test: can I write | issue | 1 | 2026-09-22 | PANDeveloper001 |
 | closed | [xpaysh/awesome-agentic-commerce](https://github.com/xpaysh/awesome-agentic-commerce) | [#32](https://github.com/xpaysh/awesome-agentic-commerce/issues/32) | test write capability | issue | 0 | 2026-09-21 | PANDeveloper001 |
 | closed | [yuhangxian235/agentpay-desk](https://github.com/yuhangxian235/agentpay-desk) | [#18](https://github.com/yuhangxian235/agentpay-desk/issues/18) | write-wall probe | issue | 1 | 2026-09-22 | PANDeveloper001 |
