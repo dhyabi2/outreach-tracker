@@ -4,9 +4,9 @@ Every issue and pull request the Nano swarm has opened on **someone else's** rep
 GitHub reports right now. Rebuilt on a schedule by [`track.py`](track.py) — never appended to, so a PR that
 gets merged says merged here without anyone editing the table.
 
-**108** submissions across **79** repositories · **0** merged · **68** open · **40** closed · **41** have at least one reply.
+**112** submissions across **83** repositories · **0** merged · **72** open · **40** closed · **41** have at least one reply.
 
-_Generated 2026-09-22 07:28 UTC._
+_Generated 2026-09-22 08:02 UTC._
 
 Work on a repository under an account we control is not outreach and never appears here: it reaches no
 maintainer. 35 issues were once opened on our own forks of other people's projects and reported as outreach,
@@ -35,8 +35,11 @@ which is the mistake this table exists to make impossible to repeat.
 | open | [assafbar2/agentswitchboard.dev](https://github.com/assafbar2/agentswitchboard.dev) | [#106](https://github.com/assafbar2/agentswitchboard.dev/issues/106) | Add Nano (XNO) x402 payer for OpenAI Agents SDK — proposed addition to AgentSwitchboard... | issue | 1 | 2026-09-17 | dhyabi2 |
 | open | [bitnovo/mcp-bitnovo-pay](https://github.com/bitnovo/mcp-bitnovo-pay) | [#2](https://github.com/bitnovo/mcp-bitnovo-pay/issues/2) | Feature request: accept Nano (XNO) as a settlement asset | issue | 0 | 2026-09-22 | PANDeveloper001 |
 | open | [bitrefill/awesome-agentic-payments](https://github.com/bitrefill/awesome-agentic-payments) | [#41](https://github.com/bitrefill/awesome-agentic-payments/issues/41) | Add Nano (XNO) x402 payer for OpenAI Agents SDK to Open Source & SDKs | issue | 0 | 2026-09-17 | dhyabi2 |
+| open | [cascade-protocol/x402-proxy](https://github.com/cascade-protocol/x402-proxy) | [#13](https://github.com/cascade-protocol/x402-proxy/issues/13) | Add Nano (XNO) as a network in the rail set — a zero-fee rail | issue | 0 | 2026-09-22 | PANDeveloper001 |
+| open | [chu2bard/pinion-os](https://github.com/chu2bard/pinion-os) | [#5](https://github.com/chu2bard/pinion-os/issues/5) | Add Nano (XNO) as a settlement rail — drop the needs-ETH-for-gas step | issue | 0 | 2026-09-22 | PANDeveloper001 |
 | open | [codebruinc/pikasim-mcp](https://github.com/codebruinc/pikasim-mcp) | [#3](https://github.com/codebruinc/pikasim-mcp/issues/3) | Proposal: add Nano (XNO) deposit + refund leg to the agent wallet | issue | 0 | 2026-09-22 | PANDeveloper001 |
 | open | [codespar/awesome-agentic-commerce-latam](https://github.com/codespar/awesome-agentic-commerce-latam) | [#8](https://github.com/codespar/awesome-agentic-commerce-latam/issues/8) | Add Nano (XNO) as a feeless instant settlement rail for LATAM agentic commerce | issue | 0 | 2026-09-17 | dhyabi2 |
+| open | [crypto-priest/x402-solana-rust](https://github.com/crypto-priest/x402-solana-rust) | [#2](https://github.com/crypto-priest/x402-solana-rust/issues/2) | Add a Nano (XNO) network beside Solana — settle becomes a single signed block | issue | 0 | 2026-09-22 | PANDeveloper001 |
 | open | [e2b-dev/awesome-ai-sdks](https://github.com/e2b-dev/awesome-ai-sdks) | [#373](https://github.com/e2b-dev/awesome-ai-sdks/issues/373) | Add Nano (XNO) x402 payer — openai-agents-nano — client SDK for fee-free agent payments | issue | 0 | 2026-09-17 | dhyabi2 |
 | open | [exa-labs/exa-mcp-server](https://github.com/exa-labs/exa-mcp-server) | [#444](https://github.com/exa-labs/exa-mcp-server/issues/444) | Add Nano (XNO) as a per-call settlement option beside USDC/credits | issue | 0 | 2026-09-22 | PANDeveloper001 |
 | open | [fetchai/uAgents](https://github.com/fetchai/uAgents) | [#946](https://github.com/fetchai/uAgents/issues/946) | Feature: add Nano (XNO) payment_method xno_final to Agent Payment Protocol | issue | 0 | 2026-09-22 | PANDeveloper001 |
@@ -56,6 +59,7 @@ which is the mistake this table exists to make impossible to repeat.
 | open | [nirholas/agenti](https://github.com/nirholas/agenti) | [#145](https://github.com/nirholas/agenti/issues/145) | Nano (XNO) support: a feeless, instant rail for agent payments alongside EVM + Solana | issue | 0 | 2026-09-20 | PANDeveloper001 |
 | open | [nixondc93/opentask-agent-plugins](https://github.com/nixondc93/opentask-agent-plugins) | [#6](https://github.com/nixondc93/opentask-agent-plugins/issues/6) | Propose Nano (XNO) as a second settlement rail for agent micro-payments | issue | 0 | 2026-09-22 | PANDeveloper001 |
 | open | [obscura-node/obscura](https://github.com/obscura-node/obscura) | [#1](https://github.com/obscura-node/obscura/issues/1) | Postmortem: auto-liquidity silently posted zero offers for a week (root cause + fix + o... | issue | 1 | 2026-08-01 | dhyabi2 |
+| open | [open-experiments/agent-exchange](https://github.com/open-experiments/agent-exchange) | [#63](https://github.com/open-experiments/agent-exchange/issues/63) | Settlement network option: feeless Nano (XNO) for the smallest bounties | issue | 0 | 2026-09-22 | PANDeveloper001 |
 | open | [patwalls/walls-mcp-examples](https://github.com/patwalls/walls-mcp-examples) | [#2](https://github.com/patwalls/walls-mcp-examples/issues/2) | Add Nano (XNO) as a settlement option alongside USDC — feeless, instant, no EVM wallet ... | issue | 0 | 2026-09-22 | PANDeveloper001 |
 | open | [payperlabs/payper-mcp](https://github.com/payperlabs/payper-mcp) | [#1](https://github.com/payperlabs/payper-mcp/issues/1) | Nano (XNO) settlement path for payper-mcp — same flow, zero-fee rail | issue | 0 | 2026-09-21 | PANDeveloper001 |
 | open | [payperlabs/payper-mcp](https://github.com/payperlabs/payper-mcp) | [#3](https://github.com/payperlabs/payper-mcp/issues/3) | Idea: feeless (Nano XNO) settlement option for GPU rental per-call meter | issue | 0 | 2026-09-22 | PANDeveloper001 |
@@ -74,7 +78,7 @@ which is the mistake this table exists to make impossible to repeat.
 | open | [worldliberty/agentpay-sdk](https://github.com/worldliberty/agentpay-sdk) | [#20](https://github.com/worldliberty/agentpay-sdk/issues/20) | [Feature] Add Nano (XNO) as a third settlement rail for sub-cent agent-to-agent payments | issue | 0 | 2026-09-22 | PANDeveloper001 |
 | open | [x402-foundation/wg-domain-discovery](https://github.com/x402-foundation/wg-domain-discovery) | [#1](https://github.com/x402-foundation/wg-domain-discovery/issues/1) | Buyer-side discovery gap: the Bazaar indexes nano:mainnet/XNO accepts (55 today), but p... | issue | 0 | 2026-09-17 | dhyabi2 |
 | open | [x402-foundation/wg-identity](https://github.com/x402-foundation/wg-identity) | [#30](https://github.com/x402-foundation/wg-identity/issues/30) | Buyer-side discovery gap: the Bazaar indexes nano:mainnet/XNO accepts (55 today), but p... | issue | 0 | 2026-09-17 | dhyabi2 |
-| open | [x402-foundation/x402](https://github.com/x402-foundation/x402) | [#3512](https://github.com/x402-foundation/x402/issues/3512) | Record of prepared Nano-mainnet exact-scheme spec and docs contribution | issue | 5 | 2026-09-17 | dhyabi2 |
+| open | [x402-foundation/x402](https://github.com/x402-foundation/x402) | [#3512](https://github.com/x402-foundation/x402/issues/3512) | Record of prepared Nano-mainnet exact-scheme spec and docs contribution | issue | 6 | 2026-09-17 | dhyabi2 |
 | open | [x402-rs/x402-rs](https://github.com/x402-rs/x402-rs) | [#122](https://github.com/x402-rs/x402-rs/issues/122) | Add a nano:mainnet chain crate (verify-only: the settle step has no relayer work) | issue | 0 | 2026-09-22 | PANDeveloper001 |
 | open | [x402eco/website](https://github.com/x402eco/website) | [#29](https://github.com/x402eco/website/issues/29) | Add openai-agents-nano to x402.eco client-integrations | issue | 0 | 2026-09-17 | dhyabi2 |
 | open | [xona-labs/x402-orbit-agent](https://github.com/xona-labs/x402-orbit-agent) | [#1](https://github.com/xona-labs/x402-orbit-agent/issues/1) | Add an optional nano:mainnet x402 accept leg for Lite Agents on Orbit | issue | 0 | 2026-09-22 | PANDeveloper001 |

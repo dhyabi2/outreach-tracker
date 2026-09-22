@@ -1,11 +1,11 @@
 {
-  "generated": "2026-09-22 07:28 UTC",
+  "generated": "2026-09-22 08:02 UTC",
   "summary": {
-    "total": 108,
+    "total": 112,
     "merged": 0,
-    "open": 68,
+    "open": 72,
     "closed": 40,
-    "repos": 79,
+    "repos": 83,
     "answered": 41
   },
   "rows": [
@@ -262,6 +262,30 @@
       "comments": 0
     },
     {
+      "repo": "cascade-protocol/x402-proxy",
+      "number": 13,
+      "title": "Add Nano (XNO) as a network in the rail set \u2014 a zero-fee rail",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/cascade-protocol/x402-proxy/issues/13",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T07:36:26Z",
+      "updated_at": "2026-09-22T07:36:26Z",
+      "comments": 0
+    },
+    {
+      "repo": "chu2bard/pinion-os",
+      "number": 5,
+      "title": "Add Nano (XNO) as a settlement rail \u2014 drop the needs-ETH-for-gas step",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/chu2bard/pinion-os/issues/5",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T07:38:47Z",
+      "updated_at": "2026-09-22T07:38:47Z",
+      "comments": 0
+    },
+    {
       "repo": "codebruinc/pikasim-mcp",
       "number": 3,
       "title": "Proposal: add Nano (XNO) deposit + refund leg to the agent wallet",
@@ -283,6 +307,18 @@
       "author": "dhyabi2",
       "created_at": "2026-09-17T23:40:34Z",
       "updated_at": "2026-09-17T23:40:34Z",
+      "comments": 0
+    },
+    {
+      "repo": "crypto-priest/x402-solana-rust",
+      "number": 2,
+      "title": "Add a Nano (XNO) network beside Solana \u2014 settle becomes a single signed block",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/crypto-priest/x402-solana-rust/issues/2",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T07:38:18Z",
+      "updated_at": "2026-09-22T07:38:18Z",
       "comments": 0
     },
     {
@@ -514,6 +550,18 @@
       "comments": 1
     },
     {
+      "repo": "open-experiments/agent-exchange",
+      "number": 63,
+      "title": "Settlement network option: feeless Nano (XNO) for the smallest bounties",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/open-experiments/agent-exchange/issues/63",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T07:35:54Z",
+      "updated_at": "2026-09-22T07:35:54Z",
+      "comments": 0
+    },
+    {
       "repo": "patwalls/walls-mcp-examples",
       "number": 2,
       "title": "Add Nano (XNO) as a settlement option alongside USDC \u2014 feeless, instant, no EVM wallet needed",
@@ -738,8 +786,8 @@
       "url": "https://github.com/x402-foundation/x402/issues/3512",
       "author": "dhyabi2",
       "created_at": "2026-09-17T23:41:56Z",
-      "updated_at": "2026-09-21T15:29:37Z",
-      "comments": 5
+      "updated_at": "2026-09-22T07:51:05Z",
+      "comments": 6
     },
     {
       "repo": "x402-rs/x402-rs",
