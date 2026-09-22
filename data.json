@@ -1,12 +1,12 @@
 {
-  "generated": "2026-09-22 08:02 UTC",
+  "generated": "2026-09-22 08:30 UTC",
   "summary": {
-    "total": 112,
+    "total": 128,
     "merged": 0,
-    "open": 72,
-    "closed": 40,
-    "repos": 83,
-    "answered": 41
+    "open": 87,
+    "closed": 41,
+    "repos": 99,
+    "answered": 43
   },
   "rows": [
     {
@@ -31,6 +31,18 @@
       "author": "dhyabi2",
       "created_at": "2026-09-17T23:40:56Z",
       "updated_at": "2026-09-17T23:40:56Z",
+      "comments": 0
+    },
+    {
+      "repo": "402cron/402cron",
+      "number": 1,
+      "title": "Offer a feeless settlement rail (Nano, XNO) next to x402/USDC-on-Base for scheduled agent payments",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/402cron/402cron/issues/1",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T08:30:04Z",
+      "updated_at": "2026-09-22T08:30:04Z",
       "comments": 0
     },
     {
@@ -130,6 +142,18 @@
       "comments": 0
     },
     {
+      "repo": "QBT-Labs/x402",
+      "number": 11,
+      "title": "Add Nano (XNO) as a fourth settlement network in @qbtlabs/x402 \u2014 the feeless multi-chain rail",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/QBT-Labs/x402/issues/11",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T08:29:02Z",
+      "updated_at": "2026-09-22T08:29:02Z",
+      "comments": 0
+    },
+    {
       "repo": "RipperMercs/tensorfeed-x402-base-mcp",
       "number": 20,
       "title": "Add Nano (XNO) as a settlement rail alongside USDC on Base",
@@ -199,6 +223,30 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T06:29:28Z",
       "updated_at": "2026-09-22T06:29:28Z",
+      "comments": 0
+    },
+    {
+      "repo": "adamkrawczyk/agentpact",
+      "number": 148,
+      "title": "Proposal: add Nano (XNO) as a feeless settlement rail beside USDC escrow",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/adamkrawczyk/agentpact/issues/148",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T08:26:04Z",
+      "updated_at": "2026-09-22T08:26:04Z",
+      "comments": 0
+    },
+    {
+      "repo": "agno-agi/agno",
+      "number": 10440,
+      "title": "[cookbook] Nano (XNO) x402 payment example alongside the USDC cookbook example",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/agno-agi/agno/issues/10440",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T08:19:37Z",
+      "updated_at": "2026-09-22T08:19:37Z",
       "comments": 0
     },
     {
@@ -334,6 +382,18 @@
       "comments": 0
     },
     {
+      "repo": "evidai/agent-payment-mcp",
+      "number": 12,
+      "title": "Add Nano (XNO) as a feeless settlement rail alongside card-funded USDC \u2014 per-call MCP payments",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/evidai/agent-payment-mcp/issues/12",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T08:30:03Z",
+      "updated_at": "2026-09-22T08:30:03Z",
+      "comments": 0
+    },
+    {
       "repo": "exa-labs/exa-mcp-server",
       "number": 444,
       "title": "Add Nano (XNO) as a per-call settlement option beside USDC/credits",
@@ -368,6 +428,18 @@
       "created_at": "2026-09-17T23:41:07Z",
       "updated_at": "2026-09-19T21:44:14Z",
       "comments": 1
+    },
+    {
+      "repo": "gatefareio/mcp-server",
+      "number": 5,
+      "title": "Add nano:mainnet as a second x402 settlement network \u2014 sub-second, feeless rail",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/gatefareio/mcp-server/issues/5",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T08:29:11Z",
+      "updated_at": "2026-09-22T08:29:11Z",
+      "comments": 0
     },
     {
       "repo": "gigs-sh/gigs-sh",
@@ -430,6 +502,30 @@
       "comments": 0
     },
     {
+      "repo": "hpp-io/x402-mcp-bridge",
+      "number": 18,
+      "title": "Add nano:mainnet as a second x402 settlement rail alongside HPP USDC.e \u2014 sub-second, feeless",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/hpp-io/x402-mcp-bridge/issues/18",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T08:29:03Z",
+      "updated_at": "2026-09-22T08:29:03Z",
+      "comments": 0
+    },
+    {
+      "repo": "huwhitememes/tollbooth",
+      "number": 5,
+      "title": "Add Nano (XNO) as a second settlement network for Tollbooth \u2014 sub-second, feeless x402 rail",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/huwhitememes/tollbooth/issues/5",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T08:30:16Z",
+      "updated_at": "2026-09-22T08:30:16Z",
+      "comments": 0
+    },
+    {
       "repo": "internet-court/internet-court-skill",
       "number": 30,
       "title": "write-wall probe (throwaway)",
@@ -454,6 +550,18 @@
       "comments": 0
     },
     {
+      "repo": "langflow-ai/langflow",
+      "number": 15258,
+      "title": "Proposal: a pay-per-call web-extract data component settled via x402 (VendExtract)",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/langflow-ai/langflow/issues/15258",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T08:20:14Z",
+      "updated_at": "2026-09-22T08:20:14Z",
+      "comments": 0
+    },
+    {
       "repo": "lordginge/paygate-arc",
       "number": 1,
       "title": "Idea: optional fee-less settlement (Nano XNO) alongside x402 USDC",
@@ -464,6 +572,18 @@
       "created_at": "2026-09-22T06:33:09Z",
       "updated_at": "2026-09-22T06:33:09Z",
       "comments": 0
+    },
+    {
+      "repo": "mastra-ai/mastra",
+      "number": 24647,
+      "title": "Consider Nano (XNO) as a second settlement rail in the x402 pay guide",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/mastra-ai/mastra/issues/24647",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T08:23:53Z",
+      "updated_at": "2026-09-22T08:23:57Z",
+      "comments": 1
     },
     {
       "repo": "mbeato/awesome-mpp",
@@ -487,6 +607,18 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T06:40:10Z",
       "updated_at": "2026-09-22T06:40:10Z",
+      "comments": 0
+    },
+    {
+      "repo": "microsoft/autogen",
+      "number": 8270,
+      "title": "Consider a feeless settlement rail (Nano / XNO) beside the credit & USDC legs",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/microsoft/autogen/issues/8270",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T08:25:06Z",
+      "updated_at": "2026-09-22T08:25:06Z",
       "comments": 0
     },
     {
@@ -622,6 +754,18 @@
       "comments": 2
     },
     {
+      "repo": "pydantic/pydantic-ai",
+      "number": 8615,
+      "title": "Consider Nano (XNO) as a feeless settlement option for agent pay-per-use",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/pydantic/pydantic-ai/issues/8615",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T08:26:22Z",
+      "updated_at": "2026-09-22T08:26:30Z",
+      "comments": 0
+    },
+    {
       "repo": "pyfile-toolkit/nano-llm-api",
       "number": 1,
       "title": "Nano (XNO) accepts on your endpoint: the CDP discovery validator can't reach your host, plus an XNO payer that works",
@@ -694,6 +838,18 @@
       "comments": 1
     },
     {
+      "repo": "socialbitro/agentbit-mcp",
+      "number": 2,
+      "title": "Add nano:mainnet as a 7th settlement network to AgentBIT \u2014 the feeless rail for per-call x402",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/socialbitro/agentbit-mcp/issues/2",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T08:29:10Z",
+      "updated_at": "2026-09-22T08:29:10Z",
+      "comments": 0
+    },
+    {
       "repo": "solana-foundation/pay-kit",
       "number": 329,
       "title": "Add Nano (XNO) as a settlement network: feeless, instant, single-confirmation end-to-end",
@@ -718,6 +874,18 @@
       "comments": 0
     },
     {
+      "repo": "tempoxyz/mpp-specs",
+      "number": 365,
+      "title": "Add 'nano' payment method for the 'charge' intent (fee-less, sub-second)",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/tempoxyz/mpp-specs/issues/365",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T08:24:31Z",
+      "updated_at": "2026-09-22T08:24:31Z",
+      "comments": 0
+    },
+    {
       "repo": "tsubasakong/awesome-agent-payments-protocol",
       "number": 96,
       "title": "Nano (XNO) x402 payer for OpenAI Agents SDK \u2014 a non-EVM payment protocol entry",
@@ -728,6 +896,18 @@
       "created_at": "2026-09-17T23:40:23Z",
       "updated_at": "2026-09-19T21:44:21Z",
       "comments": 1
+    },
+    {
+      "repo": "untitledfinancial/dpx-mcp",
+      "number": 1,
+      "title": "Add Nano (XNO) as a lowest-cost settlement rail \u2014 $0 fee, <2s finality, no issuer",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/untitledfinancial/dpx-mcp/issues/1",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T08:29:10Z",
+      "updated_at": "2026-09-22T08:29:10Z",
+      "comments": 0
     },
     {
       "repo": "valory-xyz/mech-server",
@@ -1232,6 +1412,18 @@
       "created_at": "2026-09-22T00:41:13Z",
       "updated_at": "2026-09-22T00:41:44Z",
       "comments": 0
+    },
+    {
+      "repo": "signaltech-org/bolthub-sdk",
+      "number": 4,
+      "title": "birch-permission-probe-1790065441",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/signaltech-org/bolthub-sdk/issues/4",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T08:24:02Z",
+      "updated_at": "2026-09-22T08:24:07Z",
+      "comments": 1
     },
     {
       "repo": "stefanbx/xchat-alpha",
