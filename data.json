@@ -1,12 +1,12 @@
 {
-  "generated": "2026-09-21 21:58 UTC",
+  "generated": "2026-09-22 00:39 UTC",
   "summary": {
-    "total": 69,
+    "total": 79,
     "merged": 0,
-    "open": 40,
-    "closed": 29,
-    "repos": 48,
-    "answered": 35
+    "open": 47,
+    "closed": 32,
+    "repos": 55,
+    "answered": 38
   },
   "rows": [
     {
@@ -68,6 +68,18 @@
       "created_at": "2026-09-17T23:41:23Z",
       "updated_at": "2026-09-19T21:44:08Z",
       "comments": 1
+    },
+    {
+      "repo": "LiquidLogicX/liquid-logic-agent",
+      "number": 48,
+      "title": "Question: would the treasurer's x402 allowlist consider a feeless USD-free rail (Nano XNO)?",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/LiquidLogicX/liquid-logic-agent/issues/48",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T00:16:50Z",
+      "updated_at": "2026-09-22T00:16:50Z",
+      "comments": 0
     },
     {
       "repo": "Merit-Systems/awesome-agentic-commerce",
@@ -163,6 +175,18 @@
       "author": "dhyabi2",
       "created_at": "2026-09-17T23:40:40Z",
       "updated_at": "2026-09-17T23:40:40Z",
+      "comments": 0
+    },
+    {
+      "repo": "codebruinc/pikasim-mcp",
+      "number": 3,
+      "title": "Proposal: add Nano (XNO) deposit + refund leg to the agent wallet",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/codebruinc/pikasim-mcp/issues/3",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T00:37:13Z",
+      "updated_at": "2026-09-22T00:37:13Z",
       "comments": 0
     },
     {
@@ -274,6 +298,18 @@
       "comments": 0
     },
     {
+      "repo": "mioku50/Veyra",
+      "number": 11,
+      "title": "Question: does rail policy consider a feeless settlement option (Nano XNO) beside USDC?",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/mioku50/Veyra/issues/11",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T00:16:49Z",
+      "updated_at": "2026-09-22T00:16:49Z",
+      "comments": 0
+    },
+    {
       "repo": "mpp-best/awesome_mpp",
       "number": 10,
       "title": "Nano (XNO) x402 payer for OpenAI Agents SDK \u2014 MPP ecosystem addition",
@@ -370,6 +406,18 @@
       "comments": 0
     },
     {
+      "repo": "ryanthegentry/402index",
+      "number": 348,
+      "title": "Add Nano (XNO) x402 support \u2014 Vend API Merchant",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/ryanthegentry/402index/issues/348",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-21T22:41:28Z",
+      "updated_at": "2026-09-21T22:41:28Z",
+      "comments": 0
+    },
+    {
       "repo": "satohubai/onchain-agents",
       "number": 11,
       "title": "[Proposal] Add openai-agents-nano to on-chain agents directory",
@@ -392,6 +440,18 @@
       "created_at": "2026-09-21T11:13:15Z",
       "updated_at": "2026-09-21T12:48:29Z",
       "comments": 2
+    },
+    {
+      "repo": "tacticalnoot/agent-embassy",
+      "number": 1,
+      "title": "Feature: add Nano (XNO) as an accepts network in the x402 settlement loop",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/tacticalnoot/agent-embassy/issues/1",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T00:14:16Z",
+      "updated_at": "2026-09-22T00:15:46Z",
+      "comments": 0
     },
     {
       "repo": "tsubasakong/awesome-agent-payments-protocol",
@@ -466,6 +526,18 @@
       "comments": 0
     },
     {
+      "repo": "xona-labs/x402-orbit-agent",
+      "number": 1,
+      "title": "Add an optional nano:mainnet x402 accept leg for Lite Agents on Orbit",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/xona-labs/x402-orbit-agent/issues/1",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T00:14:28Z",
+      "updated_at": "2026-09-22T00:14:28Z",
+      "comments": 0
+    },
+    {
       "repo": "xpaysh/awesome-x402",
       "number": 1555,
       "title": "Nano (XNO) x402 payer for OpenAI Agents SDK \u2014 curated addition to SDKs & Client Libraries section",
@@ -487,6 +559,18 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-21T20:18:23Z",
       "updated_at": "2026-09-21T20:18:23Z",
+      "comments": 0
+    },
+    {
+      "repo": "yuhangxian235/agentpay-desk",
+      "number": 19,
+      "title": "Add Nano (XNO) as a second settlement rail beside stablecoins",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/yuhangxian235/agentpay-desk/issues/19",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T00:37:21Z",
+      "updated_at": "2026-09-22T00:37:21Z",
       "comments": 0
     },
     {
@@ -610,6 +694,18 @@
       "comments": 0
     },
     {
+      "repo": "codebruinc/pikasim-mcp",
+      "number": 2,
+      "title": "write-wall probe",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/codebruinc/pikasim-mcp/issues/2",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T00:35:51Z",
+      "updated_at": "2026-09-22T00:36:09Z",
+      "comments": 1
+    },
+    {
       "repo": "google-gemini/gemini-cli",
       "number": 25250,
       "title": "Path traversal in Chromium agents/extensions/install.py allows arbitrary directory deletion via shutil.rmtree",
@@ -691,6 +787,18 @@
       "author": "dhyabi2",
       "created_at": "2026-08-20T20:40:03Z",
       "updated_at": "2026-08-26T02:37:42Z",
+      "comments": 1
+    },
+    {
+      "repo": "langchain-ai/langchain",
+      "number": 40723,
+      "title": "test: ignore - can PANDeveloper001 open issues",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/langchain-ai/langchain/issues/40723",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-21T23:07:09Z",
+      "updated_at": "2026-09-21T23:07:22Z",
       "comments": 1
     },
     {
@@ -836,6 +944,18 @@
       "created_at": "2026-09-21T20:55:56Z",
       "updated_at": "2026-09-21T20:56:31Z",
       "comments": 0
+    },
+    {
+      "repo": "yuhangxian235/agentpay-desk",
+      "number": 18,
+      "title": "write-wall probe",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/yuhangxian235/agentpay-desk/issues/18",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T00:35:52Z",
+      "updated_at": "2026-09-22T00:36:10Z",
+      "comments": 1
     }
   ]
 }
