@@ -1,11 +1,11 @@
 {
-  "generated": "2026-09-22 08:30 UTC",
+  "generated": "2026-09-22 08:48 UTC",
   "summary": {
-    "total": 128,
+    "total": 138,
     "merged": 0,
-    "open": 87,
-    "closed": 41,
-    "repos": 99,
+    "open": 95,
+    "closed": 43,
+    "repos": 108,
     "answered": 43
   },
   "rows": [
@@ -142,6 +142,18 @@
       "comments": 0
     },
     {
+      "repo": "Nexussyn/ai-growth-engine",
+      "number": 155,
+      "title": "Proposal: add Nano (XNO) as a second bounty payout rail beside USDC on Base",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/Nexussyn/ai-growth-engine/issues/155",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T08:37:30Z",
+      "updated_at": "2026-09-22T08:37:30Z",
+      "comments": 0
+    },
+    {
       "repo": "QBT-Labs/x402",
       "number": 11,
       "title": "Add Nano (XNO) as a fourth settlement network in @qbtlabs/x402 \u2014 the feeless multi-chain rail",
@@ -190,6 +202,18 @@
       "comments": 0
     },
     {
+      "repo": "ToolOracle/oraclenet",
+      "number": 5,
+      "title": "Add NanoOracle (XNO) as a 15th chain oracle and nano:mainnet as a second x402 settlement rail",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/ToolOracle/oraclenet/issues/5",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T08:30:36Z",
+      "updated_at": "2026-09-22T08:30:36Z",
+      "comments": 0
+    },
+    {
       "repo": "Vellar-Wallet/vellar-facilitator",
       "number": 99,
       "title": "Feature request: add Nano (XNO) as a second settlement rail alongside Stellar",
@@ -211,6 +235,18 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-21T20:19:22Z",
       "updated_at": "2026-09-21T20:19:22Z",
+      "comments": 0
+    },
+    {
+      "repo": "XSpoonAi/spoon-core",
+      "number": 289,
+      "title": "Add Nano (XNO) as a rail beside USDC \u2014 zero fee, ~0.3s settlement",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/XSpoonAi/spoon-core/issues/289",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T08:45:45Z",
+      "updated_at": "2026-09-22T08:45:45Z",
       "comments": 0
     },
     {
@@ -430,6 +466,18 @@
       "comments": 1
     },
     {
+      "repo": "furkanyesildag/cogladius",
+      "number": 2,
+      "title": "Proposal: add Nano (XNO) as a feeless second settlement reward leg beside Soroban escrow",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/furkanyesildag/cogladius/issues/2",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T08:34:16Z",
+      "updated_at": "2026-09-22T08:34:16Z",
+      "comments": 0
+    },
+    {
       "repo": "gatefareio/mcp-server",
       "number": 5,
       "title": "Add nano:mainnet as a second x402 settlement network \u2014 sub-second, feeless rail",
@@ -439,6 +487,18 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T08:29:11Z",
       "updated_at": "2026-09-22T08:29:11Z",
+      "comments": 0
+    },
+    {
+      "repo": "getlago/lago",
+      "number": 805,
+      "title": "Feature request: a feeless settlement rail (Nano / XNO) for metered, sub-cent API-call billing",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/getlago/lago/issues/805",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T08:38:31Z",
+      "updated_at": "2026-09-22T08:44:51Z",
       "comments": 0
     },
     {
@@ -694,6 +754,30 @@
       "comments": 0
     },
     {
+      "repo": "openmeterio/openmeter",
+      "number": 5176,
+      "title": "Feature request: a feeless settlement option for usage-based AI/API billing (Nano / XNO)",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/openmeterio/openmeter/issues/5176",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T08:42:49Z",
+      "updated_at": "2026-09-22T08:44:52Z",
+      "comments": 0
+    },
+    {
+      "repo": "otomat-fun/otomat",
+      "number": 16,
+      "title": "Add Nano (XNO) as a rail beside Solana USDC \u2014 zero fee, gasless settlement",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/otomat-fun/otomat/issues/16",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T08:46:01Z",
+      "updated_at": "2026-09-22T08:46:01Z",
+      "comments": 0
+    },
+    {
       "repo": "patwalls/walls-mcp-examples",
       "number": 2,
       "title": "Add Nano (XNO) as a settlement option alongside USDC \u2014 feeless, instant, no EVM wallet needed",
@@ -860,6 +944,18 @@
       "created_at": "2026-09-21T11:13:15Z",
       "updated_at": "2026-09-21T12:48:29Z",
       "comments": 2
+    },
+    {
+      "repo": "sudzikcoin/suverse-pay",
+      "number": 12,
+      "title": "Add Nano (XNO) as a network \u2014 a zero-fee rail beside USDC on Base/Solana",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/sudzikcoin/suverse-pay/issues/12",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T08:46:29Z",
+      "updated_at": "2026-09-22T08:46:29Z",
+      "comments": 0
     },
     {
       "repo": "tacticalnoot/agent-embassy",
@@ -1186,6 +1282,18 @@
       "comments": 2
     },
     {
+      "repo": "Recall-Kitchen/awesome-x402-mcp-services",
+      "number": 79,
+      "title": "[dry] probe: token write test, will close",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/Recall-Kitchen/awesome-x402-mcp-services/issues/79",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T08:39:15Z",
+      "updated_at": "2026-09-22T08:39:15Z",
+      "comments": 0
+    },
+    {
       "repo": "Vellar-Wallet/vellar-facilitator",
       "number": 98,
       "title": "_permission probe",
@@ -1352,6 +1460,18 @@
       "created_at": "2026-09-17T23:42:01Z",
       "updated_at": "2026-09-18T06:26:11Z",
       "comments": 1
+    },
+    {
+      "repo": "otomat-fun/otomat",
+      "number": 15,
+      "title": "test-permission-check",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/otomat-fun/otomat/issues/15",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T08:43:33Z",
+      "updated_at": "2026-09-22T08:43:40Z",
+      "comments": 0
     },
     {
       "repo": "patwalls/walls-mcp-examples",
