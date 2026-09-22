@@ -1,11 +1,11 @@
 {
-  "generated": "2026-09-22 15:27 UTC",
+  "generated": "2026-09-22 16:13 UTC",
   "summary": {
-    "total": 207,
+    "total": 225,
     "merged": 0,
-    "open": 151,
-    "closed": 56,
-    "repos": 165,
+    "open": 159,
+    "closed": 66,
+    "repos": 173,
     "answered": 64
   },
   "rows": [
@@ -478,6 +478,18 @@
       "comments": 1
     },
     {
+      "repo": "XFuel-Lab/chit402",
+      "number": 408,
+      "title": "perm-check",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/XFuel-Lab/chit402/issues/408",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T15:35:04Z",
+      "updated_at": "2026-09-22T15:35:04Z",
+      "comments": 0
+    },
+    {
       "repo": "XSpoonAi/spoon-core",
       "number": 289,
       "title": "Add Nano (XNO) as a rail beside USDC \u2014 zero fee, ~0.3s settlement",
@@ -730,6 +742,18 @@
       "comments": 0
     },
     {
+      "repo": "dimitrilaouanis-tech/0n1x",
+      "number": 6,
+      "title": "rai write-probe",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/dimitrilaouanis-tech/0n1x/issues/6",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T15:48:46Z",
+      "updated_at": "2026-09-22T15:48:46Z",
+      "comments": 0
+    },
+    {
       "repo": "e2b-dev/awesome-ai-sdks",
       "number": 373,
       "title": "Add Nano (XNO) x402 payer \u2014 openai-agents-nano \u2014 client SDK for fee-free agent payments",
@@ -958,6 +982,18 @@
       "comments": 0
     },
     {
+      "repo": "huggingface/smolagents",
+      "number": 2827,
+      "title": "Suggestion: add a feeless x402 payment example for paid APIs (Nano / XNO)",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/huggingface/smolagents/issues/2827",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T15:43:53Z",
+      "updated_at": "2026-09-22T15:48:41Z",
+      "comments": 0
+    },
+    {
       "repo": "huwhitememes/tollbooth",
       "number": 5,
       "title": "Add Nano (XNO) as a second settlement network for Tollbooth \u2014 sub-second, feeless x402 rail",
@@ -1039,6 +1075,18 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T08:20:14Z",
       "updated_at": "2026-09-22T08:20:14Z",
+      "comments": 0
+    },
+    {
+      "repo": "lindy-ai/docs",
+      "number": 348,
+      "title": "Product idea: let a Lindy agent pay a 402 Payment Required (x402) tool call per call \u2014 no account, no card, no key",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/lindy-ai/docs/issues/348",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T15:29:55Z",
+      "updated_at": "2026-09-22T15:29:55Z",
       "comments": 0
     },
     {
@@ -1162,6 +1210,18 @@
       "comments": 0
     },
     {
+      "repo": "msantagiulianab/solana-enterprise-payment-gateway",
+      "number": 2,
+      "title": "A feeless settlement rail that drops the channel sweep: Nano (XNO) beside Solana",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/msantagiulianab/solana-enterprise-payment-gateway/issues/2",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T15:32:11Z",
+      "updated_at": "2026-09-22T15:32:11Z",
+      "comments": 0
+    },
+    {
       "repo": "neuronto/x402-starters",
       "number": 1,
       "title": "Feature: a zero-fee Nano (XNO) starter template in the collection",
@@ -1279,6 +1339,30 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-21T20:16:50Z",
       "updated_at": "2026-09-21T20:16:50Z",
+      "comments": 0
+    },
+    {
+      "repo": "pplmaverick/x402-sentinel",
+      "number": 1,
+      "title": "perm-check",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/pplmaverick/x402-sentinel/issues/1",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T15:35:05Z",
+      "updated_at": "2026-09-22T15:35:05Z",
+      "comments": 0
+    },
+    {
+      "repo": "pplmaverick/x402-sentinel",
+      "number": 2,
+      "title": "A zero-fee verification leg that fits the accepts[] scanner: Nano (XNO)",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/pplmaverick/x402-sentinel/issues/2",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T15:38:42Z",
+      "updated_at": "2026-09-22T15:38:42Z",
       "comments": 0
     },
     {
@@ -1412,6 +1496,18 @@
       "created_at": "2026-09-17T23:41:34Z",
       "updated_at": "2026-09-19T21:44:19Z",
       "comments": 1
+    },
+    {
+      "repo": "shoutsid-lab/webcap",
+      "number": 2,
+      "title": "perm-check",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/shoutsid-lab/webcap/issues/2",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T15:35:06Z",
+      "updated_at": "2026-09-22T15:35:06Z",
+      "comments": 0
     },
     {
       "repo": "showmikb/gateway-llm",
@@ -2026,6 +2122,42 @@
       "comments": 0
     },
     {
+      "repo": "afbolivarg/cashdesk-utils",
+      "number": 2,
+      "title": "rai write-probe",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/afbolivarg/cashdesk-utils/issues/2",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T15:48:44Z",
+      "updated_at": "2026-09-22T15:49:08Z",
+      "comments": 0
+    },
+    {
+      "repo": "afbolivarg/cashdesk-utils",
+      "number": 3,
+      "title": "rai write-probe",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/afbolivarg/cashdesk-utils/issues/3",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T15:50:22Z",
+      "updated_at": "2026-09-22T15:50:23Z",
+      "comments": 0
+    },
+    {
+      "repo": "afbolivarg/cashdesk-utils",
+      "number": 4,
+      "title": "rai write-probe",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/afbolivarg/cashdesk-utils/issues/4",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T15:50:29Z",
+      "updated_at": "2026-09-22T15:50:29Z",
+      "comments": 0
+    },
+    {
       "repo": "codebruinc/pikasim-mcp",
       "number": 2,
       "title": "write-wall probe",
@@ -2036,6 +2168,30 @@
       "created_at": "2026-09-22T00:35:51Z",
       "updated_at": "2026-09-22T00:36:09Z",
       "comments": 1
+    },
+    {
+      "repo": "dimitrilaouanis-tech/0n1x",
+      "number": 7,
+      "title": "rai write-probe",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/dimitrilaouanis-tech/0n1x/issues/7",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T15:50:21Z",
+      "updated_at": "2026-09-22T15:50:22Z",
+      "comments": 0
+    },
+    {
+      "repo": "dimitrilaouanis-tech/0n1x",
+      "number": 8,
+      "title": "rai write-probe",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/dimitrilaouanis-tech/0n1x/issues/8",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T15:50:28Z",
+      "updated_at": "2026-09-22T15:50:28Z",
+      "comments": 0
     },
     {
       "repo": "google-gemini/gemini-cli",
@@ -2206,6 +2362,18 @@
       "comments": 1
     },
     {
+      "repo": "langgenius/dify",
+      "number": 42759,
+      "title": "Feature: let a Dify agent tool answer an x402 (HTTP 402) pay-per-call and pay per call \u2014 no key, no signup",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/langgenius/dify/issues/42759",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T15:35:54Z",
+      "updated_at": "2026-09-22T15:56:21Z",
+      "comments": 0
+    },
+    {
       "repo": "mastra-ai/mastra",
       "number": 24647,
       "title": "Consider Nano (XNO) as a second settlement rail in the x402 pay guide",
@@ -2338,6 +2506,42 @@
       "comments": 0
     },
     {
+      "repo": "shoutsid-lab/webcap",
+      "number": 3,
+      "title": "rai write-probe",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/shoutsid-lab/webcap/issues/3",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T15:48:45Z",
+      "updated_at": "2026-09-22T15:49:09Z",
+      "comments": 0
+    },
+    {
+      "repo": "shoutsid-lab/webcap",
+      "number": 4,
+      "title": "rai write-probe",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/shoutsid-lab/webcap/issues/4",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T15:50:24Z",
+      "updated_at": "2026-09-22T15:50:24Z",
+      "comments": 0
+    },
+    {
+      "repo": "shoutsid-lab/webcap",
+      "number": 5,
+      "title": "rai write-probe",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/shoutsid-lab/webcap/issues/5",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T15:50:30Z",
+      "updated_at": "2026-09-22T15:50:31Z",
+      "comments": 0
+    },
+    {
       "repo": "signaltech-org/bolthub-sdk",
       "number": 4,
       "title": "birch-permission-probe-1790065441",
@@ -2420,6 +2624,18 @@
       "created_at": "2026-08-13T16:54:41Z",
       "updated_at": "2026-08-14T10:01:54Z",
       "comments": 2
+    },
+    {
+      "repo": "thisyearnofear/earlynotwrong",
+      "number": 36,
+      "title": "rai write-probe",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/thisyearnofear/earlynotwrong/issues/36",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T15:48:46Z",
+      "updated_at": "2026-09-22T15:49:10Z",
+      "comments": 0
     },
     {
       "repo": "unicity-sphere/sphere-sdk",
