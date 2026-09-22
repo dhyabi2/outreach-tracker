@@ -1,11 +1,11 @@
 {
-  "generated": "2026-09-22 08:48 UTC",
+  "generated": "2026-09-22 09:08 UTC",
   "summary": {
-    "total": 138,
+    "total": 139,
     "merged": 0,
-    "open": 95,
+    "open": 96,
     "closed": 43,
-    "repos": 108,
+    "repos": 109,
     "answered": 43
   },
   "rows": [
@@ -931,6 +931,18 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T08:29:10Z",
       "updated_at": "2026-09-22T08:29:10Z",
+      "comments": 0
+    },
+    {
+      "repo": "solana-foundation/pay",
+      "number": 472,
+      "title": "Feature request: add Nano (XNO) as a self-custodied settlement rail via the x402 exact scheme",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/solana-foundation/pay/issues/472",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T08:54:10Z",
+      "updated_at": "2026-09-22T08:54:10Z",
       "comments": 0
     },
     {

@@ -4,9 +4,9 @@ Every issue and pull request the Nano swarm has opened on **someone else's** rep
 GitHub reports right now. Rebuilt on a schedule by [`track.py`](track.py) — never appended to, so a PR that
 gets merged says merged here without anyone editing the table.
 
-**138** submissions across **108** repositories · **0** merged · **95** open · **43** closed · **43** have at least one reply.
+**139** submissions across **109** repositories · **0** merged · **96** open · **43** closed · **43** have at least one reply.
 
-_Generated 2026-09-22 08:48 UTC._
+_Generated 2026-09-22 09:08 UTC._
 
 Work on a repository under an account we control is not outreach and never appears here: it reaches no
 maintainer. 35 issues were once opened on our own forks of other people's projects and reported as outreach,
@@ -91,6 +91,7 @@ which is the mistake this table exists to make impossible to repeat.
 | open | [ryanthegentry/402index](https://github.com/ryanthegentry/402index) | [#348](https://github.com/ryanthegentry/402index/issues/348) | Add Nano (XNO) x402 support — Vend API Merchant | issue | 0 | 2026-09-21 | PANDeveloper001 |
 | open | [satohubai/onchain-agents](https://github.com/satohubai/onchain-agents) | [#11](https://github.com/satohubai/onchain-agents/issues/11) | [Proposal] Add openai-agents-nano to on-chain agents directory | issue | 1 | 2026-09-17 | dhyabi2 |
 | open | [socialbitro/agentbit-mcp](https://github.com/socialbitro/agentbit-mcp) | [#2](https://github.com/socialbitro/agentbit-mcp/issues/2) | Add nano:mainnet as a 7th settlement network to AgentBIT — the feeless rail for per-cal... | issue | 0 | 2026-09-22 | PANDeveloper001 |
+| open | [solana-foundation/pay](https://github.com/solana-foundation/pay) | [#472](https://github.com/solana-foundation/pay/issues/472) | Feature request: add Nano (XNO) as a self-custodied settlement rail via the x402 exact ... | issue | 0 | 2026-09-22 | PANDeveloper001 |
 | open | [solana-foundation/pay-kit](https://github.com/solana-foundation/pay-kit) | [#329](https://github.com/solana-foundation/pay-kit/issues/329) | Add Nano (XNO) as a settlement network: feeless, instant, single-confirmation end-to-end | issue | 2 | 2026-09-21 | PANDeveloper001 |
 | open | [sudzikcoin/suverse-pay](https://github.com/sudzikcoin/suverse-pay) | [#12](https://github.com/sudzikcoin/suverse-pay/issues/12) | Add Nano (XNO) as a network — a zero-fee rail beside USDC on Base/Solana | issue | 0 | 2026-09-22 | PANDeveloper001 |
 | open | [tacticalnoot/agent-embassy](https://github.com/tacticalnoot/agent-embassy) | [#1](https://github.com/tacticalnoot/agent-embassy/issues/1) | Feature: add Nano (XNO) as an accepts network in the x402 settlement loop | issue | 0 | 2026-09-22 | PANDeveloper001 |
