@@ -1,11 +1,11 @@
 {
-  "generated": "2026-09-22 16:39 UTC",
+  "generated": "2026-09-22 17:22 UTC",
   "summary": {
-    "total": 218,
+    "total": 226,
     "merged": 0,
-    "open": 154,
+    "open": 162,
     "closed": 64,
-    "repos": 172,
+    "repos": 179,
     "answered": 64
   },
   "rows": [
@@ -82,6 +82,18 @@
       "comments": 0
     },
     {
+      "repo": "AgentBuildersApp/eight-eyes",
+      "number": 1,
+      "title": "Feature idea: x402 pay-per-call support - let an agent settle per tool call in Nano (XNO) \u2014 no card, no custody",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/AgentBuildersApp/eight-eyes/issues/1",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T16:52:10Z",
+      "updated_at": "2026-09-22T16:52:10Z",
+      "comments": 0
+    },
+    {
       "repo": "AnkanMisra/MicroAI-Paygate",
       "number": 426,
       "title": "Offer: a receive-only Nano (XNO) settlement rail for the paygate",
@@ -139,6 +151,18 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T10:50:35Z",
       "updated_at": "2026-09-22T10:50:35Z",
+      "comments": 0
+    },
+    {
+      "repo": "ComposioHQ/composio",
+      "number": 4586,
+      "title": "Feature request: per-call x402 settlement in Nano (XNO) at the tool-execution billing boundary \u2014 no portal account needed",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/ComposioHQ/composio/issues/4586",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T16:53:54Z",
+      "updated_at": "2026-09-22T16:54:20Z",
       "comments": 0
     },
     {
@@ -606,8 +630,8 @@
       "url": "https://github.com/botpress/botpress/issues/15489",
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T11:09:44Z",
-      "updated_at": "2026-09-22T14:14:02Z",
-      "comments": 3
+      "updated_at": "2026-09-22T16:47:57Z",
+      "comments": 5
     },
     {
       "repo": "cascade-protocol/x402-proxy",
@@ -631,6 +655,18 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T07:38:47Z",
       "updated_at": "2026-09-22T07:38:47Z",
+      "comments": 0
+    },
+    {
+      "repo": "code0xff/agents",
+      "number": 1,
+      "title": "Research: add Nano (XNO) as a fifth observed settlement rail",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/code0xff/agents/issues/1",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T16:42:13Z",
+      "updated_at": "2026-09-22T16:42:13Z",
       "comments": 0
     },
     {
@@ -670,6 +706,18 @@
       "comments": 0
     },
     {
+      "repo": "crewAIInc/crewAI",
+      "number": 7716,
+      "title": "Feature request: a tool wrapper that answers a 402 Payment Required (x402) call and pays per call \u2014 no API key, no signup",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/crewAIInc/crewAI/issues/7716",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T16:54:40Z",
+      "updated_at": "2026-09-22T16:54:40Z",
+      "comments": 0
+    },
+    {
       "repo": "crypto-priest/x402-solana-rust",
       "number": 2,
       "title": "Add a Nano (XNO) network beside Solana \u2014 settle becomes a single signed block",
@@ -704,6 +752,18 @@
       "created_at": "2026-09-22T10:53:12Z",
       "updated_at": "2026-09-22T10:54:31Z",
       "comments": 1
+    },
+    {
+      "repo": "deepset-ai/haystack",
+      "number": 12861,
+      "title": "Feeless pay-per-call tool integration (Nano / XNO) \u2014 following maintainer direction on x402",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/deepset-ai/haystack/issues/12861",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T17:10:30Z",
+      "updated_at": "2026-09-22T17:10:30Z",
+      "comments": 0
     },
     {
       "repo": "devcer/open-payments-mcp",
@@ -895,6 +955,18 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-21T11:13:48Z",
       "updated_at": "2026-09-21T11:13:48Z",
+      "comments": 0
+    },
+    {
+      "repo": "haoruilee/awesome-agent-native-services",
+      "number": 156,
+      "title": "[New Service] openai-agents-nano-x402 \u2014 feeless self-custodied x402 settlement for agents (Nano XNO)",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/haoruilee/awesome-agent-native-services/issues/156",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T16:46:52Z",
+      "updated_at": "2026-09-22T16:46:52Z",
       "comments": 0
     },
     {
@@ -1678,6 +1750,18 @@
       "comments": 0
     },
     {
+      "repo": "vstorm-co/full-stack-ai-agent-template",
+      "number": 155,
+      "title": "Feeless settlement option for the agent/credits billing leg (Nano / XNO)",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/vstorm-co/full-stack-ai-agent-template/issues/155",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T17:08:00Z",
+      "updated_at": "2026-09-22T17:08:00Z",
+      "comments": 0
+    },
+    {
       "repo": "wienerlabs/covenant",
       "number": 323,
       "title": "Feature: add Nano (XNO) as a second settlement rail beside USDC for creator-economy and small-job payments",
@@ -1771,6 +1855,18 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T13:46:31Z",
       "updated_at": "2026-09-22T13:46:31Z",
+      "comments": 0
+    },
+    {
+      "repo": "x402-index/x402search-mcp",
+      "number": 5,
+      "title": "Add Nano (XNO) x402 network as a discoverable search network \u2014 Nano x402 APIs are live and growing",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/x402-index/x402search-mcp/issues/5",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T17:16:22Z",
+      "updated_at": "2026-09-22T17:16:22Z",
       "comments": 0
     },
     {
