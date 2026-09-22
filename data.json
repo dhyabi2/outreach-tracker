@@ -1,12 +1,12 @@
 {
-  "generated": "2026-09-22 11:42 UTC",
+  "generated": "2026-09-22 12:33 UTC",
   "summary": {
-    "total": 165,
+    "total": 173,
     "merged": 0,
-    "open": 118,
+    "open": 126,
     "closed": 47,
-    "repos": 133,
-    "answered": 53
+    "repos": 140,
+    "answered": 56
   },
   "rows": [
     {
@@ -190,6 +190,18 @@
       "comments": 0
     },
     {
+      "repo": "MikeyPetrillo/Agent402",
+      "number": 1447,
+      "title": "Proposal: add Nano (XNO) as a settlement rail in src/rails.js + src/payments.js",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/MikeyPetrillo/Agent402/issues/1447",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T11:45:53Z",
+      "updated_at": "2026-09-22T11:45:53Z",
+      "comments": 0
+    },
+    {
       "repo": "MiroShark/MiroShark",
       "number": 309,
       "title": "Settlement option: a feeless XNO accepts[] entry beside your USDC rails",
@@ -199,6 +211,18 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T06:38:47Z",
       "updated_at": "2026-09-22T06:38:47Z",
+      "comments": 0
+    },
+    {
+      "repo": "MorpheusAIs/Morpheus-Lumerin-Node",
+      "number": 888,
+      "title": "Proposal: a feeless Nano (XNO) session-settlement option for Morpheus inference",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/MorpheusAIs/Morpheus-Lumerin-Node/issues/888",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T11:51:17Z",
+      "updated_at": "2026-09-22T11:51:17Z",
       "comments": 0
     },
     {
@@ -222,8 +246,8 @@
       "url": "https://github.com/Nexussyn/ai-growth-engine/issues/155",
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T08:37:30Z",
-      "updated_at": "2026-09-22T08:37:30Z",
-      "comments": 0
+      "updated_at": "2026-09-22T11:58:43Z",
+      "comments": 1
     },
     {
       "repo": "QBT-Labs/x402",
@@ -390,8 +414,8 @@
       "url": "https://github.com/adamkrawczyk/agentpact/issues/148",
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T08:26:04Z",
-      "updated_at": "2026-09-22T10:51:56Z",
-      "comments": 3
+      "updated_at": "2026-09-22T11:45:38Z",
+      "comments": 4
     },
     {
       "repo": "agno-agi/agno",
@@ -654,8 +678,8 @@
       "url": "https://github.com/furkanyesildag/cogladius/issues/2",
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T08:34:16Z",
-      "updated_at": "2026-09-22T08:34:16Z",
-      "comments": 0
+      "updated_at": "2026-09-22T11:58:16Z",
+      "comments": 1
     },
     {
       "repo": "gatefareio/mcp-server",
@@ -826,6 +850,18 @@
       "comments": 0
     },
     {
+      "repo": "ladymillard/chai-sol",
+      "number": 30,
+      "title": "Proposal: add Nano (XNO) as a self-custodied settlement rail beside SOL / BRic",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/ladymillard/chai-sol/issues/30",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T11:53:27Z",
+      "updated_at": "2026-09-22T11:53:27Z",
+      "comments": 0
+    },
+    {
       "repo": "langflow-ai/langflow",
       "number": 15258,
       "title": "Proposal: a pay-per-call web-extract data component settled via x402 (VendExtract)",
@@ -847,6 +883,18 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T06:33:09Z",
       "updated_at": "2026-09-22T06:33:09Z",
+      "comments": 0
+    },
+    {
+      "repo": "madebyshun/blue-agent",
+      "number": 470,
+      "title": "Proposal: a feeless Nano (XNO) settlement option in the Blue Hub x402 flow",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/madebyshun/blue-agent/issues/470",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T12:03:50Z",
+      "updated_at": "2026-09-22T12:03:50Z",
       "comments": 0
     },
     {
@@ -883,6 +931,18 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T06:40:10Z",
       "updated_at": "2026-09-22T06:40:10Z",
+      "comments": 0
+    },
+    {
+      "repo": "meteroid-oss/meteroid",
+      "number": 1257,
+      "title": "Add Nano (XNO) as a peer-to-peer, zero-fee payment rail for metered/usage-based billing",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/meteroid-oss/meteroid/issues/1257",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T12:27:14Z",
+      "updated_at": "2026-09-22T12:27:14Z",
       "comments": 0
     },
     {
@@ -934,6 +994,18 @@
       "comments": 0
     },
     {
+      "repo": "neuronto/x402-starters",
+      "number": 1,
+      "title": "Feature: a zero-fee Nano (XNO) starter template in the collection",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/neuronto/x402-starters/issues/1",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T12:06:12Z",
+      "updated_at": "2026-09-22T12:06:12Z",
+      "comments": 0
+    },
+    {
       "repo": "nirholas/agenti",
       "number": 145,
       "title": "Nano (XNO) support: a feeless, instant rail for agent payments alongside EVM + Solana",
@@ -978,8 +1050,8 @@
       "url": "https://github.com/open-experiments/agent-exchange/issues/63",
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T07:35:54Z",
-      "updated_at": "2026-09-22T07:35:54Z",
-      "comments": 0
+      "updated_at": "2026-09-22T11:58:44Z",
+      "comments": 1
     },
     {
       "repo": "openmeterio/openmeter",
@@ -1198,6 +1270,18 @@
       "comments": 2
     },
     {
+      "repo": "soqucoin/soq-template-ai-agent-payments",
+      "number": 14,
+      "title": "Feature: a Nano (XNO) zero-fee pay-per-call rail alongside Lightning",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/soqucoin/soq-template-ai-agent-payments/issues/14",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T12:01:18Z",
+      "updated_at": "2026-09-22T12:01:18Z",
+      "comments": 0
+    },
+    {
       "repo": "sudzikcoin/suverse-pay",
       "number": 12,
       "title": "Add Nano (XNO) as a network \u2014 a zero-fee rail beside USDC on Base/Solana",
@@ -1243,6 +1327,18 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T09:25:56Z",
       "updated_at": "2026-09-22T09:25:56Z",
+      "comments": 0
+    },
+    {
+      "repo": "trustwallet/tw-agent-skills",
+      "number": 60,
+      "title": "Suggest a Nano (XNO) rail in the x402 client: feeless, sub-second, self-custody settlement",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/trustwallet/tw-agent-skills/issues/60",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T12:02:15Z",
+      "updated_at": "2026-09-22T12:02:15Z",
       "comments": 0
     },
     {
@@ -1350,8 +1446,8 @@
       "url": "https://github.com/x402-foundation/x402/issues/3512",
       "author": "dhyabi2",
       "created_at": "2026-09-17T23:41:56Z",
-      "updated_at": "2026-09-22T07:51:05Z",
-      "comments": 6
+      "updated_at": "2026-09-22T12:24:39Z",
+      "comments": 7
     },
     {
       "repo": "x402-rs/x402-rs",
