@@ -1,12 +1,12 @@
 {
-  "generated": "2026-09-22 12:33 UTC",
+  "generated": "2026-09-22 13:14 UTC",
   "summary": {
-    "total": 173,
+    "total": 180,
     "merged": 0,
-    "open": 126,
-    "closed": 47,
-    "repos": 140,
-    "answered": 56
+    "open": 130,
+    "closed": 50,
+    "repos": 146,
+    "answered": 58
   },
   "rows": [
     {
@@ -55,6 +55,18 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T08:30:04Z",
       "updated_at": "2026-09-22T08:30:04Z",
+      "comments": 0
+    },
+    {
+      "repo": "APIs-guru/openapi-directory",
+      "number": 3397,
+      "title": "Add \"Vend API Merchant\" API",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/APIs-guru/openapi-directory/issues/3397",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T12:50:03Z",
+      "updated_at": "2026-09-22T12:50:03Z",
       "comments": 0
     },
     {
@@ -190,15 +202,15 @@
       "comments": 0
     },
     {
-      "repo": "MikeyPetrillo/Agent402",
-      "number": 1447,
-      "title": "Proposal: add Nano (XNO) as a settlement rail in src/rails.js + src/payments.js",
+      "repo": "Merit-Systems/x402scan",
+      "number": 1220,
+      "title": "Support Nano (nano:mainnet) resources \u2014 30 live XNO resources in the Bazaar are dropped by the registration allowlist",
       "kind": "issue",
       "state": "open",
-      "url": "https://github.com/MikeyPetrillo/Agent402/issues/1447",
+      "url": "https://github.com/Merit-Systems/x402scan/issues/1220",
       "author": "PANDeveloper001",
-      "created_at": "2026-09-22T11:45:53Z",
-      "updated_at": "2026-09-22T11:45:53Z",
+      "created_at": "2026-09-22T12:34:11Z",
+      "updated_at": "2026-09-22T12:34:11Z",
       "comments": 0
     },
     {
@@ -466,6 +478,18 @@
       "comments": 1
     },
     {
+      "repo": "awslabs/agentcore-samples",
+      "number": 2101,
+      "title": "Amazon Bedrock AgentCore Samples - [Tutorial Request] Add Nano (XNO) x402 settlement rail in agents-that-transact tutorials",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/awslabs/agentcore-samples/issues/2101",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T13:11:54Z",
+      "updated_at": "2026-09-22T13:11:54Z",
+      "comments": 0
+    },
+    {
       "repo": "bitnovo/mcp-bitnovo-pay",
       "number": 2,
       "title": "Feature request: accept Nano (XNO) as a settlement asset",
@@ -498,8 +522,8 @@
       "url": "https://github.com/botpress/botpress/issues/15489",
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T11:09:44Z",
-      "updated_at": "2026-09-22T11:09:44Z",
-      "comments": 0
+      "updated_at": "2026-09-22T12:42:08Z",
+      "comments": 1
     },
     {
       "repo": "cascade-protocol/x402-proxy",
@@ -571,6 +595,18 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T07:38:18Z",
       "updated_at": "2026-09-22T07:38:18Z",
+      "comments": 0
+    },
+    {
+      "repo": "cyberwareX/cyberwarex-mcp",
+      "number": 1,
+      "title": "Feature request: add Nano (XNO) as an additional x402 settlement asset in the accepts block",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/cyberwareX/cyberwarex-mcp/issues/1",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T12:58:13Z",
+      "updated_at": "2026-09-22T12:58:13Z",
       "comments": 0
     },
     {
@@ -826,6 +862,18 @@
       "comments": 0
     },
     {
+      "repo": "hypeprinter007-stack/anchor-x402-mcp",
+      "number": 4,
+      "title": "Feature request: add Nano (XNO) as an additional x402 settlement asset",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/hypeprinter007-stack/anchor-x402-mcp/issues/4",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T12:50:30Z",
+      "updated_at": "2026-09-22T12:50:30Z",
+      "comments": 0
+    },
+    {
       "repo": "jaysperspective/thebuyside-x402-agent",
       "number": 10,
       "title": "Integration offer: surface Nano (XNO) as the cheapest settlement rail in your x402 buyer gateway",
@@ -896,18 +944,6 @@
       "created_at": "2026-09-22T12:03:50Z",
       "updated_at": "2026-09-22T12:03:50Z",
       "comments": 0
-    },
-    {
-      "repo": "mastra-ai/mastra",
-      "number": 24647,
-      "title": "Consider Nano (XNO) as a second settlement rail in the x402 pay guide",
-      "kind": "issue",
-      "state": "open",
-      "url": "https://github.com/mastra-ai/mastra/issues/24647",
-      "author": "PANDeveloper001",
-      "created_at": "2026-09-22T08:23:53Z",
-      "updated_at": "2026-09-22T08:23:57Z",
-      "comments": 1
     },
     {
       "repo": "mbeato/awesome-mpp",
@@ -1450,6 +1486,18 @@
       "comments": 7
     },
     {
+      "repo": "x402-index/x402-discovery-index",
+      "number": 57,
+      "title": "List Vend (x402 API merchant, Nano rail) in the Discovery Index",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/x402-index/x402-discovery-index/issues/57",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T12:46:17Z",
+      "updated_at": "2026-09-22T12:46:17Z",
+      "comments": 0
+    },
+    {
       "repo": "x402-rs/x402-rs",
       "number": 122,
       "title": "Add a nano:mainnet chain crate (verify-only: the settle step has no relayer work)",
@@ -1604,6 +1652,18 @@
       "created_at": "2026-09-18T09:14:45Z",
       "updated_at": "2026-09-18T09:38:14Z",
       "comments": 0
+    },
+    {
+      "repo": "MikeyPetrillo/Agent402",
+      "number": 1447,
+      "title": "Proposal: add Nano (XNO) as a settlement rail in src/rails.js + src/payments.js",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/MikeyPetrillo/Agent402/issues/1447",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T11:45:53Z",
+      "updated_at": "2026-09-22T13:08:34Z",
+      "comments": 1
     },
     {
       "repo": "NousResearch/hermes-agent",
@@ -1846,6 +1906,18 @@
       "comments": 0
     },
     {
+      "repo": "mastra-ai/mastra",
+      "number": 24647,
+      "title": "Consider Nano (XNO) as a second settlement rail in the x402 pay guide",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/mastra-ai/mastra/issues/24647",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T08:23:53Z",
+      "updated_at": "2026-09-22T13:12:37Z",
+      "comments": 5
+    },
+    {
       "repo": "michielpost/x402-dev",
       "number": 92,
       "title": "Nano (XNO) x402 payer for OpenAI Agents SDK \u2014 x402 Developer Tools addition",
@@ -1856,6 +1928,18 @@
       "created_at": "2026-09-17T23:42:01Z",
       "updated_at": "2026-09-18T06:26:11Z",
       "comments": 1
+    },
+    {
+      "repo": "michielpost/x402-dev",
+      "number": 98,
+      "title": "Test: CAN I WRITE? (will delete)",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/michielpost/x402-dev/issues/98",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T12:42:52Z",
+      "updated_at": "2026-09-22T12:43:14Z",
+      "comments": 0
     },
     {
       "repo": "otomat-fun/otomat",
