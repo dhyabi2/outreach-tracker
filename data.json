@@ -1,12 +1,12 @@
 {
-  "generated": "2026-09-22 15:01 UTC",
+  "generated": "2026-09-22 15:27 UTC",
   "summary": {
-    "total": 202,
+    "total": 207,
     "merged": 0,
-    "open": 148,
-    "closed": 54,
-    "repos": 161,
-    "answered": 63
+    "open": 151,
+    "closed": 56,
+    "repos": 165,
+    "answered": 64
   },
   "rows": [
     {
@@ -178,6 +178,18 @@
       "comments": 0
     },
     {
+      "repo": "Flamki/stellarmind",
+      "number": 188,
+      "title": "Feature: add Nano (XNO) as a second settlement network beside the Stellar x402 rail",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/Flamki/stellarmind/issues/188",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T15:05:46Z",
+      "updated_at": "2026-09-22T15:05:46Z",
+      "comments": 0
+    },
+    {
       "repo": "GetBindu/Bindu",
       "number": 613,
       "title": "[Feature]: accept an exact-scheme rail outside EVM (concretely: Nano/XNO) as a second settlement option",
@@ -332,6 +344,18 @@
       "created_at": "2026-09-22T10:58:24Z",
       "updated_at": "2026-09-22T11:03:25Z",
       "comments": 1
+    },
+    {
+      "repo": "RelevanceAI/relevanceai",
+      "number": 1100,
+      "title": "Feature: let a Relevance AI agent answer an x402 (HTTP 402) pay-per-call tool and pay per call \u2014 no key, no signup",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/RelevanceAI/relevanceai/issues/1100",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T15:25:33Z",
+      "updated_at": "2026-09-22T15:25:33Z",
+      "comments": 0
     },
     {
       "repo": "RipperMercs/tensorfeed-x402-base-mcp",
@@ -970,6 +994,18 @@
       "comments": 0
     },
     {
+      "repo": "joyjacob42920-lgtm/x402-template-1",
+      "number": 1,
+      "title": "Proposal: a self-custodied Nano (XNO) settlement rail for the paid-by-default gate",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/joyjacob42920-lgtm/x402-template-1/issues/1",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T15:26:58Z",
+      "updated_at": "2026-09-22T15:26:58Z",
+      "comments": 0
+    },
+    {
       "repo": "kjgueye/netintel-api",
       "number": 1,
       "title": "Feature request: add Nano (XNO) as a settlement rail beside USDC",
@@ -1086,8 +1122,8 @@
       "url": "https://github.com/microsoft/autogen/issues/8270",
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T08:25:06Z",
-      "updated_at": "2026-09-22T14:12:26Z",
-      "comments": 4
+      "updated_at": "2026-09-22T15:13:52Z",
+      "comments": 5
     },
     {
       "repo": "mioku50/Veyra",
@@ -2158,6 +2194,18 @@
       "comments": 0
     },
     {
+      "repo": "langgenius/dify",
+      "number": 42756,
+      "title": "probe",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/langgenius/dify/issues/42756",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T15:24:42Z",
+      "updated_at": "2026-09-22T15:24:55Z",
+      "comments": 1
+    },
+    {
       "repo": "mastra-ai/mastra",
       "number": 24647,
       "title": "Consider Nano (XNO) as a second settlement rail in the x402 pay guide",
@@ -2191,6 +2239,18 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T12:42:52Z",
       "updated_at": "2026-09-22T12:43:14Z",
+      "comments": 0
+    },
+    {
+      "repo": "msantagiulianab/solana-enterprise-payment-gateway",
+      "number": 1,
+      "title": "permission-check",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/msantagiulianab/solana-enterprise-payment-gateway/issues/1",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T15:26:12Z",
+      "updated_at": "2026-09-22T15:27:13Z",
       "comments": 0
     },
     {
