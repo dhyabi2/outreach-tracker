@@ -1,12 +1,12 @@
 {
-  "generated": "2026-09-22 10:46 UTC",
+  "generated": "2026-09-22 11:40 UTC",
   "summary": {
-    "total": 159,
+    "total": 165,
     "merged": 0,
-    "open": 112,
+    "open": 118,
     "closed": 47,
-    "repos": 128,
-    "answered": 50
+    "repos": 133,
+    "answered": 53
   },
   "rows": [
     {
@@ -91,6 +91,18 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T10:32:06Z",
       "updated_at": "2026-09-22T10:32:06Z",
+      "comments": 0
+    },
+    {
+      "repo": "CalebTraxler/thejobcafe",
+      "number": 1,
+      "title": "Feature request: settle agent earnings in Nano (XNO) - a fee-less, instant cash-out beside bank",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/CalebTraxler/thejobcafe/issues/1",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T10:50:35Z",
+      "updated_at": "2026-09-22T10:50:35Z",
       "comments": 0
     },
     {
@@ -224,6 +236,18 @@
       "created_at": "2026-09-22T08:29:02Z",
       "updated_at": "2026-09-22T08:29:02Z",
       "comments": 0
+    },
+    {
+      "repo": "QuantumNous/new-api",
+      "number": 7532,
+      "title": "Feature: a feeless peer-to-peer settlement rail (Nano / XNO) for metered LLM usage",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/QuantumNous/new-api/issues/7532",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T10:58:24Z",
+      "updated_at": "2026-09-22T11:03:25Z",
+      "comments": 1
     },
     {
       "repo": "RipperMercs/tensorfeed-x402-base-mcp",
@@ -366,8 +390,8 @@
       "url": "https://github.com/adamkrawczyk/agentpact/issues/148",
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T08:26:04Z",
-      "updated_at": "2026-09-22T10:06:53Z",
-      "comments": 2
+      "updated_at": "2026-09-22T10:51:56Z",
+      "comments": 3
     },
     {
       "repo": "agno-agi/agno",
@@ -439,6 +463,18 @@
       "author": "dhyabi2",
       "created_at": "2026-09-17T23:40:40Z",
       "updated_at": "2026-09-17T23:40:40Z",
+      "comments": 0
+    },
+    {
+      "repo": "botpress/botpress",
+      "number": 15489,
+      "title": "Feature request: a pay-per-call integration settled per call over x402 (Nano/XNO) - no API key, no signup",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/botpress/botpress/issues/15489",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T11:09:44Z",
+      "updated_at": "2026-09-22T11:09:44Z",
       "comments": 0
     },
     {
@@ -514,6 +550,18 @@
       "comments": 0
     },
     {
+      "repo": "davabr1/swarm-platform",
+      "number": 3,
+      "title": "Proposal: add Nano (XNO) as a zero-fee settlement rail beside USDC on Avalanche",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/davabr1/swarm-platform/issues/3",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T10:53:12Z",
+      "updated_at": "2026-09-22T10:54:31Z",
+      "comments": 1
+    },
+    {
       "repo": "devcer/open-payments-mcp",
       "number": 1,
       "title": "A measured question about the Open Payments agent bridge and low-value autonomous spends",
@@ -572,6 +620,18 @@
       "created_at": "2026-09-22T00:44:00Z",
       "updated_at": "2026-09-22T00:44:00Z",
       "comments": 0
+    },
+    {
+      "repo": "flexprice/flexprice",
+      "number": 2892,
+      "title": "[FEATURE] Add Nano (XNO) as a peer-to-peer settlement provider alongside Stripe/Chargebee",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/flexprice/flexprice/issues/2892",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T11:05:51Z",
+      "updated_at": "2026-09-22T11:05:58Z",
+      "comments": 1
     },
     {
       "repo": "frankxai/awesome-payment-agent-skills",
@@ -703,6 +763,18 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T09:40:44Z",
       "updated_at": "2026-09-22T09:40:44Z",
+      "comments": 0
+    },
+    {
+      "repo": "higress-group/himarket",
+      "number": 347,
+      "title": "[Feature]: Add Nano (XNO) as a fee-less peer-to-peer settlement option for metered usage",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/higress-group/himarket/issues/347",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T11:11:24Z",
+      "updated_at": "2026-09-22T11:11:24Z",
       "comments": 0
     },
     {
