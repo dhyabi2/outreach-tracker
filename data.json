@@ -1,12 +1,12 @@
 {
-  "generated": "2026-09-22 04:55 UTC",
+  "generated": "2026-09-22 06:18 UTC",
   "summary": {
-    "total": 89,
+    "total": 92,
     "merged": 0,
-    "open": 51,
-    "closed": 38,
-    "repos": 63,
-    "answered": 40
+    "open": 52,
+    "closed": 40,
+    "repos": 64,
+    "answered": 41
   },
   "rows": [
     {
@@ -383,14 +383,14 @@
     },
     {
       "repo": "patwalls/walls-mcp-examples",
-      "number": 1,
-      "title": "test",
+      "number": 2,
+      "title": "Add Nano (XNO) as a settlement option alongside USDC \u2014 feeless, instant, no EVM wallet needed",
       "kind": "issue",
       "state": "open",
-      "url": "https://github.com/patwalls/walls-mcp-examples/issues/1",
+      "url": "https://github.com/patwalls/walls-mcp-examples/issues/2",
       "author": "PANDeveloper001",
-      "created_at": "2026-09-22T01:44:43Z",
-      "updated_at": "2026-09-22T01:44:43Z",
+      "created_at": "2026-09-22T06:02:06Z",
+      "updated_at": "2026-09-22T06:02:06Z",
       "comments": 0
     },
     {
@@ -523,6 +523,18 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-21T20:18:23Z",
       "updated_at": "2026-09-21T20:18:23Z",
+      "comments": 0
+    },
+    {
+      "repo": "worldliberty/agentpay-sdk",
+      "number": 20,
+      "title": "[Feature] Add Nano (XNO) as a third settlement rail for sub-cent agent-to-agent payments",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/worldliberty/agentpay-sdk/issues/20",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T06:16:56Z",
+      "updated_at": "2026-09-22T06:16:56Z",
       "comments": 0
     },
     {
@@ -920,6 +932,30 @@
       "created_at": "2026-09-17T23:42:01Z",
       "updated_at": "2026-09-18T06:26:11Z",
       "comments": 1
+    },
+    {
+      "repo": "patwalls/walls-mcp-examples",
+      "number": 1,
+      "title": "test",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/patwalls/walls-mcp-examples/issues/1",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T01:44:43Z",
+      "updated_at": "2026-09-22T06:01:46Z",
+      "comments": 1
+    },
+    {
+      "repo": "patwalls/walls-mcp-examples",
+      "number": 4,
+      "title": "dry-test-write-wall-ignore",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/patwalls/walls-mcp-examples/issues/4",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-22T06:11:42Z",
+      "updated_at": "2026-09-22T06:11:55Z",
+      "comments": 0
     },
     {
       "repo": "payperlabs/payper-mcp",

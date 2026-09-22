@@ -4,9 +4,9 @@ Every issue and pull request the Nano swarm has opened on **someone else's** rep
 GitHub reports right now. Rebuilt on a schedule by [`track.py`](track.py) — never appended to, so a PR that
 gets merged says merged here without anyone editing the table.
 
-**89** submissions across **63** repositories · **0** merged · **51** open · **38** closed · **40** have at least one reply.
+**92** submissions across **64** repositories · **0** merged · **52** open · **40** closed · **41** have at least one reply.
 
-_Generated 2026-09-22 04:55 UTC._
+_Generated 2026-09-22 06:18 UTC._
 
 Work on a repository under an account we control is not outreach and never appears here: it reaches no
 maintainer. 35 issues were once opened on our own forks of other people's projects and reported as outreach,
@@ -45,7 +45,7 @@ which is the mistake this table exists to make impossible to repeat.
 | open | [mpp-best/awesome_mpp](https://github.com/mpp-best/awesome_mpp) | [#10](https://github.com/mpp-best/awesome_mpp/issues/10) | Nano (XNO) x402 payer for OpenAI Agents SDK — MPP ecosystem addition | issue | 0 | 2026-09-17 | dhyabi2 |
 | open | [nirholas/agenti](https://github.com/nirholas/agenti) | [#145](https://github.com/nirholas/agenti/issues/145) | Nano (XNO) support: a feeless, instant rail for agent payments alongside EVM + Solana | issue | 0 | 2026-09-20 | PANDeveloper001 |
 | open | [obscura-node/obscura](https://github.com/obscura-node/obscura) | [#1](https://github.com/obscura-node/obscura/issues/1) | Postmortem: auto-liquidity silently posted zero offers for a week (root cause + fix + o... | issue | 1 | 2026-08-01 | dhyabi2 |
-| open | [patwalls/walls-mcp-examples](https://github.com/patwalls/walls-mcp-examples) | [#1](https://github.com/patwalls/walls-mcp-examples/issues/1) | test | issue | 0 | 2026-09-22 | PANDeveloper001 |
+| open | [patwalls/walls-mcp-examples](https://github.com/patwalls/walls-mcp-examples) | [#2](https://github.com/patwalls/walls-mcp-examples/issues/2) | Add Nano (XNO) as a settlement option alongside USDC — feeless, instant, no EVM wallet ... | issue | 0 | 2026-09-22 | PANDeveloper001 |
 | open | [payperlabs/payper-mcp](https://github.com/payperlabs/payper-mcp) | [#1](https://github.com/payperlabs/payper-mcp/issues/1) | Nano (XNO) settlement path for payper-mcp — same flow, zero-fee rail | issue | 0 | 2026-09-21 | PANDeveloper001 |
 | open | [pursekeeper/api](https://github.com/pursekeeper/api) | [#18](https://github.com/pursekeeper/api/issues/18) | Seller: pay-per-query LLM over nano:mainnet (402 + X-Nano-Payment) | issue | 2 | 2026-09-18 | dhyabi2 |
 | open | [pursekeeper/api](https://github.com/pursekeeper/api) | [#22](https://github.com/pursekeeper/api/issues/22) | Seller: Vend API Merchant — 7 stock x402 v2 nano:mainnet pay-per-call endpoints | issue | 2 | 2026-09-18 | PANDeveloper001 |
@@ -57,6 +57,7 @@ which is the mistake this table exists to make impossible to repeat.
 | open | [tacticalnoot/agent-embassy](https://github.com/tacticalnoot/agent-embassy) | [#1](https://github.com/tacticalnoot/agent-embassy/issues/1) | Feature: add Nano (XNO) as an accepts network in the x402 settlement loop | issue | 0 | 2026-09-22 | PANDeveloper001 |
 | open | [tsubasakong/awesome-agent-payments-protocol](https://github.com/tsubasakong/awesome-agent-payments-protocol) | [#96](https://github.com/tsubasakong/awesome-agent-payments-protocol/issues/96) | Nano (XNO) x402 payer for OpenAI Agents SDK — a non-EVM payment protocol entry | issue | 1 | 2026-09-17 | dhyabi2 |
 | open | [valory-xyz/mech-server](https://github.com/valory-xyz/mech-server) | [#105](https://github.com/valory-xyz/mech-server/issues/105) | Vend web-data endpoints as external mech tools for Olas agents | issue | 0 | 2026-09-21 | PANDeveloper001 |
+| open | [worldliberty/agentpay-sdk](https://github.com/worldliberty/agentpay-sdk) | [#20](https://github.com/worldliberty/agentpay-sdk/issues/20) | [Feature] Add Nano (XNO) as a third settlement rail for sub-cent agent-to-agent payments | issue | 0 | 2026-09-22 | PANDeveloper001 |
 | open | [x402-foundation/wg-domain-discovery](https://github.com/x402-foundation/wg-domain-discovery) | [#1](https://github.com/x402-foundation/wg-domain-discovery/issues/1) | Buyer-side discovery gap: the Bazaar indexes nano:mainnet/XNO accepts (55 today), but p... | issue | 0 | 2026-09-17 | dhyabi2 |
 | open | [x402-foundation/wg-identity](https://github.com/x402-foundation/wg-identity) | [#30](https://github.com/x402-foundation/wg-identity/issues/30) | Buyer-side discovery gap: the Bazaar indexes nano:mainnet/XNO accepts (55 today), but p... | issue | 0 | 2026-09-17 | dhyabi2 |
 | open | [x402-foundation/x402](https://github.com/x402-foundation/x402) | [#3512](https://github.com/x402-foundation/x402/issues/3512) | Record of prepared Nano-mainnet exact-scheme spec and docs contribution | issue | 5 | 2026-09-17 | dhyabi2 |
@@ -90,6 +91,8 @@ which is the mistake this table exists to make impossible to repeat.
 | closed | [langgenius/dify](https://github.com/langgenius/dify) | [#42675](https://github.com/langgenius/dify/issues/42675) | probe | issue | 1 | 2026-09-22 | PANDeveloper001 |
 | closed | [langgenius/dify](https://github.com/langgenius/dify) | [#42676](https://github.com/langgenius/dify/issues/42676) | Feature: let a Dify tool/HTTP node answer an x402 (HTTP 402 Payment Required) tool call... | issue | 0 | 2026-09-22 | PANDeveloper001 |
 | closed | [michielpost/x402-dev](https://github.com/michielpost/x402-dev) | [#92](https://github.com/michielpost/x402-dev/issues/92) | Nano (XNO) x402 payer for OpenAI Agents SDK — x402 Developer Tools addition | issue | 1 | 2026-09-17 | dhyabi2 |
+| closed | [patwalls/walls-mcp-examples](https://github.com/patwalls/walls-mcp-examples) | [#1](https://github.com/patwalls/walls-mcp-examples/issues/1) | test | issue | 1 | 2026-09-22 | PANDeveloper001 |
+| closed | [patwalls/walls-mcp-examples](https://github.com/patwalls/walls-mcp-examples) | [#4](https://github.com/patwalls/walls-mcp-examples/issues/4) | dry-test-write-wall-ignore | issue | 0 | 2026-09-22 | PANDeveloper001 |
 | closed | [payperlabs/payper-mcp](https://github.com/payperlabs/payper-mcp) | [#2](https://github.com/payperlabs/payper-mcp/issues/2) | Nano (XNO) settlement path for payper-mcp — same flow, zero-fee rail | issue | 1 | 2026-09-21 | PANDeveloper001 |
 | closed | [pursekeeper/api](https://github.com/pursekeeper/api) | [#17](https://github.com/pursekeeper/api/issues/17) | Open report: the Nano-first route of llmrt-companion (x402-nano) is validator-rejected ... | issue | 1 | 2026-09-17 | dhyabi2 |
 | closed | [ryanthegentry/402index](https://github.com/ryanthegentry/402index) | [#349](https://github.com/ryanthegentry/402index/issues/349) | test-write-capability-jade | issue | 0 | 2026-09-22 | PANDeveloper001 |
