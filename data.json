@@ -1,12 +1,12 @@
 {
-  "generated": "2026-09-23 01:16 UTC",
+  "generated": "2026-09-23 01:35 UTC",
   "summary": {
-    "total": 303,
+    "total": 309,
     "merged": 0,
-    "open": 213,
+    "open": 219,
     "closed": 90,
-    "repos": 245,
-    "answered": 81
+    "repos": 251,
+    "answered": 82
   },
   "rows": [
     {
@@ -622,6 +622,18 @@
       "comments": 0
     },
     {
+      "repo": "VJLIVE/AgentWallet",
+      "number": 2,
+      "title": "Proposal: add Nano (XNO) as a second x402 settlement network beside Algorand USDC",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/VJLIVE/AgentWallet/issues/2",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T01:32:16Z",
+      "updated_at": "2026-09-23T01:32:16Z",
+      "comments": 0
+    },
+    {
       "repo": "Vellar-Wallet/vellar-facilitator",
       "number": 99,
       "title": "Feature request: add Nano (XNO) as a second settlement rail alongside Stellar",
@@ -727,6 +739,18 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T17:59:34Z",
       "updated_at": "2026-09-22T17:59:34Z",
+      "comments": 0
+    },
+    {
+      "repo": "agentself/agentself",
+      "number": 78,
+      "title": "Proposal: a Nano (XNO) wallet backend \u2014 feeless, sub-second, self-custodial",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/agentself/agentself/issues/78",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T01:28:28Z",
+      "updated_at": "2026-09-23T01:28:28Z",
       "comments": 0
     },
     {
@@ -979,6 +1003,18 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T09:11:49Z",
       "updated_at": "2026-09-22T09:11:49Z",
+      "comments": 0
+    },
+    {
+      "repo": "cporter202/agentic-ai-starters",
+      "number": 2,
+      "title": "Proposal: a \"feeless micro-payment rail\" starter (Nano / XNO) for monetized agent products",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/cporter202/agentic-ai-starters/issues/2",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T01:16:26Z",
+      "updated_at": "2026-09-23T01:16:26Z",
       "comments": 0
     },
     {
@@ -1294,6 +1330,18 @@
       "comments": 0
     },
     {
+      "repo": "gumloop/gumloop-plugin",
+      "number": 4,
+      "title": "MCP tool calls that return HTTP 402: let a Gumloop agent complete the payment handshake and retry",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/gumloop/gumloop-plugin/issues/4",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T01:22:38Z",
+      "updated_at": "2026-09-23T01:22:38Z",
+      "comments": 0
+    },
+    {
       "repo": "haoruilee/awesome-agent-native-services",
       "number": 156,
       "title": "[New Service] openai-agents-nano-x402 \u2014 feeless self-custodied x402 settlement for agents (Nano XNO)",
@@ -1302,8 +1350,8 @@
       "url": "https://github.com/haoruilee/awesome-agent-native-services/issues/156",
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T16:46:52Z",
-      "updated_at": "2026-09-22T16:46:52Z",
-      "comments": 0
+      "updated_at": "2026-09-23T01:16:57Z",
+      "comments": 1
     },
     {
       "repo": "helloluis/kamai",
@@ -1915,6 +1963,18 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T07:11:33Z",
       "updated_at": "2026-09-22T07:12:05Z",
+      "comments": 0
+    },
+    {
+      "repo": "rameerez/usage_credits",
+      "number": 33,
+      "title": "Feeless (Nano/XNO) credit top-up rail for sub-cent pack purchases",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/rameerez/usage_credits/issues/33",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T01:26:38Z",
+      "updated_at": "2026-09-23T01:26:38Z",
       "comments": 0
     },
     {
@@ -2551,6 +2611,18 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T19:47:48Z",
       "updated_at": "2026-09-22T19:47:48Z",
+      "comments": 0
+    },
+    {
+      "repo": "yint-tech/sekiro-open",
+      "number": 55,
+      "title": "Proposal: a feeless settlement rail (Nano / XNO) for published API capabilities",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/yint-tech/sekiro-open/issues/55",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T01:26:07Z",
+      "updated_at": "2026-09-23T01:26:07Z",
       "comments": 0
     },
     {
