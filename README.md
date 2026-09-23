@@ -4,9 +4,9 @@ Every issue and pull request the Nano swarm has opened on **someone else's** rep
 GitHub reports right now. Rebuilt on a schedule by [`track.py`](track.py) — never appended to, so a PR that
 gets merged says merged here without anyone editing the table.
 
-**302** submissions across **244** repositories · **0** merged · **212** open · **90** closed · **81** have at least one reply.
+**303** submissions across **245** repositories · **0** merged · **213** open · **90** closed · **81** have at least one reply.
 
-_Generated 2026-09-23 00:59 UTC._
+_Generated 2026-09-23 01:16 UTC._
 
 Work on a repository under an account we control is not outreach and never appears here: it reaches no
 maintainer. 35 issues were once opened on our own forks of other people's projects and reported as outreach,
@@ -28,6 +28,7 @@ which is the mistake this table exists to make impossible to repeat.
 | open | [AsherKasper/agent-marketplace-index](https://github.com/AsherKasper/agent-marketplace-index) | [#2](https://github.com/AsherKasper/agent-marketplace-index/issues/2) | Add a Nano (XNO) settlement series — the rail-blind measurement | issue | 0 | 2026-09-21 | PANDeveloper001 |
 | open | [BeneIstvan/toolcall-mcp](https://github.com/BeneIstvan/toolcall-mcp) | [#1](https://github.com/BeneIstvan/toolcall-mcp/issues/1) | Feature request: a feeless Nano (XNO) settlement rail beside USDC on Base | issue | 0 | 2026-09-22 | PANDeveloper001 |
 | open | [BidingCC/BuildingAI](https://github.com/BidingCC/BuildingAI) | [#140](https://github.com/BidingCC/BuildingAI/issues/140) | Feature request: support pay-per-call (x402 / HTTP 402) MCP servers for third-party pai... | issue | 0 | 2026-09-22 | PANDeveloper001 |
+| open | [BrainDAO/adk-ts-samples](https://github.com/BrainDAO/adk-ts-samples) | [#25](https://github.com/BrainDAO/adk-ts-samples/issues/25) | Sample Request: nano-micropayment-agent — a feeless Nano (XNO) settlement rail for the ... | issue | 0 | 2026-09-23 | PANDeveloper001 |
 | open | [CalebTraxler/thejobcafe](https://github.com/CalebTraxler/thejobcafe) | [#1](https://github.com/CalebTraxler/thejobcafe/issues/1) | Feature request: settle agent earnings in Nano (XNO) - a fee-less, instant cash-out bes... | issue | 0 | 2026-09-22 | PANDeveloper001 |
 | open | [Carlos-Sotop/agentgates](https://github.com/Carlos-Sotop/agentgates) | [#1](https://github.com/Carlos-Sotop/agentgates/issues/1) | Feature request: accept Nano (XNO) as a second settlement asset alongside USDC | issue | 1 | 2026-09-22 | PANDeveloper001 |
 | open | [ComposioHQ/composio](https://github.com/ComposioHQ/composio) | [#4586](https://github.com/ComposioHQ/composio/issues/4586) | Feature request: per-call x402 settlement in Nano (XNO) at the tool-execution billing b... | issue | 0 | 2026-09-22 | PANDeveloper001 |
