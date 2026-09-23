@@ -1,12 +1,12 @@
 {
-  "generated": "2026-09-23 08:22 UTC",
+  "generated": "2026-09-23 08:29 UTC",
   "summary": {
-    "total": 336,
+    "total": 339,
     "merged": 0,
-    "open": 249,
-    "closed": 87,
-    "repos": 283,
-    "answered": 82
+    "open": 253,
+    "closed": 86,
+    "repos": 285,
+    "answered": 81
   },
   "rows": [
     {
@@ -118,6 +118,18 @@
       "comments": 0
     },
     {
+      "repo": "AetherCore-Dev/ag402",
+      "number": 27,
+      "title": "Enhancement: add a feeless, final `nano:mainnet` x402 rail for calls the USDC tier is too coarse for",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/AetherCore-Dev/ag402/issues/27",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T08:26:08Z",
+      "updated_at": "2026-09-23T08:26:08Z",
+      "comments": 0
+    },
+    {
       "repo": "AgentBuildersApp/eight-eyes",
       "number": 1,
       "title": "Feature idea: x402 pay-per-call support - let an agent settle per tool call in Nano (XNO) \u2014 no card, no custody",
@@ -163,6 +175,18 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T17:54:00Z",
       "updated_at": "2026-09-22T17:54:10Z",
+      "comments": 0
+    },
+    {
+      "repo": "AnkanMisra/MicroAI-Paygate",
+      "number": 428,
+      "title": "Settlement suggestion: a Nano (XNO) leg whose receipt is on-chain by publication",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/AnkanMisra/MicroAI-Paygate/issues/428",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T08:23:16Z",
+      "updated_at": "2026-09-23T08:23:24Z",
       "comments": 0
     },
     {
@@ -572,6 +596,18 @@
       "created_at": "2026-09-17T23:40:45Z",
       "updated_at": "2026-09-19T21:44:10Z",
       "comments": 1
+    },
+    {
+      "repo": "Scottcjn/openclaw-x402",
+      "number": 22,
+      "title": "Rail suggestion: a Nano (XNO) payment option for the Flask middleware and MCP gate",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/Scottcjn/openclaw-x402/issues/22",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T08:22:34Z",
+      "updated_at": "2026-09-23T08:22:34Z",
+      "comments": 0
     },
     {
       "repo": "Sentinel-Bluebuilder/x402",
@@ -2482,6 +2518,18 @@
       "comments": 0
     },
     {
+      "repo": "sourcey/agent-ready-services",
+      "number": 312,
+      "title": "Assessment request: Vend API Merchant (pay-per-call web-data APIs, x402/Nano)",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/sourcey/agent-ready-services/issues/312",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T08:23:31Z",
+      "updated_at": "2026-09-23T08:23:31Z",
+      "comments": 0
+    },
+    {
       "repo": "speteai/agentdata-mcp",
       "number": 1,
       "title": "Add a Nano (XNO) feeless payment rail for sub-cent tool calls",
@@ -3500,18 +3548,6 @@
       "created_at": "2026-09-22T17:48:41Z",
       "updated_at": "2026-09-22T17:48:41Z",
       "comments": 0
-    },
-    {
-      "repo": "internet-court/internet-court-skill",
-      "number": 30,
-      "title": "write-wall probe (throwaway)",
-      "kind": "issue",
-      "state": "closed",
-      "url": "https://github.com/internet-court/internet-court-skill/issues/30",
-      "author": "PANDeveloper001",
-      "created_at": "2026-09-21T17:07:51Z",
-      "updated_at": "2026-09-22T09:45:41Z",
-      "comments": 1
     },
     {
       "repo": "kairovate/agent-payment-templates",
