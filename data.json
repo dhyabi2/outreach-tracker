@@ -1,12 +1,12 @@
 {
-  "generated": "2026-09-23 09:21 UTC",
+  "generated": "2026-09-23 09:54 UTC",
   "summary": {
-    "total": 385,
+    "total": 389,
     "merged": 0,
-    "open": 268,
+    "open": 272,
     "closed": 117,
-    "repos": 307,
-    "answered": 87
+    "repos": 311,
+    "answered": 88
   },
   "rows": [
     {
@@ -307,6 +307,18 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T10:10:32Z",
       "updated_at": "2026-09-22T10:10:32Z",
+      "comments": 0
+    },
+    {
+      "repo": "Demsys/agent-settlement-protocol",
+      "number": 8,
+      "title": "Settlement option: a feeless, single-block-final lane for the no-escrow agent job",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/Demsys/agent-settlement-protocol/issues/8",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T09:26:46Z",
+      "updated_at": "2026-09-23T09:26:46Z",
       "comments": 0
     },
     {
@@ -835,6 +847,18 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T17:39:57Z",
       "updated_at": "2026-09-22T17:39:57Z",
+      "comments": 0
+    },
+    {
+      "repo": "Wonderfulian/kbv-server",
+      "number": 1,
+      "title": "Feature request: accept a fee-free Nano (XNO) rail beside USDC on Base in the x402 accepts[]",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/Wonderfulian/kbv-server/issues/1",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T09:30:53Z",
+      "updated_at": "2026-09-23T09:30:53Z",
       "comments": 0
     },
     {
@@ -1450,6 +1474,18 @@
       "comments": 1
     },
     {
+      "repo": "forgeaicompany/eu-validate-examples",
+      "number": 1,
+      "title": "Suggestion: a feeless Nano (XNO) settlement rail beside the Base USDC leg in the agent examples",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/forgeaicompany/eu-validate-examples/issues/1",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T09:22:33Z",
+      "updated_at": "2026-09-23T09:22:33Z",
+      "comments": 0
+    },
+    {
       "repo": "forter/trusted-agentic-commerce-protocol",
       "number": 8,
       "title": "Settlement-rail negotiation next to identity: optional .well-known/settlement.json",
@@ -2046,8 +2082,8 @@
       "url": "https://github.com/moltlaunch/cashclaw/issues/96",
       "author": "PANDeveloper001",
       "created_at": "2026-09-23T09:19:45Z",
-      "updated_at": "2026-09-23T09:19:45Z",
-      "comments": 0
+      "updated_at": "2026-09-23T09:46:24Z",
+      "comments": 1
     },
     {
       "repo": "mpp-best/awesome_mpp",
@@ -2156,6 +2192,18 @@
       "created_at": "2026-08-01T11:08:05Z",
       "updated_at": "2026-08-04T22:28:39Z",
       "comments": 1
+    },
+    {
+      "repo": "okx/onchainos-skills",
+      "number": 54,
+      "title": "Feature idea: honor a nano:mainnet exact-scheme x402 accepts[] entry in the Agent Payments Protocol",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/okx/onchainos-skills/issues/54",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T09:26:42Z",
+      "updated_at": "2026-09-23T09:26:42Z",
+      "comments": 0
     },
     {
       "repo": "open-experiments/agent-exchange",
