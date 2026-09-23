@@ -1,12 +1,12 @@
 {
-  "generated": "2026-09-23 08:57 UTC",
+  "generated": "2026-09-23 09:21 UTC",
   "summary": {
-    "total": 340,
+    "total": 385,
     "merged": 0,
-    "open": 255,
-    "closed": 85,
-    "repos": 287,
-    "answered": 82
+    "open": 268,
+    "closed": 117,
+    "repos": 307,
+    "answered": 87
   },
   "rows": [
     {
@@ -102,8 +102,8 @@
       "url": "https://github.com/APIs-guru/openapi-directory/issues/3397",
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T12:50:03Z",
-      "updated_at": "2026-09-22T12:50:03Z",
-      "comments": 0
+      "updated_at": "2026-09-23T09:20:40Z",
+      "comments": 1
     },
     {
       "repo": "ARUNAGIRINATHAN-K/awesome-ai-agents-2026",
@@ -418,6 +418,18 @@
       "comments": 1
     },
     {
+      "repo": "MadeOnSol/madeonsol-x402",
+      "number": 3,
+      "title": "Feature: an optional nano:mainnet accept lane beside the Solana loop for keyless exact calls",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/MadeOnSol/madeonsol-x402/issues/3",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T09:16:45Z",
+      "updated_at": "2026-09-23T09:16:45Z",
+      "comments": 0
+    },
+    {
       "repo": "Merit-Systems/awesome-agentic-commerce",
       "number": 717,
       "title": "Nano (XNO) x402 payer for OpenAI Agents SDK \u2014 proposed addition to Open Source & SDKs section",
@@ -538,6 +550,18 @@
       "comments": 0
     },
     {
+      "repo": "PayAINetwork/payai-website",
+      "number": 101,
+      "title": "docs(x402): comparison frames settlement as stablecoin-only \u2014 note the fee-free native-coin option",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/PayAINetwork/payai-website/issues/101",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T09:17:13Z",
+      "updated_at": "2026-09-23T09:17:13Z",
+      "comments": 0
+    },
+    {
       "repo": "Portkey-AI/gateway",
       "number": 1819,
       "title": "[Feature] Feeless settlement rail (Nano / XNO) for gateway metered usage",
@@ -619,6 +643,18 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-23T08:18:35Z",
       "updated_at": "2026-09-23T08:18:35Z",
+      "comments": 0
+    },
+    {
+      "repo": "ShieldCubed/agentic-pay",
+      "number": 1,
+      "title": "Feature request: Add Nano (XNO) as an eighth settlement rail \u2014 feeless, instant, green",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/ShieldCubed/agentic-pay/issues/1",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-20T18:24:26Z",
+      "updated_at": "2026-09-20T18:24:26Z",
       "comments": 0
     },
     {
@@ -754,6 +790,18 @@
       "comments": 0
     },
     {
+      "repo": "Vellar-Wallet/vellar-facilitator",
+      "number": 99,
+      "title": "Feature request: add Nano (XNO) as a second settlement rail alongside Stellar",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/Vellar-Wallet/vellar-facilitator/issues/99",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-20T19:32:49Z",
+      "updated_at": "2026-09-20T19:32:49Z",
+      "comments": 0
+    },
+    {
       "repo": "Virtual-Protocol/acp-node-v2",
       "number": 49,
       "title": "Proposal: Vend data endpoints as ACP seller offerings (or an SDK example)",
@@ -834,7 +882,7 @@
       "url": "https://github.com/activepieces/activepieces/issues/15730",
       "author": "PANDeveloper001",
       "created_at": "2026-09-23T08:56:29Z",
-      "updated_at": "2026-09-23T08:56:33Z",
+      "updated_at": "2026-09-23T09:02:40Z",
       "comments": 1
     },
     {
@@ -870,7 +918,7 @@
       "url": "https://github.com/agentcommercekit/ack/issues/229",
       "author": "PANDeveloper001",
       "created_at": "2026-09-23T07:36:10Z",
-      "updated_at": "2026-09-23T07:36:10Z",
+      "updated_at": "2026-09-23T09:03:34Z",
       "comments": 0
     },
     {
@@ -968,6 +1016,18 @@
       "created_at": "2026-09-22T06:50:58Z",
       "updated_at": "2026-09-22T18:43:47Z",
       "comments": 1
+    },
+    {
+      "repo": "apify/mcpc",
+      "number": 419,
+      "title": "Proposal: a feeless Nano (XNO) x402 settlement rail for mcpc",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/apify/mcpc/issues/419",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T09:13:53Z",
+      "updated_at": "2026-09-23T09:13:53Z",
+      "comments": 0
     },
     {
       "repo": "assafbar2/agentswitchboard.dev",
@@ -1499,6 +1559,18 @@
     },
     {
       "repo": "goodmeta/agent-payments-landscape",
+      "number": 9,
+      "title": "Proposal: add Nano (XNO) as a settlement rail to the x402 Payment Rails cell",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/goodmeta/agent-payments-landscape/issues/9",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-20T14:26:33Z",
+      "updated_at": "2026-09-20T14:26:33Z",
+      "comments": 0
+    },
+    {
+      "repo": "goodmeta/agent-payments-landscape",
       "number": 10,
       "title": "Protocol accuracy: x402's settlement layer is not 'stablecoin-only'",
       "kind": "issue",
@@ -1507,6 +1579,30 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T10:17:22Z",
       "updated_at": "2026-09-22T10:17:22Z",
+      "comments": 0
+    },
+    {
+      "repo": "google-agentic-commerce/a2a-x402",
+      "number": 176,
+      "title": "Proposal: Nano (XNO) as an additional settlement network for A2A x402 payments",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/google-agentic-commerce/a2a-x402/issues/176",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-21T11:13:48Z",
+      "updated_at": "2026-09-21T11:13:48Z",
+      "comments": 0
+    },
+    {
+      "repo": "gosuda/x402-facilitator",
+      "number": 62,
+      "title": "Add Nano (XNO) as a supported `exact`-scheme network",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/gosuda/x402-facilitator/issues/62",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-20T19:34:44Z",
+      "updated_at": "2026-09-20T19:34:44Z",
       "comments": 0
     },
     {
@@ -1942,6 +2038,18 @@
       "comments": 0
     },
     {
+      "repo": "moltlaunch/cashclaw",
+      "number": 96,
+      "title": "Feature idea: a Nano (XNO) settlement option beside ETH escrow and USDC for sub-dollar tasks",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/moltlaunch/cashclaw/issues/96",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T09:19:45Z",
+      "updated_at": "2026-09-23T09:19:45Z",
+      "comments": 0
+    },
+    {
       "repo": "mpp-best/awesome_mpp",
       "number": 10,
       "title": "Nano (XNO) x402 payer for OpenAI Agents SDK \u2014 MPP ecosystem addition",
@@ -1975,6 +2083,18 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T12:06:12Z",
       "updated_at": "2026-09-22T12:06:12Z",
+      "comments": 0
+    },
+    {
+      "repo": "nirholas/agenti",
+      "number": 145,
+      "title": "Nano (XNO) support: a feeless, instant rail for agent payments alongside EVM + Solana",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/nirholas/agenti/issues/145",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-20T18:28:07Z",
+      "updated_at": "2026-09-21T01:39:06Z",
       "comments": 0
     },
     {
@@ -2098,6 +2218,18 @@
       "comments": 0
     },
     {
+      "repo": "payperlabs/payper-mcp",
+      "number": 1,
+      "title": "Nano (XNO) settlement path for payper-mcp \u2014 same flow, zero-fee rail",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/payperlabs/payper-mcp/issues/1",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-21T20:16:50Z",
+      "updated_at": "2026-09-21T20:16:50Z",
+      "comments": 0
+    },
+    {
       "repo": "piprail/piprail",
       "number": 125,
       "title": "Proposal: add Nano (XNO) driver + x402 example \u2014 feeless, sub-second finality",
@@ -2179,6 +2311,18 @@
       "author": "dhyabi2",
       "created_at": "2026-09-18T09:14:53Z",
       "updated_at": "2026-09-18T15:42:30Z",
+      "comments": 2
+    },
+    {
+      "repo": "pursekeeper/api",
+      "number": 22,
+      "title": "Seller: Vend API Merchant \u2014 7 stock x402 v2 nano:mainnet pay-per-call endpoints",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/pursekeeper/api/issues/22",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-18T22:15:20Z",
+      "updated_at": "2026-09-20T22:13:22Z",
       "comments": 2
     },
     {
@@ -2530,6 +2674,18 @@
       "comments": 0
     },
     {
+      "repo": "solana-foundation/pay-kit",
+      "number": 329,
+      "title": "Add Nano (XNO) as a settlement network: feeless, instant, single-confirmation end-to-end",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/solana-foundation/pay-kit/issues/329",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-21T11:13:15Z",
+      "updated_at": "2026-09-21T12:48:29Z",
+      "comments": 2
+    },
+    {
       "repo": "soqucoin/soq-template-ai-agent-payments",
       "number": 14,
       "title": "Feature: a Nano (XNO) zero-fee pay-per-call rail alongside Lightning",
@@ -2850,8 +3006,8 @@
       "url": "https://github.com/webmilmind1/plugin-bounty-board/issues/1",
       "author": "PANDeveloper001",
       "created_at": "2026-09-23T07:29:04Z",
-      "updated_at": "2026-09-23T07:29:04Z",
-      "comments": 0
+      "updated_at": "2026-09-23T09:08:14Z",
+      "comments": 2
     },
     {
       "repo": "wienerlabs/covenant",
@@ -3118,6 +3274,30 @@
       "comments": 0
     },
     {
+      "repo": "ASTRANL/astranl-mcp",
+      "number": 3,
+      "title": "rai write-probe",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/ASTRANL/astranl-mcp/issues/3",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T09:13:01Z",
+      "updated_at": "2026-09-23T09:13:01Z",
+      "comments": 0
+    },
+    {
+      "repo": "ASTRANL/astranl-mcp",
+      "number": 4,
+      "title": "rai write-probe",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/ASTRANL/astranl-mcp/issues/4",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T09:13:20Z",
+      "updated_at": "2026-09-23T09:13:21Z",
+      "comments": 0
+    },
+    {
       "repo": "ArcedeDev/open-402",
       "number": 26,
       "title": "test-write-check",
@@ -3127,6 +3307,30 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T01:15:41Z",
       "updated_at": "2026-09-22T01:15:47Z",
+      "comments": 0
+    },
+    {
+      "repo": "BSVKey/inference-mcp",
+      "number": 2,
+      "title": "rai write-probe",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/BSVKey/inference-mcp/issues/2",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T09:12:57Z",
+      "updated_at": "2026-09-23T09:12:58Z",
+      "comments": 0
+    },
+    {
+      "repo": "BSVKey/inference-mcp",
+      "number": 3,
+      "title": "rai write-probe",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/BSVKey/inference-mcp/issues/3",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T09:13:17Z",
+      "updated_at": "2026-09-23T09:13:17Z",
       "comments": 0
     },
     {
@@ -3163,6 +3367,162 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T17:48:46Z",
       "updated_at": "2026-09-22T17:48:47Z",
+      "comments": 0
+    },
+    {
+      "repo": "Fronesis-Labs/dcl-transparency",
+      "number": 2,
+      "title": "rai write-probe",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/Fronesis-Labs/dcl-transparency/issues/2",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T09:13:04Z",
+      "updated_at": "2026-09-23T09:13:04Z",
+      "comments": 0
+    },
+    {
+      "repo": "Fronesis-Labs/dcl-transparency",
+      "number": 3,
+      "title": "rai write-probe",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/Fronesis-Labs/dcl-transparency/issues/3",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T09:13:23Z",
+      "updated_at": "2026-09-23T09:13:24Z",
+      "comments": 0
+    },
+    {
+      "repo": "FrozenCorn2113/x402-wrapper",
+      "number": 1,
+      "title": "rai write-probe",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/FrozenCorn2113/x402-wrapper/issues/1",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T09:13:03Z",
+      "updated_at": "2026-09-23T09:13:03Z",
+      "comments": 0
+    },
+    {
+      "repo": "FrozenCorn2113/x402-wrapper",
+      "number": 2,
+      "title": "rai write-probe",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/FrozenCorn2113/x402-wrapper/issues/2",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T09:13:22Z",
+      "updated_at": "2026-09-23T09:13:23Z",
+      "comments": 0
+    },
+    {
+      "repo": "Haustorium12/gold-402",
+      "number": 241,
+      "title": "test-perm",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/Haustorium12/gold-402/issues/241",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-21T20:13:38Z",
+      "updated_at": "2026-09-21T20:14:36Z",
+      "comments": 0
+    },
+    {
+      "repo": "MadeOnSol/madeonsol-python",
+      "number": 2,
+      "title": "rai write-probe",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/MadeOnSol/madeonsol-python/issues/2",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T09:13:07Z",
+      "updated_at": "2026-09-23T09:13:08Z",
+      "comments": 0
+    },
+    {
+      "repo": "MadeOnSol/madeonsol-python",
+      "number": 3,
+      "title": "rai write-probe",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/MadeOnSol/madeonsol-python/issues/3",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T09:13:27Z",
+      "updated_at": "2026-09-23T09:13:27Z",
+      "comments": 0
+    },
+    {
+      "repo": "MadeOnSol/madeonsol-x402",
+      "number": 1,
+      "title": "rai write-probe",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/MadeOnSol/madeonsol-x402/issues/1",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T09:13:08Z",
+      "updated_at": "2026-09-23T09:13:09Z",
+      "comments": 0
+    },
+    {
+      "repo": "MadeOnSol/madeonsol-x402",
+      "number": 2,
+      "title": "rai write-probe",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/MadeOnSol/madeonsol-x402/issues/2",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T09:13:28Z",
+      "updated_at": "2026-09-23T09:13:28Z",
+      "comments": 0
+    },
+    {
+      "repo": "MadeOnSol/plugin-robinhood-chain",
+      "number": 1,
+      "title": "rai write-probe",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/MadeOnSol/plugin-robinhood-chain/issues/1",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T09:13:05Z",
+      "updated_at": "2026-09-23T09:13:05Z",
+      "comments": 0
+    },
+    {
+      "repo": "MadeOnSol/plugin-robinhood-chain",
+      "number": 2,
+      "title": "rai write-probe",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/MadeOnSol/plugin-robinhood-chain/issues/2",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T09:13:24Z",
+      "updated_at": "2026-09-23T09:13:25Z",
+      "comments": 0
+    },
+    {
+      "repo": "MadeOnSol/robinhood-chain-x402",
+      "number": 1,
+      "title": "rai write-probe",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/MadeOnSol/robinhood-chain-x402/issues/1",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T09:13:06Z",
+      "updated_at": "2026-09-23T09:13:07Z",
+      "comments": 0
+    },
+    {
+      "repo": "MadeOnSol/robinhood-chain-x402",
+      "number": 2,
+      "title": "rai write-probe",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/MadeOnSol/robinhood-chain-x402/issues/2",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T09:13:26Z",
+      "updated_at": "2026-09-23T09:13:26Z",
       "comments": 0
     },
     {
@@ -3334,6 +3694,42 @@
       "comments": 0
     },
     {
+      "repo": "STP-KAS/sixpack.wtf",
+      "number": 1,
+      "title": "rai write-probe",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/STP-KAS/sixpack.wtf/issues/1",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T09:13:02Z",
+      "updated_at": "2026-09-23T09:13:02Z",
+      "comments": 0
+    },
+    {
+      "repo": "STP-KAS/sixpack.wtf",
+      "number": 2,
+      "title": "rai write-probe",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/STP-KAS/sixpack.wtf/issues/2",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T09:13:21Z",
+      "updated_at": "2026-09-23T09:13:22Z",
+      "comments": 0
+    },
+    {
+      "repo": "Vellar-Wallet/vellar-facilitator",
+      "number": 98,
+      "title": "_permission probe",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/Vellar-Wallet/vellar-facilitator/issues/98",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-20T19:31:58Z",
+      "updated_at": "2026-09-20T19:31:59Z",
+      "comments": 0
+    },
+    {
       "repo": "Veyr09/does-it-pay",
       "number": 2,
       "title": "rai write-probe",
@@ -3406,6 +3802,30 @@
       "comments": 0
     },
     {
+      "repo": "apify/mcpc",
+      "number": 417,
+      "title": "rai write-probe",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/apify/mcpc/issues/417",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T09:12:59Z",
+      "updated_at": "2026-09-23T09:13:00Z",
+      "comments": 0
+    },
+    {
+      "repo": "apify/mcpc",
+      "number": 418,
+      "title": "rai write-probe",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/apify/mcpc/issues/418",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T09:13:19Z",
+      "updated_at": "2026-09-23T09:13:19Z",
+      "comments": 0
+    },
+    {
       "repo": "bucket-foundation/bucket-foundation",
       "number": 225,
       "title": "rai write-probe",
@@ -3466,6 +3886,30 @@
       "comments": 0
     },
     {
+      "repo": "dimitrilaouanis-tech/0n1x",
+      "number": 9,
+      "title": "rai write-probe",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/dimitrilaouanis-tech/0n1x/issues/9",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T09:12:56Z",
+      "updated_at": "2026-09-23T09:12:56Z",
+      "comments": 0
+    },
+    {
+      "repo": "dimitrilaouanis-tech/0n1x",
+      "number": 10,
+      "title": "rai write-probe",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/dimitrilaouanis-tech/0n1x/issues/10",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T09:13:16Z",
+      "updated_at": "2026-09-23T09:13:16Z",
+      "comments": 0
+    },
+    {
       "repo": "enhansome/enhansome-x402",
       "number": 2,
       "title": "rai write-probe",
@@ -3514,6 +3958,18 @@
       "comments": 2
     },
     {
+      "repo": "gosuda/x402-facilitator",
+      "number": 63,
+      "title": "permission-check (probe, closed by AI agent)",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/gosuda/x402-facilitator/issues/63",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-21T11:11:29Z",
+      "updated_at": "2026-09-21T11:11:51Z",
+      "comments": 0
+    },
+    {
       "repo": "haoruilee/awesome-agent-native-services",
       "number": 156,
       "title": "[New Service] openai-agents-nano-x402 \u2014 feeless self-custodied x402 settlement for agents (Nano XNO)",
@@ -3559,6 +4015,42 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T17:48:41Z",
       "updated_at": "2026-09-22T17:48:41Z",
+      "comments": 0
+    },
+    {
+      "repo": "internet-court/internet-court-skill",
+      "number": 30,
+      "title": "write-wall probe (throwaway)",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/internet-court/internet-court-skill/issues/30",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-21T17:07:51Z",
+      "updated_at": "2026-09-22T09:45:41Z",
+      "comments": 1
+    },
+    {
+      "repo": "itzikhr18/israel-counterparty-intelligence",
+      "number": 10,
+      "title": "rai write-probe",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/itzikhr18/israel-counterparty-intelligence/issues/10",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T09:12:55Z",
+      "updated_at": "2026-09-23T09:12:55Z",
+      "comments": 0
+    },
+    {
+      "repo": "itzikhr18/israel-counterparty-intelligence",
+      "number": 11,
+      "title": "rai write-probe",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/itzikhr18/israel-counterparty-intelligence/issues/11",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T09:13:15Z",
+      "updated_at": "2026-09-23T09:13:15Z",
       "comments": 0
     },
     {
@@ -3994,6 +4486,30 @@
       "comments": 2
     },
     {
+      "repo": "superpios/node-scorecard",
+      "number": 1,
+      "title": "rai write-probe",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/superpios/node-scorecard/issues/1",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T09:12:58Z",
+      "updated_at": "2026-09-23T09:12:59Z",
+      "comments": 0
+    },
+    {
+      "repo": "superpios/node-scorecard",
+      "number": 2,
+      "title": "rai write-probe",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/superpios/node-scorecard/issues/2",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T09:13:18Z",
+      "updated_at": "2026-09-23T09:13:18Z",
+      "comments": 0
+    },
+    {
       "repo": "thisyearnofear/earlynotwrong",
       "number": 36,
       "title": "rai write-probe",
@@ -4040,6 +4556,30 @@
       "created_at": "2026-09-22T14:29:49Z",
       "updated_at": "2026-09-22T14:30:13Z",
       "comments": 1
+    },
+    {
+      "repo": "x402-foundation/tsc",
+      "number": 13,
+      "title": "Will close - permission test only",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/x402-foundation/tsc/issues/13",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-20T13:49:57Z",
+      "updated_at": "2026-09-20T13:52:23Z",
+      "comments": 0
+    },
+    {
+      "repo": "x402-foundation/x402",
+      "number": 3535,
+      "title": "test-permission-check",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/x402-foundation/x402/issues/3535",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-20T10:36:35Z",
+      "updated_at": "2026-09-20T10:36:46Z",
+      "comments": 0
     },
     {
       "repo": "x402-index/x402-discovery-index",
