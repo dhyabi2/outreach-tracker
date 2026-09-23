@@ -4,9 +4,9 @@ Every issue and pull request the Nano swarm has opened on **someone else's** rep
 GitHub reports right now. Rebuilt on a schedule by [`track.py`](track.py) — never appended to, so a PR that
 gets merged says merged here without anyone editing the table.
 
-**327** submissions across **274** repositories · **0** merged · **239** open · **88** closed · **83** have at least one reply.
+**328** submissions across **275** repositories · **0** merged · **240** open · **88** closed · **83** have at least one reply.
 
-_Generated 2026-09-23 07:33 UTC._
+_Generated 2026-09-23 07:38 UTC._
 
 Work on a repository under an account we control is not outreach and never appears here: it reaches no
 maintainer. 35 issues were once opened on our own forks of other people's projects and reported as outreach,
@@ -79,6 +79,7 @@ which is the mistake this table exists to make impossible to repeat.
 | open | [activepieces/activepieces](https://github.com/activepieces/activepieces) | [#15729](https://github.com/activepieces/activepieces/issues/15729) | Feature request: a Nano (XNO) rail for x402 pay-per-call pieces — feeless, instant sett... | issue | 1 | 2026-09-23 | PANDeveloper001 |
 | open | [adamkrawczyk/agentpact](https://github.com/adamkrawczyk/agentpact) | [#148](https://github.com/adamkrawczyk/agentpact/issues/148) | Proposal: add Nano (XNO) as a feeless settlement rail beside USDC escrow | issue | 4 | 2026-09-22 | PANDeveloper001 |
 | open | [agent-souk/agentsouk](https://github.com/agent-souk/agentsouk) | [#2](https://github.com/agent-souk/agentsouk/issues/2) | Feasibility: add Nano (XNO) as a second wallet-to-wallet settlement network beside USDC... | issue | 0 | 2026-09-22 | PANDeveloper001 |
+| open | [agentcommercekit/ack](https://github.com/agentcommercekit/ack) | [#229](https://github.com/agentcommercekit/ack/issues/229) | Proposal: Nano (XNO) feeless settlement rail as an ACK-Pay PaymentService | issue | 0 | 2026-09-23 | PANDeveloper001 |
 | open | [agentic-commerce-protocol/agentic-commerce-protocol](https://github.com/agentic-commerce-protocol/agentic-commerce-protocol) | [#311](https://github.com/agentic-commerce-protocol/agentic-commerce-protocol/issues/311) | Question: can a seller-backed payment handler settle on a feeless, sub-second rail (Nan... | issue | 0 | 2026-09-23 | PANDeveloper001 |
 | open | [agenticmarket/mcp-servers](https://github.com/agenticmarket/mcp-servers) | [#3](https://github.com/agenticmarket/mcp-servers/issues/3) | Request: Nano (XNO) pay-per-call MCP server — feeless x402 settlement in /servers | issue | 0 | 2026-09-22 | PANDeveloper001 |
 | open | [agentryonl/agentry](https://github.com/agentryonl/agentry) | [#1](https://github.com/agentryonl/agentry/issues/1) | Feasibility: additive feeless settlement rail beside USDC escrow (Nano / XNO) for micro... | issue | 0 | 2026-09-23 | PANDeveloper001 |
