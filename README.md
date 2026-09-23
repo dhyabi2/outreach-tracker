@@ -4,9 +4,9 @@ Every issue and pull request the Nano swarm has opened on **someone else's** rep
 GitHub reports right now. Rebuilt on a schedule by [`track.py`](track.py) — never appended to, so a PR that
 gets merged says merged here without anyone editing the table.
 
-**339** submissions across **285** repositories · **0** merged · **253** open · **86** closed · **81** have at least one reply.
+**340** submissions across **287** repositories · **0** merged · **255** open · **85** closed · **82** have at least one reply.
 
-_Generated 2026-09-23 08:29 UTC._
+_Generated 2026-09-23 08:57 UTC._
 
 Work on a repository under an account we control is not outreach and never appears here: it reaches no
 maintainer. 35 issues were once opened on our own forks of other people's projects and reported as outreach,
@@ -82,6 +82,7 @@ which is the mistake this table exists to make impossible to repeat.
 | open | [XSpoonAi/spoon-core](https://github.com/XSpoonAi/spoon-core) | [#289](https://github.com/XSpoonAi/spoon-core/issues/289) | Add Nano (XNO) as a rail beside USDC — zero fee, ~0.3s settlement | issue | 0 | 2026-09-22 | PANDeveloper001 |
 | open | [YANGCHUNHONG3000/cn-evidence-public-docs](https://github.com/YANGCHUNHONG3000/cn-evidence-public-docs) | [#1](https://github.com/YANGCHUNHONG3000/cn-evidence-public-docs/issues/1) | Idea: optional Nano (XNO) settlement for supplier-report lookups | issue | 1 | 2026-09-22 | PANDeveloper001 |
 | open | [activepieces/activepieces](https://github.com/activepieces/activepieces) | [#15729](https://github.com/activepieces/activepieces/issues/15729) | Feature request: a Nano (XNO) rail for x402 pay-per-call pieces — feeless, instant sett... | issue | 1 | 2026-09-23 | PANDeveloper001 |
+| open | [activepieces/activepieces](https://github.com/activepieces/activepieces) | [#15730](https://github.com/activepieces/activepieces/issues/15730) | Surface pay-per-call x402 (HTTP 402) MCP tool results as a per-call payment step | issue | 1 | 2026-09-23 | PANDeveloper001 |
 | open | [adamkrawczyk/agentpact](https://github.com/adamkrawczyk/agentpact) | [#148](https://github.com/adamkrawczyk/agentpact/issues/148) | Proposal: add Nano (XNO) as a feeless settlement rail beside USDC escrow | issue | 4 | 2026-09-22 | PANDeveloper001 |
 | open | [agent-souk/agentsouk](https://github.com/agent-souk/agentsouk) | [#2](https://github.com/agent-souk/agentsouk/issues/2) | Feasibility: add Nano (XNO) as a second wallet-to-wallet settlement network beside USDC... | issue | 0 | 2026-09-22 | PANDeveloper001 |
 | open | [agentcommercekit/ack](https://github.com/agentcommercekit/ack) | [#229](https://github.com/agentcommercekit/ack/issues/229) | Proposal: Nano (XNO) feeless settlement rail as an ACK-Pay PaymentService | issue | 0 | 2026-09-23 | PANDeveloper001 |
@@ -164,6 +165,7 @@ which is the mistake this table exists to make impossible to repeat.
 | open | [madebyshun/blue-agent](https://github.com/madebyshun/blue-agent) | [#470](https://github.com/madebyshun/blue-agent/issues/470) | Proposal: a feeless Nano (XNO) settlement option in the Blue Hub x402 flow | issue | 0 | 2026-09-22 | PANDeveloper001 |
 | open | [mainlayer/paid-mcp-server](https://github.com/mainlayer/paid-mcp-server) | [#1](https://github.com/mainlayer/paid-mcp-server/issues/1) | Feature request: an optional feeless Nano (XNO) settlement leg beside Mainlayer credits | issue | 0 | 2026-09-23 | PANDeveloper001 |
 | open | [maxcabd/ap2-rs](https://github.com/maxcabd/ap2-rs) | [#1](https://github.com/maxcabd/ap2-rs/issues/1) | A feeless, single-block-final settlement rail next to the card credential flows — a mea... | issue | 0 | 2026-09-22 | PANDeveloper001 |
+| open | [maximhq/bifrost](https://github.com/maximhq/bifrost) | [#7453](https://github.com/maximhq/bifrost/issues/7453) | [Feature]: sub-cent per-request settlement leg for the pricing engine | issue | 0 | 2026-09-23 | PANDeveloper001 |
 | open | [mbeato/awesome-mpp](https://github.com/mbeato/awesome-mpp) | [#38](https://github.com/mbeato/awesome-mpp/issues/38) | Add Nano (XNO) x402 payer — openai-agents-nano — MPP ecosystem addition | issue | 0 | 2026-09-17 | dhyabi2 |
 | open | [mcpize/cli](https://github.com/mcpize/cli) | [#4](https://github.com/mcpize/cli/issues/4) | Feature request: add Nano (XNO) as a second x402 settlement lane beside USDC on Base | issue | 0 | 2026-09-23 | PANDeveloper001 |
 | open | [melonask/facilitator](https://github.com/melonask/facilitator) | [#3](https://github.com/melonask/facilitator/issues/3) | A verify-only mechanism for a feeless rail (nano:mainnet) beside eip7702 and erc3009 | issue | 1 | 2026-09-22 | PANDeveloper001 |
@@ -186,7 +188,7 @@ which is the mistake this table exists to make impossible to repeat.
 | open | [otomat-fun/otomat](https://github.com/otomat-fun/otomat) | [#16](https://github.com/otomat-fun/otomat/issues/16) | Add Nano (XNO) as a rail beside Solana USDC — zero fee, gasless settlement | issue | 0 | 2026-09-22 | PANDeveloper001 |
 | open | [patwalls/walls-mcp-examples](https://github.com/patwalls/walls-mcp-examples) | [#2](https://github.com/patwalls/walls-mcp-examples/issues/2) | Add Nano (XNO) as a settlement option alongside USDC — feeless, instant, no EVM wallet ... | issue | 0 | 2026-09-22 | PANDeveloper001 |
 | open | [pay-skill/gate](https://github.com/pay-skill/gate) | [#152](https://github.com/pay-skill/gate/issues/152) | Consider a feeless second settlement network (Nano / XNO) beside the USDC-on-Base facil... | issue | 0 | 2026-09-22 | PANDeveloper001 |
-| open | [payperlabs/payper-mcp](https://github.com/payperlabs/payper-mcp) | [#1](https://github.com/payperlabs/payper-mcp/issues/1) | Nano (XNO) settlement path for payper-mcp — same flow, zero-fee rail | issue | 0 | 2026-09-21 | PANDeveloper001 |
+| open | [piprail/piprail](https://github.com/piprail/piprail) | [#125](https://github.com/piprail/piprail/issues/125) | Proposal: add Nano (XNO) driver + x402 example — feeless, sub-second finality | issue | 0 | 2026-09-23 | PANDeveloper001 |
 | open | [pplmaverick/x402-sentinel](https://github.com/pplmaverick/x402-sentinel) | [#2](https://github.com/pplmaverick/x402-sentinel/issues/2) | A zero-fee verification leg that fits the accepts[] scanner: Nano (XNO) | issue | 0 | 2026-09-22 | PANDeveloper001 |
 | open | [presidio-v/presidio-hardened-x402](https://github.com/presidio-v/presidio-hardened-x402) | [#125](https://github.com/presidio-v/presidio-hardened-x402/issues/125) | Nano (XNO) as a settlement lane — instant, feeless, no gas for the caller | issue | 0 | 2026-09-22 | PANDeveloper001 |
 | open | [primer-systems/x402](https://github.com/primer-systems/x402) | [#3](https://github.com/primer-systems/x402/issues/3) | A feeless settlement kind beside ERC-20 USDC: Nano (XNO) exact-scheme acceptor | issue | 0 | 2026-09-22 | PANDeveloper001 |
@@ -275,7 +277,6 @@ which is the mistake this table exists to make impossible to repeat.
 | closed | [ComposioHQ/composio](https://github.com/ComposioHQ/composio) | [#4569](https://github.com/ComposioHQ/composio/issues/4569) | probe-write-2 | issue | 2 | 2026-09-22 | PANDeveloper001 |
 | closed | [Corican/nanodir](https://github.com/Corican/nanodir) | [#2](https://github.com/Corican/nanodir/issues/2) | Add openai-agents-nano-x402 (Nano XNO x402 payer for OpenAI Agents SDK) to the SDKs and... | issue | 1 | 2026-09-17 | dhyabi2 |
 | closed | [Fronesis-Labs/dcl-transparency](https://github.com/Fronesis-Labs/dcl-transparency) | [#1](https://github.com/Fronesis-Labs/dcl-transparency/issues/1) | rai write-probe | issue | 0 | 2026-09-22 | PANDeveloper001 |
-| closed | [Haustorium12/gold-402](https://github.com/Haustorium12/gold-402) | [#241](https://github.com/Haustorium12/gold-402/issues/241) | test-perm | issue | 0 | 2026-09-21 | PANDeveloper001 |
 | closed | [Matros777/x402-tools-hub](https://github.com/Matros777/x402-tools-hub) | [#1](https://github.com/Matros777/x402-tools-hub/issues/1) | rai write-probe | issue | 0 | 2026-09-22 | PANDeveloper001 |
 | closed | [MervinPraison/PraisonAI](https://github.com/MervinPraison/PraisonAI) | [#1894](https://github.com/MervinPraison/PraisonAI/issues/1894) | Security: two private advisories incoming for 0.1.4 (incomplete-fix) — confirming discl... | issue | 2 | 2026-06-11 | dhyabi2 |
 | closed | [MikeyPetrillo/Agent402](https://github.com/MikeyPetrillo/Agent402) | [#1376](https://github.com/MikeyPetrillo/Agent402/issues/1376) | Nano (XNO) sellers are indexed and routable, but routerDispatchByChain only ever names ... | issue | 1 | 2026-09-17 | dhyabi2 |

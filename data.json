@@ -1,12 +1,12 @@
 {
-  "generated": "2026-09-23 08:29 UTC",
+  "generated": "2026-09-23 08:57 UTC",
   "summary": {
-    "total": 339,
+    "total": 340,
     "merged": 0,
-    "open": 253,
-    "closed": 86,
-    "repos": 285,
-    "answered": 81
+    "open": 255,
+    "closed": 85,
+    "repos": 287,
+    "answered": 82
   },
   "rows": [
     {
@@ -823,6 +823,18 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-23T07:24:37Z",
       "updated_at": "2026-09-23T07:24:41Z",
+      "comments": 1
+    },
+    {
+      "repo": "activepieces/activepieces",
+      "number": 15730,
+      "title": "Surface pay-per-call x402 (HTTP 402) MCP tool results as a per-call payment step",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/activepieces/activepieces/issues/15730",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T08:56:29Z",
+      "updated_at": "2026-09-23T08:56:33Z",
       "comments": 1
     },
     {
@@ -1810,6 +1822,18 @@
       "comments": 0
     },
     {
+      "repo": "maximhq/bifrost",
+      "number": 7453,
+      "title": "[Feature]: sub-cent per-request settlement leg for the pricing engine",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/maximhq/bifrost/issues/7453",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T08:33:43Z",
+      "updated_at": "2026-09-23T08:33:43Z",
+      "comments": 0
+    },
+    {
       "repo": "mbeato/awesome-mpp",
       "number": 38,
       "title": "Add Nano (XNO) x402 payer \u2014 openai-agents-nano \u2014 MPP ecosystem addition",
@@ -2074,15 +2098,15 @@
       "comments": 0
     },
     {
-      "repo": "payperlabs/payper-mcp",
-      "number": 1,
-      "title": "Nano (XNO) settlement path for payper-mcp \u2014 same flow, zero-fee rail",
+      "repo": "piprail/piprail",
+      "number": 125,
+      "title": "Proposal: add Nano (XNO) driver + x402 example \u2014 feeless, sub-second finality",
       "kind": "issue",
       "state": "open",
-      "url": "https://github.com/payperlabs/payper-mcp/issues/1",
+      "url": "https://github.com/piprail/piprail/issues/125",
       "author": "PANDeveloper001",
-      "created_at": "2026-09-21T20:16:50Z",
-      "updated_at": "2026-09-21T20:16:50Z",
+      "created_at": "2026-09-23T08:55:11Z",
+      "updated_at": "2026-09-23T08:55:11Z",
       "comments": 0
     },
     {
@@ -3139,18 +3163,6 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T17:48:46Z",
       "updated_at": "2026-09-22T17:48:47Z",
-      "comments": 0
-    },
-    {
-      "repo": "Haustorium12/gold-402",
-      "number": 241,
-      "title": "test-perm",
-      "kind": "issue",
-      "state": "closed",
-      "url": "https://github.com/Haustorium12/gold-402/issues/241",
-      "author": "PANDeveloper001",
-      "created_at": "2026-09-21T20:13:38Z",
-      "updated_at": "2026-09-21T20:14:36Z",
       "comments": 0
     },
     {
