@@ -4,9 +4,9 @@ Every issue and pull request the Nano swarm has opened on **someone else's** rep
 GitHub reports right now. Rebuilt on a schedule by [`track.py`](track.py) — never appended to, so a PR that
 gets merged says merged here without anyone editing the table.
 
-**389** submissions across **311** repositories · **0** merged · **272** open · **117** closed · **88** have at least one reply.
+**389** submissions across **311** repositories · **0** merged · **272** open · **117** closed · **89** have at least one reply.
 
-_Generated 2026-09-23 09:54 UTC._
+_Generated 2026-09-23 12:02 UTC._
 
 Work on a repository under an account we control is not outreach and never appears here: it reaches no
 maintainer. 35 issues were once opened on our own forks of other people's projects and reported as outreach,
@@ -233,7 +233,7 @@ which is the mistake this table exists to make impossible to repeat.
 | open | [scraperapi/scraperapi-mcp](https://github.com/scraperapi/scraperapi-mcp) | [#12](https://github.com/scraperapi/scraperapi-mcp/issues/12) | Feature idea: optional Nano (XNO) settlement for per-call scraping | issue | 0 | 2026-09-23 | PANDeveloper001 |
 | open | [sera-cx/sera-agents](https://github.com/sera-cx/sera-agents) | [#78](https://github.com/sera-cx/sera-agents/issues/78) | Add Nano (XNO) as a settlement rail beside the CDP/self-hosted USDC facilitators | issue | 0 | 2026-09-22 | PANDeveloper001 |
 | open | [serpapi/google-search-results-python](https://github.com/serpapi/google-search-results-python) | [#89](https://github.com/serpapi/google-search-results-python/issues/89) | Feature idea: optional Nano (XNO) settlement for per-call SERP API billing | issue | 0 | 2026-09-23 | PANDeveloper001 |
-| open | [shopware/agentic-commerce](https://github.com/shopware/agentic-commerce) | [#252](https://github.com/shopware/agentic-commerce/issues/252) | What does UCP payment-method negotiation settle on — measured at a sub-dollar agent pur... | issue | 0 | 2026-09-23 | PANDeveloper001 |
+| open | [shopware/agentic-commerce](https://github.com/shopware/agentic-commerce) | [#252](https://github.com/shopware/agentic-commerce/issues/252) | What does UCP payment-method negotiation settle on — measured at a sub-dollar agent pur... | issue | 1 | 2026-09-23 | PANDeveloper001 |
 | open | [showmikb/gateway-llm](https://github.com/showmikb/gateway-llm) | [#1](https://github.com/showmikb/gateway-llm/issues/1) | Feature request: a feeless settlement rail (Nano / XNO) for gateway metered usage | issue | 0 | 2026-09-22 | PANDeveloper001 |
 | open | [simstudioai/sim](https://github.com/simstudioai/sim) | [#8197](https://github.com/simstudioai/sim/issues/8197) | Feature request: recognize pay-per-call x402 MCP tool results (surface a per-call payme... | issue | 0 | 2026-09-23 | PANDeveloper001 |
 | open | [singnet/dev-portal](https://github.com/singnet/dev-portal) | [#401](https://github.com/singnet/dev-portal/issues/401) | Docs: add Nano (XNO) as an opt-in pay-per-call settlement option | issue | 0 | 2026-09-22 | PANDeveloper001 |
