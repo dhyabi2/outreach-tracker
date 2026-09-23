@@ -1,11 +1,11 @@
 {
-  "generated": "2026-09-23 01:35 UTC",
+  "generated": "2026-09-23 01:57 UTC",
   "summary": {
-    "total": 309,
+    "total": 312,
     "merged": 0,
-    "open": 219,
-    "closed": 90,
-    "repos": 251,
+    "open": 223,
+    "closed": 89,
+    "repos": 255,
     "answered": 82
   },
   "rows": [
@@ -730,6 +730,18 @@
       "comments": 0
     },
     {
+      "repo": "agentic-commerce-protocol/agentic-commerce-protocol",
+      "number": 311,
+      "title": "Question: can a seller-backed payment handler settle on a feeless, sub-second rail (Nano / XNO)?",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/agentic-commerce-protocol/agentic-commerce-protocol/issues/311",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T01:48:08Z",
+      "updated_at": "2026-09-23T01:48:08Z",
+      "comments": 0
+    },
+    {
       "repo": "agenticmarket/mcp-servers",
       "number": 3,
       "title": "Request: Nano (XNO) pay-per-call MCP server \u2014 feeless x402 settlement in /servers",
@@ -739,6 +751,18 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T17:59:34Z",
       "updated_at": "2026-09-22T17:59:34Z",
+      "comments": 0
+    },
+    {
+      "repo": "agents-txt/agents-txt",
+      "number": 4,
+      "title": "RFC: document Nano (nano:<genesis-block-hash>) as a worked example for payments.x402.chains",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/agents-txt/agents-txt/issues/4",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T01:40:44Z",
+      "updated_at": "2026-09-23T01:40:44Z",
       "comments": 0
     },
     {
@@ -1350,8 +1374,20 @@
       "url": "https://github.com/haoruilee/awesome-agent-native-services/issues/156",
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T16:46:52Z",
-      "updated_at": "2026-09-23T01:16:57Z",
-      "comments": 1
+      "updated_at": "2026-09-23T01:39:27Z",
+      "comments": 2
+    },
+    {
+      "repo": "haoruilee/awesome-agent-native-services",
+      "number": 157,
+      "title": "[New Service] Vend API Merchant \u2014 pay-per-call APIs settled in Nano (XNO)",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/haoruilee/awesome-agent-native-services/issues/157",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T01:44:08Z",
+      "updated_at": "2026-09-23T01:44:08Z",
+      "comments": 0
     },
     {
       "repo": "helloluis/kamai",
@@ -1590,8 +1626,8 @@
       "url": "https://github.com/melonask/facilitator/issues/3",
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T06:40:10Z",
-      "updated_at": "2026-09-22T06:40:10Z",
-      "comments": 0
+      "updated_at": "2026-09-23T01:36:40Z",
+      "comments": 1
     },
     {
       "repo": "mergeos-bounties/mergeos",
@@ -1906,18 +1942,6 @@
       "comments": 2
     },
     {
-      "repo": "pursekeeper/api",
-      "number": 22,
-      "title": "Seller: Vend API Merchant \u2014 7 stock x402 v2 nano:mainnet pay-per-call endpoints",
-      "kind": "issue",
-      "state": "open",
-      "url": "https://github.com/pursekeeper/api/issues/22",
-      "author": "PANDeveloper001",
-      "created_at": "2026-09-18T22:15:20Z",
-      "updated_at": "2026-09-20T22:13:22Z",
-      "comments": 2
-    },
-    {
       "repo": "pydantic/pydantic-ai",
       "number": 8615,
       "title": "Consider Nano (XNO) as a feeless settlement option for agent pay-per-use",
@@ -1975,6 +1999,18 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-23T01:26:38Z",
       "updated_at": "2026-09-23T01:26:38Z",
+      "comments": 0
+    },
+    {
+      "repo": "refly-ai/refly",
+      "number": 2296,
+      "title": "Feature request: optional per-call pay-per-use for skills via x402 (HTTP 402 payment challenge)",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/refly-ai/refly/issues/2296",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T01:37:40Z",
+      "updated_at": "2026-09-23T01:37:40Z",
       "comments": 0
     },
     {
@@ -2071,6 +2107,18 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T17:52:01Z",
       "updated_at": "2026-09-22T17:52:01Z",
+      "comments": 0
+    },
+    {
+      "repo": "sangmdas/Payment-Execution-Finality-for-Agentic-API-and-Automated-Payments-Runnable-Reference-Implementation",
+      "number": 1,
+      "title": "Question: how should the finality model treat a rail that is final-at-admission and feeless (Nano / XNO)?",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/sangmdas/Payment-Execution-Finality-for-Agentic-API-and-Automated-Payments-Runnable-Reference-Implementation/issues/1",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T01:46:43Z",
+      "updated_at": "2026-09-23T01:46:43Z",
       "comments": 0
     },
     {
@@ -3655,18 +3703,6 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-20T13:49:57Z",
       "updated_at": "2026-09-20T13:52:23Z",
-      "comments": 0
-    },
-    {
-      "repo": "x402-foundation/x402",
-      "number": 3535,
-      "title": "test-permission-check",
-      "kind": "issue",
-      "state": "closed",
-      "url": "https://github.com/x402-foundation/x402/issues/3535",
-      "author": "PANDeveloper001",
-      "created_at": "2026-09-20T10:36:35Z",
-      "updated_at": "2026-09-20T10:36:46Z",
       "comments": 0
     },
     {
