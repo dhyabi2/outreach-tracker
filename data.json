@@ -1,11 +1,11 @@
 {
-  "generated": "2026-09-23 02:41 UTC",
+  "generated": "2026-09-23 03:02 UTC",
   "summary": {
-    "total": 316,
+    "total": 318,
     "merged": 0,
-    "open": 227,
-    "closed": 89,
-    "repos": 261,
+    "open": 230,
+    "closed": 88,
+    "repos": 265,
     "answered": 82
   },
   "rows": [
@@ -31,6 +31,18 @@
       "author": "dhyabi2",
       "created_at": "2026-09-17T23:40:56Z",
       "updated_at": "2026-09-17T23:40:56Z",
+      "comments": 0
+    },
+    {
+      "repo": "0xSardius/solenrich",
+      "number": 4,
+      "title": "Proposal: an optional feeless settlement rail (Nano / XNO) beside USDC for the sub-cent endpoints",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/0xSardius/solenrich/issues/4",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T02:42:48Z",
+      "updated_at": "2026-09-23T02:42:48Z",
       "comments": 0
     },
     {
@@ -634,6 +646,18 @@
       "comments": 0
     },
     {
+      "repo": "Universal-Commerce-Protocol/ucp",
+      "number": 854,
+      "title": "[RFC] Does UCP's Payment-Handler extension model cover a feeless rail (com.nano.xno / Nano XNO)?",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/Universal-Commerce-Protocol/ucp/issues/854",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T02:44:42Z",
+      "updated_at": "2026-09-23T02:44:42Z",
+      "comments": 0
+    },
+    {
       "repo": "VJLIVE/AgentWallet",
       "number": 2,
       "title": "Proposal: add Nano (XNO) as a second x402 settlement network beside Algorand USDC",
@@ -643,18 +667,6 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-23T01:32:16Z",
       "updated_at": "2026-09-23T01:32:16Z",
-      "comments": 0
-    },
-    {
-      "repo": "Vellar-Wallet/vellar-facilitator",
-      "number": 99,
-      "title": "Feature request: add Nano (XNO) as a second settlement rail alongside Stellar",
-      "kind": "issue",
-      "state": "open",
-      "url": "https://github.com/Vellar-Wallet/vellar-facilitator/issues/99",
-      "author": "PANDeveloper001",
-      "created_at": "2026-09-20T19:32:49Z",
-      "updated_at": "2026-09-20T19:32:49Z",
       "comments": 0
     },
     {
@@ -1354,18 +1366,6 @@
       "comments": 0
     },
     {
-      "repo": "gosuda/x402-facilitator",
-      "number": 62,
-      "title": "Add Nano (XNO) as a supported `exact`-scheme network",
-      "kind": "issue",
-      "state": "open",
-      "url": "https://github.com/gosuda/x402-facilitator/issues/62",
-      "author": "PANDeveloper001",
-      "created_at": "2026-09-20T19:34:44Z",
-      "updated_at": "2026-09-20T19:34:44Z",
-      "comments": 0
-    },
-    {
       "repo": "grip-foundation/protocol",
       "number": 2,
       "title": "Nano (XNO) as a settlement leg beside USDC escrow \u2014 instant, feeless, eliminates the paymaster",
@@ -1786,6 +1786,18 @@
       "comments": 0
     },
     {
+      "repo": "nitrographtech/cli",
+      "number": 14,
+      "title": "Add a feeless settlement rail (Nano XNO via x402nano/exact) to indexed service selection",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/nitrographtech/cli/issues/14",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T02:57:35Z",
+      "updated_at": "2026-09-23T02:57:35Z",
+      "comments": 0
+    },
+    {
       "repo": "nixondc93/opentask-agent-plugins",
       "number": 6,
       "title": "Propose Nano (XNO) as a second settlement rail for agent micro-payments",
@@ -2083,6 +2095,18 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-23T02:06:41Z",
       "updated_at": "2026-09-23T02:06:41Z",
+      "comments": 0
+    },
+    {
+      "repo": "rmartins1451/losbeto",
+      "number": 1,
+      "title": "Proposal: a feeless settlement rail (Nano / XNO) alongside USDC on the LLM gateway and market-data endpoints",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/rmartins1451/losbeto/issues/1",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T02:43:23Z",
+      "updated_at": "2026-09-23T02:43:23Z",
       "comments": 0
     },
     {
@@ -2395,6 +2419,18 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-23T00:22:31Z",
       "updated_at": "2026-09-23T00:22:31Z",
+      "comments": 0
+    },
+    {
+      "repo": "trillskillz/clawdmarket",
+      "number": 206,
+      "title": "Nano (XNO) settlement rail: feeless, instant-finality option for the config-driven external settlement system",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/trillskillz/clawdmarket/issues/206",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T02:51:28Z",
+      "updated_at": "2026-09-23T02:51:28Z",
       "comments": 0
     },
     {
@@ -3007,18 +3043,6 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T08:39:15Z",
       "updated_at": "2026-09-22T08:39:15Z",
-      "comments": 0
-    },
-    {
-      "repo": "Vellar-Wallet/vellar-facilitator",
-      "number": 98,
-      "title": "_permission probe",
-      "kind": "issue",
-      "state": "closed",
-      "url": "https://github.com/Vellar-Wallet/vellar-facilitator/issues/98",
-      "author": "PANDeveloper001",
-      "created_at": "2026-09-20T19:31:58Z",
-      "updated_at": "2026-09-20T19:31:59Z",
       "comments": 0
     },
     {
