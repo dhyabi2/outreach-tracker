@@ -1,12 +1,12 @@
 {
-  "generated": "2026-09-23 07:38 UTC",
+  "generated": "2026-09-23 08:22 UTC",
   "summary": {
-    "total": 328,
+    "total": 336,
     "merged": 0,
-    "open": 240,
-    "closed": 88,
-    "repos": 275,
-    "answered": 83
+    "open": 249,
+    "closed": 87,
+    "repos": 283,
+    "answered": 82
   },
   "rows": [
     {
@@ -199,6 +199,18 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T13:17:27Z",
       "updated_at": "2026-09-22T13:17:27Z",
+      "comments": 0
+    },
+    {
+      "repo": "BlockRunAI/ClawRouter",
+      "number": 391,
+      "title": "Settlement suggestion: a Nano leg whose settle step has nothing to relay (no @x402/svm dependency to bump)",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/BlockRunAI/ClawRouter/issues/391",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T08:21:31Z",
+      "updated_at": "2026-09-23T08:21:31Z",
       "comments": 0
     },
     {
@@ -560,6 +572,18 @@
       "created_at": "2026-09-17T23:40:45Z",
       "updated_at": "2026-09-19T21:44:10Z",
       "comments": 1
+    },
+    {
+      "repo": "Sentinel-Bluebuilder/x402",
+      "number": 17,
+      "title": "Feature request: add a feeless `nano:mainnet` x402 settlement rail beside USDC-on-Base",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/Sentinel-Bluebuilder/x402/issues/17",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T08:18:35Z",
+      "updated_at": "2026-09-23T08:18:35Z",
+      "comments": 0
     },
     {
       "repo": "SmythOS/sre",
@@ -994,6 +1018,18 @@
       "comments": 6
     },
     {
+      "repo": "brave/brave-search-skills",
+      "number": 32,
+      "title": "Feature idea: optional Nano (XNO) settlement for per-call Brave Search API",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/brave/brave-search-skills/issues/32",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T08:10:39Z",
+      "updated_at": "2026-09-23T08:10:39Z",
+      "comments": 0
+    },
+    {
       "repo": "bridgenode-ai/bridgenode-mcp",
       "number": 23,
       "title": "Feature request: accept Nano (XNO) as a second x402 settlement rail",
@@ -1282,6 +1318,18 @@
       "comments": 0
     },
     {
+      "repo": "firecrawl/firecrawl",
+      "number": 4741,
+      "title": "Feature idea: optional Nano (XNO) settlement for per-call web data API",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/firecrawl/firecrawl/issues/4741",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T08:11:00Z",
+      "updated_at": "2026-09-23T08:11:00Z",
+      "comments": 0
+    },
+    {
       "repo": "flexprice/flexprice",
       "number": 2892,
       "title": "[FEATURE] Add Nano (XNO) as a peer-to-peer settlement provider alongside Stripe/Chargebee",
@@ -1411,18 +1459,6 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T10:17:22Z",
       "updated_at": "2026-09-22T10:17:22Z",
-      "comments": 0
-    },
-    {
-      "repo": "google-agentic-commerce/a2a-x402",
-      "number": 176,
-      "title": "Proposal: Nano (XNO) as an additional settlement network for A2A x402 payments",
-      "kind": "issue",
-      "state": "open",
-      "url": "https://github.com/google-agentic-commerce/a2a-x402/issues/176",
-      "author": "PANDeveloper001",
-      "created_at": "2026-09-21T11:13:48Z",
-      "updated_at": "2026-09-21T11:13:48Z",
       "comments": 0
     },
     {
@@ -1570,6 +1606,18 @@
       "comments": 0
     },
     {
+      "repo": "jina-ai/reader",
+      "number": 1269,
+      "title": "Feature idea: optional pay-per-use Nano (XNO) lane for the Reader API",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/jina-ai/reader/issues/1269",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T08:09:48Z",
+      "updated_at": "2026-09-23T08:09:48Z",
+      "comments": 0
+    },
+    {
       "repo": "joyjacob42920-lgtm/x402-template-1",
       "number": 1,
       "title": "Proposal: a self-custodied Nano (XNO) settlement rail for the paid-by-default gate",
@@ -1615,6 +1663,18 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T17:41:02Z",
       "updated_at": "2026-09-22T17:41:02Z",
+      "comments": 0
+    },
+    {
+      "repo": "kordless/gnosis-ahp",
+      "number": 2,
+      "title": "A feeless, final-at-admission rail for the AHP rails registry \u2014 a question on section 6.3",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/kordless/gnosis-ahp/issues/2",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T08:01:15Z",
+      "updated_at": "2026-09-23T08:01:15Z",
       "comments": 0
     },
     {
@@ -1723,6 +1783,18 @@
       "author": "dhyabi2",
       "created_at": "2026-09-17T23:41:01Z",
       "updated_at": "2026-09-17T23:41:01Z",
+      "comments": 0
+    },
+    {
+      "repo": "mcpize/cli",
+      "number": 4,
+      "title": "Feature request: add Nano (XNO) as a second x402 settlement lane beside USDC on Base",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/mcpize/cli/issues/4",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T08:21:25Z",
+      "updated_at": "2026-09-23T08:21:25Z",
       "comments": 0
     },
     {
@@ -2278,6 +2350,18 @@
       "comments": 2
     },
     {
+      "repo": "scraperapi/scraperapi-mcp",
+      "number": 12,
+      "title": "Feature idea: optional Nano (XNO) settlement for per-call scraping",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/scraperapi/scraperapi-mcp/issues/12",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T08:10:08Z",
+      "updated_at": "2026-09-23T08:10:08Z",
+      "comments": 0
+    },
+    {
       "repo": "sera-cx/sera-agents",
       "number": 78,
       "title": "Add Nano (XNO) as a settlement rail beside the CDP/self-hosted USDC facilitators",
@@ -2287,6 +2371,18 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T17:44:08Z",
       "updated_at": "2026-09-22T17:44:08Z",
+      "comments": 0
+    },
+    {
+      "repo": "serpapi/google-search-results-python",
+      "number": 89,
+      "title": "Feature idea: optional Nano (XNO) settlement for per-call SERP API billing",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/serpapi/google-search-results-python/issues/89",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T08:09:24Z",
+      "updated_at": "2026-09-23T08:09:24Z",
       "comments": 0
     },
     {
@@ -2311,6 +2407,18 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T13:43:47Z",
       "updated_at": "2026-09-22T13:43:47Z",
+      "comments": 0
+    },
+    {
+      "repo": "simstudioai/sim",
+      "number": 8197,
+      "title": "Feature request: recognize pay-per-call x402 MCP tool results (surface a per-call payment step)",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/simstudioai/sim/issues/8197",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T08:00:20Z",
+      "updated_at": "2026-09-23T08:00:20Z",
       "comments": 0
     },
     {
@@ -2360,18 +2468,6 @@
       "created_at": "2026-09-22T08:54:10Z",
       "updated_at": "2026-09-22T08:54:10Z",
       "comments": 0
-    },
-    {
-      "repo": "solana-foundation/pay-kit",
-      "number": 329,
-      "title": "Add Nano (XNO) as a settlement network: feeless, instant, single-confirmation end-to-end",
-      "kind": "issue",
-      "state": "open",
-      "url": "https://github.com/solana-foundation/pay-kit/issues/329",
-      "author": "PANDeveloper001",
-      "created_at": "2026-09-21T11:13:15Z",
-      "updated_at": "2026-09-21T12:48:29Z",
-      "comments": 2
     },
     {
       "repo": "soqucoin/soq-template-ai-agent-payments",
@@ -2431,6 +2527,18 @@
       "author": "PANDeveloper001",
       "created_at": "2026-09-22T17:51:11Z",
       "updated_at": "2026-09-22T17:51:11Z",
+      "comments": 0
+    },
+    {
+      "repo": "tavily-ai/tavily-python",
+      "number": 199,
+      "title": "Feature idea: optional Nano (XNO) settlement for per-call web search",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/tavily-ai/tavily-python/issues/199",
+      "author": "PANDeveloper001",
+      "created_at": "2026-09-23T08:11:18Z",
+      "updated_at": "2026-09-23T08:11:18Z",
       "comments": 0
     },
     {
@@ -3344,18 +3452,6 @@
       "created_at": "2026-04-13T04:45:00Z",
       "updated_at": "2026-04-29T21:46:05Z",
       "comments": 2
-    },
-    {
-      "repo": "gosuda/x402-facilitator",
-      "number": 63,
-      "title": "permission-check (probe, closed by AI agent)",
-      "kind": "issue",
-      "state": "closed",
-      "url": "https://github.com/gosuda/x402-facilitator/issues/63",
-      "author": "PANDeveloper001",
-      "created_at": "2026-09-21T11:11:29Z",
-      "updated_at": "2026-09-21T11:11:51Z",
-      "comments": 0
     },
     {
       "repo": "haoruilee/awesome-agent-native-services",
