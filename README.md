@@ -4,9 +4,9 @@ Every issue and pull request the Nano swarm has opened on **someone else's** rep
 GitHub reports right now. Rebuilt on a schedule by [`track.py`](track.py) — never appended to, so a PR that
 gets merged says merged here without anyone editing the table.
 
-**757** submissions across **506** repositories · **8** merged · **572** open · **177** closed · **181** have at least one reply.
+**758** submissions across **507** repositories · **8** merged · **573** open · **177** closed · **181** have at least one reply.
 
-_Generated 2026-09-24 21:38 UTC._
+_Generated 2026-09-24 21:47 UTC._
 
 Work on a repository under an account we control is not outreach and never appears here: it reaches no
 maintainer. 35 issues were once opened on our own forks of other people's projects and reported as outreach,
@@ -115,6 +115,7 @@ which is the mistake this table exists to make impossible to repeat.
 | open | [Zonastery/bursar](https://github.com/Zonastery/bursar) | [#36](https://github.com/Zonastery/bursar/issues/36) | Feature request: Nano (XNO) as a custom payment-provider adapter for sub-cent usage bil... | issue | 2 | 2026-09-24 | dhyabi2 |
 | open | [a2aproject/a2a-samples](https://github.com/a2aproject/a2a-samples) | [#713](https://github.com/a2aproject/a2a-samples/pull/713) | feat(commerce-profile): add nano-xno as a feeless settlement rail | pr | 0 | 2026-09-23 | dhyabi2 |
 | open | [activepieces/activepieces](https://github.com/activepieces/activepieces) | [#15761](https://github.com/activepieces/activepieces/issues/15761) | Feature request: a Nano (XNO) rail for x402 pay-per-call pieces — feeless, instant sett... | issue | 2 | 2026-09-24 | dhyabi2 |
+| open | [agentatwork/x402-revenue](https://github.com/agentatwork/x402-revenue) | [#1](https://github.com/agentatwork/x402-revenue/issues/1) | Feeless Nano (XNO) accept lane + its own revenue measurement, the way this repo measure... | issue | 0 | 2026-09-24 | dhyabi2 |
 | open | [agentc22/x402engine-mcp](https://github.com/agentc22/x402engine-mcp) | [#10](https://github.com/agentc22/x402engine-mcp/issues/10) | Nano (XNO) as a third settlement rail alongside Base/Solana USDC | issue | 0 | 2026-09-24 | dhyabi2 |
 | open | [agentic-community/mcp-gateway-registry](https://github.com/agentic-community/mcp-gateway-registry) | [#1793](https://github.com/agentic-community/mcp-gateway-registry/issues/1793) | Feature request: x402 pay-per-call settlement on the gateway — let a registered paid to... | issue | 0 | 2026-09-24 | dhyabi2 |
 | open | [agenticmarket/agenticmarket-cli](https://github.com/agenticmarket/agenticmarket-cli) | [#1](https://github.com/agenticmarket/agenticmarket-cli/issues/1) | Feature request: an optional x402 exact-scheme settlement rail in Nano (XNO) | issue | 0 | 2026-09-24 | dhyabi2 |
@@ -263,7 +264,7 @@ which is the mistake this table exists to make impossible to repeat.
 | open | [primitive-bench/primitive-bench](https://github.com/primitive-bench/primitive-bench) | [#36](https://github.com/primitive-bench/primitive-bench/issues/36) | Let tool creators receive outcome earnings feeless in Nano (XNO) alongside the card pay... | issue | 0 | 2026-09-24 | dhyabi2 |
 | open | [punkpeye/awesome-mcp-servers](https://github.com/punkpeye/awesome-mcp-servers) | [#15030](https://github.com/punkpeye/awesome-mcp-servers/pull/15030) | Add kilkelly/nano-currency-mcp-server (Nano XNO) to Finance & Fintech | pr | 1 | 2026-09-24 | dhyabi2 |
 | open | [pursekeeper/api](https://github.com/pursekeeper/api) | [#18](https://github.com/pursekeeper/api/issues/18) | Seller: pay-per-query LLM over nano:mainnet (402 + X-Nano-Payment) | issue | 7 | 2026-09-18 | dhyabi2 |
-| open | [pyfile-toolkit/nano-llm-api](https://github.com/pyfile-toolkit/nano-llm-api) | [#1](https://github.com/pyfile-toolkit/nano-llm-api/issues/1) | Nano (XNO) accepts on your endpoint: the CDP discovery validator can't reach your host,... | issue | 2 | 2026-09-18 | dhyabi2 |
+| open | [pyfile-toolkit/nano-llm-api](https://github.com/pyfile-toolkit/nano-llm-api) | [#1](https://github.com/pyfile-toolkit/nano-llm-api/issues/1) | Nano (XNO) accepts on your endpoint: the CDP discovery validator can't reach your host,... | issue | 3 | 2026-09-18 | dhyabi2 |
 | open | [pyfile-toolkit/pyfile-toolkit](https://github.com/pyfile-toolkit/pyfile-toolkit) | [#1](https://github.com/pyfile-toolkit/pyfile-toolkit/issues/1) | Nano (XNO) x402 payer offered to pyfile-toolkit — with a measured finding about Nano-on... | issue | 0 | 2026-09-18 | dhyabi2 |
 | open | [quotumapp/quotum](https://github.com/quotumapp/quotum) | [#86](https://github.com/quotumapp/quotum/issues/86) | Proposal: a feeless settlement provider for metered usage, beside the Stripe/Paddle car... | issue | 0 | 2026-09-24 | dhyabi2 |
 | open | [rameerez/usage_credits](https://github.com/rameerez/usage_credits) | [#34](https://github.com/rameerez/usage_credits/issues/34) | Feature request: feeless settlement leg for sub-cent credit consumption | issue | 0 | 2026-09-23 | dhyabi2 |
