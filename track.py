@@ -119,19 +119,34 @@ def rows_from(items: list[dict], author: str) -> list[dict]:
 KINDS = ("type:issue", "type:pr")
 
 
-def collect(token: str | None = None, authors: tuple[str, ...] = AUTHORS) -> list[dict]:
+def collect(token: str | None = None, authors: tuple[str, ...] = AUTHORS) -> tuple[list[dict], list[str]]:
     rows: list[dict] = []
+    skipped: list[str] = []
     for author in authors:
         for kind in KINDS:
             page = 1
             while page <= 10:  # 1000 results is the search API's hard ceiling
                 q = f"author:{author}+{kind}"
-                data = fetch(f"/search/issues?q={q}&per_page=100&page={page}&sort=created&order=desc", token)
+                try:
+                    data = fetch(f"/search/issues?q={q}&per_page=100&page={page}&sort=created&order=desc", token)
+                except urllib.error.HTTPError as e:
+                    # GitHub's search API answers 422 for an account it will not index (an
+                    # anonymous-invisible account returns 422 on BOTH kinds, not just one), and
+                    # that is not an auth failure and not a broken query we can fix here: it is
+                    # \"this account contributes no searchable rows.\" Skip the author rather than
+                    # abort the whole table, and say so. A one-kind 422 for an otherwise-live
+                    # author would be a real bug, but observed behaviour is both kinds together.
+                    if e.code == 422:
+                        skipped.append(author)
+                        break
+                    raise
                 items = data.get("items", [])
                 rows.extend(rows_from(items, author))
                 if len(items) < 100:
                     break
                 page += 1
+            if author in skipped:
+                break
     seen, uniq = set(), []
     for r in sorted(rows, key=lambda r: (STATE_ORDER.get(r["state"], 9), r["repo"], r["number"] or 0)):
         key = r["url"]
@@ -139,7 +154,7 @@ def collect(token: str | None = None, authors: tuple[str, ...] = AUTHORS) -> lis
             continue
         seen.add(key)
         uniq.append(r)
-    return uniq
+    return uniq, sorted(set(skipped))
 
 
 def summarise(rows: list[dict]) -> dict:
@@ -196,9 +211,30 @@ def main() -> int:
     token = _token()
     if not token:
         print("warning: no GITHUB_TOKEN; the search API will rate-limit quickly", file=sys.stderr)
-    rows = collect(token)
-    generated = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+    rows, skipped = collect(token)
     here = os.path.dirname(os.path.abspath(__file__))
+    # An account GitHub refuses to index (observed: anonymous-invisible accounts answer 422 on
+    # search) contributes no live rows. Its already-published rows are kept so the tracker does not
+    # silently report them "disappeared" every rebuild, and the skip is stated plainly rather than
+    # hidden inside a half-empty table.
+    if skipped:
+        try:
+            prev = json.load(open(os.path.join(here, "data.json")))
+            prev_by_url = {r["url"]: r for r in prev.get("rows", [])}
+            have = {r["url"] for r in rows}
+            for a in skipped:
+                for r in prev_by_url.values():
+                    if r.get("author") == a and r["url"] not in have:
+                        rows.append(r)
+                        have.add(r["url"])
+        except OSError:
+            pass
+        print(
+            f"warning: {', '.join(skipped)} invisible to GitHub search (422); kept their "
+            f"previously-published rows, states now unverified",
+            file=sys.stderr,
+        )
+    generated = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
     with open(os.path.join(here, "data.json"), "w") as f:
         json.dump({"generated": generated, "summary": summarise(rows), "rows": rows}, f, indent=2)
         f.write("\n")

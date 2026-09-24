@@ -2,6 +2,7 @@
 import json
 import os
 import sys
+import urllib.error
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
@@ -70,7 +71,7 @@ class OutreachTable(unittest.TestCase):
 
         real, track.fetch = track.fetch, fake_fetch
         try:
-            rows = track.collect(token=None, authors=("dhyabi2",))
+            rows, skipped = track.collect(token=None, authors=("dhyabi2",))
         finally:
             track.fetch = real
 
@@ -127,6 +128,48 @@ class OutreachTable(unittest.TestCase):
         finally:
             os.environ.pop("GITHUB_TOKEN", None)
 
+
+
+    def test_collect_skips_an_author_github_will_not_index(self):
+        """An account invisible to search answers 422: that author's rows are skipped, not the
+        whole table. (Observed: an anonymous-invisible account returns 422 on both `type:issue`
+        and `type:pr`, so skipping the author is the honest answer — it is not an auth failure.)"""
+        served = []
+
+        def fake_fetch(path, token=None):
+            served.append(path)
+            if "author:PANDeveloper001" in path:
+                raise urllib.error.HTTPError(path, 422, "Unprocessable Entity", {}, None)
+            if "type:pr" in path:
+                return {"items": [item("them/x", number=7, pr=True, state="closed",
+                                       merged="2026-09-12T00:00:00Z", title="Add Nano (XNO)")]}
+            return {"items": [item("them/y", number=8, title="Nano settlement rail")]}
+
+        real, track.fetch = track.fetch, fake_fetch
+        try:
+            rows, skipped = track.collect(token=None, authors=("PANDeveloper001", "dhyabi2"))
+        finally:
+            track.fetch = real
+
+        assert skipped == ["PANDeveloper001"], skipped
+        # the live author's rows still reach the table
+        assert {r["repo"] for r in rows} == {"them/x", "them/y"}, rows
+        assert any("author:PANDeveloper001" in p for p in served)
+
+    def test_collect_skips_422_only_and_reexposes_other_errors(self):
+        """A 422 is an indexable-account problem and is skipped; a genuinely different failure
+        (403 rate limit exhausted, a bad query) must still abort, not be swallowed."""
+        def fake_fetch(path, token=None):
+            if "author:dhyabi2" in path:
+                raise urllib.error.HTTPError(path, 403, "rate limit", {}, None)
+            return {"items": []}
+
+        real, track.fetch = track.fetch, fake_fetch
+        try:
+            self.assertRaises(urllib.error.HTTPError, track.collect,
+                              token=None, authors=("dhyabi2",))
+        finally:
+            track.fetch = real
 
 
 if __name__ == "__main__":
