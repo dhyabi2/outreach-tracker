@@ -1,11 +1,11 @@
 {
-  "generated": "2026-09-24 23:22 UTC",
+  "generated": "2026-09-24 23:41 UTC",
   "summary": {
-    "total": 793,
-    "merged": 8,
-    "open": 606,
+    "total": 797,
+    "merged": 7,
+    "open": 611,
     "closed": 179,
-    "repos": 533,
+    "repos": 538,
     "answered": 185
   },
   "rows": [
@@ -91,18 +91,6 @@
       "author": "dhyabi2",
       "created_at": "2026-08-01T11:57:50Z",
       "updated_at": "2026-08-01T12:07:29Z",
-      "comments": 0
-    },
-    {
-      "repo": "saifurrehmanahmed/cleaningApp",
-      "number": 1,
-      "title": "resolved the issue13,14,18,27,28,34,",
-      "kind": "pr",
-      "state": "merged",
-      "url": "https://github.com/saifurrehmanahmed/cleaningApp/pull/1",
-      "author": "dhyabi2",
-      "created_at": "2023-05-31T17:00:44Z",
-      "updated_at": "2023-05-31T17:01:00Z",
       "comments": 0
     },
     {
@@ -1102,6 +1090,18 @@
       "comments": 0
     },
     {
+      "repo": "TateLyman/agentic-commerce",
+      "number": 3,
+      "title": "rails: add Nano (XNO) native-coin settlement under x402",
+      "kind": "pr",
+      "state": "open",
+      "url": "https://github.com/TateLyman/agentic-commerce/pull/3",
+      "author": "dhyabi2",
+      "created_at": "2026-09-24T23:26:17Z",
+      "updated_at": "2026-09-24T23:26:17Z",
+      "comments": 0
+    },
+    {
       "repo": "TheEleventhAvatar/metered-gateway",
       "number": 2,
       "title": "Sub-cent exact-settlement representation beside integer-cent billing",
@@ -1426,6 +1426,18 @@
       "comments": 0
     },
     {
+      "repo": "apideck-libraries/agent-analytics",
+      "number": 27,
+      "title": "Feeless Nano (XNO) settlement rail for the agent payment gate",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/apideck-libraries/agent-analytics/issues/27",
+      "author": "dhyabi2",
+      "created_at": "2026-09-24T23:30:20Z",
+      "updated_at": "2026-09-24T23:30:20Z",
+      "comments": 0
+    },
+    {
       "repo": "apify/mcpc",
       "number": 424,
       "title": "Proposal: a feeless Nano (XNO) x402 settlement rail beside USDC on Base (viem-only)",
@@ -1594,6 +1606,18 @@
       "comments": 0
     },
     {
+      "repo": "capawesome-team/revenue-sdk",
+      "number": 9,
+      "title": "Feeless Nano (XNO) settlement rail for usage-based billing via the unified SDK",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/capawesome-team/revenue-sdk/issues/9",
+      "author": "dhyabi2",
+      "created_at": "2026-09-24T23:28:45Z",
+      "updated_at": "2026-09-24T23:28:45Z",
+      "comments": 0
+    },
+    {
       "repo": "caramaschiHG/awesome-ai-agents-2026",
       "number": 609,
       "title": "Add x402 (HTTP 402 Payment Protocol) to Protocols and Standards",
@@ -1639,6 +1663,18 @@
       "author": "dhyabi2",
       "created_at": "2026-09-24T00:54:17Z",
       "updated_at": "2026-09-24T00:54:17Z",
+      "comments": 0
+    },
+    {
+      "repo": "cloudflare/agents",
+      "number": 2367,
+      "title": "feat(x402): add Nano (XNO) as a settlement scheme in the Agents SDK x402 client",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/cloudflare/agents/issues/2367",
+      "author": "dhyabi2",
+      "created_at": "2026-09-24T23:40:01Z",
+      "updated_at": "2026-09-24T23:40:09Z",
       "comments": 0
     },
     {
@@ -3178,6 +3214,18 @@
       "comments": 0
     },
     {
+      "repo": "oztenbot/agent-meter",
+      "number": 2,
+      "title": "Feeless Nano (XNO) settlement transport for per-call agent billing",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/oztenbot/agent-meter/issues/2",
+      "author": "dhyabi2",
+      "created_at": "2026-09-24T23:29:34Z",
+      "updated_at": "2026-09-24T23:29:34Z",
+      "comments": 0
+    },
+    {
       "repo": "paidmcp/directory",
       "number": 17,
       "title": "A Nano-settled x402 MCP server as a data point for paid-MCP directories",
@@ -3394,6 +3442,18 @@
       "comments": 0
     },
     {
+      "repo": "revenium/revenium-python-sdk",
+      "number": 26,
+      "title": "Feeless Nano (XNO) settlement adapter for AI usage metering",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/revenium/revenium-python-sdk/issues/26",
+      "author": "dhyabi2",
+      "created_at": "2026-09-24T23:29:59Z",
+      "updated_at": "2026-09-24T23:29:59Z",
+      "comments": 0
+    },
+    {
       "repo": "ritiklakhwani/agent-marketplace",
       "number": 1,
       "title": "Proposal: a feeless nano:mainnet payment variant for the withX402 middleware",
@@ -3427,18 +3487,6 @@
       "author": "dhyabi2",
       "created_at": "2026-09-23T21:49:48Z",
       "updated_at": "2026-09-23T21:49:48Z",
-      "comments": 0
-    },
-    {
-      "repo": "saifurrehmanahmed/cleaningApp",
-      "number": 2,
-      "title": "Merge pull request #50 from saifurrehmanahmed/main",
-      "kind": "pr",
-      "state": "open",
-      "url": "https://github.com/saifurrehmanahmed/cleaningApp/pull/2",
-      "author": "dhyabi2",
-      "created_at": "2023-05-31T17:04:39Z",
-      "updated_at": "2023-05-31T17:04:39Z",
       "comments": 0
     },
     {
@@ -9524,18 +9572,6 @@
       "created_at": "2026-09-22T00:37:21Z",
       "updated_at": "2026-09-22T09:46:24Z",
       "comments": 1
-    },
-    {
-      "repo": "Corican/nanodir",
-      "number": "",
-      "title": "FINDING: openai-agents-nano-x402 listing link 404s (points to nonexistent PANDeveloper001 repo; real repo is dhyabi2). PR blocked by fresh-ground guard - another swarm owns nanodir. Record for committee/handoff.",
-      "kind": "docs",
-      "state": "open",
-      "url": "https://www.nanodirectory.info/",
-      "author": "dhyabi2",
-      "created_at": "2026-09-24T23:30:00Z",
-      "updated_at": "2026-09-24T23:30:00Z",
-      "comments": 0
     }
   ]
 }
