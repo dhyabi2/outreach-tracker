@@ -111,18 +111,27 @@ def rows_from(items: list[dict], author: str) -> list[dict]:
     return out
 
 
+# Both kinds, one query each. `type:issue` and `type:pr` are exclusive, so ONE query can never
+# return both, and the endpoint wants a kind named (a bare `author:X` is answered 422). This asked
+# for `type:issue` alone and so could not see a single pull request - which is every row that could
+# ever have said `merged`. The qualifier family is the one already proven in production here;
+# `type:pr` is its counterpart and nothing else about the request changes.
+KINDS = ("type:issue", "type:pr")
+
+
 def collect(token: str | None = None, authors: tuple[str, ...] = AUTHORS) -> list[dict]:
     rows: list[dict] = []
     for author in authors:
-        page = 1
-        while page <= 10:  # 1000 results is the search API's hard ceiling
-            q = f"author:{author}+type:issue"
-            data = fetch(f"/search/issues?q={q}&per_page=100&page={page}&sort=created&order=desc", token)
-            items = data.get("items", [])
-            rows.extend(rows_from(items, author))
-            if len(items) < 100:
-                break
-            page += 1
+        for kind in KINDS:
+            page = 1
+            while page <= 10:  # 1000 results is the search API's hard ceiling
+                q = f"author:{author}+{kind}"
+                data = fetch(f"/search/issues?q={q}&per_page=100&page={page}&sort=created&order=desc", token)
+                items = data.get("items", [])
+                rows.extend(rows_from(items, author))
+                if len(items) < 100:
+                    break
+                page += 1
     seen, uniq = set(), []
     for r in sorted(rows, key=lambda r: (STATE_ORDER.get(r["state"], 9), r["repo"], r["number"] or 0)):
         key = r["url"]

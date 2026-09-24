@@ -49,6 +49,37 @@ class OutreachTable(unittest.TestCase):
         assert track.state_of(item("them/x", state="open")) == "open"
 
 
+    def test_a_pull_request_reaches_the_table(self):
+        """The law above proves `state_of` can say merged. It says nothing about whether a pull
+        request ever arrives to be judged - and none did. The published table carried 389 rows, every
+        one an issue and `0 merged`, while `author:dhyabi2 type:pr` returned 178 pull requests on
+        other people's repositories. The query asked for `type:issue`, which excludes them.
+
+        The fake below answers the way the endpoint does: it serves whichever kind the query names,
+        and refuses a query that names neither with the 422 the real API returns."""
+        served = []
+
+        def fake_fetch(path, token=None):
+            served.append(path)
+            if "is%3Apull-request" in path or "is:pull-request" in path or "type:pr" in path:
+                return {"items": [item("them/x", number=7, pr=True, state="closed",
+                                       merged="2026-09-12T00:00:00Z", title="Add Nano (XNO)")]}
+            if "is:issue" in path or "type:issue" in path:
+                return {"items": [item("them/y", number=8, title="Nano settlement rail")]}
+            raise AssertionError(f"422: the search API requires a kind qualifier: {path}")
+
+        real, track.fetch = track.fetch, fake_fetch
+        try:
+            rows = track.collect(token=None, authors=("dhyabi2",))
+        finally:
+            track.fetch = real
+
+        kinds = sorted(r["kind"] for r in rows)
+        assert kinds == ["issue", "pr"], f"pull requests never reached the table: {kinds}"
+        assert track.summarise(rows)["merged"] == 1, track.summarise(rows)
+        assert any("pull-request" in p or "type:pr" in p for p in served), served
+
+
     def test_the_table_carries_every_row_with_a_link_that_resolves(self):
         """Each row renders the repository, the number, the state and a link to the real thread."""
         rows = track.rows_from([item("xpaysh/awesome-x402", number=1555, title="Add Nano (XNO)")], "PANDeveloper001")
