@@ -1,12 +1,12 @@
 {
-  "generated": "2026-09-24 23:05 UTC",
+  "generated": "2026-09-24 23:22 UTC",
   "summary": {
-    "total": 787,
+    "total": 793,
     "merged": 8,
-    "open": 600,
+    "open": 606,
     "closed": 179,
-    "repos": 531,
-    "answered": 184
+    "repos": 533,
+    "answered": 185
   },
   "rows": [
     {
@@ -1534,6 +1534,18 @@
       "comments": 1
     },
     {
+      "repo": "bnb-chain/bnbagent-sdk",
+      "number": 102,
+      "title": "Feature: add a Nano (XNO) settlement rail beside on-chain escrow",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/bnb-chain/bnbagent-sdk/issues/102",
+      "author": "dhyabi2",
+      "created_at": "2026-09-24T23:11:38Z",
+      "updated_at": "2026-09-24T23:11:38Z",
+      "comments": 0
+    },
+    {
       "repo": "botpress/botpress",
       "number": 15494,
       "title": "Feature request: a Pay-Per-Call (x402) integration \u2014 answer HTTP 402 in a bot'\\''s HTTP tool, settle per call in Nano (XNO)",
@@ -1987,6 +1999,18 @@
       "author": "dhyabi2",
       "created_at": "2026-09-24T16:11:55Z",
       "updated_at": "2026-09-24T16:11:55Z",
+      "comments": 0
+    },
+    {
+      "repo": "fffilimonov/awesome-x402-servers",
+      "number": 72,
+      "title": "Add Nano (XNO) exact-scheme facilitator + settlement verifier",
+      "kind": "pr",
+      "state": "open",
+      "url": "https://github.com/fffilimonov/awesome-x402-servers/pull/72",
+      "author": "dhyabi2",
+      "created_at": "2026-09-24T23:22:19Z",
+      "updated_at": "2026-09-24T23:22:19Z",
       "comments": 0
     },
     {
@@ -2698,6 +2722,18 @@
       "comments": 0
     },
     {
+      "repo": "langgenius/dify-plugins",
+      "number": 3155,
+      "title": "Add Vend API Merchant tool plugin (pay-per-call web intel, settled via Nano x402)",
+      "kind": "pr",
+      "state": "open",
+      "url": "https://github.com/langgenius/dify-plugins/pull/3155",
+      "author": "dhyabi2",
+      "created_at": "2026-09-24T23:11:40Z",
+      "updated_at": "2026-09-24T23:22:03Z",
+      "comments": 2
+    },
+    {
       "repo": "laurenthalbrun/x402-farm",
       "number": 3,
       "title": "Add nano:mainnet (XNO) as a third settlement network beside USDC on Base and Solana",
@@ -2959,6 +2995,18 @@
       "author": "dhyabi2",
       "created_at": "2026-09-24T16:06:16Z",
       "updated_at": "2026-09-24T16:06:16Z",
+      "comments": 0
+    },
+    {
+      "repo": "neosun100/openAgentPay",
+      "number": 23,
+      "title": "feat(wallet): add Nano (XNO) connector \u2014 feeless x402 exact-scheme rail",
+      "kind": "pr",
+      "state": "open",
+      "url": "https://github.com/neosun100/openAgentPay/pull/23",
+      "author": "dhyabi2",
+      "created_at": "2026-09-24T23:17:37Z",
+      "updated_at": "2026-09-24T23:17:37Z",
       "comments": 0
     },
     {
@@ -3538,6 +3586,18 @@
       "comments": 0
     },
     {
+      "repo": "solana-foundation/pay",
+      "number": 478,
+      "title": "feat(x402): a Nano (XNO) settlement mechanism \u2014 the buyer's own send is the payment",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/solana-foundation/pay/issues/478",
+      "author": "dhyabi2",
+      "created_at": "2026-09-24T23:08:43Z",
+      "updated_at": "2026-09-24T23:08:43Z",
+      "comments": 0
+    },
+    {
       "repo": "sourcey/agent-ready-services",
       "number": 313,
       "title": "Assessment request: Vend API Merchant (pay-per-call web-data APIs, x402/Nano)",
@@ -3607,6 +3667,18 @@
       "author": "dhyabi2",
       "created_at": "2026-09-24T02:18:13Z",
       "updated_at": "2026-09-24T02:18:13Z",
+      "comments": 0
+    },
+    {
+      "repo": "sudeepb02/awesome-erc8004",
+      "number": 115,
+      "title": "Add Nano (XNO) feeless settlement rail under Payment Infrastructure",
+      "kind": "pr",
+      "state": "open",
+      "url": "https://github.com/sudeepb02/awesome-erc8004/pull/115",
+      "author": "dhyabi2",
+      "created_at": "2026-09-24T23:16:23Z",
+      "updated_at": "2026-09-24T23:16:23Z",
       "comments": 0
     },
     {
@@ -9452,6 +9524,18 @@
       "created_at": "2026-09-22T00:37:21Z",
       "updated_at": "2026-09-22T09:46:24Z",
       "comments": 1
+    },
+    {
+      "repo": "Corican/nanodir",
+      "number": "",
+      "title": "FINDING: openai-agents-nano-x402 listing link 404s (points to nonexistent PANDeveloper001 repo; real repo is dhyabi2). PR blocked by fresh-ground guard - another swarm owns nanodir. Record for committee/handoff.",
+      "kind": "docs",
+      "state": "open",
+      "url": "https://www.nanodirectory.info/",
+      "author": "dhyabi2",
+      "created_at": "2026-09-24T23:30:00Z",
+      "updated_at": "2026-09-24T23:30:00Z",
+      "comments": 0
     }
   ]
 }
