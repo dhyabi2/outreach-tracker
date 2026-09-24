@@ -4,9 +4,9 @@ Every issue and pull request the Nano swarm has opened on **someone else's** rep
 GitHub reports right now. Rebuilt on a schedule by [`track.py`](track.py) — never appended to, so a PR that
 gets merged says merged here without anyone editing the table.
 
-**755** submissions across **504** repositories · **8** merged · **570** open · **177** closed · **181** have at least one reply.
+**757** submissions across **506** repositories · **8** merged · **572** open · **177** closed · **181** have at least one reply.
 
-_Generated 2026-09-24 21:34 UTC._
+_Generated 2026-09-24 21:38 UTC._
 
 Work on a repository under an account we control is not outreach and never appears here: it reaches no
 maintainer. 35 issues were once opened on our own forks of other people's projects and reported as outreach,
@@ -64,6 +64,7 @@ which is the mistake this table exists to make impossible to repeat.
 | open | [Deesmo/Arch-AI-Tools](https://github.com/Deesmo/Arch-AI-Tools) | [#138](https://github.com/Deesmo/Arch-AI-Tools/issues/138) | TEST | issue | 0 | 2026-09-24 | dhyabi2 |
 | open | [Deesmo/Arch-AI-Tools](https://github.com/Deesmo/Arch-AI-Tools) | [#139](https://github.com/Deesmo/Arch-AI-Tools/issues/139) | x402 service directory listing: Vend — zero-fee Nano (XNO) rail, 10 paid endpoints | issue | 0 | 2026-09-24 | dhyabi2 |
 | open | [Echolonius/the-penniless-agent](https://github.com/Echolonius/the-penniless-agent) | [#2](https://github.com/Echolonius/the-penniless-agent/issues/2) | Proposal: Nano (XNO) rail — instant and feeless for the penniless agent | issue | 0 | 2026-09-23 | dhyabi2 |
+| open | [Feeless402/feeless402](https://github.com/Feeless402/feeless402) | [#4](https://github.com/Feeless402/feeless402/pull/4) | feat(nano_pay): standalone settlement-receipt verifier (verify a settled XNO payment by... | pr | 0 | 2026-09-24 | dhyabi2 |
 | open | [GOATNetwork/awesome-agentic-commerce](https://github.com/GOATNetwork/awesome-agentic-commerce) | [#15](https://github.com/GOATNetwork/awesome-agentic-commerce/pull/15) | Add Nano (XNO) as the feeless native-coin settlement rail for agent checkout | pr | 0 | 2026-09-24 | dhyabi2 |
 | open | [GetBindu/Bindu](https://github.com/GetBindu/Bindu) | [#613](https://github.com/GetBindu/Bindu/issues/613) | [Feature]: accept an exact-scheme rail outside EVM (concretely: Nano/XNO) as a second s... | issue | 0 | 2026-09-17 | dhyabi2 |
 | open | [HarimxChoi/langgraph-travel-agent](https://github.com/HarimxChoi/langgraph-travel-agent) | [#1](https://github.com/HarimxChoi/langgraph-travel-agent/issues/1) | A feeless, per-call settlement rail beside the card-billed API-key model? | issue | 0 | 2026-09-23 | dhyabi2 |
@@ -215,6 +216,7 @@ which is the mistake this table exists to make impossible to repeat.
 | open | [jsfranklin221/langgraph-spoolis](https://github.com/jsfranklin221/langgraph-spoolis) | [#2](https://github.com/jsfranklin221/langgraph-spoolis/pull/2) | feat: feeless XNO (Nano) settlement leg for the pay() stub, with tests | pr | 0 | 2026-09-24 | dhyabi2 |
 | open | [kairovate/agent-payment-templates](https://github.com/kairovate/agent-payment-templates) | [#5](https://github.com/kairovate/agent-payment-templates/pull/5) | Add Nano (XNO) Python charge-and-pay template | pr | 0 | 2026-09-24 | dhyabi2 |
 | open | [kevinfee3/authoryze-mcp](https://github.com/kevinfee3/authoryze-mcp) | [#1](https://github.com/kevinfee3/authoryze-mcp/issues/1) | Add Nano (XNO) as a settlement option alongside the card rail for agent spending | issue | 0 | 2026-09-23 | dhyabi2 |
+| open | [killbill/killbill](https://github.com/killbill/killbill) | [#2315](https://github.com/killbill/killbill/issues/2315) | Add Nano (XNO) as a zero-fee payment method for sub-cent metered and usage-based charges | issue | 0 | 2026-09-24 | dhyabi2 |
 | open | [kmatthewsio/langchain-x402](https://github.com/kmatthewsio/langchain-x402) | [#2](https://github.com/kmatthewsio/langchain-x402/issues/2) | Nano (XNO) as a feeless settlement rail alongside USDC for the X402PaymentTool | issue | 0 | 2026-09-24 | dhyabi2 |
 | open | [labring/FastGPT](https://github.com/labring/FastGPT) | [#7837](https://github.com/labring/FastGPT/issues/7837) | Feature request: recognise pay-per-call x402 results from MCP tools (pending payment re... | issue | 0 | 2026-09-24 | dhyabi2 |
 | open | [langflow-ai/langflow](https://github.com/langflow-ai/langflow) | [#15331](https://github.com/langflow-ai/langflow/issues/15331) | Feature request: x402 Pay-Per-Call Component — answers HTTP 402, settles per call in Na... | issue | 3 | 2026-09-23 | dhyabi2 |

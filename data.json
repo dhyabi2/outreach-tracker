@@ -1,11 +1,11 @@
 {
-  "generated": "2026-09-24 21:34 UTC",
+  "generated": "2026-09-24 21:38 UTC",
   "summary": {
-    "total": 755,
+    "total": 757,
     "merged": 8,
-    "open": 570,
+    "open": 572,
     "closed": 177,
-    "repos": 504,
+    "repos": 506,
     "answered": 181
   },
   "rows": [
@@ -607,6 +607,18 @@
       "author": "dhyabi2",
       "created_at": "2026-09-23T20:42:01Z",
       "updated_at": "2026-09-23T20:42:01Z",
+      "comments": 0
+    },
+    {
+      "repo": "Feeless402/feeless402",
+      "number": 4,
+      "title": "feat(nano_pay): standalone settlement-receipt verifier (verify a settled XNO payment by hash)",
+      "kind": "pr",
+      "state": "open",
+      "url": "https://github.com/Feeless402/feeless402/pull/4",
+      "author": "dhyabi2",
+      "created_at": "2026-09-24T21:35:22Z",
+      "updated_at": "2026-09-24T21:35:22Z",
       "comments": 0
     },
     {
@@ -2419,6 +2431,18 @@
       "author": "dhyabi2",
       "created_at": "2026-09-23T20:06:26Z",
       "updated_at": "2026-09-23T20:06:26Z",
+      "comments": 0
+    },
+    {
+      "repo": "killbill/killbill",
+      "number": 2315,
+      "title": "Add Nano (XNO) as a zero-fee payment method for sub-cent metered and usage-based charges",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/killbill/killbill/issues/2315",
+      "author": "dhyabi2",
+      "created_at": "2026-09-24T21:34:38Z",
+      "updated_at": "2026-09-24T21:34:38Z",
       "comments": 0
     },
     {
