@@ -1,11 +1,11 @@
 {
-  "generated": "2026-09-25 04:42 UTC",
+  "generated": "2026-09-25 05:10 UTC",
   "summary": {
-    "total": 870,
-    "merged": 9,
-    "open": 669,
+    "total": 876,
+    "merged": 8,
+    "open": 676,
     "closed": 192,
-    "repos": 592,
+    "repos": 596,
     "answered": 202
   },
   "rows": [
@@ -103,18 +103,6 @@
       "author": "dhyabi2",
       "created_at": "2026-08-01T11:57:50Z",
       "updated_at": "2026-08-01T12:07:29Z",
-      "comments": 0
-    },
-    {
-      "repo": "saifurrehmanahmed/cleaningApp",
-      "number": 1,
-      "title": "resolved the issue13,14,18,27,28,34,",
-      "kind": "pr",
-      "state": "merged",
-      "url": "https://github.com/saifurrehmanahmed/cleaningApp/pull/1",
-      "author": "dhyabi2",
-      "created_at": "2023-05-31T17:00:44Z",
-      "updated_at": "2023-05-31T17:01:00Z",
       "comments": 0
     },
     {
@@ -694,6 +682,18 @@
       "comments": 4
     },
     {
+      "repo": "Crawlora-org/crawlora-mcp",
+      "number": 13,
+      "title": "Proposal: optional feeless Nano (XNO) settlement rail beside prepaid API-key credits",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/Crawlora-org/crawlora-mcp/issues/13",
+      "author": "dhyabi2",
+      "created_at": "2026-09-25T05:05:41Z",
+      "updated_at": "2026-09-25T05:05:41Z",
+      "comments": 0
+    },
+    {
       "repo": "Custena/agent-payment-protocols",
       "number": 13,
       "title": "Proposal: add settlement-fee-and-finality dimension to the protocol comparison",
@@ -1018,6 +1018,18 @@
       "comments": 0
     },
     {
+      "repo": "Mintplex-Labs/anything-llm",
+      "number": 6485,
+      "title": "Feature request: recognise pay-per-call (x402) MCP tool results with a per-call payment step",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/Mintplex-Labs/anything-llm/issues/6485",
+      "author": "dhyabi2",
+      "created_at": "2026-09-25T05:04:26Z",
+      "updated_at": "2026-09-25T05:04:26Z",
+      "comments": 0
+    },
+    {
       "repo": "MorpheusAIs/Morpheus-Marketplace-API",
       "number": 360,
       "title": "Proposal: a self-custodied Nano (XNO) credit rail beside Coinbase/USDC and Stripe",
@@ -1027,6 +1039,18 @@
       "author": "dhyabi2",
       "created_at": "2026-09-24T00:45:41Z",
       "updated_at": "2026-09-24T00:45:41Z",
+      "comments": 0
+    },
+    {
+      "repo": "MyMedi-AI/mymedi-ai-mcp-server",
+      "number": 4,
+      "title": "Proposal: optional feeless Nano (XNO) pay-per-call rail beside Stripe credit top-ups",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/MyMedi-AI/mymedi-ai-mcp-server/issues/4",
+      "author": "dhyabi2",
+      "created_at": "2026-09-25T05:08:29Z",
+      "updated_at": "2026-09-25T05:08:29Z",
       "comments": 0
     },
     {
@@ -1602,8 +1626,20 @@
       "url": "https://github.com/adamkrawczyk/agentpact/issues/152",
       "author": "dhyabi2",
       "created_at": "2026-09-25T03:21:48Z",
-      "updated_at": "2026-09-25T04:24:42Z",
-      "comments": 1
+      "updated_at": "2026-09-25T05:04:08Z",
+      "comments": 2
+    },
+    {
+      "repo": "adamkrawczyk/agentpact",
+      "number": 153,
+      "title": "Add Nano (XNO) feeless payout rail to @agentpact/payouts",
+      "kind": "pr",
+      "state": "open",
+      "url": "https://github.com/adamkrawczyk/agentpact/pull/153",
+      "author": "dhyabi2",
+      "created_at": "2026-09-25T05:03:44Z",
+      "updated_at": "2026-09-25T05:03:44Z",
+      "comments": 0
     },
     {
       "repo": "ag2ai/ag2",
@@ -1736,6 +1772,18 @@
       "created_at": "2026-09-24T19:22:03Z",
       "updated_at": "2026-09-24T21:15:17Z",
       "comments": 1
+    },
+    {
+      "repo": "agno-agi/agno",
+      "number": 10553,
+      "title": "cookbook: Nano (XNO) x402 pay-per-call example for agents",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/agno-agi/agno/issues/10553",
+      "author": "dhyabi2",
+      "created_at": "2026-09-25T04:52:56Z",
+      "updated_at": "2026-09-25T04:52:56Z",
+      "comments": 0
     },
     {
       "repo": "aiota-jp/affiliate-ai-platform",
@@ -2383,6 +2431,18 @@
       "author": "dhyabi2",
       "created_at": "2026-09-24T04:53:54Z",
       "updated_at": "2026-09-24T04:53:54Z",
+      "comments": 0
+    },
+    {
+      "repo": "dust-tt/dust",
+      "number": 33223,
+      "title": "Feature: surface pay-per-call (x402) results from Remote MCP Server tools as a per-call payment step",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/dust-tt/dust/issues/33223",
+      "author": "dhyabi2",
+      "created_at": "2026-09-25T05:06:51Z",
+      "updated_at": "2026-09-25T05:06:51Z",
       "comments": 0
     },
     {
@@ -3190,6 +3250,18 @@
       "comments": 0
     },
     {
+      "repo": "kcolbchain/switchboard",
+      "number": 139,
+      "title": "A feeless settlement option beside USDC for the sub-cent tier",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/kcolbchain/switchboard/issues/139",
+      "author": "dhyabi2",
+      "created_at": "2026-09-25T05:05:21Z",
+      "updated_at": "2026-09-25T05:05:21Z",
+      "comments": 0
+    },
+    {
       "repo": "kevinfee3/authoryze-mcp",
       "number": 1,
       "title": "Add Nano (XNO) as a settlement option alongside the card rail for agent spending",
@@ -3826,6 +3898,18 @@
       "comments": 0
     },
     {
+      "repo": "openmeterio/openmeter",
+      "number": 5207,
+      "title": "Add a feeless settlement leg (Nano / XNO) for sub-cent per-call usage",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/openmeterio/openmeter/issues/5207",
+      "author": "dhyabi2",
+      "created_at": "2026-09-25T04:49:31Z",
+      "updated_at": "2026-09-25T04:49:31Z",
+      "comments": 0
+    },
+    {
       "repo": "oztenbot/agent-meter",
       "number": 2,
       "title": "Feeless Nano (XNO) settlement transport for per-call agent billing",
@@ -4147,18 +4231,6 @@
       "author": "dhyabi2",
       "created_at": "2026-09-23T21:49:48Z",
       "updated_at": "2026-09-23T21:49:48Z",
-      "comments": 0
-    },
-    {
-      "repo": "saifurrehmanahmed/cleaningApp",
-      "number": 2,
-      "title": "Merge pull request #50 from saifurrehmanahmed/main",
-      "kind": "pr",
-      "state": "open",
-      "url": "https://github.com/saifurrehmanahmed/cleaningApp/pull/2",
-      "author": "dhyabi2",
-      "created_at": "2023-05-31T17:04:39Z",
-      "updated_at": "2023-05-31T17:04:39Z",
       "comments": 0
     },
     {
