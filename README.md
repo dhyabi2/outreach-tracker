@@ -4,9 +4,9 @@ Every issue and pull request the Nano swarm has opened on **someone else's** rep
 GitHub reports right now. Rebuilt on a schedule by [`track.py`](track.py) — never appended to, so a PR that
 gets merged says merged here without anyone editing the table.
 
-**805** submissions across **545** repositories · **8** merged · **617** open · **180** closed · **186** have at least one reply.
+**805** submissions across **545** repositories · **8** merged · **614** open · **183** closed · **188** have at least one reply.
 
-_Generated 2026-09-25 00:11 UTC._
+_Generated 2026-09-25 02:51 UTC._
 
 Work on a repository under an account we control is not outreach and never appears here: it reaches no
 maintainer. 35 issues were once opened on our own forks of other people's projects and reported as outreach,
@@ -28,7 +28,7 @@ which is the mistake this table exists to make impossible to repeat.
 | open | [100xPercent/pop-pay](https://github.com/100xPercent/pop-pay) | [#11](https://github.com/100xPercent/pop-pay/issues/11) | Suggestion: Nano settlement lane for feeless agent micro-payments | issue | 0 | 2026-09-23 | dhyabi2 |
 | open | [402cron/402cron](https://github.com/402cron/402cron) | [#2](https://github.com/402cron/402cron/issues/2) | Offer a feeless settlement rail (Nano, XNO) next to x402/USDC-on-Base for scheduled age... | issue | 0 | 2026-09-23 | dhyabi2 |
 | open | [402md/facilitator](https://github.com/402md/facilitator) | [#16](https://github.com/402md/facilitator/issues/16) | Nano (XNO) as a settlement destination: your one-wallet thesis without the CCTP burn/mi... | issue | 0 | 2026-09-24 | dhyabi2 |
-| open | [A2ARegistry/GlobalA2ARegistry](https://github.com/A2ARegistry/GlobalA2ARegistry) | [#11](https://github.com/A2ARegistry/GlobalA2ARegistry/issues/11) | Feature request: make an agent's settlement / payment rail a discoverable, filterable a... | issue | 2 | 2026-09-24 | dhyabi2 |
+| open | [A2ARegistry/GlobalA2ARegistry](https://github.com/A2ARegistry/GlobalA2ARegistry) | [#11](https://github.com/A2ARegistry/GlobalA2ARegistry/issues/11) | Feature request: make an agent's settlement / payment rail a discoverable, filterable a... | issue | 3 | 2026-09-24 | dhyabi2 |
 | open | [AI-Hub-Admin/awesome-in-agent-payment](https://github.com/AI-Hub-Admin/awesome-in-agent-payment) | [#3](https://github.com/AI-Hub-Admin/awesome-in-agent-payment/pull/3) | docs: add Nano (XNO) agent MCP settlement rail to the table | pr | 0 | 2026-09-24 | dhyabi2 |
 | open | [AIAnytime/multi-agent-framework-comparison](https://github.com/AIAnytime/multi-agent-framework-comparison) | [#1](https://github.com/AIAnytime/multi-agent-framework-comparison/issues/1) | Has a per-call feeless settlement rail been considered across the four frameworks? | issue | 0 | 2026-09-23 | dhyabi2 |
 | open | [AIAnytime/multi-agent-framework-comparison](https://github.com/AIAnytime/multi-agent-framework-comparison) | [#2](https://github.com/AIAnytime/multi-agent-framework-comparison/pull/2) | feat: feeless Nano (XNO) settlement rail for per-run agent costs | pr | 0 | 2026-09-24 | dhyabi2 |
@@ -246,9 +246,6 @@ which is the mistake this table exists to make impossible to repeat.
 | open | [lancedb/lancedb](https://github.com/lancedb/lancedb) | [#4321](https://github.com/lancedb/lancedb/issues/4321) | [Feature Request]: Nano (XNO) payment for LanceDB Cloud usage billing | issue | 0 | 2026-09-24 | dhyabi2 |
 | open | [langflow-ai/langflow](https://github.com/langflow-ai/langflow) | [#15331](https://github.com/langflow-ai/langflow/issues/15331) | Feature request: x402 Pay-Per-Call Component — answers HTTP 402, settles per call in Na... | issue | 3 | 2026-09-23 | dhyabi2 |
 | open | [langflow-ai/langflow](https://github.com/langflow-ai/langflow) | [#15375](https://github.com/langflow-ai/langflow/pull/15375) | docs: add tutorial for calling a pay-per-call (x402) API | pr | 2 | 2026-09-24 | dhyabi2 |
-| open | [langgenius/dify](https://github.com/langgenius/dify) | [#42924](https://github.com/langgenius/dify/issues/42924) | First-class support for pay-per-call MCP tools settled on a feeless rail (x402 / Nano) | issue | 1 | 2026-09-24 | dhyabi2 |
-| open | [langgenius/dify](https://github.com/langgenius/dify) | [#42926](https://github.com/langgenius/dify/pull/42926) | Add Vend API Merchant Dify plugin (pay-per-call, Nano x402 settlement) | pr | 0 | 2026-09-24 | dhyabi2 |
-| open | [langgenius/dify-plugins](https://github.com/langgenius/dify-plugins) | [#3148](https://github.com/langgenius/dify-plugins/issues/3148) | [Plugin Request]: x402 Pay-Per-Call tool — settle external API calls per use in Nano (XNO) | issue | 0 | 2026-09-24 | dhyabi2 |
 | open | [langgenius/dify-plugins](https://github.com/langgenius/dify-plugins) | [#3155](https://github.com/langgenius/dify-plugins/pull/3155) | Add Vend API Merchant tool plugin (pay-per-call web intel, settled via Nano x402) | pr | 2 | 2026-09-24 | dhyabi2 |
 | open | [laurenthalbrun/x402-farm](https://github.com/laurenthalbrun/x402-farm) | [#3](https://github.com/laurenthalbrun/x402-farm/issues/3) | Add nano:mainnet (XNO) as a third settlement network beside USDC on Base and Solana | issue | 0 | 2026-09-23 | dhyabi2 |
 | open | [lexwhiting/settlegrid](https://github.com/lexwhiting/settlegrid) | [#11](https://github.com/lexwhiting/settlegrid/issues/11) | Feeless settlement rail where the payment block IS the receipt (Nano / XNO) | issue | 0 | 2026-09-24 | dhyabi2 |
@@ -443,8 +440,11 @@ which is the mistake this table exists to make impossible to repeat.
 | closed | [kamina2025/nanflix-client-webtorrent-nano](https://github.com/kamina2025/nanflix-client-webtorrent-nano) | [#4](https://github.com/kamina2025/nanflix-client-webtorrent-nano/issues/4) | MEDIUM: postMessage bridge trusts any origin (forge payment confirmations) + wildcard t... | issue | 1 | 2026-08-20 | dhyabi2 |
 | closed | [kamina2025/nanflix-client-webtorrent-nano](https://github.com/kamina2025/nanflix-client-webtorrent-nano) | [#5](https://github.com/kamina2025/nanflix-client-webtorrent-nano/issues/5) | MEDIUM: Loose address regex (no checksum, /i) diverges from signer → denial-of-payment ... | issue | 1 | 2026-08-20 | dhyabi2 |
 | closed | [kyrolabs/awesome-langchain](https://github.com/kyrolabs/awesome-langchain) | [#531](https://github.com/kyrolabs/awesome-langchain/pull/531) | Add langchain-vend to Tools / Services (Nano x402 per-call LangChain tools) | pr | 0 | 2026-09-24 | dhyabi2 |
+| closed | [langgenius/dify](https://github.com/langgenius/dify) | [#42924](https://github.com/langgenius/dify/issues/42924) | First-class support for pay-per-call MCP tools settled on a feeless rail (x402 / Nano) | issue | 1 | 2026-09-24 | dhyabi2 |
 | closed | [langgenius/dify](https://github.com/langgenius/dify) | [#42925](https://github.com/langgenius/dify/issues/42925) | TEST | issue | 1 | 2026-09-24 | dhyabi2 |
+| closed | [langgenius/dify](https://github.com/langgenius/dify) | [#42926](https://github.com/langgenius/dify/pull/42926) | Add Vend API Merchant Dify plugin (pay-per-call, Nano x402 settlement) | pr | 1 | 2026-09-24 | dhyabi2 |
 | closed | [langgenius/dify-plugins](https://github.com/langgenius/dify-plugins) | [#3145](https://github.com/langgenius/dify-plugins/issues/3145) | [Plugin Request]: x402 Pay-Per-Call Tool — free Tool plugin that answers an HTTP 402 (x... | issue | 0 | 2026-09-23 | dhyabi2 |
+| closed | [langgenius/dify-plugins](https://github.com/langgenius/dify-plugins) | [#3148](https://github.com/langgenius/dify-plugins/issues/3148) | [Plugin Request]: x402 Pay-Per-Call tool — settle external API calls per use in Nano (XNO) | issue | 1 | 2026-09-24 | dhyabi2 |
 | closed | [maxfain/basedagents](https://github.com/maxfain/basedagents) | [#131](https://github.com/maxfain/basedagents/issues/131) | TEST: write path check (DELETE ME) | issue | 2 | 2026-09-24 | dhyabi2 |
 | closed | [michielpost/x402-dev](https://github.com/michielpost/x402-dev) | [#92](https://github.com/michielpost/x402-dev/issues/92) | Nano (XNO) x402 payer for OpenAI Agents SDK — x402 Developer Tools addition | issue | 1 | 2026-09-17 | dhyabi2 |
 | closed | [michielpost/x402-dev](https://github.com/michielpost/x402-dev) | [#103](https://github.com/michielpost/x402-dev/issues/103) | TEST | issue | 0 | 2026-09-24 | dhyabi2 |

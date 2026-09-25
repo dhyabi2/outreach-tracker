@@ -1,12 +1,12 @@
 {
-  "generated": "2026-09-25 00:11 UTC",
+  "generated": "2026-09-25 02:51 UTC",
   "summary": {
     "total": 805,
     "merged": 8,
-    "open": 617,
-    "closed": 180,
+    "open": 614,
+    "closed": 183,
     "repos": 545,
-    "answered": 186
+    "answered": 188
   },
   "rows": [
     {
@@ -186,8 +186,8 @@
       "url": "https://github.com/A2ARegistry/GlobalA2ARegistry/issues/11",
       "author": "dhyabi2",
       "created_at": "2026-09-24T06:00:53Z",
-      "updated_at": "2026-09-24T06:49:43Z",
-      "comments": 2
+      "updated_at": "2026-09-25T01:57:09Z",
+      "comments": 3
     },
     {
       "repo": "AI-Hub-Admin/awesome-in-agent-payment",
@@ -2794,42 +2794,6 @@
       "comments": 2
     },
     {
-      "repo": "langgenius/dify",
-      "number": 42924,
-      "title": "First-class support for pay-per-call MCP tools settled on a feeless rail (x402 / Nano)",
-      "kind": "issue",
-      "state": "open",
-      "url": "https://github.com/langgenius/dify/issues/42924",
-      "author": "dhyabi2",
-      "created_at": "2026-09-24T12:39:52Z",
-      "updated_at": "2026-09-24T21:13:11Z",
-      "comments": 1
-    },
-    {
-      "repo": "langgenius/dify",
-      "number": 42926,
-      "title": "Add Vend API Merchant Dify plugin (pay-per-call, Nano x402 settlement)",
-      "kind": "pr",
-      "state": "open",
-      "url": "https://github.com/langgenius/dify/pull/42926",
-      "author": "dhyabi2",
-      "created_at": "2026-09-24T13:02:24Z",
-      "updated_at": "2026-09-24T13:02:39Z",
-      "comments": 0
-    },
-    {
-      "repo": "langgenius/dify-plugins",
-      "number": 3148,
-      "title": "[Plugin Request]: x402 Pay-Per-Call tool \u2014 settle external API calls per use in Nano (XNO)",
-      "kind": "issue",
-      "state": "open",
-      "url": "https://github.com/langgenius/dify-plugins/issues/3148",
-      "author": "dhyabi2",
-      "created_at": "2026-09-24T06:15:41Z",
-      "updated_at": "2026-09-24T06:15:41Z",
-      "comments": 0
-    },
-    {
       "repo": "langgenius/dify-plugins",
       "number": 3155,
       "title": "Add Vend API Merchant tool plugin (pay-per-call web intel, settled via Nano x402)",
@@ -5159,6 +5123,18 @@
     },
     {
       "repo": "langgenius/dify",
+      "number": 42924,
+      "title": "First-class support for pay-per-call MCP tools settled on a feeless rail (x402 / Nano)",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/langgenius/dify/issues/42924",
+      "author": "dhyabi2",
+      "created_at": "2026-09-24T12:39:52Z",
+      "updated_at": "2026-09-25T02:18:27Z",
+      "comments": 1
+    },
+    {
+      "repo": "langgenius/dify",
       "number": 42925,
       "title": "TEST",
       "kind": "issue",
@@ -5167,6 +5143,18 @@
       "author": "dhyabi2",
       "created_at": "2026-09-24T12:58:51Z",
       "updated_at": "2026-09-24T21:01:22Z",
+      "comments": 1
+    },
+    {
+      "repo": "langgenius/dify",
+      "number": 42926,
+      "title": "Add Vend API Merchant Dify plugin (pay-per-call, Nano x402 settlement)",
+      "kind": "pr",
+      "state": "closed",
+      "url": "https://github.com/langgenius/dify/pull/42926",
+      "author": "dhyabi2",
+      "created_at": "2026-09-24T13:02:24Z",
+      "updated_at": "2026-09-25T02:17:55Z",
       "comments": 1
     },
     {
@@ -5180,6 +5168,18 @@
       "created_at": "2026-09-23T20:47:19Z",
       "updated_at": "2026-09-24T01:53:02Z",
       "comments": 0
+    },
+    {
+      "repo": "langgenius/dify-plugins",
+      "number": 3148,
+      "title": "[Plugin Request]: x402 Pay-Per-Call tool \u2014 settle external API calls per use in Nano (XNO)",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/langgenius/dify-plugins/issues/3148",
+      "author": "dhyabi2",
+      "created_at": "2026-09-24T06:15:41Z",
+      "updated_at": "2026-09-25T02:49:52Z",
+      "comments": 1
     },
     {
       "repo": "maxfain/basedagents",
