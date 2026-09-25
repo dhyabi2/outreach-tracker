@@ -168,7 +168,18 @@ def summarise(rows: list[dict]) -> dict:
     return s
 
 
-def render(rows: list[dict], generated: str) -> str:
+def payload(rows: list[dict], generated: str, unverified: tuple[str, ...] | list[str] = ()) -> dict:
+    """What `data.json` carries. `unverified` names the authors whose rows were carried over from the
+    last good run rather than fetched, so a consumer can tell live state from remembered state."""
+    return {
+        "generated": generated,
+        "summary": summarise(rows),
+        "unverified_authors": sorted(unverified),
+        "rows": rows,
+    }
+
+
+def render(rows: list[dict], generated: str, unverified: tuple[str, ...] | list[str] = ()) -> str:
     s = summarise(rows)
     lines = [
         "# Outreach tracker",
@@ -183,6 +194,17 @@ def render(rows: list[dict], generated: str) -> str:
         "",
         f"_Generated {generated}._",
         "",
+    ]
+    if unverified:
+        names = ", ".join(f"`{a}`" for a in sorted(unverified))
+        stale = sum(1 for r in rows if r["author"] in set(unverified))
+        lines += [
+            f"> **{stale} of these rows were not checked in this run.** GitHub's search API answered 422 for"
+            f" {names}, so their rows are the ones last successfully fetched and their state may have changed"
+            f" since. Every other row is live.",
+            "",
+        ]
+    lines += [
         "Work on a repository under an account we control is not outreach and never appears here: it reaches no",
         "maintainer. 35 issues were once opened on our own forks of other people's projects and reported as outreach,",
         "which is the mistake this table exists to make impossible to repeat.",
@@ -236,10 +258,10 @@ def main() -> int:
         )
     generated = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
     with open(os.path.join(here, "data.json"), "w") as f:
-        json.dump({"generated": generated, "summary": summarise(rows), "rows": rows}, f, indent=2)
+        json.dump(payload(rows, generated, skipped), f, indent=2)
         f.write("\n")
     with open(os.path.join(here, "README.md"), "w") as f:
-        f.write(render(rows, generated))
+        f.write(render(rows, generated, skipped))
     print(f"{len(rows)} rows across {len({r['repo'] for r in rows})} repositories")
     return 0
 
