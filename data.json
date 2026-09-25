@@ -1,25 +1,14 @@
 {
-  "generated": "2026-09-25 03:13 UTC",
+  "generated": "2026-09-25 03:28 UTC",
   "summary": {
-    "total": 819,
-    "merged": 8,
-    "open": 627,
+    "total": 835,
+    "merged": 9,
+    "open": 642,
     "closed": 184,
-    "repos": 550,
-    "answered": 189
+    "repos": 562,
+    "answered": 192
   },
   "rows": [
-    {
-      "repo": "gigs-sh/gigs-sh",
-      "kind": "outreach",
-      "title": "Coverage gap: zero feeless/fee-free settlement rails in the directory \u2014 consider Nano (XNO) railHint",
-      "url": "https://github.com/gigs-sh/gigs-sh/issues/12",
-      "author": "dhyabi2",
-      "created_at": "2026-09-25T03:22:00Z",
-      "updated_at": "2026-09-25T03:22:00Z",
-      "state": "open",
-      "note": "Tier-3a first contact with non-Nano agent-economy directory. Personalized mutual-benefit pitch."
-    },
     {
       "repo": "AIAnytime/Awesome-MCP-Server",
       "number": 114,
@@ -55,6 +44,18 @@
       "created_at": "2026-09-24T08:34:31Z",
       "updated_at": "2026-09-24T16:19:14Z",
       "comments": 1
+    },
+    {
+      "repo": "go-taas/go-taas",
+      "number": 13,
+      "title": "feat(nano): exact 30-decimal XNO amount primitives for sub-cent settlement (ref #7)",
+      "kind": "pr",
+      "state": "merged",
+      "url": "https://github.com/go-taas/go-taas/pull/13",
+      "author": "dhyabi2",
+      "created_at": "2026-09-24T13:55:22Z",
+      "updated_at": "2026-09-25T03:27:01Z",
+      "comments": 12
     },
     {
       "repo": "hanishrao/collective-ai-tools",
@@ -165,6 +166,18 @@
       "comments": 0
     },
     {
+      "repo": "2s-io/sdk",
+      "number": 7,
+      "title": "Proposal: optional Nano (XNO) settlement leg beside USDC/x402",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/2s-io/sdk/issues/7",
+      "author": "dhyabi2",
+      "created_at": "2026-09-25T03:19:24Z",
+      "updated_at": "2026-09-25T03:19:24Z",
+      "comments": 0
+    },
+    {
       "repo": "402cron/402cron",
       "number": 2,
       "title": "Offer a feeless settlement rail (Nano, XNO) next to x402/USDC-on-Base for scheduled agent payments",
@@ -209,8 +222,8 @@
       "url": "https://github.com/A2ARegistry/GlobalA2ARegistry/issues/11",
       "author": "dhyabi2",
       "created_at": "2026-09-24T06:00:53Z",
-      "updated_at": "2026-09-25T03:10:23Z",
-      "comments": 6
+      "updated_at": "2026-09-25T03:24:29Z",
+      "comments": 7
     },
     {
       "repo": "AI-Hub-Admin/awesome-in-agent-payment",
@@ -393,6 +406,18 @@
       "comments": 0
     },
     {
+      "repo": "Alpha-Park/genpark-usage-based-billing-metering-engine-skill",
+      "number": 1,
+      "title": "Add a feeless Nano (XNO) settlement rail for sub-cent metered usage",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/Alpha-Park/genpark-usage-based-billing-metering-engine-skill/issues/1",
+      "author": "dhyabi2",
+      "created_at": "2026-09-25T03:20:47Z",
+      "updated_at": "2026-09-25T03:20:47Z",
+      "comments": 0
+    },
+    {
       "repo": "AnkanMisra/MicroAI-Paygate",
       "number": 429,
       "title": "Add a verify-only Nano (XNO) payment leg where the block is the receipt",
@@ -509,8 +534,8 @@
       "url": "https://github.com/BlockRunAI/ClawRouter/issues/393",
       "author": "dhyabi2",
       "created_at": "2026-09-24T05:48:46Z",
-      "updated_at": "2026-09-24T05:48:46Z",
-      "comments": 0
+      "updated_at": "2026-09-25T03:15:20Z",
+      "comments": 1
     },
     {
       "repo": "BlockRunAI/blockrun-mcp",
@@ -549,6 +574,18 @@
       "comments": 0
     },
     {
+      "repo": "CoboGlobal/cobo-agentic-wallet",
+      "number": 11,
+      "title": "feature: add Nano (XNO) as a settlement rail alongside EVM/Solana",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/CoboGlobal/cobo-agentic-wallet/issues/11",
+      "author": "dhyabi2",
+      "created_at": "2026-09-25T03:25:50Z",
+      "updated_at": "2026-09-25T03:25:50Z",
+      "comments": 0
+    },
+    {
       "repo": "ColonistOne/awesome-agent-native-social",
       "number": 5,
       "title": "Specs & Protocols: note a feeless, self-custody settlement rail (Nano / XNO) beside the x402 entry",
@@ -558,6 +595,18 @@
       "author": "dhyabi2",
       "created_at": "2026-09-23T21:44:44Z",
       "updated_at": "2026-09-23T21:44:44Z",
+      "comments": 0
+    },
+    {
+      "repo": "Comfy-Org/ComfyUI_frontend",
+      "number": 18779,
+      "title": "Autonomous agent runs stop hard on a depleted prepaid credit balance - no self-serve path for an agent to pay per call",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/Comfy-Org/ComfyUI_frontend/issues/18779",
+      "author": "dhyabi2",
+      "created_at": "2026-09-25T03:21:59Z",
+      "updated_at": "2026-09-25T03:21:59Z",
       "comments": 0
     },
     {
@@ -581,8 +630,8 @@
       "url": "https://github.com/ComposioHQ/composio/pull/4635",
       "author": "dhyabi2",
       "created_at": "2026-09-24T22:04:21Z",
-      "updated_at": "2026-09-24T22:29:36Z",
-      "comments": 3
+      "updated_at": "2026-09-25T03:26:17Z",
+      "comments": 4
     },
     {
       "repo": "Custena/agent-payment-protocols",
@@ -761,8 +810,8 @@
       "url": "https://github.com/Haustorium12/gold-402/issues/250",
       "author": "dhyabi2",
       "created_at": "2026-09-24T16:16:56Z",
-      "updated_at": "2026-09-25T00:08:33Z",
-      "comments": 1
+      "updated_at": "2026-09-25T03:16:43Z",
+      "comments": 2
     },
     {
       "repo": "JonasBaeumer/AgentWallet",
@@ -1317,6 +1366,18 @@
       "comments": 0
     },
     {
+      "repo": "Wintyx57/n8n-nodes-x402-bazaar",
+      "number": 1,
+      "title": "Add Nano (XNO) as a per-call settlement network",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/Wintyx57/n8n-nodes-x402-bazaar/issues/1",
+      "author": "dhyabi2",
+      "created_at": "2026-09-25T03:26:46Z",
+      "updated_at": "2026-09-25T03:26:46Z",
+      "comments": 0
+    },
+    {
       "repo": "Wonderfulian/kbv-server",
       "number": 2,
       "title": "Feature request: accept a fee-free Nano (XNO) rail beside USDC on Base in the x402 accepts[]",
@@ -1411,6 +1472,30 @@
       "created_at": "2026-09-24T00:50:32Z",
       "updated_at": "2026-09-24T04:14:12Z",
       "comments": 2
+    },
+    {
+      "repo": "adamkrawczyk/agentpact",
+      "number": 152,
+      "title": "Proposal: add Nano (XNO) as a feeless payout rail in @agentpact/payouts",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/adamkrawczyk/agentpact/issues/152",
+      "author": "dhyabi2",
+      "created_at": "2026-09-25T03:21:48Z",
+      "updated_at": "2026-09-25T03:21:48Z",
+      "comments": 0
+    },
+    {
+      "repo": "ag2ai/ag2",
+      "number": 3293,
+      "title": "[Feature Request] Reference example: AG2 agent calling a paid tool via HTTP 402 settled in Nano",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/ag2ai/ag2/issues/3293",
+      "author": "dhyabi2",
+      "created_at": "2026-09-25T03:16:54Z",
+      "updated_at": "2026-09-25T03:16:54Z",
+      "comments": 0
     },
     {
       "repo": "agentatwork/x402-revenue",
@@ -2085,6 +2170,18 @@
       "comments": 1
     },
     {
+      "repo": "eleeths/eleeth-x402-mcp",
+      "number": 1,
+      "title": "A feeless payment lane beside USDC on Base \u2014 Nano (XNO) for the per-call world",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/eleeths/eleeth-x402-mcp/issues/1",
+      "author": "dhyabi2",
+      "created_at": "2026-09-25T03:15:53Z",
+      "updated_at": "2026-09-25T03:15:53Z",
+      "comments": 0
+    },
+    {
       "repo": "elisymlabs/elisym",
       "number": 122,
       "title": "Proposal: Nano (XNO) settlement asset alongside SOL/USDC for agent-to-agent jobs",
@@ -2385,6 +2482,18 @@
       "comments": 0
     },
     {
+      "repo": "gigs-sh/gigs-sh",
+      "number": 12,
+      "title": "Coverage gap: zero feeless/fee-free settlement rails in the directory \u2014 consider Nano (XNO) railHint",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/gigs-sh/gigs-sh/issues/12",
+      "author": "dhyabi2",
+      "created_at": "2026-09-25T03:21:53Z",
+      "updated_at": "2026-09-25T03:21:53Z",
+      "comments": 0
+    },
+    {
       "repo": "go-taas/go-taas",
       "number": 7,
       "title": "Feature: feeless exact settlement leg for sub-cent per-call/token charges",
@@ -2395,18 +2504,6 @@
       "created_at": "2026-09-24T04:45:07Z",
       "updated_at": "2026-09-24T16:24:52Z",
       "comments": 6
-    },
-    {
-      "repo": "go-taas/go-taas",
-      "number": 13,
-      "title": "feat(nano): exact 30-decimal XNO amount primitives for sub-cent settlement (ref #7)",
-      "kind": "pr",
-      "state": "open",
-      "url": "https://github.com/go-taas/go-taas/pull/13",
-      "author": "dhyabi2",
-      "created_at": "2026-09-24T13:55:22Z",
-      "updated_at": "2026-09-24T22:18:26Z",
-      "comments": 10
     },
     {
       "repo": "goodmeta/agent-payments-landscape",
@@ -2621,8 +2718,8 @@
       "url": "https://github.com/huggingface/smolagents/issues/2834",
       "author": "dhyabi2",
       "created_at": "2026-09-25T03:04:58Z",
-      "updated_at": "2026-09-25T03:04:58Z",
-      "comments": 0
+      "updated_at": "2026-09-25T03:27:51Z",
+      "comments": 1
     },
     {
       "repo": "huwhitememes/tollbooth",
@@ -2865,6 +2962,18 @@
       "comments": 0
     },
     {
+      "repo": "kyegomez/swarms",
+      "number": 2358,
+      "title": "[FEAT] Add Nano (XNO) as a zero-fee settlement token for the x402 / ATP payment layer",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/kyegomez/swarms/issues/2358",
+      "author": "dhyabi2",
+      "created_at": "2026-09-25T03:12:59Z",
+      "updated_at": "2026-09-25T03:16:24Z",
+      "comments": 2
+    },
+    {
       "repo": "labring/FastGPT",
       "number": 7837,
       "title": "Feature request: recognise pay-per-call x402 results from MCP tools (pending payment response)",
@@ -2946,6 +3055,18 @@
       "author": "dhyabi2",
       "created_at": "2026-09-24T13:46:56Z",
       "updated_at": "2026-09-24T13:46:56Z",
+      "comments": 0
+    },
+    {
+      "repo": "lindy-ai/docs",
+      "number": 352,
+      "title": "Pay-per-call (x402 / HTTP-402) MCP servers: document the billed case, or confirm support",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/lindy-ai/docs/issues/352",
+      "author": "dhyabi2",
+      "created_at": "2026-09-25T03:22:40Z",
+      "updated_at": "2026-09-25T03:22:40Z",
       "comments": 0
     },
     {
@@ -3201,6 +3322,18 @@
       "comments": 1
     },
     {
+      "repo": "natharooni-prog/claim-check",
+      "number": 1,
+      "title": "A feeless settlement rail for per-claim verification \u2014 Nano (XNO) beside USDC on Base",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/natharooni-prog/claim-check/issues/1",
+      "author": "dhyabi2",
+      "created_at": "2026-09-25T03:16:30Z",
+      "updated_at": "2026-09-25T03:16:30Z",
+      "comments": 0
+    },
+    {
       "repo": "neosun100/openAgentPay",
       "number": 22,
       "title": "Proposal: add Nano (XNO) as an exact-scheme settlement rail \u2014 feeless, sub-second, self-custodied",
@@ -3246,6 +3379,18 @@
       "author": "dhyabi2",
       "created_at": "2026-09-23T21:44:30Z",
       "updated_at": "2026-09-23T21:44:30Z",
+      "comments": 0
+    },
+    {
+      "repo": "nevermined-io/payments",
+      "number": 471,
+      "title": "docs: add Nano (XNO) as a settlement reference in the x402 protocol docs",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/nevermined-io/payments/issues/471",
+      "author": "dhyabi2",
+      "created_at": "2026-09-25T03:24:48Z",
+      "updated_at": "2026-09-25T03:24:48Z",
       "comments": 0
     },
     {
@@ -3582,6 +3727,18 @@
       "author": "dhyabi2",
       "created_at": "2026-09-24T12:36:58Z",
       "updated_at": "2026-09-24T12:36:58Z",
+      "comments": 0
+    },
+    {
+      "repo": "railwayapp/docs",
+      "number": 1378,
+      "title": "Proposal: a 'paid agent API' guide \u2014 charge per request to a Railway-deployed service",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/railwayapp/docs/issues/1378",
+      "author": "dhyabi2",
+      "created_at": "2026-09-25T03:19:33Z",
+      "updated_at": "2026-09-25T03:19:33Z",
       "comments": 0
     },
     {
@@ -4173,6 +4330,18 @@
       "comments": 0
     },
     {
+      "repo": "val-town/val-town-product",
+      "number": 241,
+      "title": "Suggestion: a feeless per-call settlement path for monetized HTTP vals",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/val-town/val-town-product/issues/241",
+      "author": "dhyabi2",
+      "created_at": "2026-09-25T03:15:00Z",
+      "updated_at": "2026-09-25T03:15:00Z",
+      "comments": 0
+    },
+    {
       "repo": "valmi-io/value",
       "number": 90,
       "title": "Feature request: a feeless settlement rail for outcome-based, sub-cent billing",
@@ -4206,6 +4375,18 @@
       "author": "dhyabi2",
       "created_at": "2026-09-23T21:23:16Z",
       "updated_at": "2026-09-23T21:23:16Z",
+      "comments": 0
+    },
+    {
+      "repo": "vespa-engine/pyvespa",
+      "number": 1355,
+      "title": "[Feature Request]: optional feeless (Nano/XNO) settlement rail for Vespa Cloud metered usage",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/vespa-engine/pyvespa/issues/1355",
+      "author": "dhyabi2",
+      "created_at": "2026-09-25T03:26:29Z",
+      "updated_at": "2026-09-25T03:26:29Z",
       "comments": 0
     },
     {
