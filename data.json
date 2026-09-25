@@ -1,12 +1,12 @@
 {
-  "generated": "2026-09-24 23:49 UTC",
+  "generated": "2026-09-25 00:09 UTC",
   "summary": {
-    "total": 801,
-    "merged": 8,
-    "open": 614,
-    "closed": 179,
-    "repos": 539,
-    "answered": 185
+    "total": 803,
+    "merged": 7,
+    "open": 616,
+    "closed": 180,
+    "repos": 544,
+    "answered": 186
   },
   "rows": [
     {
@@ -91,18 +91,6 @@
       "author": "dhyabi2",
       "created_at": "2026-08-01T11:57:50Z",
       "updated_at": "2026-08-01T12:07:29Z",
-      "comments": 0
-    },
-    {
-      "repo": "saifurrehmanahmed/cleaningApp",
-      "number": 1,
-      "title": "resolved the issue13,14,18,27,28,34,",
-      "kind": "pr",
-      "state": "merged",
-      "url": "https://github.com/saifurrehmanahmed/cleaningApp/pull/1",
-      "author": "dhyabi2",
-      "created_at": "2023-05-31T17:00:44Z",
-      "updated_at": "2023-05-31T17:01:00Z",
       "comments": 0
     },
     {
@@ -646,6 +634,18 @@
       "comments": 0
     },
     {
+      "repo": "Fewsats/fewsats-mcp",
+      "number": 6,
+      "title": "Feature request: Nano (XNO) as a feeless settlement option beside Lightning",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/Fewsats/fewsats-mcp/issues/6",
+      "author": "dhyabi2",
+      "created_at": "2026-09-24T23:53:11Z",
+      "updated_at": "2026-09-24T23:53:11Z",
+      "comments": 0
+    },
+    {
       "repo": "GOATNetwork/awesome-agentic-commerce",
       "number": 15,
       "title": "Add Nano (XNO) as the feeless native-coin settlement rail for agent checkout",
@@ -690,8 +690,8 @@
       "url": "https://github.com/Haustorium12/gold-402/issues/250",
       "author": "dhyabi2",
       "created_at": "2026-09-24T16:16:56Z",
-      "updated_at": "2026-09-24T16:16:56Z",
-      "comments": 0
+      "updated_at": "2026-09-25T00:08:33Z",
+      "comments": 1
     },
     {
       "repo": "JonasBaeumer/AgentWallet",
@@ -799,6 +799,18 @@
       "author": "dhyabi2",
       "created_at": "2026-09-24T00:45:41Z",
       "updated_at": "2026-09-24T00:45:41Z",
+      "comments": 0
+    },
+    {
+      "repo": "MysteryPanda000/awesome-agent-economy",
+      "number": 1,
+      "title": "Add openai-agents-nano-x402 to AI Payments category",
+      "kind": "pr",
+      "state": "open",
+      "url": "https://github.com/MysteryPanda000/awesome-agent-economy/pull/1",
+      "author": "dhyabi2",
+      "created_at": "2026-09-25T00:00:18Z",
+      "updated_at": "2026-09-25T00:00:18Z",
       "comments": 0
     },
     {
@@ -1268,6 +1280,18 @@
       "created_at": "2026-09-24T08:51:41Z",
       "updated_at": "2026-09-24T10:03:25Z",
       "comments": 2
+    },
+    {
+      "repo": "a2aproject/A2A",
+      "number": 2260,
+      "title": "docs: add a Nano settlement leg example for A2A-SE",
+      "kind": "pr",
+      "state": "open",
+      "url": "https://github.com/a2aproject/A2A/pull/2260",
+      "author": "dhyabi2",
+      "created_at": "2026-09-24T23:58:48Z",
+      "updated_at": "2026-09-24T23:58:49Z",
+      "comments": 0
     },
     {
       "repo": "a2aproject/a2a-samples",
@@ -1750,6 +1774,18 @@
       "comments": 0
     },
     {
+      "repo": "codespar/agentic-payments-standards",
+      "number": 4,
+      "title": "Add Nano (XNO) as an example push-rail settlement to ACP proposal",
+      "kind": "pr",
+      "state": "open",
+      "url": "https://github.com/codespar/agentic-payments-standards/pull/4",
+      "author": "dhyabi2",
+      "created_at": "2026-09-25T00:02:02Z",
+      "updated_at": "2026-09-25T00:02:02Z",
+      "comments": 0
+    },
+    {
       "repo": "codespar/awesome-agentic-commerce-latam",
       "number": 8,
       "title": "Add Nano (XNO) as a feeless instant settlement rail for LATAM agentic commerce",
@@ -1771,6 +1807,18 @@
       "author": "dhyabi2",
       "created_at": "2026-09-23T21:44:30Z",
       "updated_at": "2026-09-23T21:44:30Z",
+      "comments": 0
+    },
+    {
+      "repo": "codespar/x402-monetization-examples",
+      "number": 7,
+      "title": "Add Nano (XNO) x402 settlement to Related section",
+      "kind": "pr",
+      "state": "open",
+      "url": "https://github.com/codespar/x402-monetization-examples/pull/7",
+      "author": "dhyabi2",
+      "created_at": "2026-09-25T00:00:39Z",
+      "updated_at": "2026-09-25T00:00:39Z",
       "comments": 0
     },
     {
@@ -3310,6 +3358,18 @@
       "comments": 0
     },
     {
+      "repo": "poko8725/jetbrains-marketplace-scan",
+      "number": 1,
+      "title": "Add payment-fee economics section and analysis script",
+      "kind": "pr",
+      "state": "open",
+      "url": "https://github.com/poko8725/jetbrains-marketplace-scan/pull/1",
+      "author": "dhyabi2",
+      "created_at": "2026-09-25T00:08:25Z",
+      "updated_at": "2026-09-25T00:08:25Z",
+      "comments": 0
+    },
+    {
       "repo": "presidio-v/presidio-hardened-x402",
       "number": 127,
       "title": "Enhancement: a Nano (XNO) rail through the same spend-policy / replay gates",
@@ -3499,18 +3559,6 @@
       "author": "dhyabi2",
       "created_at": "2026-09-23T21:49:48Z",
       "updated_at": "2026-09-23T21:49:48Z",
-      "comments": 0
-    },
-    {
-      "repo": "saifurrehmanahmed/cleaningApp",
-      "number": 2,
-      "title": "Merge pull request #50 from saifurrehmanahmed/main",
-      "kind": "pr",
-      "state": "open",
-      "url": "https://github.com/saifurrehmanahmed/cleaningApp/pull/2",
-      "author": "dhyabi2",
-      "created_at": "2023-05-31T17:04:39Z",
-      "updated_at": "2023-05-31T17:04:39Z",
       "comments": 0
     },
     {
@@ -3931,18 +3979,6 @@
       "author": "dhyabi2",
       "created_at": "2026-09-24T06:31:13Z",
       "updated_at": "2026-09-24T06:31:13Z",
-      "comments": 0
-    },
-    {
-      "repo": "turbopuffer/turbopuffer-python",
-      "number": 268,
-      "title": "[Feature Request]: Nano (XNO) payment for Turbopuffer API usage",
-      "kind": "issue",
-      "state": "open",
-      "url": "https://github.com/turbopuffer/turbopuffer-python/issues/268",
-      "author": "dhyabi2",
-      "created_at": "2026-09-24T21:58:26Z",
-      "updated_at": "2026-09-24T21:58:26Z",
       "comments": 0
     },
     {
@@ -5419,6 +5455,18 @@
       "author": "dhyabi2",
       "created_at": "2026-09-24T08:58:22Z",
       "updated_at": "2026-09-24T09:00:03Z",
+      "comments": 0
+    },
+    {
+      "repo": "turbopuffer/turbopuffer-python",
+      "number": 268,
+      "title": "[Feature Request]: Nano (XNO) payment for Turbopuffer API usage",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/turbopuffer/turbopuffer-python/issues/268",
+      "author": "dhyabi2",
+      "created_at": "2026-09-24T21:58:26Z",
+      "updated_at": "2026-09-25T00:07:34Z",
       "comments": 0
     },
     {
@@ -9596,30 +9644,6 @@
       "created_at": "2026-09-22T00:37:21Z",
       "updated_at": "2026-09-22T09:46:24Z",
       "comments": 1
-    },
-    {
-      "repo": "Fewsats/fewsats-mcp",
-      "number": 6,
-      "title": "Feature request: Nano (XNO) as a feeless settlement option beside Lightning",
-      "kind": "issue",
-      "state": "open",
-      "url": "https://github.com/Fewsats/fewsats-mcp/issues/6",
-      "author": "dhyabi2",
-      "created_at": "2026-09-24T23:52:00Z",
-      "updated_at": "2026-09-24T23:52:00Z",
-      "comments": 0
-    },
-    {
-      "repo": "MysteryPanda000/awesome-agent-economy",
-      "number": 1,
-      "title": "Add openai-agents-nano-x402 to AI Payments category",
-      "kind": "pr",
-      "state": "open",
-      "url": "https://github.com/MysteryPanda000/awesome-agent-economy/pull/1",
-      "author": "dhyabi2",
-      "created_at": "2026-09-24T23:58:00Z",
-      "updated_at": "2026-09-24T23:58:00Z",
-      "comments": 0
     }
   ]
 }
