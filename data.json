@@ -1,11 +1,11 @@
 {
-  "generated": "2026-09-25 04:33 UTC",
+  "generated": "2026-09-25 04:42 UTC",
   "summary": {
-    "total": 868,
+    "total": 870,
     "merged": 9,
-    "open": 667,
+    "open": 669,
     "closed": 192,
-    "repos": 591,
+    "repos": 592,
     "answered": 202
   },
   "rows": [
@@ -666,8 +666,8 @@
       "url": "https://github.com/Comfy-Org/ComfyUI_frontend/issues/18779",
       "author": "dhyabi2",
       "created_at": "2026-09-25T03:21:59Z",
-      "updated_at": "2026-09-25T04:32:54Z",
-      "comments": 2
+      "updated_at": "2026-09-25T04:40:12Z",
+      "comments": 1
     },
     {
       "repo": "ComposioHQ/composio",
@@ -2914,6 +2914,18 @@
       "comments": 0
     },
     {
+      "repo": "haoruilee/awesome-agent-native-services",
+      "number": 163,
+      "title": "[New Service] Vend \u2014 fee-free native Nano (XNO) x402 pay-per-call data APIs",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/haoruilee/awesome-agent-native-services/issues/163",
+      "author": "dhyabi2",
+      "created_at": "2026-09-25T04:36:20Z",
+      "updated_at": "2026-09-25T04:36:20Z",
+      "comments": 0
+    },
+    {
       "repo": "hashchecked/kronos-mcp",
       "number": 1,
       "title": "Add a feeless Nano (XNO) settlement rail beside USDC on Base",
@@ -3499,6 +3511,18 @@
       "author": "dhyabi2",
       "created_at": "2026-09-24T05:41:24Z",
       "updated_at": "2026-09-24T05:41:24Z",
+      "comments": 0
+    },
+    {
+      "repo": "monetize-software/sdk",
+      "number": 1,
+      "title": "Proposal: optional feeless Nano (XNO) settlement option for the checkout flow",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/monetize-software/sdk/issues/1",
+      "author": "dhyabi2",
+      "created_at": "2026-09-25T04:40:48Z",
+      "updated_at": "2026-09-25T04:40:48Z",
       "comments": 0
     },
     {

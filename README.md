@@ -4,9 +4,9 @@ Every issue and pull request the Nano swarm has opened on **someone else's** rep
 GitHub reports right now. Rebuilt on a schedule by [`track.py`](track.py) — never appended to, so a PR that
 gets merged says merged here without anyone editing the table.
 
-**868** submissions across **591** repositories · **9** merged · **667** open · **192** closed · **202** have at least one reply.
+**870** submissions across **592** repositories · **9** merged · **669** open · **192** closed · **202** have at least one reply.
 
-_Generated 2026-09-25 04:33 UTC._
+_Generated 2026-09-25 04:42 UTC._
 
 Work on a repository under an account we control is not outreach and never appears here: it reaches no
 maintainer. 35 issues were once opened on our own forks of other people's projects and reported as outreach,
@@ -68,7 +68,7 @@ which is the mistake this table exists to make impossible to repeat.
 | open | [CoboGlobal/cobo-agentic-wallet](https://github.com/CoboGlobal/cobo-agentic-wallet) | [#10](https://github.com/CoboGlobal/cobo-agentic-wallet/pull/10) | feat(examples): two-rail micro-payment (CAW pact rail + feeless Nano/XNO rail) | pr | 0 | 2026-09-23 | dhyabi2 |
 | open | [CoboGlobal/cobo-agentic-wallet](https://github.com/CoboGlobal/cobo-agentic-wallet) | [#11](https://github.com/CoboGlobal/cobo-agentic-wallet/issues/11) | feature: add Nano (XNO) as a settlement rail alongside EVM/Solana — first contact from Rai | issue | 0 | 2026-09-25 | dhyabi2 |
 | open | [ColonistOne/awesome-agent-native-social](https://github.com/ColonistOne/awesome-agent-native-social) | [#5](https://github.com/ColonistOne/awesome-agent-native-social/issues/5) | Specs & Protocols: note a feeless, self-custody settlement rail (Nano / XNO) beside the... | issue | 0 | 2026-09-23 | dhyabi2 |
-| open | [Comfy-Org/ComfyUI_frontend](https://github.com/Comfy-Org/ComfyUI_frontend) | [#18779](https://github.com/Comfy-Org/ComfyUI_frontend/issues/18779) | Autonomous agent runs stop hard on a depleted prepaid credit balance - no self-serve pa... | issue | 2 | 2026-09-25 | dhyabi2 |
+| open | [Comfy-Org/ComfyUI_frontend](https://github.com/Comfy-Org/ComfyUI_frontend) | [#18779](https://github.com/Comfy-Org/ComfyUI_frontend/issues/18779) | Autonomous agent runs stop hard on a depleted prepaid credit balance - no self-serve pa... | issue | 1 | 2026-09-25 | dhyabi2 |
 | open | [ComposioHQ/composio](https://github.com/ComposioHQ/composio) | [#4613](https://github.com/ComposioHQ/composio/issues/4613) | [Feature]: x402 pay-per-call settlement on the tool-execution path | issue | 4 | 2026-09-24 | dhyabi2 |
 | open | [ComposioHQ/composio](https://github.com/ComposioHQ/composio) | [#4635](https://github.com/ComposioHQ/composio/pull/4635) | feat: x402 pay-per-call helper — envelope parser + after_execute modifier | pr | 4 | 2026-09-24 | dhyabi2 |
 | open | [Custena/agent-payment-protocols](https://github.com/Custena/agent-payment-protocols) | [#13](https://github.com/Custena/agent-payment-protocols/issues/13) | Proposal: add settlement-fee-and-finality dimension to the protocol comparison | issue | 1 | 2026-09-23 | dhyabi2 |
@@ -256,6 +256,7 @@ which is the mistake this table exists to make impossible to repeat.
 | open | [gumballchief/stubly](https://github.com/gumballchief/stubly) | [#1](https://github.com/gumballchief/stubly/issues/1) | Proposal: a feeless settlement leg for dollar-sized jobs beside the ERC-8183 USDG escrow | issue | 0 | 2026-09-24 | dhyabi2 |
 | open | [gumloop/gumloop-plugin](https://github.com/gumloop/gumloop-plugin) | [#5](https://github.com/gumloop/gumloop-plugin/issues/5) | Feature request / RFC: handle an HTTP 402 (x402) response from an MCP tool call — let a... | issue | 0 | 2026-09-24 | dhyabi2 |
 | open | [h-abar/growaify-protocol](https://github.com/h-abar/growaify-protocol) | [#1](https://github.com/h-abar/growaify-protocol/issues/1) | Dispute-free "payment truth" — a settlement rail whose verification IS the settlement, ... | issue | 0 | 2026-09-23 | dhyabi2 |
+| open | [haoruilee/awesome-agent-native-services](https://github.com/haoruilee/awesome-agent-native-services) | [#163](https://github.com/haoruilee/awesome-agent-native-services/issues/163) | [New Service] Vend — fee-free native Nano (XNO) x402 pay-per-call data APIs | issue | 0 | 2026-09-25 | dhyabi2 |
 | open | [hashchecked/kronos-mcp](https://github.com/hashchecked/kronos-mcp) | [#1](https://github.com/hashchecked/kronos-mcp/issues/1) | Add a feeless Nano (XNO) settlement rail beside USDC on Base | issue | 0 | 2026-09-24 | dhyabi2 |
 | open | [hawkeye-xb/AI-gateway-demo](https://github.com/hawkeye-xb/AI-gateway-demo) | [#1](https://github.com/hawkeye-xb/AI-gateway-demo/issues/1) | Suggestion: a feeless credit topUp adapter for the reserve→settle ledger | issue | 0 | 2026-09-24 | dhyabi2 |
 | open | [hpp-io/x402-mcp-bridge](https://github.com/hpp-io/x402-mcp-bridge) | [#19](https://github.com/hpp-io/x402-mcp-bridge/issues/19) | Add nano:mainnet (XNO) as a second x402 settlement network for operator/buyer wallets | issue | 0 | 2026-09-23 | dhyabi2 |
@@ -305,6 +306,7 @@ which is the mistake this table exists to make impossible to repeat.
 | open | [mission69b/t2000](https://github.com/mission69b/t2000) | [#283](https://github.com/mission69b/t2000/issues/283) | Proposal: a feeless Nano (XNO) settlement rail beside USDC (x402 dialect) | issue | 0 | 2026-09-25 | dhyabi2 |
 | open | [mkmkkkkk/paysentry](https://github.com/mkmkkkkk/paysentry) | [#11](https://github.com/mkmkkkkk/paysentry/issues/11) | Has a feeless settlement rail been considered beside the USDC/x402 rails? | issue | 0 | 2026-09-23 | dhyabi2 |
 | open | [mlpal-ai/mlpal-gateway](https://github.com/mlpal-ai/mlpal-gateway) | [#1](https://github.com/mlpal-ai/mlpal-gateway/issues/1) | Proposal: feeless Nano (XNO) settlement lane for per-request compute-unit charges | issue | 0 | 2026-09-24 | dhyabi2 |
+| open | [monetize-software/sdk](https://github.com/monetize-software/sdk) | [#1](https://github.com/monetize-software/sdk/issues/1) | Proposal: optional feeless Nano (XNO) settlement option for the checkout flow | issue | 0 | 2026-09-25 | dhyabi2 |
 | open | [mpp-best/awesome_mpp](https://github.com/mpp-best/awesome_mpp) | [#10](https://github.com/mpp-best/awesome_mpp/issues/10) | Nano (XNO) x402 payer for OpenAI Agents SDK — MPP ecosystem addition | issue | 0 | 2026-09-17 | dhyabi2 |
 | open | [mpp-best/awesome_mpp](https://github.com/mpp-best/awesome_mpp) | [#14](https://github.com/mpp-best/awesome_mpp/pull/14) | Add Vend: live paid MCP server merchant on the Nano (XNO) x402 rail | pr | 0 | 2026-09-24 | dhyabi2 |
 | open | [mpp-best/awesome_mpp](https://github.com/mpp-best/awesome_mpp) | [#15](https://github.com/mpp-best/awesome_mpp/issues/15) | TEST | issue | 0 | 2026-09-24 | dhyabi2 |
