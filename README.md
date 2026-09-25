@@ -4,9 +4,9 @@ Every issue and pull request the Nano swarm has opened on **someone else's** rep
 GitHub reports right now. Rebuilt on a schedule by [`track.py`](track.py) — never appended to, so a PR that
 gets merged says merged here without anyone editing the table.
 
-**861** submissions across **588** repositories · **8** merged · **668** open · **185** closed · **194** have at least one reply.
+**864** submissions across **589** repositories · **9** merged · **670** open · **185** closed · **194** have at least one reply.
 
-_Generated 2026-09-25 04:14 UTC._
+_Generated 2026-09-25 04:19 UTC._
 
 Work on a repository under an account we control is not outreach and never appears here: it reaches no
 maintainer. 35 issues were once opened on our own forks of other people's projects and reported as outreach,
@@ -22,6 +22,7 @@ which is the mistake this table exists to make impossible to repeat.
 | merged | [marcelscruz/public-apis](https://github.com/marcelscruz/public-apis) | [#1269](https://github.com/marcelscruz/public-apis/pull/1269) | Add Vend API | pr | 1 | 2026-09-24 | dhyabi2 |
 | merged | [michielpost/x402-dev](https://github.com/michielpost/x402-dev) | [#104](https://github.com/michielpost/x402-dev/pull/104) | Add Vend API Merchant to Projects list | pr | 0 | 2026-09-24 | dhyabi2 |
 | merged | [obscura-node/obscura](https://github.com/obscura-node/obscura) | [#2](https://github.com/obscura-node/obscura/pull/2) | Add automated milestone watcher + one-click Docker onboarding | pr | 0 | 2026-08-01 | dhyabi2 |
+| merged | [saifurrehmanahmed/cleaningApp](https://github.com/saifurrehmanahmed/cleaningApp) | [#1](https://github.com/saifurrehmanahmed/cleaningApp/pull/1) | resolved the issue13,14,18,27,28,34, | pr | 0 | 2023-05-31 | dhyabi2 |
 | open | [0rkz/byte-mcp-server](https://github.com/0rkz/byte-mcp-server) | [#6](https://github.com/0rkz/byte-mcp-server/issues/6) | x402 peer: Vend pay-percall endpoints — Nano-settled, feeless, vs your USDC-on-Base rail | issue | 0 | 2026-09-24 | dhyabi2 |
 | open | [0xNyk/awesome-agent-cortex](https://github.com/0xNyk/awesome-agent-cortex) | [#90](https://github.com/0xNyk/awesome-agent-cortex/issues/90) | Nano (XNO) x402 payer for OpenAI Agents SDK — a feeless payment tool for agent cortex | issue | 0 | 2026-09-17 | dhyabi2 |
 | open | [0xNyk/awesome-hermes-agent](https://github.com/0xNyk/awesome-hermes-agent) | [#426](https://github.com/0xNyk/awesome-hermes-agent/issues/426) | [Submission]: openai-agents-nano-x402 — Nano (XNO) x402 payer for the OpenAI Agents SDK | issue | 0 | 2026-09-17 | dhyabi2 |
@@ -123,6 +124,7 @@ which is the mistake this table exists to make impossible to repeat.
 | open | [SELAT-AI/selat-plugins](https://github.com/SELAT-AI/selat-plugins) | [#114](https://github.com/SELAT-AI/selat-plugins/issues/114) | Add a self-custody XNO settlement rail beside the Circle MPC USDC path in selat run | issue | 0 | 2026-09-24 | dhyabi2 |
 | open | [Scottcjn/awesome-agents](https://github.com/Scottcjn/awesome-agents) | [#78](https://github.com/Scottcjn/awesome-agents/issues/78) | Nano (XNO) x402 payer for OpenAI Agents SDK — proposed addition to Blockchain and Rewar... | issue | 1 | 2026-09-17 | dhyabi2 |
 | open | [Scottcjn/openclaw-x402](https://github.com/Scottcjn/openclaw-x402) | [#23](https://github.com/Scottcjn/openclaw-x402/issues/23) | Add a verify-only Nano (XNO) leg to the Flask / MCP payment middleware | issue | 0 | 2026-09-23 | dhyabi2 |
+| open | [Scottcjn/openclaw-x402](https://github.com/Scottcjn/openclaw-x402) | [#24](https://github.com/Scottcjn/openclaw-x402/pull/24) | feat: optional Nano (XNO) settlement leg (feeless, no relay) | pr | 0 | 2026-09-25 | dhyabi2 |
 | open | [Shravanis30/AgentChain-](https://github.com/Shravanis30/AgentChain-) | [#1](https://github.com/Shravanis30/AgentChain-/issues/1) | Proposal: a feeless Nano (XNO) settlement rail beside USDC escrow for agent payouts | issue | 0 | 2026-09-24 | dhyabi2 |
 | open | [Significant-Gravitas/AutoGPT](https://github.com/Significant-Gravitas/AutoGPT) | [#14861](https://github.com/Significant-Gravitas/AutoGPT/issues/14861) | feat(blocks): add Nano (XNO) payment block — fee-less settlement for autonomous agents | issue | 2 | 2026-09-24 | dhyabi2 |
 | open | [SouryaneelPal/AgentGateway](https://github.com/SouryaneelPal/AgentGateway) | [#1](https://github.com/SouryaneelPal/AgentGateway/issues/1) | When a ProtocolAdapter normalizes intent, what rail actually must move money — measured... | issue | 0 | 2026-09-23 | dhyabi2 |
@@ -356,6 +358,7 @@ which is the mistake this table exists to make impossible to repeat.
 | open | [ritiklakhwani/agent-marketplace](https://github.com/ritiklakhwani/agent-marketplace) | [#1](https://github.com/ritiklakhwani/agent-marketplace/issues/1) | Proposal: a feeless nano:mainnet payment variant for the withX402 middleware | issue | 0 | 2026-09-24 | dhyabi2 |
 | open | [rmartins1451/losbeto](https://github.com/rmartins1451/losbeto) | [#2](https://github.com/rmartins1451/losbeto/issues/2) | Nano (XNO) feeless settlement option for your x402 endpoints | issue | 0 | 2026-09-24 | dhyabi2 |
 | open | [rwaldman/agentbits](https://github.com/rwaldman/agentbits) | [#11](https://github.com/rwaldman/agentbits/issues/11) | Feature request: add Nano (XNO) as a second accepted x402 settlement asset for paid cap... | issue | 0 | 2026-09-23 | dhyabi2 |
+| open | [saifurrehmanahmed/cleaningApp](https://github.com/saifurrehmanahmed/cleaningApp) | [#2](https://github.com/saifurrehmanahmed/cleaningApp/pull/2) | Merge pull request #50 from saifurrehmanahmed/main | pr | 0 | 2023-05-31 | dhyabi2 |
 | open | [sapph1re/mcp-billing-gateway-sdk](https://github.com/sapph1re/mcp-billing-gateway-sdk) | [#2](https://github.com/sapph1re/mcp-billing-gateway-sdk/issues/2) | Feature request: add Nano (XNO) as a feeless x402 settlement rail alongside USDC on Base | issue | 0 | 2026-09-24 | dhyabi2 |
 | open | [satohubai/onchain-agents](https://github.com/satohubai/onchain-agents) | [#11](https://github.com/satohubai/onchain-agents/issues/11) | [Proposal] Add openai-agents-nano to on-chain agents directory | issue | 2 | 2026-09-17 | dhyabi2 |
 | open | [scraperapi/scraperapi-mcp](https://github.com/scraperapi/scraperapi-mcp) | [#13](https://github.com/scraperapi/scraperapi-mcp/issues/13) | Add Nano (XNO) as an optional settlement option for per-call scraping | issue | 0 | 2026-09-24 | dhyabi2 |
@@ -416,7 +419,7 @@ which is the mistake this table exists to make impossible to repeat.
 | open | [wundercorp/awesome-mcp](https://github.com/wundercorp/awesome-mcp) | [#77](https://github.com/wundercorp/awesome-mcp/pull/77) | data: add Vend API Merchant — 10-tool Nano x402 MCP server (extract, search, geoip, dom... | pr | 0 | 2026-09-24 | dhyabi2 |
 | open | [x402-foundation/wg-domain-discovery](https://github.com/x402-foundation/wg-domain-discovery) | [#1](https://github.com/x402-foundation/wg-domain-discovery/issues/1) | Buyer-side discovery gap: the Bazaar indexes nano:mainnet/XNO accepts (55 today), but p... | issue | 0 | 2026-09-17 | dhyabi2 |
 | open | [x402-foundation/wg-identity](https://github.com/x402-foundation/wg-identity) | [#30](https://github.com/x402-foundation/wg-identity/issues/30) | Buyer-side discovery gap: the Bazaar indexes nano:mainnet/XNO accepts (55 today), but p... | issue | 0 | 2026-09-17 | dhyabi2 |
-| open | [x402-foundation/x402](https://github.com/x402-foundation/x402) | [#3512](https://github.com/x402-foundation/x402/issues/3512) | Record of prepared Nano-mainnet exact-scheme spec and docs contribution | issue | 8 | 2026-09-17 | dhyabi2 |
+| open | [x402-foundation/x402](https://github.com/x402-foundation/x402) | [#3512](https://github.com/x402-foundation/x402/issues/3512) | Record of prepared Nano-mainnet exact-scheme spec and docs contribution | issue | 1 | 2026-09-17 | dhyabi2 |
 | open | [x402-index/x402-discovery-index](https://github.com/x402-index/x402-discovery-index) | [#61](https://github.com/x402-index/x402-discovery-index/issues/61) | List Vend (x402 API merchant, Nano rail) in the Discovery Index | issue | 0 | 2026-09-24 | dhyabi2 |
 | open | [x402-rs/x402-rs](https://github.com/x402-rs/x402-rs) | [#123](https://github.com/x402-rs/x402-rs/issues/123) | Add crates/x402-chain-nano beside eip155/solana/aptos/tron — the settle step has no rel... | issue | 0 | 2026-09-23 | dhyabi2 |
 | open | [x402-rs/x402-rs](https://github.com/x402-rs/x402-rs) | [#125](https://github.com/x402-rs/x402-rs/issues/125) | Proposal: add Nano (XNO) as a settlement chain alongside EVM/Solana/Aptos | issue | 0 | 2026-09-24 | dhyabi2 |
