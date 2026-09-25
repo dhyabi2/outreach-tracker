@@ -1,11 +1,11 @@
 {
-  "generated": "2026-09-25 03:34 UTC",
+  "generated": "2026-09-25 03:44 UTC",
   "summary": {
-    "total": 843,
-    "merged": 8,
-    "open": 651,
+    "total": 856,
+    "merged": 9,
+    "open": 663,
     "closed": 184,
-    "repos": 571,
+    "repos": 582,
     "answered": 192
   },
   "rows": [
@@ -103,6 +103,18 @@
       "author": "dhyabi2",
       "created_at": "2026-08-01T11:57:50Z",
       "updated_at": "2026-08-01T12:07:29Z",
+      "comments": 0
+    },
+    {
+      "repo": "saifurrehmanahmed/cleaningApp",
+      "number": 1,
+      "title": "resolved the issue13,14,18,27,28,34,",
+      "kind": "pr",
+      "state": "merged",
+      "url": "https://github.com/saifurrehmanahmed/cleaningApp/pull/1",
+      "author": "dhyabi2",
+      "created_at": "2023-05-31T17:00:44Z",
+      "updated_at": "2023-05-31T17:01:00Z",
       "comments": 0
     },
     {
@@ -223,6 +235,18 @@
       "author": "dhyabi2",
       "created_at": "2026-09-25T02:55:29Z",
       "updated_at": "2026-09-25T02:55:29Z",
+      "comments": 0
+    },
+    {
+      "repo": "A2AFans/a2afans-skills",
+      "number": 2,
+      "title": "Proposal: let task rewards settle feeless in Nano (XNO) beside the RMB / AGT escrow",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/A2AFans/a2afans-skills/issues/2",
+      "author": "dhyabi2",
+      "created_at": "2026-09-25T03:39:27Z",
+      "updated_at": "2026-09-25T03:39:27Z",
       "comments": 0
     },
     {
@@ -454,6 +478,18 @@
       "comments": 5
     },
     {
+      "repo": "ArchitecteDjack/The-Autonomous-Stack-Public",
+      "number": 1,
+      "title": "Proposal: document a Nano (XNO) settlement option for the paid-pack x402 endpoint",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/ArchitecteDjack/The-Autonomous-Stack-Public/issues/1",
+      "author": "dhyabi2",
+      "created_at": "2026-09-25T03:35:24Z",
+      "updated_at": "2026-09-25T03:35:24Z",
+      "comments": 0
+    },
+    {
       "repo": "AsherKasper/agent-marketplace-index",
       "number": 3,
       "title": "Add a Nano (XNO) settlement column \u2014 the only feeless, sub-second rail with live on-ledger agent payments",
@@ -600,13 +636,13 @@
     {
       "repo": "CoboGlobal/cobo-agentic-wallet",
       "number": 11,
-      "title": "feature: add Nano (XNO) as a settlement rail alongside EVM/Solana",
+      "title": "feature: add Nano (XNO) as a settlement rail alongside EVM/Solana \u2014 first contact from Rai",
       "kind": "issue",
       "state": "open",
       "url": "https://github.com/CoboGlobal/cobo-agentic-wallet/issues/11",
       "author": "dhyabi2",
       "created_at": "2026-09-25T03:25:50Z",
-      "updated_at": "2026-09-25T03:25:50Z",
+      "updated_at": "2026-09-25T03:39:33Z",
       "comments": 0
     },
     {
@@ -834,8 +870,20 @@
       "url": "https://github.com/Haustorium12/gold-402/issues/250",
       "author": "dhyabi2",
       "created_at": "2026-09-24T16:16:56Z",
-      "updated_at": "2026-09-25T03:16:43Z",
-      "comments": 2
+      "updated_at": "2026-09-25T03:37:42Z",
+      "comments": 3
+    },
+    {
+      "repo": "Haustorium12/gold-402",
+      "number": 256,
+      "title": "Add Nano (XNO) exact-scheme x402 settlement resources to the directory",
+      "kind": "pr",
+      "state": "open",
+      "url": "https://github.com/Haustorium12/gold-402/pull/256",
+      "author": "dhyabi2",
+      "created_at": "2026-09-25T03:37:28Z",
+      "updated_at": "2026-09-25T03:37:28Z",
+      "comments": 0
     },
     {
       "repo": "JonasBaeumer/AgentWallet",
@@ -883,6 +931,30 @@
       "author": "dhyabi2",
       "created_at": "2026-09-24T20:04:03Z",
       "updated_at": "2026-09-24T20:04:03Z",
+      "comments": 0
+    },
+    {
+      "repo": "LiSheng5/npcsidekick",
+      "number": 1,
+      "title": "Feeless settlement rail for the NPC micro-economy (and per-call NPC AI)",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/LiSheng5/npcsidekick/issues/1",
+      "author": "dhyabi2",
+      "created_at": "2026-09-25T03:35:36Z",
+      "updated_at": "2026-09-25T03:35:36Z",
+      "comments": 0
+    },
+    {
+      "repo": "LiXin97/agora-lab",
+      "number": 1,
+      "title": "Feature request: per-agent compute budget + feeless settlement, funded from a lab grant/PO",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/LiXin97/agora-lab/issues/1",
+      "author": "dhyabi2",
+      "created_at": "2026-09-25T03:34:36Z",
+      "updated_at": "2026-09-25T03:34:36Z",
       "comments": 0
     },
     {
@@ -1162,6 +1234,18 @@
       "comments": 0
     },
     {
+      "repo": "Riff-Technologies/code-checkout",
+      "number": 1,
+      "title": "Proposal: feeless XNO (Nano) payment rail as a checkout option",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/Riff-Technologies/code-checkout/issues/1",
+      "author": "dhyabi2",
+      "created_at": "2026-09-25T03:37:45Z",
+      "updated_at": "2026-09-25T03:37:45Z",
+      "comments": 0
+    },
+    {
       "repo": "Ritik200238/agora",
       "number": 1,
       "title": "Nano (XNO) as a parallel settlement rail beside USDC nanopayments",
@@ -1315,6 +1399,18 @@
       "author": "dhyabi2",
       "created_at": "2026-09-24T04:45:15Z",
       "updated_at": "2026-09-24T04:45:15Z",
+      "comments": 0
+    },
+    {
+      "repo": "ToDealMarket/tdm-obsidian",
+      "number": 1,
+      "title": "Proposal: feeless XNO (Nano) payment & payout support as a third chain",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/ToDealMarket/tdm-obsidian/issues/1",
+      "author": "dhyabi2",
+      "created_at": "2026-09-25T03:36:00Z",
+      "updated_at": "2026-09-25T03:36:00Z",
       "comments": 0
     },
     {
@@ -1795,6 +1891,18 @@
       "author": "dhyabi2",
       "created_at": "2026-09-23T21:58:55Z",
       "updated_at": "2026-09-23T21:58:55Z",
+      "comments": 0
+    },
+    {
+      "repo": "azeth-protocol/awesome-machine-economy",
+      "number": 8,
+      "title": "docs(x402): add fee-free native-coin x402 rail",
+      "kind": "pr",
+      "state": "open",
+      "url": "https://github.com/azeth-protocol/awesome-machine-economy/pull/8",
+      "author": "dhyabi2",
+      "created_at": "2026-09-25T03:38:27Z",
+      "updated_at": "2026-09-25T03:38:27Z",
       "comments": 0
     },
     {
@@ -2586,8 +2694,8 @@
       "url": "https://github.com/go-taas/go-taas/issues/7",
       "author": "dhyabi2",
       "created_at": "2026-09-24T04:45:07Z",
-      "updated_at": "2026-09-24T16:24:52Z",
-      "comments": 6
+      "updated_at": "2026-09-25T03:35:12Z",
+      "comments": 7
     },
     {
       "repo": "goodmeta/agent-payments-landscape",
@@ -2959,6 +3067,18 @@
       "author": "dhyabi2",
       "created_at": "2026-09-24T01:34:51Z",
       "updated_at": "2026-09-24T01:34:51Z",
+      "comments": 0
+    },
+    {
+      "repo": "johnisanerd/Google-Autocomplete-API",
+      "number": 1,
+      "title": "Add optional Nano (XNO) settlement for per-call usage",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/johnisanerd/Google-Autocomplete-API/issues/1",
+      "author": "dhyabi2",
+      "created_at": "2026-09-25T03:36:55Z",
+      "updated_at": "2026-09-25T03:36:55Z",
       "comments": 0
     },
     {
@@ -3934,6 +4054,18 @@
       "comments": 0
     },
     {
+      "repo": "saifurrehmanahmed/cleaningApp",
+      "number": 2,
+      "title": "Merge pull request #50 from saifurrehmanahmed/main",
+      "kind": "pr",
+      "state": "open",
+      "url": "https://github.com/saifurrehmanahmed/cleaningApp/pull/2",
+      "author": "dhyabi2",
+      "created_at": "2023-05-31T17:04:39Z",
+      "updated_at": "2023-05-31T17:04:39Z",
+      "comments": 0
+    },
+    {
       "repo": "sapph1re/mcp-billing-gateway-sdk",
       "number": 2,
       "title": "Feature request: add Nano (XNO) as a feeless x402 settlement rail alongside USDC on Base",
@@ -4063,6 +4195,18 @@
       "author": "dhyabi2",
       "created_at": "2026-09-24T13:04:43Z",
       "updated_at": "2026-09-24T13:04:43Z",
+      "comments": 0
+    },
+    {
+      "repo": "snougo/Godot-AI-Chat",
+      "number": 2,
+      "title": "Optional feeless per-call metering for the plugin's LLM usage",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/snougo/Godot-AI-Chat/issues/2",
+      "author": "dhyabi2",
+      "created_at": "2026-09-25T03:36:04Z",
+      "updated_at": "2026-09-25T03:36:04Z",
       "comments": 0
     },
     {
@@ -4507,6 +4651,18 @@
       "author": "dhyabi2",
       "created_at": "2026-09-24T21:57:08Z",
       "updated_at": "2026-09-24T21:57:08Z",
+      "comments": 0
+    },
+    {
+      "repo": "vrllrv/junto-mcp",
+      "number": 1,
+      "title": "Add Nano (XNO) as a feeless settlement rail alongside Pix",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/vrllrv/junto-mcp/issues/1",
+      "author": "dhyabi2",
+      "created_at": "2026-09-25T03:42:00Z",
+      "updated_at": "2026-09-25T03:42:21Z",
       "comments": 0
     },
     {
@@ -5574,8 +5730,8 @@
       "url": "https://github.com/langgenius/dify/issues/42924",
       "author": "dhyabi2",
       "created_at": "2026-09-24T12:39:52Z",
-      "updated_at": "2026-09-25T02:18:27Z",
-      "comments": 1
+      "updated_at": "2026-09-25T03:35:04Z",
+      "comments": 2
     },
     {
       "repo": "langgenius/dify",
