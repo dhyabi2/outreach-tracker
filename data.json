@@ -10328,6 +10328,30 @@
       "created_at": "2026-09-25T04:07:34Z",
       "updated_at": "2026-09-25T04:07:34Z",
       "comments": 0
+    },
+    {
+      "repo": "Agent-Rail/stipend",
+      "number": 3,
+      "title": "A feeless settlement backend (Nano/XNO) beside MOCK_ACH and AgentRail",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/Agent-Rail/stipend/issues/3",
+      "author": "dhyabi2",
+      "created_at": "2026-09-25T04:13:02Z",
+      "updated_at": "2026-09-25T04:13:02Z",
+      "comments": 0
+    },
+    {
+      "repo": "javimosch/peage-mcp",
+      "number": 1,
+      "title": "A feeless settlement rail (Nano/XNO) beside fiat for sub-cent pay-per-call",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/javimosch/peage-mcp/issues/1",
+      "author": "dhyabi2",
+      "created_at": "2026-09-25T04:13:02Z",
+      "updated_at": "2026-09-25T04:13:02Z",
+      "comments": 0
     }
   ]
 }
