@@ -1,12 +1,12 @@
 {
-  "generated": "2026-09-25 05:10 UTC",
+  "generated": "2026-09-25 05:14 UTC",
   "summary": {
-    "total": 876,
-    "merged": 8,
-    "open": 676,
-    "closed": 192,
-    "repos": 596,
-    "answered": 202
+    "total": 881,
+    "merged": 9,
+    "open": 678,
+    "closed": 194,
+    "repos": 597,
+    "answered": 205
   },
   "rows": [
     {
@@ -103,6 +103,18 @@
       "author": "dhyabi2",
       "created_at": "2026-08-01T11:57:50Z",
       "updated_at": "2026-08-01T12:07:29Z",
+      "comments": 0
+    },
+    {
+      "repo": "saifurrehmanahmed/cleaningApp",
+      "number": 1,
+      "title": "resolved the issue13,14,18,27,28,34,",
+      "kind": "pr",
+      "state": "merged",
+      "url": "https://github.com/saifurrehmanahmed/cleaningApp/pull/1",
+      "author": "dhyabi2",
+      "created_at": "2023-05-31T17:00:44Z",
+      "updated_at": "2023-05-31T17:01:00Z",
       "comments": 0
     },
     {
@@ -2062,18 +2074,6 @@
       "comments": 0
     },
     {
-      "repo": "capawesome-team/revenue-sdk",
-      "number": 9,
-      "title": "Feeless Nano (XNO) settlement rail for usage-based billing via the unified SDK",
-      "kind": "issue",
-      "state": "open",
-      "url": "https://github.com/capawesome-team/revenue-sdk/issues/9",
-      "author": "dhyabi2",
-      "created_at": "2026-09-24T23:28:45Z",
-      "updated_at": "2026-09-24T23:28:45Z",
-      "comments": 0
-    },
-    {
       "repo": "caramaschiHG/awesome-ai-agents-2026",
       "number": 609,
       "title": "Add x402 (HTTP 402 Payment Protocol) to Protocols and Standards",
@@ -2814,8 +2814,20 @@
       "url": "https://github.com/go-taas/go-taas/issues/7",
       "author": "dhyabi2",
       "created_at": "2026-09-24T04:45:07Z",
-      "updated_at": "2026-09-25T03:35:12Z",
-      "comments": 7
+      "updated_at": "2026-09-25T05:13:36Z",
+      "comments": 8
+    },
+    {
+      "repo": "go-taas/go-taas",
+      "number": 14,
+      "title": "feat(nano): exact per-inference settlement amount, kept at 30-decimal raw",
+      "kind": "pr",
+      "state": "open",
+      "url": "https://github.com/go-taas/go-taas/pull/14",
+      "author": "dhyabi2",
+      "created_at": "2026-09-25T05:13:19Z",
+      "updated_at": "2026-09-25T05:13:20Z",
+      "comments": 0
     },
     {
       "repo": "goodmeta/agent-payments-landscape",
@@ -3538,6 +3550,18 @@
       "comments": 0
     },
     {
+      "repo": "minddog/agentic-commerce-research",
+      "number": 4,
+      "title": "Add \u00a74.12 Nano (XNO) feeless settlement rail to the paper survey",
+      "kind": "pr",
+      "state": "open",
+      "url": "https://github.com/minddog/agentic-commerce-research/pull/4",
+      "author": "dhyabi2",
+      "created_at": "2026-09-25T05:12:58Z",
+      "updated_at": "2026-09-25T05:12:58Z",
+      "comments": 0
+    },
+    {
       "repo": "minia2a-org/minia2a",
       "number": 1,
       "title": "feat: feeless Nano (XNO) settlement rail beside USDC on Base for sub-cent micropayments",
@@ -3906,8 +3930,8 @@
       "url": "https://github.com/openmeterio/openmeter/issues/5207",
       "author": "dhyabi2",
       "created_at": "2026-09-25T04:49:31Z",
-      "updated_at": "2026-09-25T04:49:31Z",
-      "comments": 0
+      "updated_at": "2026-09-25T05:11:50Z",
+      "comments": 1
     },
     {
       "repo": "oztenbot/agent-meter",
@@ -4231,6 +4255,18 @@
       "author": "dhyabi2",
       "created_at": "2026-09-23T21:49:48Z",
       "updated_at": "2026-09-23T21:49:48Z",
+      "comments": 0
+    },
+    {
+      "repo": "saifurrehmanahmed/cleaningApp",
+      "number": 2,
+      "title": "Merge pull request #50 from saifurrehmanahmed/main",
+      "kind": "pr",
+      "state": "open",
+      "url": "https://github.com/saifurrehmanahmed/cleaningApp/pull/2",
+      "author": "dhyabi2",
+      "created_at": "2023-05-31T17:04:39Z",
+      "updated_at": "2023-05-31T17:04:39Z",
       "comments": 0
     },
     {
@@ -5266,6 +5302,18 @@
       "comments": 1
     },
     {
+      "repo": "110kc3/seo",
+      "number": 67,
+      "title": "[register] Vend API Merchant \u2014 live Nano-x402 MCP server for this index's x402 catalog",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/110kc3/seo/issues/67",
+      "author": "dhyabi2",
+      "created_at": "2026-09-25T05:09:49Z",
+      "updated_at": "2026-09-25T05:10:03Z",
+      "comments": 1
+    },
+    {
       "repo": "402md/facilitator",
       "number": 16,
       "title": "Nano (XNO) as a settlement destination: your one-wallet thesis without the CCTP burn/mint leg",
@@ -5755,6 +5803,18 @@
       "author": "dhyabi2",
       "created_at": "2026-09-24T19:34:20Z",
       "updated_at": "2026-09-24T19:35:56Z",
+      "comments": 1
+    },
+    {
+      "repo": "capawesome-team/revenue-sdk",
+      "number": 9,
+      "title": "Feeless Nano (XNO) settlement rail for usage-based billing via the unified SDK",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/capawesome-team/revenue-sdk/issues/9",
+      "author": "dhyabi2",
+      "created_at": "2026-09-24T23:28:45Z",
+      "updated_at": "2026-09-25T05:11:16Z",
       "comments": 1
     },
     {
