@@ -1,12 +1,12 @@
 {
-  "generated": "2026-09-25 04:19 UTC",
+  "generated": "2026-09-25 04:33 UTC",
   "summary": {
-    "total": 864,
+    "total": 868,
     "merged": 9,
-    "open": 670,
-    "closed": 185,
-    "repos": 589,
-    "answered": 194
+    "open": 667,
+    "closed": 192,
+    "repos": 591,
+    "answered": 202
   },
   "rows": [
     {
@@ -215,18 +215,6 @@
     },
     {
       "repo": "402md/facilitator",
-      "number": 16,
-      "title": "Nano (XNO) as a settlement destination: your one-wallet thesis without the CCTP burn/mint leg",
-      "kind": "issue",
-      "state": "open",
-      "url": "https://github.com/402md/facilitator/issues/16",
-      "author": "dhyabi2",
-      "created_at": "2026-09-24T00:40:07Z",
-      "updated_at": "2026-09-24T00:40:07Z",
-      "comments": 0
-    },
-    {
-      "repo": "402md/facilitator",
       "number": 18,
       "title": "Nano (XNO) as a settlement destination: your one-wallet thesis without the CCTP burn/mint leg",
       "kind": "issue",
@@ -416,18 +404,6 @@
       "created_at": "2026-09-24T06:22:42Z",
       "updated_at": "2026-09-24T21:13:16Z",
       "comments": 1
-    },
-    {
-      "repo": "AgentPayy/agentpayy-platform",
-      "number": 2,
-      "title": "A rail that needs no bootstrapping: Nano settlement beside the Base L2 USDC wallet",
-      "kind": "issue",
-      "state": "open",
-      "url": "https://github.com/AgentPayy/agentpayy-platform/issues/2",
-      "author": "dhyabi2",
-      "created_at": "2026-09-24T00:40:08Z",
-      "updated_at": "2026-09-24T00:40:08Z",
-      "comments": 0
     },
     {
       "repo": "AgentPayy/agentpayy-platform",
@@ -690,8 +666,8 @@
       "url": "https://github.com/Comfy-Org/ComfyUI_frontend/issues/18779",
       "author": "dhyabi2",
       "created_at": "2026-09-25T03:21:59Z",
-      "updated_at": "2026-09-25T03:21:59Z",
-      "comments": 0
+      "updated_at": "2026-09-25T04:32:54Z",
+      "comments": 2
     },
     {
       "repo": "ComposioHQ/composio",
@@ -799,18 +775,6 @@
       "author": "dhyabi2",
       "created_at": "2026-09-24T13:10:34Z",
       "updated_at": "2026-09-24T13:10:34Z",
-      "comments": 0
-    },
-    {
-      "repo": "Echolonius/the-penniless-agent",
-      "number": 2,
-      "title": "Proposal: Nano (XNO) rail \u2014 instant and feeless for the penniless agent",
-      "kind": "issue",
-      "state": "open",
-      "url": "https://github.com/Echolonius/the-penniless-agent/issues/2",
-      "author": "dhyabi2",
-      "created_at": "2026-09-23T20:42:01Z",
-      "updated_at": "2026-09-23T20:42:01Z",
       "comments": 0
     },
     {
@@ -1195,18 +1159,6 @@
       "author": "dhyabi2",
       "created_at": "2026-09-23T20:41:39Z",
       "updated_at": "2026-09-23T20:41:39Z",
-      "comments": 0
-    },
-    {
-      "repo": "Rail402/x402-sdk",
-      "number": 2,
-      "title": "Nano (XNO) as an x402 settlement scheme: zero fee, so the delivered value equals the paid value",
-      "kind": "issue",
-      "state": "open",
-      "url": "https://github.com/Rail402/x402-sdk/issues/2",
-      "author": "dhyabi2",
-      "created_at": "2026-09-24T00:40:09Z",
-      "updated_at": "2026-09-24T00:40:09Z",
       "comments": 0
     },
     {
@@ -1650,8 +1602,8 @@
       "url": "https://github.com/adamkrawczyk/agentpact/issues/152",
       "author": "dhyabi2",
       "created_at": "2026-09-25T03:21:48Z",
-      "updated_at": "2026-09-25T03:21:48Z",
-      "comments": 0
+      "updated_at": "2026-09-25T04:24:42Z",
+      "comments": 1
     },
     {
       "repo": "ag2ai/ag2",
@@ -1951,6 +1903,18 @@
       "author": "dhyabi2",
       "created_at": "2026-09-23T21:58:55Z",
       "updated_at": "2026-09-23T21:58:55Z",
+      "comments": 0
+    },
+    {
+      "repo": "ax-llm/ax",
+      "number": 705,
+      "title": "[FEAT] Optional feeless settlement leg for metered model/tool calls",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/ax-llm/ax/issues/705",
+      "author": "dhyabi2",
+      "created_at": "2026-09-25T04:24:28Z",
+      "updated_at": "2026-09-25T04:24:28Z",
       "comments": 0
     },
     {
@@ -2266,6 +2230,18 @@
       "comments": 4
     },
     {
+      "repo": "crewAIInc/crewAI",
+      "number": 7755,
+      "title": "[FEATURE] Honor HTTP-402 (x402) in the tool-call path: pay-per-call APIs in-flow",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/crewAIInc/crewAI/issues/7755",
+      "author": "dhyabi2",
+      "created_at": "2026-09-25T04:21:26Z",
+      "updated_at": "2026-09-25T04:21:26Z",
+      "comments": 0
+    },
+    {
       "repo": "cyberwareX/cyberwarex-mcp",
       "number": 2,
       "title": "Add Nano (XNO) as an additional x402 settlement asset in the accepts block",
@@ -2335,6 +2311,18 @@
       "author": "dhyabi2",
       "created_at": "2026-09-25T03:47:49Z",
       "updated_at": "2026-09-25T03:47:49Z",
+      "comments": 0
+    },
+    {
+      "repo": "denoland/deploy_feedback",
+      "number": 952,
+      "title": "feat: add x402 per-request payment support for monetizing edge functions",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/denoland/deploy_feedback/issues/952",
+      "author": "dhyabi2",
+      "created_at": "2026-09-25T04:25:41Z",
+      "updated_at": "2026-09-25T04:25:41Z",
       "comments": 0
     },
     {
@@ -2850,19 +2838,7 @@
       "url": "https://github.com/google/adk-python/issues/7261",
       "author": "dhyabi2",
       "created_at": "2026-09-24T08:28:50Z",
-      "updated_at": "2026-09-24T10:03:28Z",
-      "comments": 0
-    },
-    {
-      "repo": "grip-foundation/protocol",
-      "number": 3,
-      "title": "Suggestion: add Nano (XNO) settlement alongside EVM",
-      "kind": "issue",
-      "state": "open",
-      "url": "https://github.com/grip-foundation/protocol/issues/3",
-      "author": "dhyabi2",
-      "created_at": "2026-09-23T20:48:02Z",
-      "updated_at": "2026-09-23T20:48:02Z",
+      "updated_at": "2026-09-25T04:19:33Z",
       "comments": 0
     },
     {
@@ -3886,6 +3862,18 @@
       "comments": 0
     },
     {
+      "repo": "payperlabs/payper-mcp",
+      "number": 5,
+      "title": "XNO (Nano) feeless settlement alongside USDG/x402",
+      "kind": "issue",
+      "state": "open",
+      "url": "https://github.com/payperlabs/payper-mcp/issues/5",
+      "author": "dhyabi2",
+      "created_at": "2026-09-25T04:21:30Z",
+      "updated_at": "2026-09-25T04:21:30Z",
+      "comments": 0
+    },
+    {
       "repo": "pinecone-io/python-sdk",
       "number": 701,
       "title": "[Feature Request]: Nano (XNO) payment option for serverless read/write unit usage",
@@ -4626,7 +4614,7 @@
       "url": "https://github.com/up2itnow0822/agent-wallet-sdk/pull/78",
       "author": "dhyabi2",
       "created_at": "2026-09-24T21:01:40Z",
-      "updated_at": "2026-09-24T21:02:16Z",
+      "updated_at": "2026-09-25T04:26:44Z",
       "comments": 0
     },
     {
@@ -4878,8 +4866,8 @@
       "url": "https://github.com/x402-foundation/x402/issues/3512",
       "author": "dhyabi2",
       "created_at": "2026-09-17T23:41:56Z",
-      "updated_at": "2026-09-25T04:14:50Z",
-      "comments": 1
+      "updated_at": "2026-09-25T04:25:04Z",
+      "comments": 0
     },
     {
       "repo": "x402-index/x402-discovery-index",
@@ -5135,30 +5123,6 @@
     },
     {
       "repo": "yuhangxian235/agentpay-desk",
-      "number": 20,
-      "title": "Enhancement: Nano (XNO) as a second settle rail beside the x402 simulator",
-      "kind": "issue",
-      "state": "open",
-      "url": "https://github.com/yuhangxian235/agentpay-desk/issues/20",
-      "author": "dhyabi2",
-      "created_at": "2026-09-23T21:48:14Z",
-      "updated_at": "2026-09-23T21:48:14Z",
-      "comments": 0
-    },
-    {
-      "repo": "yuhangxian235/agentpay-desk",
-      "number": 21,
-      "title": "The buyer's wallet leg: a rail with no funding minimum, so a desk like this can settle sub-cent calls",
-      "kind": "issue",
-      "state": "open",
-      "url": "https://github.com/yuhangxian235/agentpay-desk/issues/21",
-      "author": "dhyabi2",
-      "created_at": "2026-09-24T01:11:39Z",
-      "updated_at": "2026-09-24T01:11:39Z",
-      "comments": 0
-    },
-    {
-      "repo": "yuhangxian235/agentpay-desk",
       "number": 22,
       "title": "The buyer's wallet leg: a rail with no funding minimum, so a desk like this can settle sub-cent calls",
       "kind": "issue",
@@ -5207,6 +5171,18 @@
     },
     {
       "repo": "402md/facilitator",
+      "number": 16,
+      "title": "Nano (XNO) as a settlement destination: your one-wallet thesis without the CCTP burn/mint leg",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/402md/facilitator/issues/16",
+      "author": "dhyabi2",
+      "created_at": "2026-09-24T00:40:07Z",
+      "updated_at": "2026-09-25T04:20:55Z",
+      "comments": 1
+    },
+    {
+      "repo": "402md/facilitator",
       "number": 17,
       "title": "Nano (XNO) as a settlement destination: your one-wallet thesis without the CCTP burn/mint leg",
       "kind": "issue",
@@ -5215,6 +5191,18 @@
       "author": "dhyabi2",
       "created_at": "2026-09-24T01:11:38Z",
       "updated_at": "2026-09-24T01:11:54Z",
+      "comments": 1
+    },
+    {
+      "repo": "AgentPayy/agentpayy-platform",
+      "number": 2,
+      "title": "A rail that needs no bootstrapping: Nano settlement beside the Base L2 USDC wallet",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/AgentPayy/agentpayy-platform/issues/2",
+      "author": "dhyabi2",
+      "created_at": "2026-09-24T00:40:08Z",
+      "updated_at": "2026-09-25T04:21:01Z",
       "comments": 1
     },
     {
@@ -5323,6 +5311,18 @@
       "author": "dhyabi2",
       "created_at": "2026-09-24T17:38:55Z",
       "updated_at": "2026-09-24T20:47:06Z",
+      "comments": 1
+    },
+    {
+      "repo": "Echolonius/the-penniless-agent",
+      "number": 2,
+      "title": "Proposal: Nano (XNO) rail \u2014 instant and feeless for the penniless agent",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/Echolonius/the-penniless-agent/issues/2",
+      "author": "dhyabi2",
+      "created_at": "2026-09-23T20:42:01Z",
+      "updated_at": "2026-09-25T04:21:04Z",
       "comments": 1
     },
     {
@@ -5492,6 +5492,18 @@
       "created_at": "2026-08-08T06:35:00Z",
       "updated_at": "2026-08-08T06:41:45Z",
       "comments": 0
+    },
+    {
+      "repo": "Rail402/x402-sdk",
+      "number": 2,
+      "title": "Nano (XNO) as an x402 settlement scheme: zero fee, so the delivered value equals the paid value",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/Rail402/x402-sdk/issues/2",
+      "author": "dhyabi2",
+      "created_at": "2026-09-24T00:40:09Z",
+      "updated_at": "2026-09-25T04:21:06Z",
+      "comments": 1
     },
     {
       "repo": "Rail402/x402-sdk",
@@ -5720,6 +5732,18 @@
       "created_at": "2026-04-13T04:45:00Z",
       "updated_at": "2026-04-29T21:46:05Z",
       "comments": 2
+    },
+    {
+      "repo": "grip-foundation/protocol",
+      "number": 3,
+      "title": "Suggestion: add Nano (XNO) settlement alongside EVM",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/grip-foundation/protocol/issues/3",
+      "author": "dhyabi2",
+      "created_at": "2026-09-23T20:48:02Z",
+      "updated_at": "2026-09-25T04:21:03Z",
+      "comments": 1
     },
     {
       "repo": "jaysperspective/thebuyside-x402-agent",
@@ -6247,6 +6271,30 @@
       "author": "dhyabi2",
       "created_at": "2026-09-24T01:23:16Z",
       "updated_at": "2026-09-24T20:57:06Z",
+      "comments": 1
+    },
+    {
+      "repo": "yuhangxian235/agentpay-desk",
+      "number": 20,
+      "title": "Enhancement: Nano (XNO) as a second settle rail beside the x402 simulator",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/yuhangxian235/agentpay-desk/issues/20",
+      "author": "dhyabi2",
+      "created_at": "2026-09-23T21:48:14Z",
+      "updated_at": "2026-09-25T04:20:57Z",
+      "comments": 1
+    },
+    {
+      "repo": "yuhangxian235/agentpay-desk",
+      "number": 21,
+      "title": "The buyer's wallet leg: a rail with no funding minimum, so a desk like this can settle sub-cent calls",
+      "kind": "issue",
+      "state": "closed",
+      "url": "https://github.com/yuhangxian235/agentpay-desk/issues/21",
+      "author": "dhyabi2",
+      "created_at": "2026-09-24T01:11:39Z",
+      "updated_at": "2026-09-25T04:20:59Z",
       "comments": 1
     },
     {
