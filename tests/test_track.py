@@ -171,6 +171,27 @@ class OutreachTable(unittest.TestCase):
         finally:
             track.fetch = real
 
+    def test_a_carried_over_row_is_never_published_as_current_state(self):
+        """`main` keeps a 422'd author's last-known rows so they do not vanish from the table, and
+        stamps the file with a fresh `Generated` time under a heading promising "the state GitHub
+        reports right now". Nothing it wrote said WHICH rows were not fetched, so a reader could not
+        tell remembered state from live state. The published files must say it themselves — a warning
+        on stderr is read by the Action's log and by nobody else."""
+        rows = track.rows_from([item("them/x", 1)], "PANDeveloper001")
+        rows += track.rows_from([item("them/y", 2)], "dhyabi2")
+
+        md = track.render(rows, "now", ["PANDeveloper001"])
+        preamble = md.split("| State |")[0]
+        assert "PANDeveloper001" in preamble, "the table says nothing about the skip"
+        assert "1 of these rows were not checked" in preamble, preamble
+
+        data = track.payload(rows, "now", ["PANDeveloper001"])
+        assert data["unverified_authors"] == ["PANDeveloper001"], data["unverified_authors"]
+
+        # A clean run must stay quiet: a standing disclaimer nobody can act on is worse than none.
+        assert "not checked in this run" not in track.render(rows, "now")
+        assert track.payload(rows, "now")["unverified_authors"] == []
+
 
 if __name__ == "__main__":
     unittest.main()
