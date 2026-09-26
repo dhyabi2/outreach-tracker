@@ -1,4 +1,6 @@
 """Laws for the outreach tracker. Each is one sentence plus an observable test."""
+import contextlib
+import io
 import json
 import os
 import sys
@@ -191,6 +193,87 @@ class OutreachTable(unittest.TestCase):
         # A clean run must stay quiet: a standing disclaimer nobody can act on is worse than none.
         assert "not checked in this run" not in track.render(rows, "now")
         assert track.payload(rows, "now")["unverified_authors"] == []
+
+
+    def _rebuild_with_previous(self, previous_text, live):
+        """Run main() in a temp dir whose data.json holds `previous_text`. Returns (rc, stderr, published)."""
+        import tempfile
+
+        with tempfile.TemporaryDirectory() as d:
+            with open(os.path.join(d, "data.json"), "w") as f:
+                f.write(previous_text)
+            with patched(track, _token=lambda: "x",
+                         collect=lambda tok: (list(live), ["PANDeveloper001"]),
+                         __file__=os.path.join(d, "track.py")):
+                err = io.StringIO()
+                with contextlib.redirect_stderr(err):
+                    rc = track.main()          # must not raise
+            with open(os.path.join(d, "data.json")) as f:
+                return rc, err.getvalue(), json.load(f)
+
+    def test_a_corrupt_previous_table_does_not_abort_the_rebuild(self):
+        """A data.json that cannot be parsed must cost the carried-over rows, not the whole run.
+
+        main() opens data.json "w" to rebuild it, so a killed or cancelled run leaves a truncated
+        file. Reloading it then raises json.JSONDecodeError -- a ValueError, not an OSError -- so the
+        one branch written to degrade gracefully aborted instead, and every later run aborted with
+        it."""
+        live = track.rows_from([item("them/y", 2)], "dhyabi2")
+        for name, bad in (
+            ("truncated mid-write", '{"rows": [{"url": "https://github.com/them/x/iss'),
+            ("not an object at all", "[1, 2, 3]"),
+            ("empty file", ""),
+        ):
+            with self.subTest(name):
+                rc, err, published = self._rebuild_with_previous(bad, live)
+                assert rc == 0, rc
+                assert "could not reload data.json" in err, err
+                # the live row is still published, and the table does not claim the missing ones
+                assert [r["url"] for r in published["rows"]] == [live[0]["url"]], published["rows"]
+                assert published["unverified_authors"] == ["PANDeveloper001"]
+
+    def test_a_previous_row_without_a_url_is_skipped_not_fatal(self):
+        """The carry-over keys on "url". A parseable table whose rows lack one is not a reload
+        failure -- those rows are simply not carried, with no warning, and nothing raises."""
+        live = track.rows_from([item("them/y", 2)], "dhyabi2")
+        rc, err, published = self._rebuild_with_previous(
+            '{"rows": [{"author": "PANDeveloper001"}]}', live
+        )
+        assert rc == 0, rc
+        assert "could not reload data.json" not in err, err
+        assert [r["url"] for r in published["rows"]] == [live[0]["url"]], published["rows"]
+
+    def test_the_skip_banner_never_claims_rows_that_are_not_in_the_table(self):
+        """With nothing carried over, the banner said "0 of these rows were not checked in this
+        run ... their rows are the ones last successfully fetched" -- describing rows the reader
+        cannot see. When the count is zero the rows are absent, and the table must say that."""
+        live = track.rows_from([item("them/y", 2)], "dhyabi2")
+        preamble = track.render(live, "now", ["PANDeveloper001"]).split("| State |")[0]
+        assert "0 of these rows were not checked" not in preamble, preamble
+        assert "no earlier rows for them" in preamble, preamble
+        assert "PANDeveloper001" in preamble
+        # and the real carried-over case still reads the way it did
+        carried = live + track.rows_from([item("them/x", 1)], "PANDeveloper001")
+        other = track.render(carried, "now", ["PANDeveloper001"]).split("| State |")[0]
+        assert "1 of these rows were not checked" in other, other
+
+
+class patched:
+    """Temporarily set attributes on a module, restoring them afterwards."""
+
+    def __init__(self, mod, **attrs):
+        self.mod, self.attrs, self.old = mod, attrs, {}
+
+    def __enter__(self):
+        for k, v in self.attrs.items():
+            self.old[k] = getattr(self.mod, k)
+            setattr(self.mod, k, v)
+        return self
+
+    def __exit__(self, *exc):
+        for k, v in self.old.items():
+            setattr(self.mod, k, v)
+        return False
 
 
 if __name__ == "__main__":
