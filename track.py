@@ -198,12 +198,23 @@ def render(rows: list[dict], generated: str, unverified: tuple[str, ...] | list[
     if unverified:
         names = ", ".join(f"`{a}`" for a in sorted(unverified))
         stale = sum(1 for r in rows if r["author"] in set(unverified))
-        lines += [
-            f"> **{stale} of these rows were not checked in this run.** GitHub's search API answered 422 for"
-            f" {names}, so their rows are the ones last successfully fetched and their state may have changed"
-            f" since. Every other row is live.",
-            "",
-        ]
+        # Only claim carried-over rows when some are actually here. With no previous table to
+        # reload -- a first run, or a data.json that could not be read -- those rows are absent,
+        # and "0 of these rows were not checked" described rows the reader cannot see.
+        if stale:
+            lines += [
+                f"> **{stale} of these rows were not checked in this run.** GitHub's search API answered 422 for"
+                f" {names}, so their rows are the ones last successfully fetched and their state may have changed"
+                f" since. Every other row is live.",
+                "",
+            ]
+        else:
+            lines += [
+                f"> **This run could not check {names}, and has no earlier rows for them.** GitHub's search API"
+                f" answered 422, so their submissions are missing from the table below rather than stale in it."
+                f" Every row shown is live.",
+                "",
+            ]
     lines += [
         "Work on a repository under an account we control is not outreach and never appears here: it reaches no",
         "maintainer. 35 issues were once opened on our own forks of other people's projects and reported as outreach,",
@@ -241,16 +252,29 @@ def main() -> int:
     # hidden inside a half-empty table.
     if skipped:
         try:
-            prev = json.load(open(os.path.join(here, "data.json")))
-            prev_by_url = {r["url"]: r for r in prev.get("rows", [])}
+            with open(os.path.join(here, "data.json")) as prev_f:
+                prev = json.load(prev_f)
+            if not isinstance(prev, dict):
+                raise ValueError(f"data.json holds a {type(prev).__name__}, not an object")
+            prev_rows = [r for r in prev.get("rows", []) if isinstance(r, dict) and r.get("url")]
             have = {r["url"] for r in rows}
             for a in skipped:
-                for r in prev_by_url.values():
+                for r in prev_rows:
                     if r.get("author") == a and r["url"] not in have:
                         rows.append(r)
                         have.add(r["url"])
-        except OSError:
-            pass
+        except FileNotFoundError:
+            pass  # first run: there is no earlier table, which is not a fault
+        except (OSError, ValueError) as exc:
+            # A truncated or malformed data.json raises JSONDecodeError -- a ValueError, not an
+            # OSError -- so the one path meant to degrade gracefully used to abort here instead.
+            # main() opens data.json "w" to rebuild it, so a killed or cancelled run leaves exactly
+            # that. Carry nothing, say so, and let render state that the rows are missing.
+            print(
+                f"warning: could not reload data.json to carry over rows ({type(exc).__name__}: {exc}); "
+                f"{', '.join(skipped)} will be absent from this table rather than stale in it",
+                file=sys.stderr,
+            )
         print(
             f"warning: {', '.join(skipped)} invisible to GitHub search (422); kept their "
             f"previously-published rows, states now unverified",
