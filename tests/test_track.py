@@ -203,7 +203,10 @@ class OutreachTable(unittest.TestCase):
             with open(os.path.join(d, "data.json"), "w") as f:
                 f.write(previous_text)
             with patched(track, _token=lambda: "x",
-                         collect=lambda tok: (list(live), ["PANDeveloper001"]),
+                         # *a/**k: this stub stands in for collect, and main() legitimately passes it
+                         # more than a token. Pinning the exact signature here made an unrelated
+                         # change to collect look like four broken laws.
+                         collect=lambda *a, **k: (list(live), ["PANDeveloper001"]),
                          __file__=os.path.join(d, "track.py")):
                 err = io.StringIO()
                 with contextlib.redirect_stderr(err):
@@ -256,6 +259,83 @@ class OutreachTable(unittest.TestCase):
         carried = live + track.rows_from([item("them/x", 1)], "PANDeveloper001")
         other = track.render(carried, "now", ["PANDeveloper001"]).split("| State |")[0]
         assert "1 of these rows were not checked" in other, other
+
+
+    def test_a_query_cut_off_at_the_ceiling_is_reported_not_hidden(self):
+        """The search API returns at most 1000 results per query. collect() stopped at page 10 and
+        said nothing, so a table missing rows read exactly like a complete one -- while the README's
+        first sentence promises EVERY issue and pull request the swarm has opened.
+
+        Here the fake API claims 1500 matches and hands over 1000. The shortfall must be named."""
+        # The page number is counted, not parsed out of the path: `per_page=100` comes first in the
+        # query string, so splitting on "page=" finds that instead and every page looks alike.
+        calls = []
+
+        def ceiling(path, token=None):
+            calls.append(path)
+            n = len(calls)
+            return {"total_count": 1500,
+                    "items": [item("them/r%d" % (n * 100 + i), number=i) for i in range(100)]}
+
+        with patched(track, fetch=ceiling):
+            truncated = []
+            rows, skipped = track.collect(None, authors=("dhyabi2",), truncated=truncated)
+        self.assertEqual(skipped, [])
+        self.assertEqual(len(calls), 20, "10 pages per kind, 2 kinds: the ceiling is per query")
+        self.assertEqual(len(rows), 2000, "the ceiling itself moved; this law assumed 10 pages of 100")
+        self.assertEqual(truncated, ["dhyabi2/issue", "dhyabi2/pr"],
+                         "a query cut off at 1000 results was not reported")
+
+    def test_a_complete_query_is_never_called_truncated(self):
+        """The counterpart: when GitHub hands over everything it says it has, nothing is reported.
+        A banner that cried wolf on every run would be worse than no banner."""
+        def complete(path, token=None):
+            return {"total_count": 2, "items": [item("them/a", 1), item("them/b", 2)]}
+
+        with patched(track, fetch=complete):
+            truncated = []
+            track.collect(None, authors=("dhyabi2",), truncated=truncated)
+        self.assertEqual(truncated, [])
+
+    def test_an_api_that_omits_total_count_is_not_guessed_at(self):
+        """No total_count means no evidence either way, and a tracker whose point is honest counting
+        must not invent a shortfall it cannot see."""
+        def no_total(path, token=None):
+            return {"items": [item("them/a", 1)]}
+
+        with patched(track, fetch=no_total):
+            truncated = []
+            track.collect(None, authors=("dhyabi2",), truncated=truncated)
+        self.assertEqual(truncated, [])
+
+    def test_collect_still_works_without_the_truncated_argument(self):
+        """The argument is optional: every existing caller keeps working untouched."""
+        with patched(track, fetch=lambda path, token=None: {"total_count": 1, "items": [item("them/a", 1)]}):
+            rows, skipped = track.collect(None, authors=("dhyabi2",))
+        self.assertEqual(len(rows), 1)
+        self.assertEqual(skipped, [])
+
+    def test_the_table_says_so_when_it_is_incomplete(self):
+        """The banner has to reach the reader of the README, not just a log nobody keeps."""
+        rows = track.rows_from([item("them/x", 1)], "dhyabi2")
+        head = track.render(rows, "now", (), ["dhyabi2/issue"]).split("| State |")[0]
+        self.assertIn("incomplete", head.lower())
+        self.assertIn("1000", head)
+        self.assertIn("dhyabi2/issue", head)
+        self.assertIn("floor", head.lower(), "the total must be described as a floor, not the whole")
+
+    def test_a_complete_table_carries_no_incompleteness_banner(self):
+        rows = track.rows_from([item("them/x", 1)], "dhyabi2")
+        head = track.render(rows, "now").split("| State |")[0]
+        self.assertNotIn("incomplete", head.lower())
+
+    def test_data_json_names_the_truncated_queries(self):
+        """A consumer reading data.json must be able to tell a floor from a total without scraping
+        the README prose."""
+        rows = track.rows_from([item("them/x", 1)], "dhyabi2")
+        self.assertEqual(track.payload(rows, "now", (), ["dhyabi2/pr"])["truncated_queries"],
+                         ["dhyabi2/pr"])
+        self.assertEqual(track.payload(rows, "now")["truncated_queries"], [])
 
 
 class patched:

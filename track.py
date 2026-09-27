@@ -119,12 +119,26 @@ def rows_from(items: list[dict], author: str) -> list[dict]:
 KINDS = ("type:issue", "type:pr")
 
 
-def collect(token: str | None = None, authors: tuple[str, ...] = AUTHORS) -> tuple[list[dict], list[str]]:
+def collect(
+    token: str | None = None,
+    authors: tuple[str, ...] = AUTHORS,
+    truncated: list[str] | None = None,
+) -> tuple[list[dict], list[str]]:
+    """Every row the search API will give up, plus the authors it refused to index.
+
+    `truncated`, when a list is passed, receives one `"author/kind"` string per query the search API
+    cut short at its 1000-result ceiling. It is a list rather than a third return value so that every
+    existing caller keeps working. It exists because the README's first sentence promises **every**
+    issue and pull request, and the loop below cannot keep that promise past page 10: it used to stop
+    there and say nothing, so a table missing rows read exactly like a complete one.
+    """
     rows: list[dict] = []
     skipped: list[str] = []
     for author in authors:
         for kind in KINDS:
             page = 1
+            got = 0
+            total = None
             while page <= 10:  # 1000 results is the search API's hard ceiling
                 q = f"author:{author}+{kind}"
                 try:
@@ -141,12 +155,19 @@ def collect(token: str | None = None, authors: tuple[str, ...] = AUTHORS) -> tup
                         break
                     raise
                 items = data.get("items", [])
+                got += len(items)
+                # total_count is what GitHub says the query matches; `got` is what it will hand over.
+                # The gap is the ceiling, and it is the only place the shortfall can be seen at all.
+                if isinstance(data.get("total_count"), int):
+                    total = data["total_count"]
                 rows.extend(rows_from(items, author))
                 if len(items) < 100:
                     break
                 page += 1
             if author in skipped:
                 break
+            if truncated is not None and total is not None and total > got:
+                truncated.append(f"{author}/{kind.split(':', 1)[-1]}")
     seen, uniq = set(), []
     for r in sorted(rows, key=lambda r: (STATE_ORDER.get(r["state"], 9), r["repo"], r["number"] or 0)):
         key = r["url"]
@@ -168,18 +189,31 @@ def summarise(rows: list[dict]) -> dict:
     return s
 
 
-def payload(rows: list[dict], generated: str, unverified: tuple[str, ...] | list[str] = ()) -> dict:
+def payload(
+    rows: list[dict],
+    generated: str,
+    unverified: tuple[str, ...] | list[str] = (),
+    truncated: tuple[str, ...] | list[str] = (),
+) -> dict:
     """What `data.json` carries. `unverified` names the authors whose rows were carried over from the
-    last good run rather than fetched, so a consumer can tell live state from remembered state."""
+    last good run rather than fetched, so a consumer can tell live state from remembered state.
+    `truncated_queries` names the queries the search API cut off at 1000 results, so a consumer can
+    tell a complete table from one that is missing rows nobody counted."""
     return {
         "generated": generated,
         "summary": summarise(rows),
         "unverified_authors": sorted(unverified),
+        "truncated_queries": sorted(truncated),
         "rows": rows,
     }
 
 
-def render(rows: list[dict], generated: str, unverified: tuple[str, ...] | list[str] = ()) -> str:
+def render(
+    rows: list[dict],
+    generated: str,
+    unverified: tuple[str, ...] | list[str] = (),
+    truncated: tuple[str, ...] | list[str] = (),
+) -> str:
     s = summarise(rows)
     lines = [
         "# Outreach tracker",
@@ -215,6 +249,16 @@ def render(rows: list[dict], generated: str, unverified: tuple[str, ...] | list[
                 f" Every row shown is live.",
                 "",
             ]
+    if truncated:
+        # The heading above this table says EVERY issue and pull request. When the ceiling is hit that
+        # is no longer true, and a reader has no other way to find out: the missing rows leave no gap.
+        qs = ", ".join(f"`{q}`" for q in sorted(truncated))
+        lines += [
+            f"> **This table is incomplete.** GitHub's search API returns at most 1000 results per query and"
+            f" cut off {qs}, so submissions beyond that limit are missing from the counts above as well as"
+            f" from the table below. Every row shown is real; the total is a floor, not the whole of it.",
+            "",
+        ]
     lines += [
         "Work on a repository under an account we control is not outreach and never appears here: it reaches no",
         "maintainer. 35 issues were once opened on our own forks of other people's projects and reported as outreach,",
@@ -244,7 +288,8 @@ def main() -> int:
     token = _token()
     if not token:
         print("warning: no GITHUB_TOKEN; the search API will rate-limit quickly", file=sys.stderr)
-    rows, skipped = collect(token)
+    truncated: list[str] = []
+    rows, skipped = collect(token, truncated=truncated)
     here = os.path.dirname(os.path.abspath(__file__))
     # An account GitHub refuses to index (observed: anonymous-invisible accounts answer 422 on
     # search) contributes no live rows. Its already-published rows are kept so the tracker does not
@@ -280,12 +325,18 @@ def main() -> int:
             f"previously-published rows, states now unverified",
             file=sys.stderr,
         )
+    if truncated:
+        print(
+            f"warning: GitHub's search API cut off {', '.join(truncated)} at its 1000-result ceiling; "
+            f"the table and its totals are a floor, not the whole record",
+            file=sys.stderr,
+        )
     generated = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
     with open(os.path.join(here, "data.json"), "w") as f:
-        json.dump(payload(rows, generated, skipped), f, indent=2)
+        json.dump(payload(rows, generated, skipped, truncated), f, indent=2)
         f.write("\n")
     with open(os.path.join(here, "README.md"), "w") as f:
-        f.write(render(rows, generated, skipped))
+        f.write(render(rows, generated, skipped, truncated))
     print(f"{len(rows)} rows across {len({r['repo'] for r in rows})} repositories")
     return 0
 
