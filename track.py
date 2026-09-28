@@ -43,6 +43,38 @@ def _token() -> str | None:
     return None
 
 
+def _error_detail(e: urllib.error.HTTPError) -> str:
+    """GitHub's own explanation for a failed request, as text safe to put in a message.
+
+    Every 4xx from this API carries a body saying what was wrong -- a 422 on `/search/issues`
+    answers `{"message": "Validation Failed", "errors": [{"message": "The listed users cannot be
+    searched ...", "field": "q"}]}`. `urllib` puts none of that in the exception it raises, so a
+    failed rebuild reported only `HTTP Error 422: Unprocessable Entity`, with no query and no reason.
+    Reading it here is bounded and never raises: a diagnostic must not become the failure.
+    """
+    try:
+        raw = e.read(4096).decode("utf-8", "replace").strip()
+    except Exception:
+        return ""
+    if not raw:
+        return ""
+    try:
+        doc = json.loads(raw)
+    except ValueError:
+        return f" -- {raw[:400]}"
+    if not isinstance(doc, dict):
+        return f" -- {raw[:400]}"
+    parts = [str(doc["message"])] if doc.get("message") else []
+    errors = doc.get("errors")
+    if isinstance(errors, list):
+        for item in errors[:3]:
+            if isinstance(item, dict) and item.get("message"):
+                parts.append(str(item["message"]))
+            elif isinstance(item, dict) and item.get("code"):
+                parts.append(f"{item.get('field', '?')}: {item['code']}")
+    return f" -- {'; '.join(parts)[:400]}" if parts else ""
+
+
 def fetch(path: str, token: str | None = None) -> dict:
     req = urllib.request.Request(
         f"{API}{path}",
@@ -62,7 +94,13 @@ def fetch(path: str, token: str | None = None) -> dict:
             if e.code in (403, 429) and attempt < 2:
                 time.sleep(20 * (attempt + 1))
                 continue
-            raise
+            # Re-raise as an HTTPError with the SAME code -- `collect` branches on `e.code == 422`
+            # -- but carrying the path and GitHub's own explanation. Without them a failed rebuild
+            # said only "HTTP Error 422: Unprocessable Entity", which named neither the query nor
+            # the author and left four audits unable to say what had gone wrong.
+            raise urllib.error.HTTPError(
+                e.url, e.code, f"{e.reason} for {path}{_error_detail(e)}", e.headers, None
+            ) from e
         except urllib.error.URLError:
             if attempt < 2:
                 time.sleep(5 * (attempt + 1))
