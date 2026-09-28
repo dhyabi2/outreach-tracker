@@ -338,6 +338,92 @@ class OutreachTable(unittest.TestCase):
         self.assertEqual(track.payload(rows, "now")["truncated_queries"], [])
 
 
+class HttpErrors(unittest.TestCase):
+    """A failed rebuild has to say WHICH query failed and WHY.
+
+    The Action's own failing run of 2026-09-24 reported exactly this and nothing else:
+
+        File "track.py", line 120, in collect
+          data = fetch(f"/search/issues?q={q}&per_page=100&page={page}...", token)
+        urllib.error.HTTPError: HTTP Error 422: Unprocessable Entity
+
+    No author, no query, and none of GitHub's response body, which says plainly whether the account
+    cannot be searched or the query is malformed. Four audits in a row recorded the cause as
+    unestablished for want of those two facts.
+    """
+
+    VALIDATION_BODY = json.dumps({
+        "message": "Validation Failed",
+        "errors": [{
+            "message": "The listed users cannot be searched either because the users do not exist "
+                       "or you do not have permission to view the information.",
+            "resource": "Search", "field": "q", "code": "invalid",
+        }],
+        "documentation_url": "https://docs.github.com/v3/search/",
+    }).encode()
+
+    @staticmethod
+    def _raiser(code, body, url="https://api.github.com/x"):
+        def fake(req, timeout=None):
+            raise urllib.error.HTTPError(url, code, "Unprocessable Entity", {}, io.BytesIO(body))
+        return fake
+
+    def test_a_failed_request_names_the_query_and_githubs_own_reason(self):
+        """The raised error carries the path asked for and the message GitHub sent back."""
+        path = "/search/issues?q=author:PANDeveloper001+type:pr&per_page=100&page=1"
+        with patched(track.urllib.request, urlopen=self._raiser(422, self.VALIDATION_BODY)):
+            with self.assertRaises(urllib.error.HTTPError) as caught:
+                track.fetch(path)
+        text = str(caught.exception)
+        self.assertIn("author:PANDeveloper001+type:pr", text)
+        self.assertIn("Validation Failed", text)
+        self.assertIn("cannot be searched", text)
+
+    def test_the_status_code_survives_enrichment(self):
+        """`collect` branches on `e.code == 422`, so the code must not be repackaged away."""
+        with patched(track.urllib.request, urlopen=self._raiser(422, self.VALIDATION_BODY)):
+            with self.assertRaises(urllib.error.HTTPError) as caught:
+                track.fetch("/search/issues?q=author:x+type:pr")
+        self.assertEqual(caught.exception.code, 422)
+
+    def test_a_422_author_is_still_skipped_not_fatal(self):
+        """End to end: the richer message must not cost the graceful skip it explains."""
+        with patched(track.urllib.request, urlopen=self._raiser(422, self.VALIDATION_BODY)):
+            rows, skipped = track.collect(None, authors=("ghost",))
+        self.assertEqual(rows, [])
+        self.assertEqual(skipped, ["ghost"])
+
+    def test_a_body_that_is_not_json_is_reported_as_text(self):
+        """An HTML error page or a proxy's plain text is still more than nothing."""
+        with patched(track.urllib.request, urlopen=self._raiser(502, b"upstream connect error")):
+            with self.assertRaises(urllib.error.HTTPError) as caught:
+                track.fetch("/search/issues?q=author:x+type:pr")
+        self.assertIn("upstream connect error", str(caught.exception))
+
+    def test_reading_the_body_never_becomes_the_failure(self):
+        """A diagnostic that raises would replace the real error with its own."""
+
+        class Hostile(io.BytesIO):
+            def read(self, *a):
+                raise OSError("connection reset while reading the error body")
+
+        def fake(req, timeout=None):
+            raise urllib.error.HTTPError("https://api.github.com/x", 422, "Unprocessable Entity", {}, Hostile())
+
+        with patched(track.urllib.request, urlopen=fake):
+            with self.assertRaises(urllib.error.HTTPError) as caught:
+                track.fetch("/search/issues?q=author:x+type:pr")
+        self.assertEqual(caught.exception.code, 422)
+        self.assertIn("author:x+type:pr", str(caught.exception))
+
+    def test_an_empty_body_adds_nothing_rather_than_a_dangling_separator(self):
+        """A 404 with no body should read cleanly, not end in `--`."""
+        with patched(track.urllib.request, urlopen=self._raiser(404, b"")):
+            with self.assertRaises(urllib.error.HTTPError) as caught:
+                track.fetch("/search/issues?q=author:x+type:pr")
+        self.assertNotIn("--", str(caught.exception))
+
+
 class patched:
     """Temporarily set attributes on a module, restoring them afterwards."""
 
