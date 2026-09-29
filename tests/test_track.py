@@ -4,6 +4,7 @@ import io
 import json
 import os
 import sys
+import tempfile
 import urllib.error
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -422,6 +423,88 @@ class HttpErrors(unittest.TestCase):
             with self.assertRaises(urllib.error.HTTPError) as caught:
                 track.fetch("/search/issues?q=author:x+type:pr")
         self.assertNotIn("--", str(caught.exception))
+
+
+class CarriedRowsKeepTheTableInOrder(unittest.TestCase):
+    """`main` appends carried-over rows to a list `collect` had already sorted.
+
+    Without a re-sort the rendered table runs merged/open/closed and then starts over, and a
+    carried-over MERGED pull request -- the one state in this table that means someone else
+    accepted our work -- is rendered below every closed row. The published table has this
+    today: its first 538 rows are live and perfectly ordered, and the 343 carried rows that
+    follow hold 53 state inversions of their own.
+    """
+
+    def _row(self, repo, number, state, author):
+        return {
+            "repo": repo,
+            "number": number,
+            "title": "t",
+            "kind": "pr",
+            "state": state,
+            "url": f"https://github.com/{repo}/pull/{number}",
+            "author": author,
+            "created_at": "2026-09-10T00:00:00Z",
+            "updated_at": "2026-09-11T00:00:00Z",
+            "comments": 0,
+        }
+
+    def _run_main(self, live_rows, skipped, previous_rows):
+        """Drive main() with collect() stubbed, in a scratch directory."""
+        here = tempfile.mkdtemp()
+        with open(os.path.join(here, "data.json"), "w") as f:
+            json.dump({"generated": "old", "summary": {}, "rows": previous_rows}, f)
+
+        def fake_collect(token=None, authors=track.AUTHORS, truncated=None):
+            return sorted(live_rows, key=track.row_order), skipped
+
+        real_dirname = track.os.path.dirname
+
+        def fake_dirname(path):
+            return here if path.endswith("track.py") else real_dirname(path)
+
+        with patched(track, collect=fake_collect), patched(track.os.path, dirname=fake_dirname):
+            with contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
+                self.assertEqual(track.main(), 0)
+        with open(os.path.join(here, "data.json")) as f:
+            return json.load(f)["rows"]
+
+    def test_a_carried_over_merged_pr_is_not_stranded_below_the_closed_rows(self):
+        live = [
+            self._row("them/a", 1, "merged", "dhyabi2"),
+            self._row("them/b", 2, "open", "dhyabi2"),
+            self._row("them/c", 3, "closed", "dhyabi2"),
+        ]
+        previous = [
+            self._row("them/d", 4, "closed", "PANDeveloper001"),
+            self._row("them/e", 5, "merged", "PANDeveloper001"),
+            self._row("them/f", 6, "open", "PANDeveloper001"),
+        ]
+        rows = self._run_main(live, ["PANDeveloper001"], previous)
+        states = [r["state"] for r in rows]
+        self.assertEqual(len(rows), 6)
+        self.assertEqual(
+            states,
+            ["merged", "merged", "open", "open", "closed", "closed"],
+            f"the table is not in state order: {states}",
+        )
+
+    def test_the_whole_table_is_monotonic_in_state_after_a_carry_over(self):
+        """The property, not one arrangement: no row may rank above the row before it."""
+        live = [self._row("them/live%d" % i, i, s, "dhyabi2")
+                for i, s in enumerate(["open", "merged", "closed", "open"])]
+        previous = [self._row("them/prev%d" % i, 100 + i, s, "PANDeveloper001")
+                    for i, s in enumerate(["closed", "open", "merged", "closed", "merged"])]
+        rows = self._run_main(live, ["PANDeveloper001"], previous)
+        ranks = [track.STATE_ORDER[r["state"]] for r in rows]
+        self.assertEqual(ranks, sorted(ranks), [r["state"] for r in rows])
+
+    def test_collect_and_main_sort_by_the_same_rule(self):
+        """One key, used twice. Two copies of the expression would be two things to keep in step."""
+        rows = [self._row("them/b", 2, "closed", "x"), self._row("them/a", 1, "merged", "x")]
+        self.assertEqual(
+            [r["repo"] for r in sorted(rows, key=track.row_order)], ["them/a", "them/b"]
+        )
 
 
 class patched:
