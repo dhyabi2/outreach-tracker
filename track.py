@@ -35,6 +35,17 @@ STATE_ORDER = {"merged": 0, "open": 1, "closed": 2}
 STATE_MARK = {"merged": "merged", "open": "open", "closed": "closed"}
 
 
+def row_order(r: dict) -> tuple:
+    """The order the table is rendered in: merged first, then open, then closed.
+
+    Named rather than inlined because it has to be applied twice. `collect` sorts what it
+    fetched, and `main` appends carried-over rows to that result afterwards -- so the final
+    list is only ordered if the same key is applied again after the append. Two copies of the
+    expression would be two things to keep in step.
+    """
+    return (STATE_ORDER.get(r["state"], 9), r["repo"], r["number"] or 0)
+
+
 def _token() -> str | None:
     for name in ("GITHUB_TOKEN", "GH_TOKEN"):
         v = os.environ.get(name)
@@ -207,7 +218,7 @@ def collect(
             if truncated is not None and total is not None and total > got:
                 truncated.append(f"{author}/{kind.split(':', 1)[-1]}")
     seen, uniq = set(), []
-    for r in sorted(rows, key=lambda r: (STATE_ORDER.get(r["state"], 9), r["repo"], r["number"] or 0)):
+    for r in sorted(rows, key=row_order):
         key = r["url"]
         if key in seen:
             continue
@@ -346,6 +357,11 @@ def main() -> int:
                     if r.get("author") == a and r["url"] not in have:
                         rows.append(r)
                         have.add(r["url"])
+            # Re-sort: `collect` ordered what it fetched, and these rows were appended to the
+            # end of that sorted list, so without this the table runs merged/open/closed and
+            # then starts over. A carried-over merged pull request -- the one state that means
+            # someone else accepted our work -- rendered below every closed row.
+            rows.sort(key=row_order)
         except FileNotFoundError:
             pass  # first run: there is no earlier table, which is not a fault
         except (OSError, ValueError) as exc:
