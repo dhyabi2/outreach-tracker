@@ -46,6 +46,22 @@ def row_order(r: dict) -> tuple:
     return (STATE_ORDER.get(r["state"], 9), r["repo"], r["number"] or 0)
 
 
+# Every field a row is used BY once it has been read back out of data.json: `row_order` indexes
+# state, repo and number, and `render` indexes title, kind, url, author and created_at. A row built
+# by `rows_from` always carries all of them. A row edited into data.json by anything else may not,
+# and this repository's own published file has five such rows today (appended 2026-09-29, missing
+# state, url and author). The carry-over branch in `main` catches OSError and ValueError so that a
+# malformed data.json degrades instead of aborting the rebuild -- and a missing key raises KeyError,
+# which walks straight past both: `rows.sort(key=row_order)` died on a bare KeyError, published
+# nothing, and said nothing about why. A row this tool cannot render is skipped and counted instead.
+CARRIED_ROW_FIELDS = ("repo", "number", "title", "kind", "state", "url", "author", "created_at")
+
+
+def usable(row: object) -> bool:
+    """Whether a row read back from data.json can be ordered and rendered at all."""
+    return isinstance(row, dict) and bool(row.get("url")) and all(f in row for f in CARRIED_ROW_FIELDS)
+
+
 def _token() -> str | None:
     for name in ("GITHUB_TOKEN", "GH_TOKEN"):
         v = os.environ.get(name)
@@ -350,7 +366,16 @@ def main() -> int:
                 prev = json.load(prev_f)
             if not isinstance(prev, dict):
                 raise ValueError(f"data.json holds a {type(prev).__name__}, not an object")
-            prev_rows = [r for r in prev.get("rows", []) if isinstance(r, dict) and r.get("url")]
+            stored = prev.get("rows", [])
+            prev_rows = [r for r in stored if usable(r)]
+            unusable = sum(1 for r in stored if isinstance(r, dict) and not usable(r))
+            if unusable:
+                print(
+                    f"warning: {unusable} row(s) in data.json are missing fields this table is "
+                    f"built from ({', '.join(CARRIED_ROW_FIELDS)}) and were not carried over; "
+                    f"a live rebuild replaces them",
+                    file=sys.stderr,
+                )
             have = {r["url"] for r in rows}
             for a in skipped:
                 for r in prev_rows:
