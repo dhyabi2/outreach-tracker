@@ -507,6 +507,79 @@ class CarriedRowsKeepTheTableInOrder(unittest.TestCase):
         )
 
 
+class AShapelessCarriedRowIsSkippedNotFatal(unittest.TestCase):
+    """A row read back from data.json that lacks a field the table is built from.
+
+    `main`'s carry-over branch catches OSError and ValueError precisely so a malformed data.json
+    degrades instead of aborting the rebuild. A MISSING KEY raises KeyError, which is neither: with
+    one such row present, `rows.sort(key=row_order)` died on a bare `KeyError: 'state'`, the rebuild
+    published nothing, and nothing said why. This repository's own published data.json carries five
+    rows of that shape today (appended 2026-09-29 without state, url or author), so the fixture
+    below is the real thing rather than an invented one.
+    """
+
+    def _rebuild(self, previous_rows):
+        here = tempfile.mkdtemp()
+        with open(os.path.join(here, "data.json"), "w") as f:
+            json.dump({"generated": "old", "summary": {}, "rows": previous_rows}, f)
+
+        def fake_collect(token=None, authors=track.AUTHORS, truncated=None):
+            return [], ["PANDeveloper001"]
+
+        real_dirname = track.os.path.dirname
+
+        def fake_dirname(path):
+            return here if path.endswith("track.py") else real_dirname(path)
+
+        err = io.StringIO()
+        with patched(track, collect=fake_collect), patched(track.os.path, dirname=fake_dirname):
+            with contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(err):
+                code = track.main()
+        with open(os.path.join(here, "data.json")) as f:
+            return code, json.load(f)["rows"], err.getvalue()
+
+    @staticmethod
+    def _row(**over):
+        row = {
+            "repo": "them/a", "number": 1, "title": "t", "kind": "issue", "state": "open",
+            "url": "https://github.com/them/a/issues/1", "author": "PANDeveloper001",
+            "created_at": "2026-09-29T03:54:22Z", "updated_at": "2026-09-29T03:54:22Z",
+            "comments": 0,
+        }
+        row.update(over)
+        return row
+
+    def test_the_fields_checked_are_the_fields_rows_from_produces(self):
+        """Derived, not restated: the guard must name fields a real row actually has."""
+        built = track.rows_from([{
+            "repository_url": "https://api.github.com/repos/them/a", "number": 1, "title": "t",
+            "state": "open", "html_url": "https://github.com/them/a/issues/1",
+            "created_at": "x", "updated_at": "y", "comments": 0,
+        }], "PANDeveloper001")
+        self.assertEqual(len(built), 1)
+        self.assertTrue(set(track.CARRIED_ROW_FIELDS) <= set(built[0]),
+                        f"the guard names fields rows_from does not produce: "
+                        f"{set(track.CARRIED_ROW_FIELDS) - set(built[0])}")
+        self.assertTrue(track.usable(built[0]))
+
+    def test_a_carried_row_without_state_does_not_abort_the_rebuild(self):
+        shapeless = self._row()
+        del shapeless["state"]
+        code, rows, err = self._rebuild([shapeless])
+        self.assertEqual(code, 0)
+        self.assertEqual(rows, [], "a row the table cannot order must not be published")
+        self.assertIn("missing fields", err, "the skip was silent")
+
+    def test_a_shapeless_row_never_hides_a_good_one(self):
+        good = self._row(repo="them/good", number=2,
+                         url="https://github.com/them/good/issues/2")
+        shapeless = self._row()
+        del shapeless["state"]
+        code, rows, _ = self._rebuild([shapeless, good])
+        self.assertEqual(code, 0)
+        self.assertEqual([r["repo"] for r in rows], ["them/good"])
+
+
 class patched:
     """Temporarily set attributes on a module, restoring them afterwards."""
 
