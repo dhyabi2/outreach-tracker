@@ -141,6 +141,33 @@ def repo_of(item: dict) -> str:
     return item.get("repository_url", "").split("/repos/", 1)[-1]
 
 
+def _still_open(url: str, token: str | None) -> bool:
+    """Whether a tracked thread still resolves as open on GitHub, by its own endpoint.
+
+    Used to carry forward previously-tracked open threads the search API chose not to return this
+    run. A thread that 404s (repo private or deleted) or that has since closed is not carried: the
+    point is to keep live threads visible, never to keep ghosts. Bounded and non-raising: a lookup
+    that fails is treated as "not open", so a bad network moment cannot inflate the table.
+    """
+    try:
+        path = url.split("github.com/", 1)[1]
+        parts = path.split("/")
+        if len(parts) < 4:
+            return False
+        repo = f"{parts[0]}/{parts[1]}"
+        kind = "pulls" if parts[2] == "pull" else "issues"
+        req = urllib.request.Request(
+            f"{API}/repos/{repo}/{kind}/{parts[3]}",
+            headers={"Accept": "application/vnd.github+json"},
+        )
+        if token:
+            req.add_header("Authorization", f"Bearer {token}")
+        with urllib.request.urlopen(req, timeout=30) as r:
+            return json.loads(r.read().decode()).get("state") == "open"
+    except Exception:
+        return False
+
+
 def is_ours(full_name: str) -> bool:
     owner = full_name.split("/", 1)[0].strip().lower()
     return owner in OWNED_GITHUB
@@ -183,6 +210,18 @@ def rows_from(items: list[dict], author: str) -> list[dict]:
 # `type:pr` is its counterpart and nothing else about the request changes.
 KINDS = ("type:issue", "type:pr")
 
+# Query each state separately. A single `author:X+{kind}` over ALL states is sorted created-desc
+# and capped at the search API's 1000-result ceiling, so once an account has more than ~1000
+# responses the OLDEST OPEN threads fall out of the window and vanish from the rebuilt table even
+# though they are still OPEN on GitHub and can still receive an outside reply. Measured 2026-11-02:
+# dhyabi2 has 955 open issues, so stellar/x402-stellar#87 (opened 2026-10-09) was dropped, and the
+# epistemedeus/x402-url-extractor#189 reply (maintainer, 2026-10-19) was invisible to the diff. An
+# open thread is the one kind the swarm must never lose, so open is always fully enumerated
+# (the open set is well under 1000). Closed/merged is history: if a closed bucket someday exceeds
+# 1000 the oldest closed rows may fall off, which costs nothing the goal depends on. The truncation
+# warning below stays in place as a backstop; with state-split it should not fire for the open set.
+STATES = ("state:open", "state:closed")
+
 
 def collect(
     token: str | None = None,
@@ -191,48 +230,55 @@ def collect(
 ) -> tuple[list[dict], list[str]]:
     """Every row the search API will give up, plus the authors it refused to index.
 
-    `truncated`, when a list is passed, receives one `"author/kind"` string per query the search API
-    cut short at its 1000-result ceiling. It is a list rather than a third return value so that every
-    existing caller keeps working. It exists because the README's first sentence promises **every**
-    issue and pull request, and the loop below cannot keep that promise past page 10: it used to stop
-    there and say nothing, so a table missing rows read exactly like a complete one.
+    Open and closed are queried separately so an OPEN thread can never be truncated out of the
+    table (see STATES above); that is the case the early single-query design got wrong. `truncated`,
+    when a list is passed, receives one `"author/kind"` string per query the search API cut short at
+    its 1000-result ceiling. It is a list rather than a third return value so that every existing
+    caller keeps working. It exists because the README's first sentence promises **every** issue and
+    pull request, and the loop below cannot keep that promise past page 10: it used to stop there and
+    say nothing, so a table missing rows read exactly like a complete one.
     """
     rows: list[dict] = []
     skipped: list[str] = []
     for author in authors:
         for kind in KINDS:
-            page = 1
-            got = 0
-            total = None
-            while page <= 10:  # 1000 results is the search API's hard ceiling
-                q = f"author:{author}+{kind}"
-                try:
-                    data = fetch(f"/search/issues?q={q}&per_page=100&page={page}&sort=created&order=desc", token)
-                except urllib.error.HTTPError as e:
-                    # GitHub's search API answers 422 for an account it will not index (an
-                    # anonymous-invisible account returns 422 on BOTH kinds, not just one), and
-                    # that is not an auth failure and not a broken query we can fix here: it is
-                    # \"this account contributes no searchable rows.\" Skip the author rather than
-                    # abort the whole table, and say so. A one-kind 422 for an otherwise-live
-                    # author would be a real bug, but observed behaviour is both kinds together.
-                    if e.code == 422:
-                        skipped.append(author)
+            for state in STATES:
+                page = 1
+                at_ceiling = False
+                while page <= 10:  # 1000 results is the search API's hard ceiling
+                    q = f"author:{author}+{kind}+{state}"
+                    try:
+                        data = fetch(f"/search/issues?q={q}&per_page=100&page={page}&sort=created&order=desc", token)
+                    except urllib.error.HTTPError as e:
+                        # GitHub's search API answers 422 for an account it will not index (an
+                        # anonymous-invisible account returns 422 on BOTH kinds, not just one), and
+                        # that is not an auth failure and not a broken query we can fix here: it is
+                        # \"this account contributes no searchable rows.\" Skip the author rather than
+                        # abort the whole table, and say so. A one-kind 422 for an otherwise-live
+                        # author would be a real bug, but observed behaviour is both kinds together.
+                        if e.code == 422:
+                            skipped.append(author)
+                            break
+                        raise
+                    items = data.get("items", [])
+                    rows.extend(rows_from(items, author))
+                    if len(items) < 100:
                         break
-                    raise
-                items = data.get("items", [])
-                got += len(items)
-                # total_count is what GitHub says the query matches; `got` is what it will hand over.
-                # The gap is the ceiling, and it is the only place the shortfall can be seen at all.
-                if isinstance(data.get("total_count"), int):
-                    total = data["total_count"]
-                rows.extend(rows_from(items, author))
-                if len(items) < 100:
+                    if page == 10:
+                        # A full tenth page means the search API still had a page to hand us that the
+                        # 1000-result ceiling forbids -- the one condition under which rows are actually
+                        # lost. `total > got` alone is not that signal: at this account's size GitHub's
+                        # `total_count` is a stale estimate (it claimed 956 open issues where only 199
+                        # were pageable on 2026-11-02), so it flags "missing" rows that do not exist.
+                        at_ceiling = True
+                        break
+                    page += 1
+                if author in skipped:
                     break
-                page += 1
+                if truncated is not None and at_ceiling:
+                    truncated.append(f"{author}/{kind.split(':', 1)[-1]}/{state.split(':', 1)[-1]}")
             if author in skipped:
                 break
-            if truncated is not None and total is not None and total > got:
-                truncated.append(f"{author}/{kind.split(':', 1)[-1]}")
     seen, uniq = set(), []
     for r in sorted(rows, key=row_order):
         key = r["url"]
@@ -382,6 +428,28 @@ def main() -> int:
                     if r.get("author") == a and r["url"] not in have:
                         rows.append(r)
                         have.add(r["url"])
+            # The search API under-reports this account's open threads (measured 2026-11-02: it
+            # claimed 956 open issues where only 199 were pageable, and a fresh state-split rebuild
+            # returned 568 open threads while the previous table tracked 846 that still resolve as
+            # open on GitHub). A rebuild that trusts search alone therefore silently drops live open
+            # threads -- the one kind the swarm must never lose. Carry forward any previously-tracked
+            # OPEN row that is not in the fresh set but still verifies as open on GitHub. Closed and
+            # merged rows are never carried: they are history and the search index is authoritative
+            # enough for them.
+            carried_open = [r for r in prev_rows if r.get("state") == "open" and r["url"] not in have]
+            if carried_open:
+                carried = 0
+                for r in carried_open:
+                    if _still_open(r["url"], token):
+                        rows.append(r)
+                        have.add(r["url"])
+                        carried += 1
+                if carried:
+                    print(
+                        f"info: carried forward {carried} previously-tracked open thread(s) the "
+                        f"search API did not return this run",
+                        file=sys.stderr,
+                    )
             # Re-sort: `collect` ordered what it fetched, and these rows were appended to the
             # end of that sorted list, so without this the table runs merged/open/closed and
             # then starts over. A carried-over merged pull request -- the one state that means

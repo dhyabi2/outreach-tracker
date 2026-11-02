@@ -247,6 +247,25 @@ class OutreachTable(unittest.TestCase):
         assert "could not reload data.json" not in err, err
         assert [r["url"] for r in published["rows"]] == [live[0]["url"]], published["rows"]
 
+    def test_a_live_open_thread_the_search_missed_is_carried_forward(self):
+        """The search API under-reports this account's open threads, so a rebuild that trusts only
+        search silently drops live open threads -- the one kind the swarm must never lose. A
+        previously-tracked OPEN row that is not in the fresh set but still resolves as open on
+        GitHub must be carried forward; one that has closed or 404s must not."""
+        live = track.rows_from([item("them/y", 2)], "dhyabi2")
+        old = track.rows_from([item("them/old", 1)], "dhyabi2")[0]
+        old["url"] = "https://github.com/them/old/issues/1"
+        dead = track.rows_from([item("them/dead", 9)], "dhyabi2")[0]
+        dead["url"] = "https://github.com/them/dead/issues/9"
+        prev = json.dumps({"rows": [old, dead]})
+        with patched(track, _still_open=lambda url, token: url.endswith("/them/old/issues/1")):
+            rc, err, published = self._rebuild_with_previous(prev, live)
+        assert rc == 0, rc
+        urls = {r["url"] for r in published["rows"]}
+        assert "https://github.com/them/old/issues/1" in urls, urls
+        assert "https://github.com/them/dead/issues/9" not in urls, urls
+        assert "carried forward 1" in err, err
+
     def test_the_skip_banner_never_claims_rows_that_are_not_in_the_table(self):
         """With nothing carried over, the banner said "0 of these rows were not checked in this
         run ... their rows are the ones last successfully fetched" -- describing rows the reader
@@ -282,10 +301,21 @@ class OutreachTable(unittest.TestCase):
             truncated = []
             rows, skipped = track.collect(None, authors=("dhyabi2",), truncated=truncated)
         self.assertEqual(skipped, [])
-        self.assertEqual(len(calls), 20, "10 pages per kind, 2 kinds: the ceiling is per query")
-        self.assertEqual(len(rows), 2000, "the ceiling itself moved; this law assumed 10 pages of 100")
-        self.assertEqual(truncated, ["dhyabi2/issue", "dhyabi2/pr"],
+        # open and closed are queried separately, so a 2-kind account becomes 4 queries; the naive
+        # mock returns a full page for every one of them, so each hits the ceiling at page 10.
+        self.assertEqual(len(calls), 40, "10 pages x 2 kinds x 2 states: the ceiling is per query")
+        self.assertEqual(len(rows), 4000, "the ceiling itself moved; this law assumed 10 pages of 100")
+        self.assertEqual(truncated, ["dhyabi2/issue/open", "dhyabi2/issue/closed",
+                                     "dhyabi2/pr/open", "dhyabi2/pr/closed"],
                          "a query cut off at 1000 results was not reported")
+        # and the state-split must not fire the banner when nothing is actually lost -- the sole
+        # reason for the split is that GitHub's total_count overstates a small retrievable set.
+        def partial(path, token=None):
+            return {"total_count": 956, "items": [item("them/a", 1)]}
+        with patched(track, fetch=partial):
+            tr = []
+            track.collect(None, authors=("dhyabi2",), truncated=tr)
+        self.assertEqual(tr, [], "a stale total_count must not be read as a lost open thread")
 
     def test_a_complete_query_is_never_called_truncated(self):
         """The counterpart: when GitHub hands over everything it says it has, nothing is reported.
