@@ -333,15 +333,15 @@ def render(
         "|---|---|---|---|---|---|---|---|",
     ]
     for r in rows:
-        title = r["title"].replace("|", "\\|")
+        title = (r.get("title") or "").replace("|", "\\|")
         if len(title) > 90:
             title = title[:87] + "..."
-        opened = (r["created_at"] or "")[:10]
+        opened = (r.get("created_at") or "")[:10]
         lines.append(
-            f"| {STATE_MARK.get(r['state'], r['state'])} "
-            f"| [{r['repo']}](https://github.com/{r['repo']}) "
-            f"| [#{r['number']}]({r['url']}) | {title} | {r['kind']} "
-            f"| {r.get('comments', 0)} | {opened} | {r['author']} |"
+            f"| {STATE_MARK.get(r.get('state'), r.get('state') or '')} "
+            f"| [{r.get('repo') or '—'}](https://github.com/{r.get('repo') or ''}) "
+            f"| [#{r.get('number')}]({r.get('url') or ''}) | {title} | {r.get('kind') or 'issue'} "
+            f"| {r.get('comments', 0)} | {opened} | {r.get('author') or ''} |"
         )
     if not rows:
         lines.append("| — | _nothing has left the house yet_ | | | | | | |")
@@ -380,6 +380,9 @@ def main() -> int:
             for a in skipped:
                 for r in prev_rows:
                     if r.get("author") == a and r["url"] not in have:
+                        # Normalise a stale row missing a field (observed: an older row without
+                        # `title`) so the retained copy passes render() every rebuild.
+                        r = dict(r, title=r.get("title") or "")
                         rows.append(r)
                         have.add(r["url"])
             # Re-sort: `collect` ordered what it fetched, and these rows were appended to the
