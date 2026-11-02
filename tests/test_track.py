@@ -196,7 +196,7 @@ class OutreachTable(unittest.TestCase):
         assert track.payload(rows, "now")["unverified_authors"] == []
 
 
-    def _rebuild_with_previous(self, previous_text, live):
+    def _rebuild_with_previous(self, previous_text, live, skipped=("PANDeveloper001",)):
         """Run main() in a temp dir whose data.json holds `previous_text`. Returns (rc, stderr, published)."""
         import tempfile
 
@@ -207,7 +207,7 @@ class OutreachTable(unittest.TestCase):
                          # *a/**k: this stub stands in for collect, and main() legitimately passes it
                          # more than a token. Pinning the exact signature here made an unrelated
                          # change to collect look like four broken laws.
-                         collect=lambda *a, **k: (list(live), ["PANDeveloper001"]),
+                         collect=lambda *a, **k: (list(live), list(skipped)),
                          __file__=os.path.join(d, "track.py")):
                 err = io.StringIO()
                 with contextlib.redirect_stderr(err):
@@ -266,6 +266,81 @@ class OutreachTable(unittest.TestCase):
         assert "https://github.com/them/dead/issues/9" not in urls, urls
         assert "carried forward 1" in err, err
 
+    def test_open_rows_are_carried_forward_even_when_no_author_was_skipped(self):
+        """The carry-forward guards against a search shortfall, which happens on an ordinary run.
+        Gated on a 422 skip, it never ran when every author was searchable, so a live open thread
+        the search left out vanished without a word."""
+        live = track.rows_from([item("them/y", 2)], "dhyabi2")
+        old = dict(track.rows_from([item("them/old", 1)], "dhyabi2")[0])
+        gone = dict(track.rows_from([item("them/gone", 3)], "dhyabi2")[0])
+        closed = dict(track.rows_from([item("them/shut", 4, state="closed")], "dhyabi2")[0])
+        asked = []
+
+        def still_open(url, token):
+            asked.append(url)
+            return url == old["url"]
+
+        prev = json.dumps({"rows": [old, gone, closed]})
+        with patched(track, _still_open=still_open):
+            rc, err, published = self._rebuild_with_previous(prev, live, skipped=())
+        assert rc == 0, rc
+        urls = {r["url"] for r in published["rows"]}
+        assert urls == {live[0]["url"], old["url"]}, urls
+        assert closed["url"] not in asked, "a closed row is history and is never looked up or carried"
+        assert "carried forward 1" in err, err
+        assert published["unverified_authors"] == []
+
+    def test_a_rate_limited_lookup_keeps_open_rows_and_says_so(self):
+        """A lookup that could not be made is not evidence the thread closed. Treating it as "not
+        open" deleted every tracked open row on a rate limit or a missing token, with exit 0."""
+        live = track.rows_from([item("them/y", 2)], "dhyabi2")
+        prev_rows = [dict(track.rows_from([item(f"them/o{i}", i)], "dhyabi2")[0]) for i in range(1, 4)]
+        calls = []
+
+        def limited(url, token):
+            calls.append(url)
+            raise track.LookupFailed("HTTP 429", rate_limited=True)
+
+        with patched(track, _still_open=limited):
+            rc, err, published = self._rebuild_with_previous(
+                json.dumps({"rows": prev_rows}), live, skipped=())
+        assert rc == 0, rc
+        urls = {r["url"] for r in published["rows"]}
+        assert all(r["url"] in urls for r in prev_rows), urls
+        assert len(calls) == 1, f"kept asking after a rate limit: {calls}"
+        assert "rate-limited for 3" in err, err
+        assert published["unverified_open_urls"] == sorted(r["url"] for r in prev_rows)
+
+    def test_the_readme_names_open_rows_whose_state_was_not_checked(self):
+        rows = track.rows_from([item("them/x", 1)], "dhyabi2")
+        head = track.render(rows, "now", (), (), [rows[0]["url"]]).split("| State |")[0]
+        self.assertIn("1 open rows were not checked", head)
+        self.assertNotIn("not checked", track.render(rows, "now").split("| State |")[0])
+
+    def test_still_open_raises_on_no_answer_and_says_false_only_when_gone(self):
+        """404/410 is an answer (gone); 403/429/5xx/network are not, and must not read as closed."""
+        url = "https://github.com/them/x/issues/1"
+
+        def raising(code):
+            def f(req, timeout=None):
+                raise urllib.error.HTTPError(req.full_url, code, "x", {}, None)
+            return f
+
+        for code in (404, 410):
+            with patched(track.urllib.request, urlopen=raising(code)):
+                self.assertIs(track._still_open(url, None), False)
+        for code, limited in ((403, True), (429, True), (502, False)):
+            with patched(track.urllib.request, urlopen=raising(code)):
+                with self.assertRaises(track.LookupFailed) as cm:
+                    track._still_open(url, None)
+                self.assertIs(cm.exception.rate_limited, limited)
+
+        def offline(req, timeout=None):
+            raise urllib.error.URLError("down")
+        with patched(track.urllib.request, urlopen=offline):
+            with self.assertRaises(track.LookupFailed):
+                track._still_open(url, None)
+
     def test_the_skip_banner_never_claims_rows_that_are_not_in_the_table(self):
         """With nothing carried over, the banner said "0 of these rows were not checked in this
         run ... their rows are the ones last successfully fetched" -- describing rows the reader
@@ -308,14 +383,19 @@ class OutreachTable(unittest.TestCase):
         self.assertEqual(truncated, ["dhyabi2/issue/open", "dhyabi2/issue/closed",
                                      "dhyabi2/pr/open", "dhyabi2/pr/closed"],
                          "a query cut off at 1000 results was not reported")
-        # and the state-split must not fire the banner when nothing is actually lost -- the sole
-        # reason for the split is that GitHub's total_count overstates a small retrievable set.
+
+    def test_a_search_shortfall_below_the_ceiling_is_reported(self):
+        """total_count > rows received is the only visible trace of a search shortfall (measured:
+        568 open threads received where 846 were still open). Reporting only a full tenth page
+        hid it entirely, so a table missing a third of its open rows read as complete."""
         def partial(path, token=None):
             return {"total_count": 956, "items": [item("them/a", 1)]}
         with patched(track, fetch=partial):
             tr = []
             track.collect(None, authors=("dhyabi2",), truncated=tr)
-        self.assertEqual(tr, [], "a stale total_count must not be read as a lost open thread")
+        self.assertEqual(tr, ["dhyabi2/issue/open", "dhyabi2/issue/closed",
+                              "dhyabi2/pr/open", "dhyabi2/pr/closed"],
+                         "a query that handed over fewer rows than it matched was not reported")
 
     def test_a_complete_query_is_never_called_truncated(self):
         """The counterpart: when GitHub hands over everything it says it has, nothing is reported.

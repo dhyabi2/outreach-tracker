@@ -141,31 +141,51 @@ def repo_of(item: dict) -> str:
     return item.get("repository_url", "").split("/repos/", 1)[-1]
 
 
+class LookupFailed(Exception):
+    """A per-thread state lookup that gave no answer (rate limit, auth, server or network error).
+
+    Distinct from "closed" on purpose: a lookup that could not be made says nothing about the
+    thread, so treating it as "not open" silently deleted live open rows whenever the token was
+    missing or the rate limit was hit. `rate_limited` lets the caller stop asking."""
+
+    def __init__(self, msg: str, rate_limited: bool = False):
+        super().__init__(msg)
+        self.rate_limited = rate_limited
+
+
 def _still_open(url: str, token: str | None) -> bool:
     """Whether a tracked thread still resolves as open on GitHub, by its own endpoint.
 
     Used to carry forward previously-tracked open threads the search API chose not to return this
-    run. A thread that 404s (repo private or deleted) or that has since closed is not carried: the
-    point is to keep live threads visible, never to keep ghosts. Bounded and non-raising: a lookup
-    that fails is treated as "not open", so a bad network moment cannot inflate the table.
+    run. Returns False only on a definite answer: the thread has closed, or it 404s/410s (repo
+    private or deleted), so ghosts are never kept. Anything that is not an answer -- a rate limit
+    (403/429), a server error, a network failure -- raises LookupFailed instead, so the caller can
+    keep the row as unverified rather than drop a live open thread without a word.
     """
     try:
         path = url.split("github.com/", 1)[1]
-        parts = path.split("/")
-        if len(parts) < 4:
-            return False
-        repo = f"{parts[0]}/{parts[1]}"
-        kind = "pulls" if parts[2] == "pull" else "issues"
-        req = urllib.request.Request(
-            f"{API}/repos/{repo}/{kind}/{parts[3]}",
-            headers={"Accept": "application/vnd.github+json"},
-        )
-        if token:
-            req.add_header("Authorization", f"Bearer {token}")
+    except IndexError:
+        return False
+    parts = path.split("/")
+    if len(parts) < 4:
+        return False
+    repo = f"{parts[0]}/{parts[1]}"
+    kind = "pulls" if parts[2] == "pull" else "issues"
+    req = urllib.request.Request(
+        f"{API}/repos/{repo}/{kind}/{parts[3]}",
+        headers={"Accept": "application/vnd.github+json"},
+    )
+    if token:
+        req.add_header("Authorization", f"Bearer {token}")
+    try:
         with urllib.request.urlopen(req, timeout=30) as r:
             return json.loads(r.read().decode()).get("state") == "open"
-    except Exception:
-        return False
+    except urllib.error.HTTPError as e:
+        if e.code in (404, 410):
+            return False
+        raise LookupFailed(f"HTTP {e.code} for {url}", rate_limited=e.code in (403, 429)) from e
+    except (urllib.error.URLError, OSError, ValueError) as e:
+        raise LookupFailed(f"{type(e).__name__} for {url}: {e}") from e
 
 
 def is_ours(full_name: str) -> bool:
@@ -217,7 +237,8 @@ KINDS = ("type:issue", "type:pr")
 # dhyabi2 has 955 open issues, so stellar/x402-stellar#87 (opened 2026-10-09) was dropped, and the
 # epistemedeus/x402-url-extractor#189 reply (maintainer, 2026-10-19) was invisible to the diff. An
 # open thread is the one kind the swarm must never lose, so open is always fully enumerated
-# (the open set is well under 1000). Closed/merged is history: if a closed bucket someday exceeds
+# while the open set stays under 1000 -- and at 955 it is close to that, so the ceiling check
+# below still applies to the open queries, not only to closed ones. Closed/merged is history: if a closed bucket someday exceeds
 # 1000 the oldest closed rows may fall off, which costs nothing the goal depends on. The truncation
 # warning below stays in place as a backstop; with state-split it should not fire for the open set.
 STATES = ("state:open", "state:closed")
@@ -245,6 +266,8 @@ def collect(
             for state in STATES:
                 page = 1
                 at_ceiling = False
+                got = 0
+                total = None
                 while page <= 10:  # 1000 results is the search API's hard ceiling
                     q = f"author:{author}+{kind}+{state}"
                     try:
@@ -261,21 +284,30 @@ def collect(
                             break
                         raise
                     items = data.get("items", [])
+                    got += len(items)
+                    # total_count is what GitHub says the query matches; `got` is what it handed
+                    # over. The gap is the only place a search shortfall can be seen at all.
+                    if isinstance(data.get("total_count"), int):
+                        total = data["total_count"]
                     rows.extend(rows_from(items, author))
                     if len(items) < 100:
                         break
                     if page == 10:
                         # A full tenth page means the search API still had a page to hand us that the
                         # 1000-result ceiling forbids -- the one condition under which rows are actually
-                        # lost. `total > got` alone is not that signal: at this account's size GitHub's
-                        # `total_count` is a stale estimate (it claimed 956 open issues where only 199
-                        # were pageable on 2026-11-02), so it flags "missing" rows that do not exist.
+                        # lost at the ceiling.
                         at_ceiling = True
                         break
                     page += 1
                 if author in skipped:
                     break
-                if truncated is not None and at_ceiling:
+                # Either signal means the search handed over fewer rows than it says match: a full
+                # tenth page (the 1000 ceiling), or total_count > rows received (a shortfall --
+                # measured 2026-11-02 at 568 open threads received against 846 still open). The
+                # count may be a stale overestimate, but an overstated warning is recoverable and a
+                # silent shortfall is not; open rows the search missed are carried forward in main.
+                short = total is not None and total > got
+                if truncated is not None and (at_ceiling or short):
                     truncated.append(f"{author}/{kind.split(':', 1)[-1]}/{state.split(':', 1)[-1]}")
             if author in skipped:
                 break
@@ -305,16 +337,20 @@ def payload(
     generated: str,
     unverified: tuple[str, ...] | list[str] = (),
     truncated: tuple[str, ...] | list[str] = (),
+    unverified_open: tuple[str, ...] | list[str] = (),
 ) -> dict:
     """What `data.json` carries. `unverified` names the authors whose rows were carried over from the
     last good run rather than fetched, so a consumer can tell live state from remembered state.
-    `truncated_queries` names the queries the search API cut off at 1000 results, so a consumer can
-    tell a complete table from one that is missing rows nobody counted."""
+    `truncated_queries` names the queries the search API cut off at 1000 results or answered with
+    fewer rows than its own total_count, so a consumer can tell a complete table from one that may be
+    missing rows nobody counted. `unverified_open_urls` names open rows carried forward from the last
+    run whose state lookup failed (rate limit, network), so they are remembered, not live."""
     return {
         "generated": generated,
         "summary": summarise(rows),
         "unverified_authors": sorted(unverified),
         "truncated_queries": sorted(truncated),
+        "unverified_open_urls": sorted(unverified_open),
         "rows": rows,
     }
 
@@ -324,6 +360,7 @@ def render(
     generated: str,
     unverified: tuple[str, ...] | list[str] = (),
     truncated: tuple[str, ...] | list[str] = (),
+    unverified_open: tuple[str, ...] | list[str] = (),
 ) -> str:
     s = summarise(rows)
     lines = [
@@ -365,9 +402,17 @@ def render(
         # is no longer true, and a reader has no other way to find out: the missing rows leave no gap.
         qs = ", ".join(f"`{q}`" for q in sorted(truncated))
         lines += [
-            f"> **This table is incomplete.** GitHub's search API returns at most 1000 results per query and"
-            f" cut off {qs}, so submissions beyond that limit are missing from the counts above as well as"
-            f" from the table below. Every row shown is real; the total is a floor, not the whole of it.",
+            f"> **This table is incomplete.** GitHub's search API returns at most 1000 results per query, and"
+            f" for {qs} it handed over fewer results than it reports matching, so submissions it withheld may be"
+            f" missing from the counts above as well as from the table below. Every row shown is real; the"
+            f" total is a floor, not the whole of it.",
+            "",
+        ]
+    if unverified_open:
+        lines += [
+            f"> **{len(unverified_open)} open rows were not checked in this run.** The search API did not"
+            f" return them and the per-thread state lookup failed (rate limit or network), so they are carried"
+            f" from the last run as open and may have closed since.",
             "",
         ]
     lines += [
@@ -402,71 +447,94 @@ def main() -> int:
     truncated: list[str] = []
     rows, skipped = collect(token, truncated=truncated)
     here = os.path.dirname(os.path.abspath(__file__))
+    # The previous table is reloaded on EVERY run, not only when an author was skipped: the
+    # open-thread carry-forward below protects against a search shortfall, which happens with or
+    # without a 422. Gating it on `skipped` meant an ordinary run dropped live open rows silently.
+    prev_rows: list[dict] = []
+    try:
+        with open(os.path.join(here, "data.json")) as prev_f:
+            prev = json.load(prev_f)
+        if not isinstance(prev, dict):
+            raise ValueError(f"data.json holds a {type(prev).__name__}, not an object")
+        stored = prev.get("rows", [])
+        prev_rows = [r for r in stored if usable(r)]
+        unusable = sum(1 for r in stored if isinstance(r, dict) and not usable(r))
+        if unusable:
+            print(
+                f"warning: {unusable} row(s) in data.json are missing fields this table is "
+                f"built from ({', '.join(CARRIED_ROW_FIELDS)}) and were not carried over; "
+                f"a live rebuild replaces them",
+                file=sys.stderr,
+            )
+    except FileNotFoundError:
+        pass  # first run: there is no earlier table, which is not a fault
+    except (OSError, ValueError) as exc:
+        # A truncated or malformed data.json raises JSONDecodeError -- a ValueError, not an
+        # OSError -- so the one path meant to degrade gracefully used to abort here instead.
+        # main() opens data.json "w" to rebuild it, so a killed or cancelled run leaves exactly
+        # that. Carry nothing, say so, and let render state that the rows are missing.
+        lost = f"{', '.join(skipped)} and any " if skipped else "any "
+        print(
+            f"warning: could not reload data.json to carry over rows ({type(exc).__name__}: {exc}); "
+            f"{lost}open threads the search missed will be absent from this table rather than "
+            f"stale in it",
+            file=sys.stderr,
+        )
+    have = {r["url"] for r in rows}
     # An account GitHub refuses to index (observed: anonymous-invisible accounts answer 422 on
     # search) contributes no live rows. Its already-published rows are kept so the tracker does not
     # silently report them "disappeared" every rebuild, and the skip is stated plainly rather than
     # hidden inside a half-empty table.
+    for a in skipped:
+        for r in prev_rows:
+            if r.get("author") == a and r["url"] not in have:
+                rows.append(r)
+                have.add(r["url"])
+    # The search API under-reports this account's open threads (measured 2026-11-02: it claimed
+    # 956 open issues where only 199 were pageable, and a fresh state-split rebuild returned 568
+    # open threads while the previous table tracked 846 that still resolve as open on GitHub). A
+    # rebuild that trusts search alone therefore silently drops live open threads -- the one kind
+    # the swarm must never lose. Carry forward any previously-tracked OPEN row that is not in the
+    # fresh set unless GitHub definitely says it has closed or is gone. A lookup that gives no
+    # answer (rate limit, missing token, network) keeps the row and counts it as unverified,
+    # loudly: dropping it would be the silent loss this exists to prevent. Closed and merged rows
+    # are never carried: they are history and the search index is authoritative enough for them.
+    carried = 0
+    unverified_open: list[str] = []
+    rate_limited = False
+    for r in [r for r in prev_rows if r.get("state") == "open" and r["url"] not in have]:
+        if rate_limited:
+            unverified_open.append(r["url"])
+        else:
+            try:
+                if not _still_open(r["url"], token):
+                    continue
+                carried += 1
+            except LookupFailed as exc:
+                unverified_open.append(r["url"])
+                if exc.rate_limited:
+                    rate_limited = True  # every later lookup would fail the same way
+        rows.append(r)
+        have.add(r["url"])
+    if carried:
+        print(
+            f"info: carried forward {carried} previously-tracked open thread(s) the "
+            f"search API did not return this run",
+            file=sys.stderr,
+        )
+    if unverified_open:
+        why = "rate-limited" if rate_limited else "failed"
+        print(
+            f"warning: the state lookup {why} for {len(unverified_open)} previously-tracked open "
+            f"thread(s) the search API did not return; kept them as open, state unverified this run",
+            file=sys.stderr,
+        )
+    # Re-sort: `collect` ordered what it fetched, and these rows were appended to the end of that
+    # sorted list, so without this the table runs merged/open/closed and then starts over. A
+    # carried-over merged pull request -- the one state that means someone else accepted our
+    # work -- rendered below every closed row.
+    rows.sort(key=row_order)
     if skipped:
-        try:
-            with open(os.path.join(here, "data.json")) as prev_f:
-                prev = json.load(prev_f)
-            if not isinstance(prev, dict):
-                raise ValueError(f"data.json holds a {type(prev).__name__}, not an object")
-            stored = prev.get("rows", [])
-            prev_rows = [r for r in stored if usable(r)]
-            unusable = sum(1 for r in stored if isinstance(r, dict) and not usable(r))
-            if unusable:
-                print(
-                    f"warning: {unusable} row(s) in data.json are missing fields this table is "
-                    f"built from ({', '.join(CARRIED_ROW_FIELDS)}) and were not carried over; "
-                    f"a live rebuild replaces them",
-                    file=sys.stderr,
-                )
-            have = {r["url"] for r in rows}
-            for a in skipped:
-                for r in prev_rows:
-                    if r.get("author") == a and r["url"] not in have:
-                        rows.append(r)
-                        have.add(r["url"])
-            # The search API under-reports this account's open threads (measured 2026-11-02: it
-            # claimed 956 open issues where only 199 were pageable, and a fresh state-split rebuild
-            # returned 568 open threads while the previous table tracked 846 that still resolve as
-            # open on GitHub). A rebuild that trusts search alone therefore silently drops live open
-            # threads -- the one kind the swarm must never lose. Carry forward any previously-tracked
-            # OPEN row that is not in the fresh set but still verifies as open on GitHub. Closed and
-            # merged rows are never carried: they are history and the search index is authoritative
-            # enough for them.
-            carried_open = [r for r in prev_rows if r.get("state") == "open" and r["url"] not in have]
-            if carried_open:
-                carried = 0
-                for r in carried_open:
-                    if _still_open(r["url"], token):
-                        rows.append(r)
-                        have.add(r["url"])
-                        carried += 1
-                if carried:
-                    print(
-                        f"info: carried forward {carried} previously-tracked open thread(s) the "
-                        f"search API did not return this run",
-                        file=sys.stderr,
-                    )
-            # Re-sort: `collect` ordered what it fetched, and these rows were appended to the
-            # end of that sorted list, so without this the table runs merged/open/closed and
-            # then starts over. A carried-over merged pull request -- the one state that means
-            # someone else accepted our work -- rendered below every closed row.
-            rows.sort(key=row_order)
-        except FileNotFoundError:
-            pass  # first run: there is no earlier table, which is not a fault
-        except (OSError, ValueError) as exc:
-            # A truncated or malformed data.json raises JSONDecodeError -- a ValueError, not an
-            # OSError -- so the one path meant to degrade gracefully used to abort here instead.
-            # main() opens data.json "w" to rebuild it, so a killed or cancelled run leaves exactly
-            # that. Carry nothing, say so, and let render state that the rows are missing.
-            print(
-                f"warning: could not reload data.json to carry over rows ({type(exc).__name__}: {exc}); "
-                f"{', '.join(skipped)} will be absent from this table rather than stale in it",
-                file=sys.stderr,
-            )
         print(
             f"warning: {', '.join(skipped)} invisible to GitHub search (422); kept their "
             f"previously-published rows, states now unverified",
@@ -480,10 +548,10 @@ def main() -> int:
         )
     generated = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
     with open(os.path.join(here, "data.json"), "w") as f:
-        json.dump(payload(rows, generated, skipped, truncated), f, indent=2)
+        json.dump(payload(rows, generated, skipped, truncated, unverified_open), f, indent=2)
         f.write("\n")
     with open(os.path.join(here, "README.md"), "w") as f:
-        f.write(render(rows, generated, skipped, truncated))
+        f.write(render(rows, generated, skipped, truncated, unverified_open))
     print(f"{len(rows)} rows across {len({r['repo'] for r in rows})} repositories")
     return 0
 
