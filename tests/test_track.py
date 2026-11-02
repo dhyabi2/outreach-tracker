@@ -108,6 +108,28 @@ class OutreachTable(unittest.TestCase):
         assert "**0** submissions" in md
 
 
+    def test_a_stale_row_missing_fields_renders_instead_of_crashing_the_table(self):
+        """A malformed row (no title or no created_at) must render, not throw.
+
+        Observed in production: one old retention row (SeierkDev/Axon/issues/3) lacked
+        title and created_at, and render() raised KeyError every rebuild. track.py then
+        exited non-zero, and rai-prs's classify_failure read the benign '422' skip warning
+        in its stderr as 'token dead' — making the WHOLE swarm report the write wall down
+        for a live token. This test is the regression guard for that chain.
+        """
+        stale = {
+            "url": "https://github.com/them/Axon/issues/3",
+            "repo": "them/Axon",
+            "number": 3,
+            "kind": "issue",
+            "state": "open",
+            "author": "PANDeveloper001",
+        }
+        md = track.render([stale], "2026-11-02 00:00 UTC")
+        assert "[#3](https://github.com/them/Axon/issues/3)" in md
+        assert "them/Axon" in md
+
+
     def test_the_summary_counts_replies_because_a_reply_is_the_only_proof_a_person_read_it(self):
         s = track.summarise(
             track.rows_from(
