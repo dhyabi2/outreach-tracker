@@ -258,7 +258,7 @@ class OutreachTable(unittest.TestCase):
         dead = track.rows_from([item("them/dead", 9)], "dhyabi2")[0]
         dead["url"] = "https://github.com/them/dead/issues/9"
         prev = json.dumps({"rows": [old, dead]})
-        with patched(track, _still_open=lambda url, token: url.endswith("/them/old/issues/1")):
+        with patched(track, _lookup=lambda url, token: {"state": "open"} if url.endswith("/them/old/issues/1") else None):
             rc, err, published = self._rebuild_with_previous(prev, live)
         assert rc == 0, rc
         urls = {r["url"] for r in published["rows"]}
@@ -276,12 +276,12 @@ class OutreachTable(unittest.TestCase):
         closed = dict(track.rows_from([item("them/shut", 4, state="closed")], "dhyabi2")[0])
         asked = []
 
-        def still_open(url, token):
+        def lookup(url, token):
             asked.append(url)
-            return url == old["url"]
+            return {"state": "open"} if url == old["url"] else None
 
         prev = json.dumps({"rows": [old, gone, closed]})
-        with patched(track, _still_open=still_open):
+        with patched(track, _lookup=lookup):
             rc, err, published = self._rebuild_with_previous(prev, live, skipped=())
         assert rc == 0, rc
         urls = {r["url"] for r in published["rows"]}
@@ -301,7 +301,7 @@ class OutreachTable(unittest.TestCase):
             calls.append(url)
             raise track.LookupFailed("HTTP 429", rate_limited=True)
 
-        with patched(track, _still_open=limited):
+        with patched(track, _lookup=limited):
             rc, err, published = self._rebuild_with_previous(
                 json.dumps({"rows": prev_rows}), live, skipped=())
         assert rc == 0, rc
@@ -310,6 +310,102 @@ class OutreachTable(unittest.TestCase):
         assert len(calls) == 1, f"kept asking after a rate limit: {calls}"
         assert "rate-limited for 3" in err, err
         assert published["unverified_open_urls"] == sorted(r["url"] for r in prev_rows)
+
+    @staticmethod
+    def _fake_github(answers, asked=None):
+        """A stand-in for urlopen: `answers` maps an API path suffix to a JSON body or an HTTP code."""
+
+        class Resp(io.BytesIO):
+            def __enter__(self):
+                return self
+
+            def __exit__(self, *exc):
+                return False
+
+        def urlopen(req, timeout=None):
+            url = req.full_url
+            if asked is not None:
+                asked.append(url)
+            for suffix, answer in answers.items():
+                if url.endswith(suffix):
+                    if isinstance(answer, int):
+                        raise urllib.error.HTTPError(url, answer, "x", {}, None)
+                    return Resp(json.dumps(answer).encode())
+            raise urllib.error.HTTPError(url, 404, "x", {}, None)
+
+        return urlopen
+
+    def test_a_carried_open_row_takes_its_live_replies_not_the_stale_ones(self):
+        """The lookup fetches the live thread; keeping only its state published the reply count and
+        updated_at from the last run, so a maintainer reply on a carried row never counted as
+        answered."""
+        live = track.rows_from([item("them/y", 2)], "dhyabi2")
+        old = dict(track.rows_from([item("them/old", 1, comments=0)], "dhyabi2")[0])
+        answers = {"/repos/them/old/issues/1": {"state": "open", "comments": 3,
+                                                "updated_at": "2026-11-01T00:00:00Z", "title": "t"}}
+        with patched(track.urllib.request, urlopen=self._fake_github(answers)):
+            rc, err, published = self._rebuild_with_previous(
+                json.dumps({"rows": [old]}), live, skipped=())
+        assert rc == 0, rc
+        row = next(r for r in published["rows"] if r["url"] == old["url"])
+        self.assertEqual(row["state"], "open")
+        self.assertEqual(row["comments"], 3)
+        self.assertEqual(row["updated_at"], "2026-11-01T00:00:00Z")
+        self.assertEqual(published["summary"]["answered"], 1)
+
+    def test_a_carried_row_that_has_merged_or_closed_is_shown_in_its_new_state(self):
+        """A previously-open thread the search missed and that has since merged or closed is still
+        ours and still real: it must appear in its new state, not vanish. Only a 404/410 drops it."""
+        live = track.rows_from([item("them/y", 2)], "dhyabi2")
+        merged = dict(track.rows_from([item("them/m", 5, pr=True)], "dhyabi2")[0])
+        merged["url"] = "https://github.com/them/m/pull/5"
+        shut = dict(track.rows_from([item("them/c", 6)], "dhyabi2")[0])
+        gone = dict(track.rows_from([item("them/g", 7)], "dhyabi2")[0])
+        answers = {
+            "/repos/them/m/pulls/5": {"state": "closed", "merged_at": "2026-10-30T00:00:00Z",
+                                      "comments": 2, "updated_at": "2026-10-30T00:00:00Z"},
+            "/repos/them/c/issues/6": {"state": "closed", "comments": 1,
+                                       "updated_at": "2026-10-29T00:00:00Z"},
+            "/repos/them/g/issues/7": 404,
+        }
+        with patched(track.urllib.request, urlopen=self._fake_github(answers)):
+            rc, err, published = self._rebuild_with_previous(
+                json.dumps({"rows": [merged, shut, gone]}), live, skipped=())
+        assert rc == 0, rc
+        by_url = {r["url"]: r for r in published["rows"]}
+        self.assertEqual(by_url[merged["url"]]["state"], "merged")
+        self.assertEqual(by_url[shut["url"]]["state"], "closed")
+        self.assertNotIn(gone["url"], by_url)
+        self.assertEqual(published["summary"]["merged"], 1)
+        self.assertEqual(published["unverified_open_urls"], [])
+        states = [r["state"] for r in published["rows"]]
+        self.assertEqual(states, sorted(states, key=track.STATE_ORDER.get), "table not in state order")
+
+    def test_after_a_rate_limit_every_row_is_verified_within_a_few_runs(self):
+        """With the lookups always starting at the same row, a rate limit after N lookups left the
+        same tail rows unverified on every run, forever. The start must move between runs."""
+        live = track.rows_from([item("them/y", 2)], "dhyabi2")
+        prev_rows = [dict(track.rows_from([item(f"them/o{i}", i)], "dhyabi2")[0]) for i in range(1, 6)]
+        verified = set()
+        rng = __import__("random").Random(1234)
+        for _ in range(40):
+            asked = []
+            budget = [1]
+
+            def urlopen(req, timeout=None, asked=asked, budget=budget):
+                asked.append(req.full_url)
+                if budget[0] <= 0:
+                    raise urllib.error.HTTPError(req.full_url, 429, "x", {}, None)
+                budget[0] -= 1
+                return self._fake_github({"": {"state": "open", "comments": 0}})(req, timeout)
+
+            with patched(track.urllib.request, urlopen=urlopen), patched(track, random=rng):
+                rc, err, published = self._rebuild_with_previous(
+                    json.dumps({"rows": prev_rows}), live, skipped=())
+            assert rc == 0, rc
+            self.assertEqual(len(published["unverified_open_urls"]), 4)
+            verified.update(set(r["url"] for r in prev_rows) - set(published["unverified_open_urls"]))
+        self.assertEqual(verified, {r["url"] for r in prev_rows})
 
     def test_the_readme_names_open_rows_whose_state_was_not_checked(self):
         rows = track.rows_from([item("them/x", 1)], "dhyabi2")

@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import json
 import os
+import random
 import sys
 import time
 import urllib.error
@@ -153,22 +154,25 @@ class LookupFailed(Exception):
         self.rate_limited = rate_limited
 
 
-def _still_open(url: str, token: str | None) -> bool:
-    """Whether a tracked thread still resolves as open on GitHub, by its own endpoint.
+def _lookup(url: str, token: str | None) -> dict | None:
+    """The live state of one tracked thread, by its own endpoint, or None when it is gone.
 
-    Used to carry forward previously-tracked open threads the search API chose not to return this
-    run. Returns False only on a definite answer: the thread has closed, or it 404s/410s (repo
-    private or deleted), so ghosts are never kept. Anything that is not an answer -- a rate limit
-    (403/429), a server error, a network failure -- raises LookupFailed instead, so the caller can
-    keep the row as unverified rather than drop a live open thread without a word.
+    Used to refresh previously-tracked open threads the search API chose not to return this run.
+    Returns the fields a row is rendered from -- state (merged/open/closed), comments, updated_at,
+    title -- taken from the live thread, so a carried row never keeps a stale reply count or a state
+    that has since changed. Returns None only on a definite "gone": the thread 404s/410s (repo
+    private or deleted) or the URL is not a thread URL, so ghosts are never kept. Anything that is
+    not an answer -- a rate limit (403/429), a server error, a network failure -- raises
+    LookupFailed instead, so the caller can keep the row as unverified rather than drop a live open
+    thread without a word.
     """
     try:
         path = url.split("github.com/", 1)[1]
     except IndexError:
-        return False
+        return None
     parts = path.split("/")
     if len(parts) < 4:
-        return False
+        return None
     repo = f"{parts[0]}/{parts[1]}"
     kind = "pulls" if parts[2] == "pull" else "issues"
     req = urllib.request.Request(
@@ -179,13 +183,43 @@ def _still_open(url: str, token: str | None) -> bool:
         req.add_header("Authorization", f"Bearer {token}")
     try:
         with urllib.request.urlopen(req, timeout=30) as r:
-            return json.loads(r.read().decode()).get("state") == "open"
+            doc = json.loads(r.read().decode())
     except urllib.error.HTTPError as e:
         if e.code in (404, 410):
-            return False
+            return None
         raise LookupFailed(f"HTTP {e.code} for {url}", rate_limited=e.code in (403, 429)) from e
     except (urllib.error.URLError, OSError, ValueError) as e:
         raise LookupFailed(f"{type(e).__name__} for {url}: {e}") from e
+    if not isinstance(doc, dict):
+        raise LookupFailed(f"unexpected {type(doc).__name__} body for {url}")
+    pr = doc.get("pull_request") if isinstance(doc.get("pull_request"), dict) else {}
+    if doc.get("merged_at") or doc.get("merged") or pr.get("merged_at"):
+        state = "merged"
+    else:
+        state = "open" if doc.get("state") == "open" else "closed"
+    live = {"state": state}
+    if isinstance(doc.get("comments"), int):
+        live["comments"] = doc["comments"]
+    if doc.get("updated_at"):
+        live["updated_at"] = doc["updated_at"]
+    if isinstance(doc.get("title"), str) and doc["title"].strip():
+        live["title"] = doc["title"].strip()
+    return live
+
+
+def _still_open(url: str, token: str | None) -> bool:
+    """Whether a tracked thread still resolves as open on GitHub (see `_lookup`)."""
+    live = _lookup(url, token)
+    return live is not None and live["state"] == "open"
+
+
+def _lookup_start(n: int) -> int:
+    """Where in the list of rows to verify the per-thread lookups begin this run.
+
+    Random, so that when the rate limit stops the lookups part-way the rows left unverified are a
+    different slice each run, and every row is verified within a few runs. A fixed start left the
+    same tail rows unverified on every run, indefinitely."""
+    return random.randrange(n) if n > 0 else 0
 
 
 def is_ours(full_name: str) -> bool:
@@ -494,32 +528,51 @@ def main() -> int:
     # 956 open issues where only 199 were pageable, and a fresh state-split rebuild returned 568
     # open threads while the previous table tracked 846 that still resolve as open on GitHub). A
     # rebuild that trusts search alone therefore silently drops live open threads -- the one kind
-    # the swarm must never lose. Carry forward any previously-tracked OPEN row that is not in the
-    # fresh set unless GitHub definitely says it has closed or is gone. A lookup that gives no
-    # answer (rate limit, missing token, network) keeps the row and counts it as unverified,
-    # loudly: dropping it would be the silent loss this exists to prevent. Closed and merged rows
-    # are never carried: they are history and the search index is authoritative enough for them.
+    # the swarm must never lose. Every previously-tracked OPEN row that is not in the fresh set is
+    # looked up by its own endpoint and published with the LIVE fields that lookup returned
+    # (state, comments, updated_at, title): a stale reply count undercounted "answered", and a
+    # thread that has since merged or closed is shown in its new state rather than dropped. Only a
+    # definite "gone" (404/410) drops a row. A lookup that gives no answer (rate limit, missing
+    # token, network) keeps the row as last published and counts it as unverified, loudly. Closed
+    # and merged rows from the last run are never looked up: they are history.
     carried = 0
+    changed = 0
     unverified_open: list[str] = []
     rate_limited = False
-    for r in [r for r in prev_rows if r.get("state") == "open" and r["url"] not in have]:
+    pending = [r for r in prev_rows if r.get("state") == "open" and r["url"] not in have]
+    # Rotate the start so a rate limit leaves a different slice unverified each run.
+    start = _lookup_start(len(pending))
+    pending = pending[start:] + pending[:start]
+    for r in pending:
         if rate_limited:
             unverified_open.append(r["url"])
         else:
             try:
-                if not _still_open(r["url"], token):
-                    continue
-                carried += 1
+                live = _lookup(r["url"], token)
             except LookupFailed as exc:
                 unverified_open.append(r["url"])
                 if exc.rate_limited:
                     rate_limited = True  # every later lookup would fail the same way
+            else:
+                if live is None:
+                    continue  # definitely gone: never keep a ghost
+                r = {**r, **live}
+                if r["state"] == "open":
+                    carried += 1
+                else:
+                    changed += 1
         rows.append(r)
         have.add(r["url"])
     if carried:
         print(
             f"info: carried forward {carried} previously-tracked open thread(s) the "
             f"search API did not return this run",
+            file=sys.stderr,
+        )
+    if changed:
+        print(
+            f"info: {changed} previously-tracked open thread(s) the search API did not return "
+            f"have since merged or closed; published in their new state",
             file=sys.stderr,
         )
     if unverified_open:
