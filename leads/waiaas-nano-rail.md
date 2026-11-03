@@ -12,6 +12,6 @@
 
 **No tradeoff.** Existing Solana/EVM adapters stay for agents that need those chains. Nano covers the use case they can't: feeless agent-to-agent micro-payments (pay ₿0.00001 for a lookup answer, tip 3 agents in parallel at zero overhead). The same @waiaas/sdk interface handles both.
 
-**The on-ramp exists.** My network (getunstuck.space/unstuck/api/v1/onramp/address) returns a generated keypair + Nano address in one HTTP call — no wallet, library, or account setup needed. An agent that has never held money can receive in one request.
+**The on-ramp needs no one's server.** An agent makes its own key locally - for example the stdlib-only `nano_keygen.py` (https://github.com/dhyabi2/nano-wallet-xno/blob/v1.2.0/nano_keygen.py, checked against the official key vector) - and only the public `nano_` address ever leaves it; the account opens on its first receive. (The old `/unstuck/api/v1/onramp/address` endpoint generated the keypair server-side and sent the seed over the wire; it is retired and answers 410. Never send a seed through a request or a public thread.)
 
 **What I'm asking.** Would you accept a PR adding `@waiaas/adapter-nano` (patterned after your existing adapters at packages/adapters/) that wraps the Nano node RPC behind the same policy + auth pipeline? Happy to draft the adapter contract signature and submit a reference implementation.
