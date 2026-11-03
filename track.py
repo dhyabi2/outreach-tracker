@@ -15,6 +15,7 @@ import json
 import os
 import random
 import sys
+import tempfile
 import time
 import urllib.error
 import urllib.request
@@ -58,9 +59,100 @@ def row_order(r: dict) -> tuple:
 CARRIED_ROW_FIELDS = ("repo", "number", "title", "kind", "state", "url", "author", "created_at")
 
 
+def _as_int(v: object) -> int | None:
+    """An int from an int or a string of digits; None for anything else (bool is not a count)."""
+    if isinstance(v, bool):
+        return None
+    if isinstance(v, int):
+        return v
+    if isinstance(v, str) and v.strip().isdigit():
+        return int(v.strip())
+    return None
+
+
+def normalise(row: object) -> dict | None:
+    """A row read back from data.json, repaired to the types this table is built from, or None.
+
+    Presence is not enough. A row with every key but `"comments": null` crashed `summarise`
+    (`None > 0`), and one with `"title": null` crashed `render` (`None.replace`) -- and both ran
+    after data.json had been opened for writing, so the crash left it empty and the next run carried
+    nothing, losing every live open thread the search had missed. So each field is coerced here:
+    a missing or malformed count becomes 0, a null text field becomes "", a numeric string becomes a
+    number. What cannot be repaired -- no url, no repo, a state this table does not know -- returns
+    None and the row is skipped and counted, never fatal."""
+    if not isinstance(row, dict) or not all(f in row for f in CARRIED_ROW_FIELDS):
+        return None
+    url, repo = row.get("url"), row.get("repo")
+    if not isinstance(url, str) or not url.strip() or not isinstance(repo, str) or not repo.strip():
+        return None
+    state = row.get("state")
+    state = state.strip().lower() if isinstance(state, str) else None
+    if state not in STATE_ORDER:
+        return None
+
+    def text(v: object) -> str:
+        return "" if v is None else (v if isinstance(v, str) else str(v))
+
+    out = dict(row)
+    url = url.strip()
+    out["url"], out["repo"], out["state"] = url, repo.strip(), state
+    out["number"] = _as_int(row.get("number"))
+    for f in ("title", "author", "created_at", "updated_at"):
+        out[f] = text(row.get(f))
+    kind = row.get("kind")
+    out["kind"] = kind if kind in ("pr", "issue") else ("pr" if "/pull/" in url else "issue")
+    comments = _as_int(row.get("comments"))
+    out["comments"] = comments if comments is not None and comments >= 0 else 0
+    if not isinstance(out.get("carried"), bool):
+        out.pop("carried", None)
+    return out
+
+
 def usable(row: object) -> bool:
-    """Whether a row read back from data.json can be ordered and rendered at all."""
-    return isinstance(row, dict) and bool(row.get("url")) and all(f in row for f in CARRIED_ROW_FIELDS)
+    """Whether a row read back from data.json can be ordered and rendered (after `normalise`)."""
+    return normalise(row) is not None
+
+
+def thread_key(url: str) -> str:
+    """One identity per thread, whatever URL spelling reached us.
+
+    GitHub owner and repo names are case-insensitive, and issue and pull request numbers share one
+    sequence per repository, so `owner/repo#N` (lower-cased) names exactly one thread. Keying on the
+    raw URL counted `Them/X/pull/3` and `them/x/issues/3` as two threads."""
+    try:
+        parts = url.split("github.com/", 1)[1].split("/")
+    except (AttributeError, IndexError):
+        return str(url).strip().lower()
+    if len(parts) >= 4 and parts[2] in ("issues", "pull", "pulls") and parts[3].isdigit():
+        return f"{parts[0]}/{parts[1]}#{parts[3]}".lower()
+    return url.strip().rstrip("/").lower()
+
+
+def _write_atomic(path: str, text: str) -> None:
+    """Replace `path` with `text` or leave it exactly as it was.
+
+    Written to a temp file in the same directory (so the rename stays on one filesystem) and moved
+    into place with os.replace, which is atomic. Opening the real file with "w" truncated it first,
+    so any failure after that -- a crash, a kill, a cancelled run -- left it empty."""
+    d = os.path.dirname(path) or "."
+    try:
+        mode = os.stat(path).st_mode & 0o777
+    except OSError:
+        mode = 0o644
+    fd, tmp = tempfile.mkstemp(dir=d, prefix=f".{os.path.basename(path)}.", suffix=".tmp")
+    try:
+        with os.fdopen(fd, "w", encoding="utf-8") as f:
+            f.write(text)
+            f.flush()
+            os.fsync(f.fileno())
+        os.chmod(tmp, mode)
+        os.replace(tmp, path)
+    except BaseException:
+        try:
+            os.unlink(tmp)
+        except OSError:
+            pass
+        raise
 
 
 def _token() -> str | None:
@@ -204,6 +296,15 @@ def _lookup(url: str, token: str | None) -> dict | None:
         live["updated_at"] = doc["updated_at"]
     if isinstance(doc.get("title"), str) and doc["title"].strip():
         live["title"] = doc["title"].strip()
+    # A renamed or transferred repository answers at its new name (the API redirects), and the
+    # thread's html_url says where it lives now. Take it, so the row is published under its real
+    # name and can be matched against the search result that already has it.
+    canon = doc.get("html_url")
+    if isinstance(canon, str) and canon.startswith("https://github.com/"):
+        cparts = canon.split("github.com/", 1)[1].split("/")
+        if len(cparts) >= 4 and cparts[3].isdigit():
+            live["url"] = canon
+            live["repo"] = f"{cparts[0]}/{cparts[1]}"
     return live
 
 
@@ -347,7 +448,7 @@ def collect(
                 break
     seen, uniq = set(), []
     for r in sorted(rows, key=row_order):
-        key = r["url"]
+        key = thread_key(r["url"])
         if key in seen:
             continue
         seen.add(key)
@@ -491,13 +592,18 @@ def main() -> int:
         if not isinstance(prev, dict):
             raise ValueError(f"data.json holds a {type(prev).__name__}, not an object")
         stored = prev.get("rows", [])
-        prev_rows = [r for r in stored if usable(r)]
-        unusable = sum(1 for r in stored if isinstance(r, dict) and not usable(r))
+        if not isinstance(stored, list):
+            raise ValueError(f"data.json rows is a {type(stored).__name__}, not a list")
+        for r in stored:
+            fixed = normalise(r)
+            if fixed is not None:
+                prev_rows.append(fixed)
+        unusable = sum(1 for r in stored if isinstance(r, dict)) - len(prev_rows)
         if unusable:
             print(
                 f"warning: {unusable} row(s) in data.json are missing fields this table is "
-                f"built from ({', '.join(CARRIED_ROW_FIELDS)}) and were not carried over; "
-                f"a live rebuild replaces them",
+                f"built from ({', '.join(CARRIED_ROW_FIELDS)}) or hold values it cannot repair, "
+                f"and were not carried over; a live rebuild replaces them",
                 file=sys.stderr,
             )
     except FileNotFoundError:
@@ -505,8 +611,9 @@ def main() -> int:
     except (OSError, ValueError) as exc:
         # A truncated or malformed data.json raises JSONDecodeError -- a ValueError, not an
         # OSError -- so the one path meant to degrade gracefully used to abort here instead.
-        # main() opens data.json "w" to rebuild it, so a killed or cancelled run leaves exactly
-        # that. Carry nothing, say so, and let render state that the rows are missing.
+        # main() now replaces data.json atomically, but a file truncated by an older run, or by
+        # hand, still reads like this. Carry nothing, say so, and let render state that the rows
+        # are missing.
         lost = f"{', '.join(skipped)} and any " if skipped else "any "
         print(
             f"warning: could not reload data.json to carry over rows ({type(exc).__name__}: {exc}); "
@@ -514,16 +621,16 @@ def main() -> int:
             f"stale in it",
             file=sys.stderr,
         )
-    have = {r["url"] for r in rows}
+    have = {thread_key(r["url"]) for r in rows}
     # An account GitHub refuses to index (observed: anonymous-invisible accounts answer 422 on
     # search) contributes no live rows. Its already-published rows are kept so the tracker does not
     # silently report them "disappeared" every rebuild, and the skip is stated plainly rather than
     # hidden inside a half-empty table.
     for a in skipped:
         for r in prev_rows:
-            if r.get("author") == a and r["url"] not in have:
+            if r.get("author") == a and thread_key(r["url"]) not in have:
                 rows.append(r)
-                have.add(r["url"])
+                have.add(thread_key(r["url"]))
     # The search API under-reports this account's open threads (measured 2026-11-02: it claimed
     # 956 open issues where only 199 were pageable, and a fresh state-split rebuild returned 568
     # open threads while the previous table tracked 846 that still resolve as open on GitHub). A
@@ -533,36 +640,64 @@ def main() -> int:
     # (state, comments, updated_at, title): a stale reply count undercounted "answered", and a
     # thread that has since merged or closed is shown in its new state rather than dropped. Only a
     # definite "gone" (404/410) drops a row. A lookup that gives no answer (rate limit, missing
-    # token, network) keeps the row as last published and counts it as unverified, loudly. Closed
-    # and merged rows from the last run are never looked up: they are history.
+    # token, network) keeps the row as last published and counts it as unverified, loudly.
+    #
+    # Every row published from a lookup is marked `"carried": true`. A closed or merged row the
+    # SEARCH returned is history and is never looked up again. But a carried row that turned
+    # merged or closed was never returned by search -- that is why it was carried -- so next run
+    # it is missing from the search again, and looking up only open rows dropped it one run after
+    # it was shown merged, the one state that means someone accepted our work. Carried rows are
+    # therefore looked up on every run whatever their state, after the open ones (an open thread
+    # is the one kind that must never be lost, so it gets the rate-limit budget first), until the
+    # search returns them again or they 404.
+    #
+    # Rows are matched by `thread_key`, not raw URL: a renamed repository is answered under its new
+    # name by the search and under its old one in data.json, and comparing URLs published the same
+    # thread twice. The lookup follows the rename and returns the canonical html_url, so a carried
+    # row whose canonical thread the search already has is dropped as a duplicate.
     carried = 0
     changed = 0
     unverified_open: list[str] = []
+    unverified_history = 0
     rate_limited = False
-    pending = [r for r in prev_rows if r.get("state") == "open" and r["url"] not in have]
-    # Rotate the start so a rate limit leaves a different slice unverified each run.
-    start = _lookup_start(len(pending))
-    pending = pending[start:] + pending[:start]
+
+    def rotated(group: list[dict]) -> list[dict]:
+        # Rotate the start so a rate limit leaves a different slice unverified each run.
+        start = _lookup_start(len(group))
+        return group[start:] + group[:start]
+
+    missing = [r for r in prev_rows if thread_key(r["url"]) not in have]
+    pending = rotated([r for r in missing if r["state"] == "open"])
+    pending += rotated([r for r in missing if r["state"] != "open" and r.get("carried") is True])
     for r in pending:
-        if rate_limited:
-            unverified_open.append(r["url"])
-        else:
+        if thread_key(r["url"]) in have:
+            continue  # two spellings of one thread in data.json: keep the first
+        if not rate_limited:
             try:
                 live = _lookup(r["url"], token)
             except LookupFailed as exc:
-                unverified_open.append(r["url"])
                 if exc.rate_limited:
                     rate_limited = True  # every later lookup would fail the same way
             else:
                 if live is None:
                     continue  # definitely gone: never keep a ghost
-                r = {**r, **live}
+                r = {**r, **live, "carried": True}
+                if thread_key(r["url"]) in have:
+                    continue  # renamed repository: the search already has this thread
                 if r["state"] == "open":
                     carried += 1
                 else:
                     changed += 1
+                rows.append(r)
+                have.add(thread_key(r["url"]))
+                continue
+        # No answer: keep the row as last published.
+        if r["state"] == "open":
+            unverified_open.append(r["url"])
+        else:
+            unverified_history += 1
         rows.append(r)
-        have.add(r["url"])
+        have.add(thread_key(r["url"]))
     if carried:
         print(
             f"info: carried forward {carried} previously-tracked open thread(s) the "
@@ -580,6 +715,12 @@ def main() -> int:
         print(
             f"warning: the state lookup {why} for {len(unverified_open)} previously-tracked open "
             f"thread(s) the search API did not return; kept them as open, state unverified this run",
+            file=sys.stderr,
+        )
+    if unverified_history:
+        print(
+            f"warning: could not re-check {unverified_history} carried merged/closed thread(s) the "
+            f"search API did not return; kept them as last published",
             file=sys.stderr,
         )
     # Re-sort: `collect` ordered what it fetched, and these rows were appended to the end of that
@@ -600,11 +741,13 @@ def main() -> int:
             file=sys.stderr,
         )
     generated = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
-    with open(os.path.join(here, "data.json"), "w") as f:
-        json.dump(payload(rows, generated, skipped, truncated, unverified_open), f, indent=2)
-        f.write("\n")
-    with open(os.path.join(here, "README.md"), "w") as f:
-        f.write(render(rows, generated, skipped, truncated, unverified_open))
+    # Build every output in memory BEFORE touching either file, then replace each atomically: a
+    # failure anywhere above or in here leaves the previous data.json and README.md intact, so the
+    # next run still has the open threads to carry forward.
+    data_text = json.dumps(payload(rows, generated, skipped, truncated, unverified_open), indent=2) + "\n"
+    readme_text = render(rows, generated, skipped, truncated, unverified_open)
+    _write_atomic(os.path.join(here, "data.json"), data_text)
+    _write_atomic(os.path.join(here, "README.md"), readme_text)
     print(f"{len(rows)} rows across {len({r['repo'] for r in rows})} repositories")
     return 0
 

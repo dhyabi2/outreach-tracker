@@ -786,6 +786,229 @@ class AShapelessCarriedRowIsSkippedNotFatal(unittest.TestCase):
         self.assertEqual([r["repo"] for r in rows], ["them/good"])
 
 
+class ARebuildNeverLosesThePreviousTable(unittest.TestCase):
+    """data.json is the only memory of open threads the search API missed. Opening it with "w"
+    before the new table was built meant any failure afterwards -- a carried row with
+    `"comments": null` crashing `summarise`, `"title": null` crashing `render` -- left it 0 bytes,
+    the next run carried nothing, and every live open thread the search had missed was lost."""
+
+    PREV_README = "# previous README\n"
+
+    @staticmethod
+    def _row(**over):
+        row = {
+            "repo": "them/a", "number": 1, "title": "t", "kind": "issue", "state": "open",
+            "url": "https://github.com/them/a/issues/1", "author": "dhyabi2",
+            "created_at": "2026-09-29T03:54:22Z", "updated_at": "2026-09-29T03:54:22Z",
+            "comments": 0,
+        }
+        row.update(over)
+        return row
+
+    def _run(self, previous_rows, live=(), skipped=(), lookup=None, **extra):
+        """main() in a scratch dir. Returns (rc or the exception, stderr, data.json text, README text)."""
+        d = tempfile.mkdtemp()
+        prev_text = json.dumps({"generated": "old", "summary": {}, "rows": previous_rows})
+        with open(os.path.join(d, "data.json"), "w") as f:
+            f.write(prev_text)
+        with open(os.path.join(d, "README.md"), "w") as f:
+            f.write(self.PREV_README)
+        attrs = dict(_token=lambda: "x", collect=lambda *a, **k: (list(live), list(skipped)),
+                     __file__=os.path.join(d, "track.py"), **extra)
+        if lookup is not None:
+            attrs["_lookup"] = lookup
+        err = io.StringIO()
+        with patched(track, **attrs):
+            with contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(err):
+                try:
+                    rc = track.main()
+                except Exception as exc:  # noqa: BLE001 -- the outcome under test
+                    rc = exc
+        with open(os.path.join(d, "data.json")) as f:
+            data_text = f.read()
+        with open(os.path.join(d, "README.md")) as f:
+            readme = f.read()
+        leftovers = [n for n in os.listdir(d) if n.endswith(".tmp")]
+        self.assertEqual(leftovers, [], "a temp file was left behind")
+        return rc, err.getvalue(), data_text, readme, prev_text
+
+    @staticmethod
+    def _limited(url, token):
+        raise track.LookupFailed("HTTP 429", rate_limited=True)
+
+    def test_a_carried_row_with_null_comments_or_title_is_repaired_not_fatal(self):
+        bad = self._row(comments=None, title=None, number="7", created_at=None)
+        rc, err, data_text, readme, _ = self._run([bad], lookup=self._limited)
+        self.assertEqual(rc, 0, rc)
+        rows = json.loads(data_text)["rows"]
+        self.assertEqual(len(rows), 1, "the live open thread was lost")
+        self.assertEqual((rows[0]["comments"], rows[0]["title"], rows[0]["number"]), (0, "", 7))
+        self.assertIn(bad["url"], readme)
+
+    def test_a_row_that_cannot_be_repaired_is_skipped_and_counted(self):
+        good = self._row(repo="them/good", url="https://github.com/them/good/issues/2", number=2)
+        for name, bad in (
+            ("unknown state", self._row(state="weird")),
+            ("url is not text", self._row(url=["x"])),
+            ("repo is null", self._row(repo=None)),
+        ):
+            with self.subTest(name):
+                rc, err, data_text, _, _ = self._run([bad, good], lookup=self._limited)
+                self.assertEqual(rc, 0, rc)
+                self.assertEqual([r["repo"] for r in json.loads(data_text)["rows"]], ["them/good"])
+                self.assertIn("1 row(s) in data.json", err)
+
+    def test_a_failure_while_building_the_table_leaves_both_files_untouched(self):
+        """Whatever fails, the previous table survives byte for byte, so the next run can still
+        carry its open threads forward."""
+        def boom(*a, **k):
+            raise RuntimeError("boom")
+
+        for name in ("payload", "render", "summarise"):
+            with self.subTest(name):
+                rc, _, data_text, readme, prev_text = self._run(
+                    [self._row()], lookup=self._limited, **{name: boom})
+                self.assertIsInstance(rc, RuntimeError)
+                self.assertEqual(data_text, prev_text, "data.json was clobbered")
+                self.assertEqual(readme, self.PREV_README, "README.md was clobbered")
+
+    def test_a_failed_write_leaves_the_file_as_it_was(self):
+        d = tempfile.mkdtemp()
+        path = os.path.join(d, "data.json")
+        with open(path, "w") as f:
+            f.write("previous")
+
+        def failing_replace(src, dst):
+            raise OSError("disk full")
+
+        with patched(track.os, replace=failing_replace):
+            with self.assertRaises(OSError):
+                track._write_atomic(path, "new")
+        with open(path) as f:
+            self.assertEqual(f.read(), "previous")
+        self.assertEqual(os.listdir(d), ["data.json"], "temp file not cleaned up")
+
+
+class ACarriedThreadStaysInTheTable(unittest.TestCase):
+    """A carried row is one the search did not return. One that turned merged or closed was shown
+    in its new state for exactly one run: next run the search still did not return it, only open
+    rows were looked up, and it was dropped without a word -- a merged PR included."""
+
+    _run = ARebuildNeverLosesThePreviousTable._run
+    _row = staticmethod(ARebuildNeverLosesThePreviousTable._row)
+    PREV_README = ARebuildNeverLosesThePreviousTable.PREV_README
+
+    def _two_runs(self, answer):
+        """Run 1: an open row the search misses is looked up and has merged. Run 2: feed run 1's
+        data.json back in, search still missing it."""
+        live = track.rows_from([item("them/y", 2)], "dhyabi2")
+        row = self._row(repo="them/m", number=5, kind="pr", url="https://github.com/them/m/pull/5")
+        merged = lambda url, token: {"state": "merged", "comments": 2}  # noqa: E731
+        rc, _, data_text, _, _ = self._run([row], live=live, lookup=merged)
+        self.assertEqual(rc, 0, rc)
+        first = json.loads(data_text)["rows"]
+        self.assertEqual({r["url"]: r["state"] for r in first}[row["url"]], "merged")
+        rc, err, data_text, readme, _ = self._run(first, live=live, lookup=answer)
+        self.assertEqual(rc, 0, rc)
+        return row, json.loads(data_text), readme, err
+
+    def test_a_carried_row_that_merged_is_still_shown_on_the_next_run(self):
+        row, data, readme, _ = self._two_runs(lambda url, token: {"state": "merged", "comments": 2})
+        by_url = {r["url"]: r for r in data["rows"]}
+        self.assertIn(row["url"], by_url, "the merged PR vanished on the run after it merged")
+        self.assertEqual(by_url[row["url"]]["state"], "merged")
+        self.assertEqual(data["summary"]["merged"], 1)
+        self.assertIn("| merged | [them/m]", readme)
+
+    def test_it_is_kept_as_merged_when_the_recheck_is_rate_limited(self):
+        def limited(url, token):
+            raise track.LookupFailed("HTTP 429", rate_limited=True)
+
+        row, data, _, err = self._two_runs(limited)
+        self.assertEqual({r["url"]: r["state"] for r in data["rows"]}.get(row["url"]), "merged")
+        self.assertEqual(data["unverified_open_urls"], [], "a merged row is not an open one")
+        self.assertIn("could not re-check 1 carried merged/closed", err)
+
+    def test_it_is_dropped_once_it_404s(self):
+        row, data, _, _ = self._two_runs(lambda url, token: None)
+        self.assertNotIn(row["url"], {r["url"] for r in data["rows"]})
+
+    def test_a_closed_row_the_search_returned_is_still_never_looked_up(self):
+        asked = []
+
+        def lookup(url, token):
+            asked.append(url)
+            return {"state": "closed"}
+
+        closed = self._row(state="closed")
+        rc, _, data_text, _, _ = self._run([closed], lookup=lookup)
+        self.assertEqual(rc, 0, rc)
+        self.assertEqual(asked, [])
+
+    def test_open_rows_get_the_lookup_budget_before_carried_history(self):
+        asked = []
+
+        def lookup(url, token):
+            asked.append(url)
+            raise track.LookupFailed("HTTP 429", rate_limited=True)
+
+        history = self._row(state="merged", carried=True, url="https://github.com/them/h/pull/9",
+                            repo="them/h", number=9)
+        live_open = self._row()
+        self._run([history, live_open], lookup=lookup)
+        self.assertEqual(asked, [live_open["url"]])
+
+
+class ARenamedRepositoryIsOneThread(unittest.TestCase):
+    """data.json holds a thread under its repository's old name; the search returns it under the
+    new one. Comparing raw URLs saw two threads, looked the old one up (GitHub redirects), and
+    published the same thread twice."""
+
+    _run = ARebuildNeverLosesThePreviousTable._run
+    _row = staticmethod(ARebuildNeverLosesThePreviousTable._row)
+    PREV_README = ARebuildNeverLosesThePreviousTable.PREV_README
+
+    def test_the_lookup_follows_the_rename_and_the_duplicate_is_dropped(self):
+        live = track.rows_from([item("new-owner/new-name", 4)], "dhyabi2")
+        old = self._row(repo="old-owner/old-name", number=4,
+                        url="https://github.com/old-owner/old-name/issues/4")
+        answers = {"/repos/old-owner/old-name/issues/4": {
+            "state": "open", "comments": 1,
+            "html_url": "https://github.com/new-owner/new-name/issues/4"}}
+        with patched(track.urllib.request, urlopen=OutreachTable._fake_github(answers)):
+            rc, _, data_text, _, _ = self._run([old], live=live)
+        self.assertEqual(rc, 0, rc)
+        rows = json.loads(data_text)["rows"]
+        self.assertEqual([r["url"] for r in rows], [live[0]["url"]], "the thread is listed twice")
+
+    def test_a_carried_row_from_a_renamed_repo_is_published_under_its_new_name(self):
+        old = self._row(repo="old-owner/old-name", number=4,
+                        url="https://github.com/old-owner/old-name/issues/4")
+        answers = {"/repos/old-owner/old-name/issues/4": {
+            "state": "open", "html_url": "https://github.com/new-owner/new-name/issues/4"}}
+        with patched(track.urllib.request, urlopen=OutreachTable._fake_github(answers)):
+            rc, _, data_text, _, _ = self._run([old])
+        self.assertEqual(rc, 0, rc)
+        rows = json.loads(data_text)["rows"]
+        self.assertEqual([(r["repo"], r["url"]) for r in rows],
+                         [("new-owner/new-name", "https://github.com/new-owner/new-name/issues/4")])
+
+    def test_owner_and_repo_case_and_issue_or_pull_name_one_thread(self):
+        live = track.rows_from([item("Them/X", 3, pr=True)], "dhyabi2")
+        live[0]["url"] = "https://github.com/Them/X/pull/3"
+        old = self._row(repo="them/x", number=3, url="https://github.com/them/x/issues/3")
+        asked = []
+
+        def lookup(url, token):
+            asked.append(url)
+            return {"state": "open"}
+
+        rc, _, data_text, _, _ = self._run([old], live=live, lookup=lookup)
+        self.assertEqual(rc, 0, rc)
+        self.assertEqual(len(json.loads(data_text)["rows"]), 1)
+        self.assertEqual(asked, [], "the search already had this thread")
+
+
 class patched:
     """Temporarily set attributes on a module, restoring them afterwards."""
 
