@@ -6,6 +6,7 @@ import os
 import sys
 import tempfile
 import urllib.error
+from datetime import datetime, timezone
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
@@ -100,6 +101,14 @@ class OutreachTable(unittest.TestCase):
         assert line.replace("\\|", "").count("|") == 9, line
         assert "a \\| b" in line
 
+
+    def test_a_backslash_before_a_pipe_cannot_break_the_table(self):
+        self.assertEqual(track._cell("a\\|b"), "a\\\\\\|b")
+        self.assertEqual(track._cell("ends with \\"), "ends with \\\\")
+        row = dict(track.rows_from([item("them/x", 1)], "dhyabi2")[0], title="x \\| y")
+        line = [l for l in track.render([row], "now").splitlines() if "them/x" in l][0]
+        # Drop escaped backslashes, then escaped pipes: 9 real separators must remain, no more.
+        self.assertEqual(line.replace("\\\\", "").replace("\\|", "").count("|"), 9)
 
     def test_a_newline_in_a_title_cannot_break_the_table(self):
         """A multi-line title (or one with a pipe) stays inside its own row: whitespace collapses to one
@@ -285,6 +294,7 @@ class OutreachTable(unittest.TestCase):
         old["url"] = "https://github.com/them/old/issues/1"
         dead = track.rows_from([item("them/dead", 9)], "dhyabi2")[0]
         dead["url"] = "https://github.com/them/dead/issues/9"
+        dead["gone_once"] = True  # it already 404'd last run; a second 404 drops it
         prev = json.dumps({"rows": [old, dead]})
         with patched(track, _lookup=lambda url, token: {"state": "open"} if url.endswith("/them/old/issues/1") else None):
             rc, err, published = self._rebuild_with_previous(prev, live)
@@ -300,12 +310,14 @@ class OutreachTable(unittest.TestCase):
         the search left out vanished without a word."""
         live = track.rows_from([item("them/y", 2)], "dhyabi2")
         old = dict(track.rows_from([item("them/old", 1)], "dhyabi2")[0])
-        gone = dict(track.rows_from([item("them/gone", 3)], "dhyabi2")[0])
+        gone = dict(track.rows_from([item("them/gone", 3)], "dhyabi2")[0], gone_once=True)
         closed = dict(track.rows_from([item("them/shut", 4, state="closed")], "dhyabi2")[0])
         asked = []
 
         def lookup(url, token):
             asked.append(url)
+            if url == closed["url"]:
+                return {"state": "closed"}
             return {"state": "open"} if url == old["url"] else None
 
         prev = json.dumps({"rows": [old, gone, closed]})
@@ -313,8 +325,8 @@ class OutreachTable(unittest.TestCase):
             rc, err, published = self._rebuild_with_previous(prev, live, skipped=())
         assert rc == 0, rc
         urls = {r["url"] for r in published["rows"]}
-        assert urls == {live[0]["url"], old["url"]}, urls
-        assert closed["url"] not in asked, "a closed row is history and is never looked up or carried"
+        assert urls == {live[0]["url"], old["url"], closed["url"]}, urls
+        assert closed["url"] in asked, "a closed row the search missed is looked up, not dropped"
         assert "carried forward 1" in err, err
         assert published["unverified_authors"] == []
 
@@ -388,7 +400,7 @@ class OutreachTable(unittest.TestCase):
         merged = dict(track.rows_from([item("them/m", 5, pr=True)], "dhyabi2")[0])
         merged["url"] = "https://github.com/them/m/pull/5"
         shut = dict(track.rows_from([item("them/c", 6)], "dhyabi2")[0])
-        gone = dict(track.rows_from([item("them/g", 7)], "dhyabi2")[0])
+        gone = dict(track.rows_from([item("them/g", 7)], "dhyabi2")[0], gone_once=True)
         answers = {
             "/repos/them/m/pulls/5": {"state": "closed", "merged_at": "2026-10-30T00:00:00Z",
                                       "comments": 2, "updated_at": "2026-10-30T00:00:00Z"},
@@ -957,21 +969,89 @@ class ACarriedThreadStaysInTheTable(unittest.TestCase):
         self.assertEqual(data["unverified_open_urls"], [], "a merged row is not an open one")
         self.assertIn("could not re-check 1 carried merged/closed", err)
 
-    def test_it_is_dropped_once_it_404s(self):
-        row, data, _, _ = self._two_runs(lambda url, token: None)
-        self.assertNotIn(row["url"], {r["url"] for r in data["rows"]})
+    def test_one_404_keeps_it_unverified_and_a_second_drops_it(self):
+        row, data, _, err = self._two_runs(lambda url, token: None)
+        by_url = {r["url"]: r for r in data["rows"]}
+        self.assertIn(row["url"], by_url, "a single 404 dropped the thread for good")
+        self.assertIs(by_url[row["url"]]["gone_once"], True)
+        self.assertIn("404/410", err)
+        rc, _, data_text, _, _ = self._run(data["rows"], lookup=lambda url, token: None)
+        self.assertEqual(rc, 0, rc)
+        self.assertNotIn(row["url"], {r["url"] for r in json.loads(data_text)["rows"]})
 
-    def test_a_closed_row_the_search_returned_is_still_never_looked_up(self):
+    def test_an_answer_after_one_404_clears_the_mark(self):
+        row = self._row(gone_once=True)
+        rc, _, data_text, _, _ = self._run([row], lookup=lambda url, token: {"state": "open"})
+        self.assertEqual(rc, 0, rc)
+        (kept,) = json.loads(data_text)["rows"]
+        self.assertNotIn("gone_once", kept)
+
+    def test_a_reopened_thread_the_search_once_returned_closed_is_not_lost(self):
+        # Stored closed (from the search, never carried), now missing from the search: it is
+        # looked up, and a thread that was reopened comes back as open.
         asked = []
 
         def lookup(url, token):
             asked.append(url)
-            return {"state": "closed"}
+            return {"state": "open", "comments": 3}
 
         closed = self._row(state="closed")
-        rc, _, data_text, _, _ = self._run([closed], lookup=lookup)
+        rc, err, data_text, _, _ = self._run([closed], lookup=lookup)
         self.assertEqual(rc, 0, rc)
-        self.assertEqual(asked, [])
+        self.assertEqual(asked, [closed["url"]])
+        (row,) = json.loads(data_text)["rows"]
+        self.assertEqual((row["state"], row["comments"], row["carried"]), ("open", 3, True))
+
+    def test_an_uncarried_closed_row_is_kept_when_the_lookup_has_no_answer(self):
+        closed = self._row(state="closed", url="https://github.com/them/z/issues/8",
+                           repo="them/z", number=8)
+
+        def limited(url, token):
+            raise track.LookupFailed("HTTP 429", rate_limited=True)
+
+        rc, err, data_text, _, _ = self._run([closed], lookup=limited)
+        self.assertEqual(rc, 0, rc)
+        self.assertEqual([r["url"] for r in json.loads(data_text)["rows"]], [closed["url"]])
+        self.assertIn("could not re-check 1", err)
+
+    def test_history_idle_past_the_limit_is_retired_and_not_looked_up_again(self):
+        asked = []
+        old = "2026-01-01T00:00:00Z"
+
+        def lookup(url, token):
+            asked.append(url)
+            return {"state": "merged", "updated_at": old}
+
+        row = self._row(state="merged", kind="pr", url="https://github.com/them/r/pull/3",
+                        repo="them/r", number=3)
+        rc, _, data_text, _, _ = self._run([row], lookup=lookup)
+        self.assertEqual(rc, 0, rc)
+        (first,) = json.loads(data_text)["rows"]
+        self.assertIs(first["retired"], True)
+        rc, err, data_text, _, _ = self._run([first], lookup=lookup)
+        self.assertEqual(rc, 0, rc)
+        self.assertEqual(asked, [row["url"]], "a retired row was looked up again")
+        (second,) = json.loads(data_text)["rows"]
+        self.assertEqual((second["url"], second["state"]), (row["url"], "merged"))
+        self.assertIn("retired", err)
+
+    def test_recent_history_is_not_retired(self):
+        recent = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+        row = self._row(state="closed")
+        rc, _, data_text, _, _ = self._run(
+            [row], lookup=lambda url, token: {"state": "closed", "updated_at": recent})
+        self.assertEqual(rc, 0, rc)
+        (kept,) = json.loads(data_text)["rows"]
+        self.assertNotIn("retired", kept)
+
+    def test_a_retired_row_the_search_returns_again_is_a_fresh_row(self):
+        live = track.rows_from([item("them/a", 1)], "dhyabi2")
+        live[0]["url"] = "https://github.com/them/a/issues/1"
+        retired = self._row(state="closed", retired=True, carried=True)
+        rc, _, data_text, _, _ = self._run([retired], live=live, lookup=lambda u, t: 1 / 0)
+        self.assertEqual(rc, 0, rc)
+        (row,) = json.loads(data_text)["rows"]
+        self.assertNotIn("retired", row)
 
     def test_open_rows_get_the_lookup_budget_before_carried_history(self):
         asked = []

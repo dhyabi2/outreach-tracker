@@ -56,6 +56,13 @@ def row_order(r: dict) -> tuple:
 # malformed data.json degrades instead of aborting the rebuild -- and a missing key raises KeyError,
 # which walks straight past both: `rows.sort(key=row_order)` died on a bare KeyError, published
 # nothing, and said nothing about why. A row this tool cannot render is skipped and counted instead.
+#: A merged/closed row the search missed whose lookup confirms it is still merged/closed and whose thread has
+#: had no activity (updated_at) for this many days is retired: kept in the table as last published,
+#: never looked up again. 30 days: long enough that a thread still being argued over is re-checked,
+#: short enough that the per-run lookup list stays the open threads plus recent history rather than
+#: every thread ever closed. A thread that comes back through the search is a fresh row again.
+RETIRE_AFTER_DAYS = 30
+
 CARRIED_ROW_FIELDS = ("repo", "number", "title", "kind", "state", "url", "author", "created_at")
 
 
@@ -78,8 +85,10 @@ def _count(v: object) -> int:
 
 def _cell(text: object) -> str:
     """Text safe inside one markdown table cell: every run of whitespace (newlines included) becomes
-    one space, so a multi-line title cannot end the row early, and a pipe is escaped."""
-    return " ".join(str(text or "").split()).replace("|", "\\|")
+    one space, so a multi-line title cannot end the row early, and a pipe is escaped. A backslash
+    is escaped first: otherwise a title ending in `\\` turned the pipe escape into `\\\\|`, an
+    escaped backslash followed by a real cell separator."""
+    return " ".join(str(text or "").split()).replace("\\", "\\\\").replace("|", "\\|")
 
 
 def normalise(row: object) -> dict | None:
@@ -114,8 +123,9 @@ def normalise(row: object) -> dict | None:
     kind = row.get("kind")
     out["kind"] = kind if kind in ("pr", "issue") else ("pr" if "/pull/" in url else "issue")
     out["comments"] = _count(row.get("comments"))
-    if not isinstance(out.get("carried"), bool):
-        out.pop("carried", None)
+    for flag in ("carried", "retired", "gone_once"):
+        if not isinstance(out.get(flag), bool):
+            out.pop(flag, None)
     return out
 
 
@@ -654,14 +664,18 @@ def main() -> int:
     # definite "gone" (404/410) drops a row. A lookup that gives no answer (rate limit, missing
     # token, network) keeps the row as last published and counts it as unverified, loudly.
     #
-    # Every row published from a lookup is marked `"carried": true`. A closed or merged row the
-    # SEARCH returned is history and is never looked up again. But a carried row that turned
-    # merged or closed was never returned by search -- that is why it was carried -- so next run
-    # it is missing from the search again, and looking up only open rows dropped it one run after
-    # it was shown merged, the one state that means someone accepted our work. Carried rows are
-    # therefore looked up on every run whatever their state, after the open ones (an open thread
-    # is the one kind that must never be lost, so it gets the rate-limit budget first), until the
-    # search returns them again or they 404.
+    # Every row published from a lookup is marked `"carried": true`. EVERY previously-tracked row
+    # the search did not return is looked up, whatever its state and whether or not it was carried:
+    # a closed thread the search stops returning may have been reopened, and dropping it unlooked
+    # lost a live thread. Open rows get the rate-limit budget first (the one kind that must never
+    # be lost), then merged/closed history. A row whose lookup gets no answer is kept as last
+    # published, never dropped. A single 404/410 marks the row `"gone_once"` and keeps it, stated as
+    # unverified, for one run; a second consecutive 404 drops it (a transient 404 -- a repo briefly
+    # private, a GitHub hiccup -- no longer loses a thread for good).
+    #
+    # So the lookup list does not grow with every thread ever closed, a lookup that confirms
+    # merged/closed on a thread idle for RETIRE_AFTER_DAYS marks it `"retired": true`: it stays in
+    # the table as last published and is not looked up again unless the search returns it.
     #
     # Rows are matched by `thread_key`, not raw URL: a renamed repository is answered under its new
     # name by the search and under its old one in data.json, and comparing URLs published the same
@@ -669,18 +683,33 @@ def main() -> int:
     # row whose canonical thread the search already has is dropped as a duplicate.
     carried = 0
     changed = 0
+    retired_kept = 0
+    gone_once = 0
     unverified_open: list[str] = []
     unverified_history = 0
     rate_limited = False
+    now = datetime.now(timezone.utc)
 
     def rotated(group: list[dict]) -> list[dict]:
         # Rotate the start so a rate limit leaves a different slice unverified each run.
         start = _lookup_start(len(group))
         return group[start:] + group[:start]
 
+    def idle_days(row: dict) -> float | None:
+        try:
+            then = datetime.strptime(row.get("updated_at") or "", "%Y-%m-%dT%H:%M:%SZ")
+        except ValueError:
+            return None
+        return (now - then.replace(tzinfo=timezone.utc)).total_seconds() / 86400
+
     missing = [r for r in prev_rows if thread_key(r["url"]) not in have]
+    for r in missing:
+        if r["state"] != "open" and r.get("retired") is True and thread_key(r["url"]) not in have:
+            retired_kept += 1
+            rows.append(r)
+            have.add(thread_key(r["url"]))
     pending = rotated([r for r in missing if r["state"] == "open"])
-    pending += rotated([r for r in missing if r["state"] != "open" and r.get("carried") is True])
+    pending += rotated([r for r in missing if r["state"] != "open" and r.get("retired") is not True])
     for r in pending:
         if thread_key(r["url"]) in have:
             continue  # two spellings of one thread in data.json: keep the first
@@ -692,14 +721,29 @@ def main() -> int:
                     rate_limited = True  # every later lookup would fail the same way
             else:
                 if live is None:
-                    continue  # definitely gone: never keep a ghost
+                    if r.get("gone_once") is True:
+                        continue  # 404 twice running: gone, never keep a ghost
+                    gone_once += 1
+                    r = {**r, "gone_once": True}
+                    if r["state"] == "open":
+                        unverified_open.append(r["url"])
+                    rows.append(r)
+                    have.add(thread_key(r["url"]))
+                    continue
                 r = {**r, **live, "carried": True}
+                r.pop("gone_once", None)
+                r.pop("retired", None)
                 if thread_key(r["url"]) in have:
                     continue  # renamed repository: the search already has this thread
                 if r["state"] == "open":
                     carried += 1
                 else:
                     changed += 1
+                    # Only the LIVE updated_at counts: a lookup that did not return one says
+                    # nothing about how long the thread has been quiet.
+                    idle = idle_days(live) if live.get("updated_at") else None
+                    if idle is not None and idle > RETIRE_AFTER_DAYS:
+                        r["retired"] = True
                 rows.append(r)
                 have.add(thread_key(r["url"]))
                 continue
@@ -718,8 +762,20 @@ def main() -> int:
         )
     if changed:
         print(
-            f"info: {changed} previously-tracked open thread(s) the search API did not return "
-            f"have since merged or closed; published in their new state",
+            f"info: {changed} previously-tracked thread(s) the search API did not return "
+            f"are merged or closed; published in their live state",
+            file=sys.stderr,
+        )
+    if retired_kept:
+        print(
+            f"info: kept {retired_kept} retired merged/closed thread(s) (idle over "
+            f"{RETIRE_AFTER_DAYS} days when last checked) as last published, not looked up",
+            file=sys.stderr,
+        )
+    if gone_once:
+        print(
+            f"warning: {gone_once} previously-tracked thread(s) answered 404/410; kept this run as "
+            f"unverified, dropped if they are still gone next run",
             file=sys.stderr,
         )
     if unverified_open:
