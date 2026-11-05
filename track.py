@@ -11,6 +11,7 @@ distribution ledger. (35 issues were once opened on our own forks and reported a
 """
 from __future__ import annotations
 
+import http.client
 import json
 import os
 import random
@@ -267,6 +268,25 @@ class LookupFailed(Exception):
         self.rate_limited = rate_limited
 
 
+def _is_rate_limit(e: urllib.error.HTTPError) -> bool:
+    """Whether an HTTP error from a per-thread lookup means "stop asking for now".
+
+    429 always does. A 403 does only when GitHub marks it as a limit (X-RateLimit-Remaining: 0, or
+    a Retry-After for the secondary limit): a bare 403 is about that one thread's repository, and
+    letting it stop the lookups left every later row unverified for no reason."""
+    if e.code == 429:
+        return True
+    if e.code != 403:
+        return False
+    headers = e.headers
+    if headers is None:
+        return False
+    try:
+        return headers.get("X-RateLimit-Remaining") == "0" or headers.get("Retry-After") is not None
+    except Exception:
+        return False
+
+
 def _lookup(url: str, token: str | None) -> dict | None:
     """The live state of one tracked thread, by its own endpoint, or None when it is gone.
 
@@ -300,8 +320,10 @@ def _lookup(url: str, token: str | None) -> dict | None:
     except urllib.error.HTTPError as e:
         if e.code in (404, 410):
             return None
-        raise LookupFailed(f"HTTP {e.code} for {url}", rate_limited=e.code in (403, 429)) from e
-    except (urllib.error.URLError, OSError, ValueError) as e:
+        raise LookupFailed(f"HTTP {e.code} for {url}", rate_limited=_is_rate_limit(e)) from e
+    except (urllib.error.URLError, OSError, ValueError, http.client.HTTPException) as e:
+        # http.client errors (InvalidURL, IncompleteRead, RemoteDisconnected's siblings) are not
+        # OSError/URLError; uncaught, one of them ended the whole rebuild.
         raise LookupFailed(f"{type(e).__name__} for {url}: {e}") from e
     if not isinstance(doc, dict):
         raise LookupFailed(f"unexpected {type(doc).__name__} body for {url}")

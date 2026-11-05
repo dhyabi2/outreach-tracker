@@ -465,7 +465,9 @@ class OutreachTable(unittest.TestCase):
         for code in (404, 410):
             with patched(track.urllib.request, urlopen=raising(code)):
                 self.assertIs(track._still_open(url, None), False)
-        for code, limited in ((403, True), (429, True), (502, False)):
+        # A bare 403 (no rate-limit headers) is about one repository, not a limit: see
+        # test_a_plain_403_is_not_a_rate_limit_but_an_exhausted_quota_is.
+        for code, limited in ((403, False), (429, True), (502, False)):
             with patched(track.urllib.request, urlopen=raising(code)):
                 with self.assertRaises(track.LookupFailed) as cm:
                     track._still_open(url, None)
@@ -1115,6 +1117,55 @@ class ARenamedRepositoryIsOneThread(unittest.TestCase):
         self.assertEqual(rc, 0, rc)
         self.assertEqual(len(json.loads(data_text)["rows"]), 1)
         self.assertEqual(asked, [], "the search already had this thread")
+
+
+class ALookupThatBreaksMidAnswerIsNotAnAnswer(unittest.TestCase):
+    """`http.client` errors are neither `URLError` nor `OSError`: a malformed thread URL
+    (`InvalidURL`) or a body cut off mid-read (`IncompleteRead`) escaped `_lookup` and killed the
+    whole rebuild instead of keeping that one row as unverified."""
+
+    def _raising(self, exc, on_read=False):
+        class Resp(io.BytesIO):
+            def __enter__(self):
+                return self
+
+            def __exit__(self, *e):
+                return False
+
+            def read(self, *a):
+                raise exc
+
+        def urlopen(req, timeout=None):
+            if on_read:
+                return Resp(b"")
+            raise exc
+
+        return urlopen
+
+    def test_an_incomplete_read_raises_lookup_failed(self):
+        import http.client
+        with patched(track.urllib.request, urlopen=self._raising(http.client.IncompleteRead(b"{", 10), on_read=True)):
+            with self.assertRaises(track.LookupFailed) as caught:
+                track._lookup("https://github.com/them/x/issues/1", None)
+        self.assertFalse(caught.exception.rate_limited)
+
+    def test_an_invalid_url_raises_lookup_failed(self):
+        import http.client
+        with patched(track.urllib.request, urlopen=self._raising(http.client.InvalidURL("bad"))):
+            with self.assertRaises(track.LookupFailed):
+                track._lookup("https://github.com/them/x/issues/1", None)
+
+    def test_a_plain_403_is_not_a_rate_limit_but_an_exhausted_quota_is(self):
+        """A 403 for one thread (no access to that repository) must not stop every later lookup;
+        GitHub marks a real rate limit with X-RateLimit-Remaining: 0 or Retry-After."""
+        for headers, limited in (({}, False), ({"X-RateLimit-Remaining": "0"}, True),
+                                 ({"Retry-After": "60"}, True)):
+            def urlopen(req, timeout=None, headers=headers):
+                raise urllib.error.HTTPError(req.full_url, 403, "Forbidden", headers, None)
+            with patched(track.urllib.request, urlopen=urlopen):
+                with self.assertRaises(track.LookupFailed) as caught:
+                    track._lookup("https://github.com/them/x/issues/1", None)
+            self.assertEqual(caught.exception.rate_limited, limited, headers)
 
 
 class patched:
