@@ -70,6 +70,18 @@ def _as_int(v: object) -> int | None:
     return None
 
 
+def _count(v: object) -> int:
+    """A reply count from anything: null, missing, negative or non-numeric is 0 (a count, not a crash)."""
+    n = _as_int(v)
+    return n if n is not None and n >= 0 else 0
+
+
+def _cell(text: object) -> str:
+    """Text safe inside one markdown table cell: every run of whitespace (newlines included) becomes
+    one space, so a multi-line title cannot end the row early, and a pipe is escaped."""
+    return " ".join(str(text or "").split()).replace("|", "\\|")
+
+
 def normalise(row: object) -> dict | None:
     """A row read back from data.json, repaired to the types this table is built from, or None.
 
@@ -101,8 +113,7 @@ def normalise(row: object) -> dict | None:
         out[f] = text(row.get(f))
     kind = row.get("kind")
     out["kind"] = kind if kind in ("pr", "issue") else ("pr" if "/pull/" in url else "issue")
-    comments = _as_int(row.get("comments"))
-    out["comments"] = comments if comments is not None and comments >= 0 else 0
+    out["comments"] = _count(row.get("comments"))
     if not isinstance(out.get("carried"), bool):
         out.pop("carried", None)
     return out
@@ -352,7 +363,7 @@ def rows_from(items: list[dict], author: str) -> list[dict]:
                 "author": author,
                 "created_at": it.get("created_at", ""),
                 "updated_at": it.get("updated_at", ""),
-                "comments": it.get("comments", 0),
+                "comments": _count(it.get("comments")),
             }
         )
     return out
@@ -461,7 +472,7 @@ def summarise(rows: list[dict]) -> dict:
     for r in rows:
         s[r["state"]] = s.get(r["state"], 0) + 1
         # A maintainer replying is the only evidence in this data that a person actually read it.
-        if r.get("comments", 0) > 0:
+        if _count(r.get("comments")) > 0:
             s["answered"] += 1
     s["repos"] = len({r["repo"] for r in rows})
     return s
@@ -559,15 +570,16 @@ def render(
         "|---|---|---|---|---|---|---|---|",
     ]
     for r in rows:
-        title = r["title"].replace("|", "\\|")
+        title = " ".join((r["title"] or "").split())
         if len(title) > 90:
             title = title[:87] + "..."
+        title = _cell(title)
         opened = (r["created_at"] or "")[:10]
         lines.append(
             f"| {STATE_MARK.get(r['state'], r['state'])} "
             f"| [{r['repo']}](https://github.com/{r['repo']}) "
             f"| [#{r['number']}]({r['url']}) | {title} | {r['kind']} "
-            f"| {r.get('comments', 0)} | {opened} | {r['author']} |"
+            f"| {_count(r.get('comments'))} | {opened} | {r['author']} |"
         )
     if not rows:
         lines.append("| — | _nothing has left the house yet_ | | | | | | |")

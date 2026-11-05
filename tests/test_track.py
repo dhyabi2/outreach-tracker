@@ -101,6 +101,34 @@ class OutreachTable(unittest.TestCase):
         assert "a \\| b" in line
 
 
+    def test_a_newline_in_a_title_cannot_break_the_table(self):
+        """A multi-line title (or one with a pipe) stays inside its own row: whitespace collapses to one
+        space and the pipe is escaped, so the row keeps all its cells and nothing spills onto a new line."""
+        rows = track.rows_from([item("them/x", title="first line\nsecond | part\r\n\tthird")], "PANDeveloper001")
+        rows[0]["title"] = "first line\nsecond | part\r\n\tthird"  # a carried title, not re-stripped
+        md = track.render(rows, "now")
+        lines = [l for l in md.splitlines() if "them/x" in l]
+        assert len(lines) == 1, lines
+        assert lines[0].replace("\\|", "").count("|") == 9, lines[0]
+        assert "first line second \\| part third" in lines[0], lines[0]
+        assert not any(l.startswith(("second", "third", "\tthird")) for l in md.splitlines()), md
+
+    def test_a_live_item_with_null_comments_counts_as_unanswered_not_a_crash(self):
+        """The search API can hand back `"comments": null` (or omit it); that is zero replies, not a TypeError."""
+        missing = item("them/z", 4)
+        del missing["comments"]
+        rows = track.rows_from(
+            [item("them/x", 1, comments=None), item("them/y", 2, comments="2"), missing, item("them/w", 5, comments=1)],
+            "PANDeveloper001",
+        )
+        assert [r["comments"] for r in rows] == [0, 2, 0, 1], rows
+        s = track.summarise(rows)
+        assert s["answered"] == 2 and s["total"] == 4, s
+        rows[0]["comments"] = None  # a row reaching summarise/render unrepaired
+        assert track.summarise(rows)["answered"] == 2
+        line = [l for l in track.render(rows, "now").splitlines() if "them/x" in l][0]
+        assert "| 0 |" in line, line
+
     def test_an_empty_table_says_so_rather_than_rendering_nothing(self):
         """Zero outreach is a real and publishable answer; a blank table reads as a broken generator."""
         md = track.render([], "now")
