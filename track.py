@@ -59,7 +59,7 @@ def row_order(r: dict) -> tuple:
 # nothing, and said nothing about why. A row this tool cannot render is skipped and counted instead.
 #: A merged/closed row the search missed whose lookup confirms it is still merged/closed and whose thread has
 #: had no activity (updated_at) for this many days is retired: kept in the table as last published,
-#: never looked up again. 30 days: long enough that a thread still being argued over is re-checked,
+#: and looked up again only every RECHECK_RETIRED_DAYS (below). 30 days: long enough that a thread still being argued over is re-checked,
 #: short enough that the per-run lookup list stays the open threads plus recent history rather than
 #: every thread ever closed. A thread that comes back through the search is a fresh row again.
 RETIRE_AFTER_DAYS = 30
@@ -279,11 +279,15 @@ class LookupFailed(Exception):
 
     Distinct from "closed" on purpose: a lookup that could not be made says nothing about the
     thread, so treating it as "not open" silently deleted live open rows whenever the token was
-    missing or the rate limit was hit. `rate_limited` lets the caller stop asking."""
+    missing or the rate limit was hit. `rate_limited` lets the caller stop asking. `outage` says the
+    failure is about GitHub or the network (5xx, 401, rate limit, transport error, a body that is not
+    a thread) rather than about that one thread (a plain 403 or other 4xx): many outage failures in
+    one run make that run's 404s untrustworthy too."""
 
-    def __init__(self, msg: str, rate_limited: bool = False):
+    def __init__(self, msg: str, rate_limited: bool = False, outage: bool = True):
         super().__init__(msg)
         self.rate_limited = rate_limited
+        self.outage = outage or rate_limited
 
 
 def _is_rate_limit(e: urllib.error.HTTPError) -> bool:
@@ -338,7 +342,9 @@ def _lookup(url: str, token: str | None) -> dict | None:
     except urllib.error.HTTPError as e:
         if e.code in (404, 410):
             return None
-        raise LookupFailed(f"HTTP {e.code} for {url}", rate_limited=_is_rate_limit(e)) from e
+        limited = _is_rate_limit(e)
+        raise LookupFailed(f"HTTP {e.code} for {url}", rate_limited=limited,
+                           outage=limited or e.code >= 500 or e.code == 401) from e
     except (urllib.error.URLError, OSError, ValueError, http.client.HTTPException) as e:
         # http.client errors (InvalidURL, IncompleteRead, RemoteDisconnected's siblings) are not
         # OSError/URLError; uncaught, one of them ended the whole rebuild.
@@ -616,9 +622,9 @@ def render(
         "maintainer. 35 issues were once opened on our own forks of other people's projects and reported as outreach,",
         "which is the mistake this table exists to make impossible to repeat.",
         "",
-        "Rows the search API does not return are looked up one by one and kept. A row is dropped only after two runs",
-        "in a row answer 404/410 for it, and only while 404s are rare: if one run gets more 404/410 answers than",
-        "max(3, 10% of its lookups), those answers are treated as an outage and every such row is kept unchanged.",
+        "Rows the search API does not return are looked up one by one and kept. A row is dropped only when two",
+        "consecutive lookups of it answer 404/410, and only while 404s are rare: if one run gets more 404/410 answers than",
+        "max(3, 10% of its answered lookups), or many failures besides, those answers are treated as an outage and the rows kept.",
         "Merged or closed threads idle for 30 days are retired, and each is re-checked at most once a week (50 per run).",
         "",
         "| State | Repository | # | Title | Kind | Replies | Opened | By |",
@@ -715,12 +721,16 @@ def main() -> int:
     # lost a live thread. Open rows get the rate-limit budget first (the one kind that must never
     # be lost), then merged/closed history. A row whose lookup gets no answer is kept as last
     # published, never dropped. A single 404/410 marks the row `"gone_once"` and keeps it, stated as
-    # unverified, for one run; a second consecutive 404 drops it (a transient 404 -- a repo briefly
-    # private, a GitHub hiccup -- no longer loses a thread for good).
+    # unverified, for one run; a 404 on the very next lookup of it drops it (a transient 404 -- a
+    # repo briefly private, a GitHub hiccup -- no longer loses a thread for good). Any lookup of it
+    # that does not answer 404 -- an answer, a failure, a run whose 404s are disbelieved -- clears
+    # the mark, so only two consecutive 404 answers drop a row.
     #
     # So the lookup list does not grow with every thread ever closed, a lookup that confirms
     # merged/closed on a thread idle for RETIRE_AFTER_DAYS marks it `"retired": true`: it stays in
-    # the table as last published and is not looked up again unless the search returns it.
+    # the table as last published and is looked up again only once its last check (`checked_at`,
+    # stamped on every attempted recheck, answered or not) is RECHECK_RETIRED_DAYS old, at most
+    # RECHECK_RETIRED_PER_RUN per run, oldest first, or sooner if the search returns it.
     #
     # Rows are matched by `thread_key`, not raw URL: a renamed repository is answered under its new
     # name by the search and under its old one in data.json, and comparing URLs published the same
@@ -759,7 +769,8 @@ def main() -> int:
 
     def last_checked(r: dict) -> float:
         age = days_since(r.get("checked_at"))
-        return float("inf") if age is None else age  # never checked: the most overdue
+        # Never checked, unparsable or in the future: the most overdue, never "not yet due".
+        return float("inf") if age is None or age < 0 else age
 
     due = sorted((r for r in retired if last_checked(r) > RECHECK_RETIRED_DAYS),
                  key=last_checked, reverse=True)[:RECHECK_RETIRED_PER_RUN]
@@ -773,7 +784,19 @@ def main() -> int:
     pending += rotated([r for r in missing if r["state"] != "open" and r.get("retired") is not True])
     pending += due
     looked_up = 0
+    answered = 0  # lookups that got an HTTP answer about the thread: live state or 404/410
+    outage_failures = 0
     gone_rows: list[dict] = []
+
+    def attempted_no_404(row: dict) -> dict:
+        # A lookup was made and did not give a believed 404: the 404 streak is broken, and a
+        # retired row has been checked (stamped even on failure, so a row that always fails
+        # cannot stay at the front of the recheck queue for ever).
+        row = {k: v for k, v in row.items() if k != "gone_once"}
+        if row.get("retired") is True:
+            row["checked_at"] = checked_now
+        return row
+
     for r in pending:
         if thread_key(r["url"]) in have:
             continue  # two spellings of one thread in data.json: keep the first
@@ -784,7 +807,11 @@ def main() -> int:
             except LookupFailed as exc:
                 if exc.rate_limited:
                     rate_limited = True  # every later lookup would fail the same way
+                if exc.outage:
+                    outage_failures += 1
+                r = attempted_no_404(r)
             else:
+                answered += 1
                 if live is None:
                     # Decided after the loop, once it is known how many lookups answered 404.
                     gone_rows.append(r)
@@ -815,11 +842,16 @@ def main() -> int:
             unverified_history += 1
         rows.append(r)
         have.add(thread_key(r["url"]))
-    gone_limit = max(GONE_LIMIT_MIN, GONE_LIMIT_FRACTION * looked_up)
-    gone_unreliable = len(gone_rows) > gone_limit
+    # The 404 share is measured over lookups that got an answer: a run where most lookups failed
+    # (5xx, network) and the rest 404'd is an outage, not a run that found many ghosts. And a run
+    # where outage failures plus 404s are widespread is disbelieved as a whole.
+    gone_limit = max(GONE_LIMIT_MIN, GONE_LIMIT_FRACTION * answered)
+    trouble_limit = max(GONE_LIMIT_MIN, GONE_LIMIT_FRACTION * looked_up)
+    gone_unreliable = len(gone_rows) > gone_limit or (
+        bool(gone_rows) and len(gone_rows) + outage_failures > trouble_limit)
     for r in gone_rows:
         if gone_unreliable:
-            pass  # kept exactly as last published; this run's 404s prove nothing
+            r = attempted_no_404(r)  # kept as last published; this run's 404s prove nothing
         elif r.get("gone_once") is True:
             continue  # 404 twice running: gone, never keep a ghost
         else:
@@ -830,8 +862,8 @@ def main() -> int:
         rows.append(r)
     if gone_unreliable:
         print(
-            f"warning: {len(gone_rows)} of {looked_up} state lookup(s) answered 404/410 in this run, "
-            f"more than the {gone_limit:g} a run can plausibly lose; treating this run's 404s as "
+            f"warning: {len(gone_rows)} of {looked_up} state lookup(s) answered 404/410 and "
+            f"{outage_failures} failed in this run, more than a run can plausibly lose; treating this run's 404s as "
             f"unreliable (outage, proxy or rate limit) and keeping those rows unchanged, none dropped",
             file=sys.stderr,
         )

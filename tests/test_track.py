@@ -1110,6 +1110,44 @@ class AMass404IsNotEvidence(unittest.TestCase):
         self.assertFalse(gone & urls)
 
 
+    def test_404s_among_widespread_failures_are_not_believed_over_two_runs(self):
+        prev = self._rows(100)
+        gone = {r["url"] for r in prev[:10]}
+
+        def lookup(url, token):
+            if url in gone:
+                return None
+            raise track.LookupFailed("HTTP 503")
+
+        rows = prev
+        for run in (1, 2):
+            rc, err, data_text, _, _ = self._run(rows, lookup=lookup)
+            self.assertEqual(rc, 0, rc)
+            rows = json.loads(data_text)["rows"]
+            self.assertEqual(len(rows), 100, f"run {run} dropped rows during an outage")
+            self.assertTrue(all("gone_once" not in r for r in rows), f"run {run} set gone_once")
+
+    def test_a_failed_lookup_between_two_404s_clears_the_mark(self):
+        prev = [self._row(gone_once=True)]
+        rc, _, data_text, _, _ = self._run(
+            prev, lookup=lambda u, t: (_ for _ in ()).throw(track.LookupFailed("HTTP 503")))
+        self.assertEqual(rc, 0, rc)
+        (row,) = json.loads(data_text)["rows"]
+        self.assertNotIn("gone_once", row, "a run with no 404 kept the 404 streak alive")
+        rc, _, data_text, _, _ = self._run([row], lookup=lambda u, t: None)
+        self.assertEqual(rc, 0, rc)
+        (row,) = json.loads(data_text)["rows"]
+        self.assertIs(row["gone_once"], True, "two non-consecutive 404s dropped the row")
+
+    def test_an_outage_run_between_two_404s_clears_the_mark(self):
+        prev = self._rows(10, gone_once=True)
+        rc, _, data_text, _, _ = self._run(prev, lookup=lambda u, t: None)
+        self.assertEqual(rc, 0, rc)
+        rows = json.loads(data_text)["rows"]
+        self.assertEqual(len(rows), 10)
+        self.assertTrue(all("gone_once" not in r for r in rows))
+
+
 class ARetiredRowIsRecheckedSlowly(unittest.TestCase):
     """A retired row was never looked up again, so a thread that came back (reopened, repository
     public again) stayed closed in the table for good."""
@@ -1164,6 +1202,39 @@ class ARetiredRowIsRecheckedSlowly(unittest.TestCase):
         self.assertEqual(len(rows), n)
         rechecked = [r for r in rows if r["url"] in set(asked)]
         self.assertTrue(all(r.get("retired") is True and r.get("checked_at") for r in rechecked))
+
+
+    def test_rows_whose_recheck_always_fails_do_not_starve_the_queue(self):
+        n = track.RECHECK_RETIRED_PER_RUN
+        blocked = [self._row(state="closed", retired=True, repo=f"them/b{i}", number=i,
+                             url=f"https://github.com/them/b{i}/issues/{i}") for i in range(n)]
+        old = self._row(state="closed", retired=True, repo="them/old", number=1,
+                        url="https://github.com/them/old/issues/1", checked_at=self._ago(36))
+        blocked_urls = {r["url"] for r in blocked}
+        asked = []
+
+        def lookup(url, token):
+            asked.append(url)
+            if url in blocked_urls:
+                exc = track.LookupFailed("HTTP 403")
+                exc.outage = False  # about that one repository, not an outage
+                raise exc
+            return {"state": "open"}
+
+        rows = blocked + [old]
+        for _ in (1, 2):
+            rc, _, data_text, _, _ = self._run(rows, lookup=lookup)
+            self.assertEqual(rc, 0, rc)
+            rows = json.loads(data_text)["rows"]
+        self.assertIn(old["url"], asked, "the old retired row was never rechecked")
+        self.assertEqual({r["url"]: r["state"] for r in rows}[old["url"]], "open")
+        self.assertTrue(all(r.get("checked_at") for r in rows if r["url"] in blocked_urls))
+
+    def test_a_checked_at_in_the_future_is_due(self):
+        retired = self._row(state="closed", retired=True, checked_at="2099-01-01T00:00:00Z")
+        rc, _, data_text, _, _ = self._run([retired], lookup=lambda url, token: {"state": "open"})
+        self.assertEqual(rc, 0, rc)
+        self.assertEqual(json.loads(data_text)["rows"][0]["state"], "open")
 
 
 class ARenamedRepositoryIsOneThread(unittest.TestCase):
