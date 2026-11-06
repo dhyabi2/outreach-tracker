@@ -64,6 +64,22 @@ def row_order(r: dict) -> tuple:
 #: every thread ever closed. A thread that comes back through the search is a fresh row again.
 RETIRE_AFTER_DAYS = 30
 
+#: A retired row is not looked up on every run, but it is not forgotten either: once its last check
+#: (`checked_at`) is older than this many days it is looked up again, so a thread that was reopened
+#: or that came back after its repository was briefly private is restored. At most
+#: RECHECK_RETIRED_PER_RUN retired rows are rechecked per run, oldest check first, after open rows
+#: and unretired history have had the lookup budget.
+RECHECK_RETIRED_DAYS = 7
+RECHECK_RETIRED_PER_RUN = 50
+
+#: A 404/410 is believed only while it is rare. If, in one run, more lookups answer 404/410 than
+#: max(GONE_LIMIT_MIN, GONE_LIMIT_FRACTION of the lookups made), the 404s are taken to come from
+#: the transport (an outage, a proxy, a rate-limit page served as 404) rather than from the
+#: threads, and every row that answered 404 is kept exactly as last published: no row is dropped
+#: and no `gone_once` mark is set or advanced by that run.
+GONE_LIMIT_MIN = 3
+GONE_LIMIT_FRACTION = 0.10
+
 CARRIED_ROW_FIELDS = ("repo", "number", "title", "kind", "state", "url", "author", "created_at")
 
 
@@ -243,7 +259,9 @@ def fetch(path: str, token: str | None = None) -> dict:
             raise urllib.error.HTTPError(
                 e.url, e.code, f"{e.reason} for {path}{_error_detail(e)}", e.headers, None
             ) from e
-        except urllib.error.URLError:
+        except (urllib.error.URLError, http.client.HTTPException):
+            # http.client errors (IncompleteRead, RemoteDisconnected's siblings) are not URLError;
+            # retried the same way `_lookup` treats them as no answer.
             if attempt < 2:
                 time.sleep(5 * (attempt + 1))
                 continue
@@ -598,6 +616,11 @@ def render(
         "maintainer. 35 issues were once opened on our own forks of other people's projects and reported as outreach,",
         "which is the mistake this table exists to make impossible to repeat.",
         "",
+        "Rows the search API does not return are looked up one by one and kept. A row is dropped only after two runs",
+        "in a row answer 404/410 for it, and only while 404s are rare: if one run gets more 404/410 answers than",
+        "max(3, 10% of its lookups), those answers are treated as an outage and every such row is kept unchanged.",
+        "Merged or closed threads idle for 30 days are retired, and each is re-checked at most once a week (50 per run).",
+        "",
         "| State | Repository | # | Title | Kind | Replies | Opened | By |",
         "|---|---|---|---|---|---|---|---|",
     ]
@@ -717,25 +740,45 @@ def main() -> int:
         start = _lookup_start(len(group))
         return group[start:] + group[:start]
 
-    def idle_days(row: dict) -> float | None:
+    def days_since(value: object) -> float | None:
+        if not isinstance(value, str):
+            return None
         try:
-            then = datetime.strptime(row.get("updated_at") or "", "%Y-%m-%dT%H:%M:%SZ")
+            then = datetime.strptime(value, "%Y-%m-%dT%H:%M:%SZ")
         except ValueError:
             return None
         return (now - then.replace(tzinfo=timezone.utc)).total_seconds() / 86400
 
+    def idle_days(row: dict) -> float | None:
+        return days_since(row.get("updated_at"))
+
+    checked_now = now.strftime("%Y-%m-%dT%H:%M:%SZ")
+
     missing = [r for r in prev_rows if thread_key(r["url"]) not in have]
-    for r in missing:
-        if r["state"] != "open" and r.get("retired") is True and thread_key(r["url"]) not in have:
+    retired = [r for r in missing if r["state"] != "open" and r.get("retired") is True]
+
+    def last_checked(r: dict) -> float:
+        age = days_since(r.get("checked_at"))
+        return float("inf") if age is None else age  # never checked: the most overdue
+
+    due = sorted((r for r in retired if last_checked(r) > RECHECK_RETIRED_DAYS),
+                 key=last_checked, reverse=True)[:RECHECK_RETIRED_PER_RUN]
+    due_ids = {id(r) for r in due}
+    for r in retired:
+        if id(r) not in due_ids and thread_key(r["url"]) not in have:
             retired_kept += 1
             rows.append(r)
             have.add(thread_key(r["url"]))
     pending = rotated([r for r in missing if r["state"] == "open"])
     pending += rotated([r for r in missing if r["state"] != "open" and r.get("retired") is not True])
+    pending += due
+    looked_up = 0
+    gone_rows: list[dict] = []
     for r in pending:
         if thread_key(r["url"]) in have:
             continue  # two spellings of one thread in data.json: keep the first
         if not rate_limited:
+            looked_up += 1
             try:
                 live = _lookup(r["url"], token)
             except LookupFailed as exc:
@@ -743,13 +786,8 @@ def main() -> int:
                     rate_limited = True  # every later lookup would fail the same way
             else:
                 if live is None:
-                    if r.get("gone_once") is True:
-                        continue  # 404 twice running: gone, never keep a ghost
-                    gone_once += 1
-                    r = {**r, "gone_once": True}
-                    if r["state"] == "open":
-                        unverified_open.append(r["url"])
-                    rows.append(r)
+                    # Decided after the loop, once it is known how many lookups answered 404.
+                    gone_rows.append(r)
                     have.add(thread_key(r["url"]))
                     continue
                 r = {**r, **live, "carried": True}
@@ -766,6 +804,7 @@ def main() -> int:
                     idle = idle_days(live) if live.get("updated_at") else None
                     if idle is not None and idle > RETIRE_AFTER_DAYS:
                         r["retired"] = True
+                        r["checked_at"] = checked_now
                 rows.append(r)
                 have.add(thread_key(r["url"]))
                 continue
@@ -776,6 +815,26 @@ def main() -> int:
             unverified_history += 1
         rows.append(r)
         have.add(thread_key(r["url"]))
+    gone_limit = max(GONE_LIMIT_MIN, GONE_LIMIT_FRACTION * looked_up)
+    gone_unreliable = len(gone_rows) > gone_limit
+    for r in gone_rows:
+        if gone_unreliable:
+            pass  # kept exactly as last published; this run's 404s prove nothing
+        elif r.get("gone_once") is True:
+            continue  # 404 twice running: gone, never keep a ghost
+        else:
+            gone_once += 1
+            r = {**r, "gone_once": True}
+        if r["state"] == "open":
+            unverified_open.append(r["url"])
+        rows.append(r)
+    if gone_unreliable:
+        print(
+            f"warning: {len(gone_rows)} of {looked_up} state lookup(s) answered 404/410 in this run, "
+            f"more than the {gone_limit:g} a run can plausibly lose; treating this run's 404s as "
+            f"unreliable (outage, proxy or rate limit) and keeping those rows unchanged, none dropped",
+            file=sys.stderr,
+        )
     if carried:
         print(
             f"info: carried forward {carried} previously-tracked open thread(s) the "

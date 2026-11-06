@@ -12,6 +12,11 @@ Work on a repository under an account we control is not outreach and never appea
 maintainer. 35 issues were once opened on our own forks of other people's projects and reported as outreach,
 which is the mistake this table exists to make impossible to repeat.
 
+Rows the search API does not return are looked up one by one and kept. A row is dropped only after two runs
+in a row answer 404/410 for it, and only while 404s are rare: if one run gets more 404/410 answers than
+max(3, 10% of its lookups), those answers are treated as an outage and every such row is kept unchanged.
+Merged or closed threads idle for 30 days are retired, and each is re-checked at most once a week (50 per run).
+
 | State | Repository | # | Title | Kind | Replies | Opened | By |
 |---|---|---|---|---|---|---|---|
 | merged | [AIAnytime/Awesome-MCP-Server](https://github.com/AIAnytime/Awesome-MCP-Server) | [#114](https://github.com/AIAnytime/Awesome-MCP-Server/pull/114) | Add Vend API Merchant to Search & discovery | pr | 0 | 2026-09-24 | dhyabi2 |

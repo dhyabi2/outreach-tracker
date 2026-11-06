@@ -1069,6 +1069,103 @@ class ACarriedThreadStaysInTheTable(unittest.TestCase):
         self.assertEqual(asked, [live_open["url"]])
 
 
+class AMass404IsNotEvidence(unittest.TestCase):
+    """Two consecutive 404s dropped a row with no cap. A run in which most lookups 404 at once (an
+    outage, a proxy, a rate-limit page served as 404) would have dropped many live rows."""
+
+    _run = ARebuildNeverLosesThePreviousTable._run
+    _row = staticmethod(ARebuildNeverLosesThePreviousTable._row)
+    PREV_README = ARebuildNeverLosesThePreviousTable.PREV_README
+
+    def _rows(self, n, **over):
+        return [self._row(repo=f"them/r{i}", number=i, url=f"https://github.com/them/r{i}/issues/{i}",
+                          **over) for i in range(1, n + 1)]
+
+    def test_a_run_where_most_lookups_404_drops_nothing(self):
+        prev = self._rows(10, gone_once=True)
+        rc, err, data_text, _, _ = self._run(prev, lookup=lambda url, token: None)
+        self.assertEqual(rc, 0, rc)
+        data = json.loads(data_text)
+        self.assertEqual(sorted(r["url"] for r in data["rows"]), sorted(r["url"] for r in prev),
+                         "a mass 404 dropped live rows")
+        self.assertIn("unreliable", err)
+        self.assertEqual(len(data["unverified_open_urls"]), 10)
+
+    def test_a_mass_404_does_not_advance_the_gone_mark(self):
+        prev = self._rows(10)
+        rc, _, data_text, _, _ = self._run(prev, lookup=lambda url, token: None)
+        self.assertEqual(rc, 0, rc)
+        rows = json.loads(data_text)["rows"]
+        self.assertEqual(len(rows), 10)
+        self.assertTrue(all("gone_once" not in r for r in rows), "a mass 404 set gone_once")
+
+    def test_a_few_404s_among_many_answers_still_drop_their_ghosts(self):
+        prev = self._rows(40, gone_once=True)
+        gone = {prev[0]["url"], prev[1]["url"], prev[2]["url"]}
+        rc, _, data_text, _, _ = self._run(
+            prev, lookup=lambda url, token: None if url in gone else {"state": "open"})
+        self.assertEqual(rc, 0, rc)
+        urls = {r["url"] for r in json.loads(data_text)["rows"]}
+        self.assertEqual(len(urls), 37)
+        self.assertFalse(gone & urls)
+
+
+class ARetiredRowIsRecheckedSlowly(unittest.TestCase):
+    """A retired row was never looked up again, so a thread that came back (reopened, repository
+    public again) stayed closed in the table for good."""
+
+    _run = ARebuildNeverLosesThePreviousTable._run
+    _row = staticmethod(ARebuildNeverLosesThePreviousTable._row)
+    PREV_README = ARebuildNeverLosesThePreviousTable.PREV_README
+
+    @staticmethod
+    def _ago(days):
+        return (datetime.now(timezone.utc) - __import__("datetime").timedelta(days=days)).strftime(
+            "%Y-%m-%dT%H:%M:%SZ")
+
+    def test_a_retired_row_checked_long_ago_is_looked_up_and_restored(self):
+        retired = self._row(state="closed", retired=True, carried=True, checked_at=self._ago(10))
+        rc, _, data_text, _, _ = self._run(
+            [retired], lookup=lambda url, token: {"state": "open", "comments": 4})
+        self.assertEqual(rc, 0, rc)
+        (row,) = json.loads(data_text)["rows"]
+        self.assertEqual((row["state"], row["comments"]), ("open", 4), "the reopened thread stayed closed")
+        self.assertNotIn("retired", row)
+
+    def test_a_retired_row_never_checked_is_due(self):
+        retired = self._row(state="closed", retired=True, carried=True)
+        rc, _, data_text, _, _ = self._run([retired], lookup=lambda url, token: {"state": "open"})
+        self.assertEqual(rc, 0, rc)
+        self.assertEqual(json.loads(data_text)["rows"][0]["state"], "open")
+
+    def test_a_recently_checked_retired_row_is_not_looked_up(self):
+        retired = self._row(state="closed", retired=True, carried=True, checked_at=self._ago(1))
+        rc, _, data_text, _, _ = self._run([retired], lookup=lambda u, t: 1 / 0)
+        self.assertEqual(rc, 0, rc)
+        self.assertEqual(json.loads(data_text)["rows"][0]["state"], "closed")
+
+    def test_rechecks_are_bounded_per_run_oldest_first(self):
+        n = track.RECHECK_RETIRED_PER_RUN + 5
+        prev = [self._row(state="closed", retired=True, repo=f"them/r{i}", number=i,
+                          url=f"https://github.com/them/r{i}/issues/{i}", checked_at=self._ago(8 + i))
+                for i in range(n)]
+        asked = []
+
+        def lookup(url, token):
+            asked.append(url)
+            return {"state": "closed", "updated_at": "2026-01-01T00:00:00Z"}
+
+        rc, _, data_text, _, _ = self._run(prev, lookup=lookup)
+        self.assertEqual(rc, 0, rc)
+        self.assertEqual(len(asked), track.RECHECK_RETIRED_PER_RUN)
+        self.assertNotIn(prev[0]["url"], asked, "the most recently checked row was rechecked first")
+        self.assertIn(prev[-1]["url"], asked)
+        rows = json.loads(data_text)["rows"]
+        self.assertEqual(len(rows), n)
+        rechecked = [r for r in rows if r["url"] in set(asked)]
+        self.assertTrue(all(r.get("retired") is True and r.get("checked_at") for r in rechecked))
+
+
 class ARenamedRepositoryIsOneThread(unittest.TestCase):
     """data.json holds a thread under its repository's old name; the search returns it under the
     new one. Comparing raw URLs saw two threads, looked the old one up (GitHub redirects), and
